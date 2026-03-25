@@ -1,0 +1,5804 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f4f6fb;
+        --white: #fff;
+        --navy: #0b1437;
+        --navy2: #162050;
+        --text: #1a2340;
+        --muted: #6b7a99;
+        --border: #dde3f0;
+        --light: #e8ecf7;
+        --exec: #e85d3a;
+        --exec-bg: #fff3f0;
+        --online: #0aab87;
+        --online-bg: #ebfaf6;
+        --offline: #5c4ee8;
+        --offline-bg: #f0eeff;
+        --abroad: #e8a020;
+        --abroad-bg: #fff8eb;
+        --accent: #2563eb;
+        --accent2: #eff4ff;
+        --sh1: 0 1px 4px rgba(0, 0, 0, 0.06);
+        --sh2: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --sh3: 0 12px 40px rgba(0, 0, 0, 0.12);
+        --nav-h: 60px;
+        --nav2-h: 44px;
+        --bg: #f7f6f3;
+        --card: #ffffff;
+        --govt: #1a6b3a;
+        --private: #7c3aed;
+        --deemed: #0369a1;
+        --green: #16a34a;
+        --radius: 14px;
+        --shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        font-family: "Lato", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* TOPBAR */
+      .topbar {
+        background: var(--navy);
+        color: #aab4cc;
+        font-size: 0.72rem;
+        white-space: nowrap;
+      }
+      .topbar a {
+        color: #aab4cc;
+        transition: color 0.2s;
+      }
+      .topbar a:hover {
+        color: #fff;
+      }
+      .tb-sep {
+        opacity: 0.3;
+        padding: 0 2px;
+      }
+      @media (max-width: 767px) {
+        .topbar {
+          display: none !important;
+        }
+      }
+@media (max-width: 992px) {
+  .center-nav,
+  .nav-r2,
+  .course-wrap {
+    display: none;
+  }
+
+  .ham-btn {
+    display: flex;
+  }
+}
+      /* NAVBAR */
+      .navbar-custom {
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 300;
+        box-shadow: var(--sh1);
+      }
+      .nav-r1 {
+        height: var(--nav-h);
+      }
+
+      /* Logo */
+      .logo-mark {
+        width: 34px;
+        height: 34px;
+        background: linear-gradient(135deg, #0e2049, #4c0a58);
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .logo-text {
+        font-weight: 900;
+        font-size: 1.15rem;
+        color: var(--navy);
+        letter-spacing: -0.5px;
+      }
+      .logo-text span {
+        color: var(--muted);
+      }
+      .logo-sub {
+        font-size: 0.58rem;
+        color: var(--muted);
+        font-weight: 500;
+        display: block;
+        margin-top: -2px;
+      }
+
+      /* Course wrap */
+      .course-wrap {
+        position: relative;
+        width: 240px;
+        padding-left: 70px;
+        cursor: pointer;
+      }
+      #courseName {
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+      }
+      .course-title {
+        font-size: 11px;
+        color: #ff7a00;
+        font-weight: 600;
+        margin-bottom: 1px;
+        letter-spacing: 0.4px;
+      }
+      .course-pill:hover {
+        border-color: #1a408b;
+      }
+      .course-dd {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 720px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        padding: 20px;
+        display: none;
+        z-index: 999;
+      }
+      .course-dd h4 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #333;
+      }
+      .course-search {
+        width: 100%;
+        padding: 11px 14px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin-bottom: 18px;
+        font-size: 13px;
+        outline: none;
+      }
+      .course-search:focus {
+        border-color: #2a6df4;
+        box-shadow: 0 0 0 3px rgba(42, 109, 244, 0.08);
+      }
+      .course-cat {
+        font-weight: 700;
+        margin: 18px 0 10px;
+        color: #1f2937;
+        font-size: 14px;
+      }
+      .course-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-bottom: 10px;
+      }
+      .course-item {
+        border: 1px solid #e5e7eb;
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        transition: 0.2s;
+      }
+      .course-item:hover {
+        border-color: #2a6df4;
+        background: #f5f8ff;
+        transform: translateY(-1px);
+      }
+      .arrow {
+        font-size: 16px;
+        color: #9ca3af;
+      }
+      #courseList {
+        max-height: 380px;
+        overflow-y: auto;
+      }
+      #courseList::-webkit-scrollbar {
+        width: 6px;
+      }
+      #courseList::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 6px;
+      }
+
+      /* Nav search */
+      .nav-search {
+        flex: 1;
+        min-width: 0;
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .ns-input {
+        width: 100%;
+        padding: 9px 48px 9px 40px;
+        border: 1.5px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.86rem;
+        color: var(--text);
+        background: var(--bg);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .ns-input:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        background: #fff;
+      }
+      .ns-input::placeholder {
+        color: var(--muted);
+      }
+      .ns-icon {
+        position: absolute;
+        left: 13px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        pointer-events: none;
+      }
+      .ns-btn {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        padding: 5px 14px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .ns-btn:hover {
+        background: #1d4ed8;
+      }
+/* ── Mobile Drawer ── */
+.mobile-drawer {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 82vw;
+  max-width: 320px;
+  height: 100dvh;
+  background: var(--white, #fff);
+  z-index: 1000;
+  overflow-y: auto;
+  box-shadow: 4px 0 30px rgba(0,0,0,.13);
+  transition: left .3s cubic-bezier(.22,1,.36,1);
+  padding: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+.mobile-drawer.open { left: 0; }
+ 
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+.mobile-overlay.show { display: block; }
+ 
+.md-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  position: sticky;
+  top: 0;
+  background: var(--white, #fff);
+  z-index: 2;
+}
+.md-close {
+  width: 32px; height: 32px;
+  border-radius: 7px;
+  border: 1.5px solid var(--border, #e5e7eb);
+  background: none;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--text, #333);
+  font-size: 18px;
+  line-height: 1;
+}
+.md-auth {
+  display: flex;
+  gap: 8px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+.md-auth button { flex: 1; }
+ 
+/* Search inside drawer */
+.md-search {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+.md-search .ns-input {
+  padding-left: 36px;
+  background: var(--bg, #f7f7f7);
+}
+ 
+/* Nav links inside drawer */
+.md-nav { padding: 8px 0; }
+.md-nav a {
+  display: block;
+  padding: 11px 20px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text, #333);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  transition: background .15s, color .15s;
+}
+.md-nav a:hover { background: var(--bg, #f5f5f5); color: var(--accent, #2563eb); }
+ 
+/* Accordion for Programs inside drawer */
+.md-acc-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 20px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text, #333);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  cursor: pointer;
+  text-align: left;
+}
+.md-acc-btn svg { transition: transform .25s; flex-shrink: 0; }
+.md-acc-btn.open svg { transform: rotate(180deg); }
+.md-acc-body {
+  display: none;
+  padding: 10px 20px 14px 28px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  background: var(--bg, #f9f9f9);
+}
+.md-acc-body.open { display: block; }
+.md-acc-body a {
+  display: block;
+  padding: 7px 0;
+  font-size: .82rem;
+  color: var(--muted, #888);
+  text-decoration: none;
+  font-weight: 500;
+  border: none;
+}
+.md-acc-body a:hover { color: var(--accent, #2563eb); }
+ 
+/* Course tags in drawer */
+.md-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+.md-tags span {
+  padding: 5px 11px;
+  background: var(--bg, #f0f0f0);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 6px;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--muted, #555);
+  cursor: pointer;
+}
+ 
+ 
+
+      /* Center nav */
+      .center-nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .cn-link {
+        color: #333;
+        font-size: 14px;
+      }
+
+      /* Explore */
+      .explore-wrap {
+        position: relative;
+      }
+      .explore-btn {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 7px 13px;
+        background-color: #0285c72f;
+        color: #0d1a34;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s;
+      }
+      .explore-btn:hover,
+      .explore-wrap:hover .explore-btn {
+        background: #091430;
+        color: white;
+      }
+      .explore-btn svg {
+        transition: transform 0.25s;
+      }
+      .explore-wrap:hover .explore-btn svg,
+      .explore-wrap.open .explore-btn svg {
+        transform: rotate(180deg);
+      }
+      .exp-mega {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        width: 620px;
+        background: var(--white);
+        border: 1px solid rgb(240, 240, 240);
+        border-radius: 14px;
+        box-shadow: var(--sh3);
+        padding: 1.3rem;
+        z-index: 400;
+        animation: dropIn 0.2s ease;
+      }
+      .explore-wrap:hover .exp-mega,
+      .explore-wrap.open .exp-mega {
+        display: block;
+      }
+      .em-title {
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+      }
+      .em-grid {
+        gap: 7px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .em-grid > div {
+        width: 50%;
+      }
+      .em-item {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 12px;
+        color: var(--text);
+        transition: all 0.2s;
+        font-size: 0.71rem;
+        font-weight: 600;
+      }
+      .em-item span:first-child {
+        font-size: 0.8rem;
+      }
+      .em-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .em-tag {
+        padding: 4px 10px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.71rem;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-weight: 600;
+      }
+      .em-grid a {
+        border-bottom: 2px solid rgb(249, 249, 249);
+      }
+      .em-tag:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+
+      /* Icon btn */
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1.5px solid var(--border);
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--muted);
+        transition: all 0.2s;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .icon-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+      .n-dot {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 7px;
+        height: 7px;
+        background: #e85d3a;
+        border-radius: 50%;
+        border: 1.5px solid #fff;
+      }
+
+      /* Notif */
+      .notif-wrap {
+        position: relative;
+      }
+      .notif-panel {
+        display: none;
+        position: absolute;
+        top: calc(100%+8px);
+        right: 0;
+        width: 290px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        box-shadow: var(--sh3);
+        z-index: 400;
+        overflow: hidden;
+        animation: dropIn 0.2s ease;
+      }
+      .notif-wrap:hover .notif-panel,
+      .notif-wrap.open .notif-panel {
+        display: block;
+      }
+      .np-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.79rem;
+        font-weight: 700;
+      }
+      .np-hd a {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .np-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .np-row:last-child {
+        border-bottom: none;
+      }
+      .np-row:hover {
+        background: var(--bg);
+      }
+      .np-ic {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+      .np-t1 {
+        font-size: 0.73rem;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.3;
+      }
+      .np-t2 {
+        font-size: 0.66rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .np-unread {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-top: 5px;
+        flex-shrink: 0;
+      }
+
+      /* Auth btns */
+      .btn-ln {
+        padding: 6px 13px;
+        border: 1.5px solid var(--border);
+        border-radius: 7px;
+        background: none;
+        font-size: 0.79rem;
+        font-weight: 600;
+        color: var(--text);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-ln:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .btn-su {
+        padding: 6px 13px;
+        border: 1.5px solid white;
+        border-radius: 7px;
+        background: rgb(35, 35, 88);
+        font-size: 0.79rem;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-su:hover {
+        background: #1d4fd8b4;
+      }
+
+      /* Hamburger */
+      .ham-btn {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        padding: 6px;
+        border: 1.5px solid var(--border);
+        border-radius: 7px;
+        background: var(--bg);
+      }
+      .ham-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+      .ham-btn.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .ham-btn.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      /* NAV ROW 2 */
+      .nav-r2 {
+        display: flex;
+        position: relative;
+        align-items: center;
+        gap: 3px;
+        height: var(--nav2-h);
+        border-top: 1px solid var(--border);
+        background: rgba(159, 159, 159, 0.099);
+      }
+      .nav-r2::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Courses wrap */
+      .courses-wrap {
+        z-index: 1000;
+        display: inline-block;
+        position: relative;
+      }
+      .courses-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: 30px;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 8px 24px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .cm-wrap {
+        position: relative;
+      }
+      .cm-hover {
+        position: absolute;
+        top: 0;
+        left: 105%;
+        width: 220px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        padding: 12px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(10px);
+        transition: 0.25s;
+        z-index: 50;
+      }
+      .cm-wrap:hover .cm-hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+      .cm-hover::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 0;
+        width: 10px;
+        height: 100%;
+      }
+      .cm-h-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .cm-h-list div {
+        font-size: 10px;
+        padding: 3px 0;
+      }
+      .cm-h-list a {
+        font-size: 11px;
+      }
+      .cm-view {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 12px;
+        color: #4f46e5;
+        text-decoration: none;
+      }
+      .courses-wrap.open .chevron {
+        transform: rotate(180deg);
+      }
+      .courses-mega {
+        position: absolute;
+        min-width: 100vw;
+        margin-top: 4px;
+        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+      }
+      .courses-wrap.open .courses-mega {
+        display: block;
+      }
+      .courses-btn .chevron {
+        color: rgb(192, 192, 192);
+      }
+      .cm-inner {
+        display: flex;
+        min-height: 420px;
+      }
+      .cm-side {
+        width: 220px;
+        background: #f8fafc;
+        border-right: 1px solid #ecb21f;
+        padding: 10px;
+        font-size: 13px;
+      }
+      .cm-si {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+      }
+      .cm-si.active {
+        background: #eef2ff;
+        color: #4f46e5;
+      }
+      .cm-content {
+        flex: 1;
+        padding: 15px 30px;
+      }
+      .cm-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+      .cm-tab {
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: #f1f5f9;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .cm-tab.active {
+        background: #4f46e5;
+        color: #fff;
+      }
+      .cm-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .cm-c {
+        padding: 10px;
+        background: #fff;
+      }
+      .cm-drop {
+        max-height: 0;
+        overflow: hidden;
+        background: #fafafa;
+        padding: 0 10px;
+        transition: all 0.3s ease;
+      }
+      .cm-item:hover .cm-drop {
+        max-height: 220px;
+        padding: 10px;
+      }
+      .cm-c:hover {
+        background: #f5f3ff;
+      }
+      .cm-empty {
+        padding: 24px;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 13px;
+      }
+      .courses-wrap:hover .courses-mega {
+        display: block;
+      }
+      .courses-wrap:hover .chevron {
+        transform: rotate(180deg);
+      }
+      .courses-wrap {
+        position: relative;
+      }
+      .courses-mega {
+        display: none;
+        pointer-events: auto;
+      }
+      .courses-wrap::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 20px;
+      }
+      .cm-item {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* Nav pills */
+      .np2 {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 4px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        cursor: pointer;
+        color: var(--muted);
+        white-space: nowrap;
+        transition: all 0.2s;
+        text-decoration: none;
+        flex-shrink: 0;
+        border: 1px solid transparent;
+      }
+      .np2:hover {
+        color: black;
+      }
+      .np2.finder-p {
+        background: var(--accent2);
+        border-color: #c7d9ff;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .np2.finder-p:hover {
+        background: #dce8ff;
+      }
+      .new-tag {
+        background: var(--exec);
+        color: #fff;
+        font-size: 0.58rem;
+        font-weight: 800;
+        padding: 1px 4px;
+        border-radius: 3px;
+        text-transform: uppercase;
+      }
+      .r2-sep {
+        height: 20px;
+        width: 1px;
+        flex-shrink: 0;
+      }
+
+      /* Mobile drawer */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 490;
+        backdrop-filter: blur(2px);
+      }
+      .mobile-overlay.open {
+        display: block;
+      }
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: min(320px, 90vw);
+        height: 100vh;
+        background: var(--white);
+        z-index: 500;
+        overflow-y: auto;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: var(--sh3);
+      }
+      .mobile-drawer.open {
+        left: 0;
+      }
+      .md-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .md-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+        color: var(--muted);
+      }
+      .md-body {
+        padding: 0.8rem 1rem;
+      }
+      .md-section {
+        margin-bottom: 1.2rem;
+      }
+      .md-sec-title {
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0.5rem 0.4rem;
+        margin-bottom: 4px;
+      }
+      .md-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 9px;
+        cursor: pointer;
+        transition: background 0.15s;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .md-item:hover {
+        background: var(--bg);
+      }
+      .md-item .mi {
+        font-size: 1rem;
+        width: 28px;
+        text-align: center;
+      }
+      .md-item .mt {
+        font-size: 0.84rem;
+        font-weight: 600;
+      }
+      .md-item .mb {
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+      .md-auth {
+        padding: 1rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: sticky;
+        bottom: 0;
+        background: var(--white);
+      }
+      .md-auth button {
+        width: 100%;
+        padding: 11px;
+        border-radius: 9px;
+        font-size: 0.87rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .md-login {
+        background: var(--bg);
+        border: 1.5px solid var(--border);
+        color: var(--text);
+      }
+      .md-signup {
+        background: var(--accent);
+        border: 1.5px solid var(--accent);
+        color: #fff;
+      }
+
+      /* Mobile search bar */
+      .mobile-search-bar {
+        display: none;
+        padding: 0.6rem 1rem;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+      }
+      .msb-inner {
+        position: relative;
+      }
+      .msb-input {
+        width: 100%;
+        padding: 9px 42px 9px 36px;
+        border: 1.5px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        outline: none;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .msb-input:focus {
+        border-color: var(--accent);
+        background: #fff;
+      }
+      .msb-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+      }
+      .msb-sbtn {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        padding: 5px 12px;
+        font-size: 0.73rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #0f1729;
+        border-top: 1px solid rgb(12, 4, 34);
+        padding: 40px 2rem 20px;
+      }
+      .fi {
+        max-width: 1350px;
+        margin: 0 auto;
+      }
+      .fg {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 5rem;
+        margin-bottom: 2rem;
+      }
+      .fb p {
+        font-size: 0.79rem;
+        color: #bcbcbc;
+        margin-top: 8px;
+        line-height: 1.8;
+      }
+      .fl {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+      .fl-t {
+        font-size: 0.99rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        margin-bottom: 15px;
+      }
+      .fl-a {
+        display: block;
+        font-size: 0.85rem;
+        color: #c2c2c2;
+        text-decoration: none;
+        margin-bottom: 15px;
+        transition: color 0.2s;
+      }
+      .fl-a:hover {
+        color: #aab4cc;
+      }
+      .fb-bot {
+        border-top: 1px solid rgba(144, 144, 144, 0.371);
+        padding-top: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .fb-bot p {
+        font-size: 0.7rem;
+        color: #3d5280;
+      }
+      .left-footer {
+        display: flex;
+        gap: 20px;
+      }
+      .left-footer p {
+        color: rgb(160, 160, 160);
+        font-size: 13px;
+      }
+      .right-footer p {
+        color: rgb(160, 160, 160);
+        font-size: 13px;
+      }
+      .right-footer i {
+        color: rgb(160, 160, 160);
+        font-size: 13px;
+      }
+      .footer-icons-social {
+        margin-top: 20px;
+        gap: 10px;
+        display: flex;
+        color: rgb(160, 160, 160);
+      }
+      .footer-icons-social i {
+        padding: 8px;
+        background-color: rgba(219, 219, 219, 0.138);
+        border: 1px solid rgb(5, 5, 54);
+        border-radius: 5px;
+      }
+      .cw-logo {
+        padding: 6px;
+        color: white;
+        background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
+        font-size: 15px;
+        border-radius: 4px;
+      }
+
+      /* Bottom nav */
+      .bottom-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        z-index: 200;
+        padding: 4px 0 env(safe-area-inset-bottom, 4px);
+      }
+      .bn-inner {
+        display: flex;
+        justify-content: space-around;
+      }
+      .bn-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        padding: 6px 8px;
+        cursor: pointer;
+        border-radius: 9px;
+        min-width: 56px;
+        transition: background 0.2s;
+        border: none;
+        background: none;
+      }
+      .bn-item:hover,
+      .bn-item.active {
+        background: var(--accent2);
+      }
+      .bn-icon {
+        font-size: 1.2rem;
+      }
+      .bn-lbl {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .bn-item.active .bn-lbl {
+        color: var(--accent);
+      }
+
+      /* Animations */
+      @keyframes dropIn {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-left > * {
+        animation: fadeUp 0.55s ease both;
+      }
+      .hero-badge {
+        animation-delay: 0.05s;
+      }
+      .hero h1 {
+        animation-delay: 0.13s;
+      }
+      .hero-desc {
+        animation-delay: 0.21s;
+      }
+      .hs-box {
+        animation-delay: 0.29s;
+      }
+      .hero-tags {
+        animation-delay: 0.37s;
+      }
+
+      /* LAYOUT */
+      .layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 0;
+        max-width: 1280px;
+        margin: 0 auto;
+        align-items: start;
+        margin-top: 10px;
+      }
+
+      /* CTA */
+      .cta-sec {
+        padding: 52px 2rem;
+        background: var(--bg);
+      }
+      .cta-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+      }
+      .cta-box {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+        border-radius: 20px;
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-box::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 240px;
+        height: 240px;
+        background: rgba(37, 99, 235, 0.2);
+        border-radius: 50%;
+        filter: blur(60px);
+      }
+      .cta-box h2 {
+        font-family: "Fraunces", serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.2;
+        position: relative;
+      }
+      .cta-box p {
+        color: #8aa4d0;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        position: relative;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 9px;
+        flex-shrink: 0;
+        position: relative;
+        flex-wrap: wrap;
+      }
+      .cta-p {
+        padding: 11px 24px;
+        background: linear-gradient(135deg, #2563eb, #0aab87);
+        border: none;
+        border-radius: 9px;
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .cta-p:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+      .cta-g {
+        padding: 11px 24px;
+        background: rgba(255, 255, 255, 0.09);
+        border: 1.5px solid rgba(255, 255, 255, 0.15);
+        border-radius: 9px;
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .cta-g:hover {
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      /* FILTERS SIDEBAR */
+      .filters-sidebar {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        position: sticky;
+        top: 76px;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #dde3f0 transparent;
+      }
+      .filters-sidebar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .filters-sidebar::-webkit-scrollbar-thumb {
+        background: #dde3f0;
+        border-radius: 2px;
+      }
+      .fs-header {
+        padding: 1rem 1.2rem 0.8rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        background: var(--white);
+        z-index: 10;
+      }
+      .fs-title {
+        font-weight: 900;
+        font-size: 1.1rem;
+        color: var(--navy);
+      }
+      .fs-meta {
+        font-size: 0.7rem;
+        color: var(--muted);
+        margin-top: 1px;
+      }
+      .fs-meta b {
+        color: var(--accent);
+      }
+      .fs-reset {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--orange);
+        cursor: pointer;
+        padding: 3px 8px;
+        border-radius: 5px;
+        transition: background 0.2s;
+      }
+      .filter-section {
+        border-bottom: 1px solid var(--border);
+        padding: 0.9rem 1.2rem;
+      }
+      .filter-section:last-child {
+        border-bottom: none;
+      }
+      .fs-sec-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+        margin-bottom: 0;
+      }
+      .fs-sec-title {
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: var(--navy);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .fs-sec-toggle {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        transition: transform 0.22s;
+        flex-shrink: 0;
+      }
+      .fs-sec-toggle.open {
+        transform: rotate(180deg);
+      }
+      .fs-sec-body {
+        margin-top: 0.7rem;
+        display: none;
+      }
+      .fs-sec-body.open {
+        display: block;
+        animation: fadeDown 0.18s ease;
+      }
+      .filter-search {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        background: var(--bg);
+        overflow: hidden;
+        margin-bottom: 0.6rem;
+      }
+      .filter-search input {
+        flex: 1;
+        padding: 6px 9px;
+        border: none;
+        background: none;
+        outline: none;
+        font-size: 0.76rem;
+        color: var(--text);
+      }
+      .filter-search input::placeholder {
+        color: var(--muted);
+      }
+      .filter-check {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px 0;
+        cursor: pointer;
+      }
+      .filter-check:hover .fc-label {
+        color: var(--accent);
+      }
+      .fc-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .fc-checkbox {
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--border);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.15s;
+        background: var(--white);
+      }
+      .filter-check.checked .fc-checkbox {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+      .filter-check.checked .fc-checkbox::after {
+        content: "✓";
+        color: #fff;
+        font-size: 0.6rem;
+        font-weight: 900;
+      }
+      .fc-label {
+        font-size: 0.72rem;
+        color: var(--text);
+        transition: color 0.15s;
+      }
+      .fc-count {
+        font-size: 0.67rem;
+        color: var(--muted);
+        background: var(--bg);
+        padding: 1px 6px;
+        border-radius: 100px;
+      }
+      .filter-show-more {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--accent);
+        cursor: pointer;
+        margin-top: 4px;
+        padding: 2px 0;
+        transition: color 0.2s;
+      }
+      .filter-show-more:hover {
+        color: #1d4ed8;
+      }
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .radio-opt {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 0;
+        cursor: pointer;
+      }
+      .radio-opt:hover .ro-label {
+        color: var(--accent);
+      }
+      .ro-circle {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.15s;
+      }
+      .radio-opt.selected .ro-circle {
+        border-color: var(--accent);
+      }
+      .radio-opt.selected .ro-circle::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: block;
+      }
+      .ro-label {
+        font-size: 0.77rem;
+        color: var(--text);
+      }
+      .tag-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .tag-chip {
+        padding: 4px 10px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.71rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s;
+        color: var(--muted);
+      }
+      .tag-chip:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .tag-chip.selected {
+        background: var(--accent-s);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .active-filters {
+        padding: 0.5rem 1.2rem;
+        background: var(--accent-s);
+        border-bottom: 1px solid #c7d9ff;
+        display: none;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .active-filters.has-filters {
+        display: flex;
+      }
+      .af-tag {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 9px;
+        background: var(--white);
+        border: 1px solid #c7d9ff;
+        border-radius: 100px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .af-tag span {
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+        font-size: 0.8rem;
+        line-height: 1;
+      }
+      .af-tag span:hover {
+        opacity: 1;
+      }
+
+      /* MAIN CONTENT */
+      .main-content {
+        padding-left: 1.5rem;
+      }
+      .sort-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+        flex-wrap: wrap;
+      }
+      .results-count {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+      .results-count b {
+        color: var(--navy);
+      }
+      .sort-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sort-label {
+        font-size: 0.76rem;
+        color: var(--muted);
+      }
+      .sort-select {
+        padding: 7px 32px 7px 12px;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text);
+        background: var(--white);
+        outline: none;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' fill='none' stroke='%236b7a99' stroke-width='2' viewBox='0 0 12 8'%3E%3Cpolyline points='1 1 6 7 11 1'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        transition: border-color 0.2s;
+      }
+      .sort-select:focus {
+        border-color: var(--accent);
+      }
+      .view-toggle {
+        display: flex;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .vt-btn {
+        padding: 7px 10px;
+        background: var(--white);
+        border: none;
+        cursor: pointer;
+        color: var(--muted);
+        transition: all 0.2s;
+      }
+      .vt-btn.active,
+      .vt-btn:hover {
+        background: var(--accent-s);
+        color: var(--accent);
+      }
+
+      /* PROGRAM DROPDOWN */
+      .program-wrap {
+        position: relative;
+      }
+      .program-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        color: #333;
+      }
+      .programs-card {
+        position: absolute;
+        cursor: pointer;
+        top: 40px;
+        left: 220px;
+        transform: translateX(-50%) translateY(20px);
+        width: 100vw;
+        background: #fff;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+        padding: 35px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.35s ease;
+        z-index: 9999;
+      }
+      .program-wrap:hover .programs-card {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      .program-wrap.active .programs-card {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      .program-btn svg {
+        transition: transform 0.3s ease;
+      }
+      .program-wrap:hover .program-btn svg,
+      .program-wrap.active .program-btn svg {
+        transform: rotate(180deg);
+      }
+      .program-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+      .category h2 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #1f2b3a;
+      }
+      .category i {
+        padding: 6px;
+        border-radius: 5px;
+        background-color: rgba(72, 0, 255, 0.062);
+        color: purple;
+        font-size: 15px;
+      }
+      .program-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .program-list li {
+        padding: 5px 0;
+        font-size: 14px;
+        color: #444;
+      }
+      .institution-row {
+        font-size: 12px;
+        color: #888;
+        margin-top: 6px;
+      }
+      .featured-section {
+        background: linear-gradient(120deg, #102a44, #1b3b5c);
+        border-radius: 20px;
+        padding: 25px;
+      }
+      .featured-text h3 {
+        color: #fff;
+        font-size: 20px;
+      }
+      .featured-text p {
+        color: #d7e6ff;
+        font-size: 12px;
+        font-family: "Lato", sans-serif;
+        margin-top: 2px;
+      }
+      .featured-link {
+        padding: 10px;
+        border: none;
+        border-radius: 30px;
+        font-size: 10px;
+        margin-top: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #1b0842;
+      }
+
+      /* Compare bar */
+      .compare-bar {
+        background: var(--navy);
+        color: #fff;
+        border-radius: 10px;
+        padding: 0.7rem 1.2rem;
+        margin-bottom: 1rem;
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .compare-bar.visible {
+        display: flex;
+        animation: fadeDown 0.2s ease;
+      }
+      .compare-items {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .compare-chip {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 10px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        font-size: 0.72rem;
+        font-weight: 600;
+      }
+      .compare-chip span {
+        cursor: pointer;
+        opacity: 0.6;
+        font-size: 0.9rem;
+      }
+      .compare-chip span:hover {
+        opacity: 1;
+      }
+      .compare-btn {
+        padding: 7px 18px;
+        background: var(--accent);
+        border: none;
+        color: #fff;
+        border-radius: 7px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+      }
+      .hero-inner {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 24px 24px 0;
+        min-height: 100vh;
+      }
+      .hero-top {
+        display: flex;
+        gap: 20px;
+      }
+      .hero-logo {
+        width: 500px;
+        height: 170px;
+        border-radius: 14px;
+        border: 1.5px solid var(--border);
+        background: #f6f6f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+        box-shadow: var(--shadow);
+      }
+      .hero-logo img {
+        width: 100%;
+        object-fit: cover;
+      }
+      .hero-badges {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 8px;
+      }
+      .hb {
+        font-size: 0.67rem;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 20px;
+        letter-spacing: 0.4px;
+      }
+      .hb-govt {
+        background: #dcfce7;
+        color: #166534;
+      }
+      .hb-private {
+        background: #ede9fe;
+        color: #5b21b6;
+      }
+      .hb-deemed {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+      .hb-nirf {
+        background: #fef9c3;
+        color: #854d0e;
+      }
+      .hb-naac {
+        background: #f3e8ff;
+        color: #6b21a8;
+      }
+      .hb-aicte {
+        background: #e0f2fe;
+        color: #075985;
+      }
+      .hero-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 6px;
+      }
+      .hero-loc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .hero-rating-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      .rating-big {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .rb-score {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--accent);
+      }
+      .rb-stars {
+        display: flex;
+        gap: 2px;
+      }
+      .rb-count {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .hero-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .btn-apply {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 9px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: "DM Sans", sans-serif;
+      }
+      .btn-apply:hover {
+        background: #c94a28;
+        transform: translateY(-1px);
+      }
+      .btn-brochure {
+        background: #fff;
+        color: var(--accent);
+        border: 1.5px solid var(--accent);
+        padding: 10px 20px;
+        border-radius: 9px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: "DM Sans", sans-serif;
+      }
+      .btn-brochure:hover {
+        background: #fff5f3;
+      }
+      .btn-compare {
+        background: #fff;
+        color: var(--text);
+        border: 1.5px solid var(--border);
+        padding: 10px 18px;
+        border-radius: 9px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+      }
+      .btn-compare:hover {
+        background: #f5f5f5;
+      }
+      .btn-back-uni{
+        color: blue;
+        margin-left: 17%;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--border);
+        margin-top: 20px;
+      }
+      .hs-item {
+        padding: 14px 10px;
+        text-align: center;
+        border-right: 1px solid var(--border);
+      }
+      .hs-item:last-child {
+        border-right: none;
+      }
+      .hs-val {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: var(--text);
+      }
+      .hs-lbl {
+        font-size: 0.65rem;
+        color: var(--muted);
+        font-weight: 600;
+        margin-top: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* NAV TABS */
+      .nav-tabs-custom {
+        background: #fff;
+        border-bottom: 2px solid var(--border);
+        position: sticky;
+        top: 48px;
+        z-index: 90;
+      }
+      .nav-tabs-inner {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .nav-tabs-inner::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-tab {
+        padding: 12px 16px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--muted);
+        cursor: pointer;
+        border-bottom: 2.5px solid transparent;
+        margin-bottom: -2px;
+        white-space: nowrap;
+        transition: 0.15s;
+        font-family: "DM Sans", sans-serif;
+      }
+      .nav-tab.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+      .nav-tab:hover:not(.active) {
+        color: var(--text);
+      }
+
+      /* DETAIL BODY */
+      .detail-body {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px 24px;
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 20px;
+        align-items: start;
+      }
+      .main-col {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        gap: 16px;
+      }
+      .side-col {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: sticky;
+        top: 92px;
+      }
+
+      /* SECTION CARD */
+      .sec-card {
+        background: #fff;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+      .sec-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .sec-title::before {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 1.1rem;
+        background: var(--accent);
+        border-radius: 2px;
+      }
+
+      /* OVERVIEW */
+      .overview-text {
+        font-size: 0.88rem;
+        line-height: 1.78;
+        color: #333;
+      }
+      .overview-text p {
+        margin-bottom: 12px;
+      }
+      .highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .hl-item {
+        background: var(--bg);
+        border-radius: 10px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--border);
+      }
+      .hl-icon {
+        font-size: 1.3rem;
+      }
+      .hl-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .hl-val {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-top: 1px;
+      }
+
+      /* COURSES TABLE */
+      .courses-filter {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+      .cf-btn {
+        padding: 5px 13px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1.5px solid var(--border);
+        color: var(--muted);
+        background: #fff;
+        transition: 0.15s;
+        font-family: "DM Sans", sans-serif;
+      }
+      .cf-btn.active {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+      .courses-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+      }
+      .courses-table th {
+        text-align: left;
+        padding: 10px 12px;
+        background: var(--bg);
+        font-weight: 700;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
+      }
+      .courses-table td {
+        padding: 12px 12px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: middle;
+      }
+      .courses-table tr:last-child td {
+        border-bottom: none;
+      }
+      .courses-table tr:hover td {
+        background: #fafafa;
+      }
+      .course-name {
+        font-weight: 700;
+        color: var(--text);
+        font-size: 0.85rem;
+      }
+      .course-sub {
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .course-dur {
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+      .fee-tag {
+        background: #fff3f0;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.78rem;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .eligibility-tag {
+        background: #f0f9ff;
+        color: #0369a1;
+        font-size: 0.75rem;
+        padding: 3px 9px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+      .seats-tag {
+        background: #f0fdf4;
+        color: var(--green);
+        font-size: 0.75rem;
+        padding: 3px 9px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+      .level-badge {
+        display: inline-block;
+        font-size: 0.65rem;
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .lb-ug {
+        background: #fff9c4;
+        color: #78350f;
+      }
+      .lb-pg {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .lb-phd {
+        background: #fce7f3;
+        color: #9d174d;
+      }
+      .lb-cert {
+        background: #d1fae5;
+        color: #065f46;
+      }
+
+      /* CUTOFF */
+      .cutoff-tabs {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+      .ct-tab {
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1.5px solid var(--border);
+        color: var(--muted);
+        transition: 0.15s;
+        font-family: "DM Sans", sans-serif;
+      }
+      .ct-tab.active {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+      .cutoff-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+      }
+      .cutoff-table th {
+        text-align: left;
+        padding: 9px 12px;
+        background: var(--bg);
+        font-weight: 700;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
+      }
+      .cutoff-table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+      }
+      .cutoff-table tr:last-child td {
+        border-bottom: none;
+      }
+      .cutoff-table tr:hover td {
+        background: #fafafa;
+      }
+      .rank-highlight {
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      /* ADMISSION */
+      .admission-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .as-step {
+        display: flex;
+        gap: 14px;
+        padding-bottom: 18px;
+        position: relative;
+      }
+      .as-step:last-child {
+        padding-bottom: 0;
+      }
+      .as-step::before {
+        content: "";
+        position: absolute;
+        left: 13px;
+        top: 28px;
+        width: 2px;
+        bottom: 0;
+        background: var(--border);
+      }
+      .as-step:last-child::before {
+        display: none;
+      }
+      .as-num {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .as-title {
+        font-weight: 700;
+        font-size: 0.88rem;
+        margin-bottom: 3px;
+      }
+      .as-desc {
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .as-tip {
+        display: inline-block;
+        margin-top: 6px;
+        background: #fef9c3;
+        color: #854d0e;
+        font-size: 0.72rem;
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      /* PLACEMENT */
+      .placement-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .ps-item {
+        background: var(--bg);
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+        border: 1px solid var(--border);
+      }
+      .ps-val {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--accent);
+      }
+      .ps-lbl {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin-top: 3px;
+      }
+      .placement-chart {
+        margin: 16px 0;
+      }
+      .pc-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+      }
+      .pc-bar-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+        font-size: 0.78rem;
+      }
+      .pc-label {
+        width: 100px;
+        color: var(--muted);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .pc-bar-bg {
+        flex: 1;
+        background: var(--border);
+        border-radius: 20px;
+        height: 8px;
+        overflow: hidden;
+      }
+      .pc-bar-fill {
+        height: 100%;
+        border-radius: 20px;
+        background: linear-gradient(90deg, var(--accent), #f59e0b);
+        transition: width 1s ease;
+      }
+      .pc-pct {
+        width: 36px;
+        text-align: right;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .recruiter-logos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+      .recruiter-chip {
+        background: #f5f5f5;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text);
+        transition: 0.15s;
+      }
+      .recruiter-chip:hover {
+        background: #fff3f0;
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* RESULTS */
+      .result-year-tabs {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+      .ry-tab {
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1.5px solid var(--border);
+        color: var(--muted);
+        font-family: "DM Sans", sans-serif;
+        transition: 0.15s;
+      }
+      .ry-tab.active {
+        background: #1a1a1a;
+        color: #fff;
+        border-color: #1a1a1a;
+      }
+      .result-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+      }
+      .result-table th {
+        text-align: left;
+        padding: 9px 12px;
+        background: var(--bg);
+        font-weight: 700;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
+      }
+      .result-table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+      }
+      .result-table tr:last-child td {
+        border-bottom: none;
+      }
+      .pass-rate {
+        font-weight: 700;
+        color: var(--green);
+      }
+      .trend-up {
+        color: var(--green);
+        font-size: 0.72rem;
+        font-weight: 600;
+      }
+      .trend-down {
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 600;
+      }
+
+      /* REVIEWS */
+      .review-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 12px;
+        transition: 0.2s;
+      }
+      .review-card:hover {
+        border-color: #ddd;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+      .review-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .rv-avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        color: #fff;
+        font-size: 0.88rem;
+        flex-shrink: 0;
+      }
+      .rv-name {
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+      .rv-meta {
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+      .rv-rating {
+        display: flex;
+        gap: 2px;
+        font-size: 0.85rem;
+        margin-left: auto;
+      }
+      .rv-text {
+        font-size: 0.83rem;
+        color: #444;
+        line-height: 1.65;
+      }
+      .rv-tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .rv-tag {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        border-radius: 12px;
+        background: #f0f0f0;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .rv-helpful {
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-top: 8px;
+        cursor: pointer;
+      }
+      .rv-helpful:hover {
+        color: var(--accent);
+      }
+
+      /* Q&A */
+      .qna-item {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+      .qna-q {
+        padding: 14px 16px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        transition: 0.15s;
+      }
+      .qna-q:hover {
+        background: #fafafa;
+      }
+      .qna-arrow {
+        font-size: 0.7rem;
+        color: var(--muted);
+        transition: 0.2s;
+      }
+      .qna-a {
+        display: none;
+        padding: 0 16px 14px;
+        font-size: 0.82rem;
+        color: #444;
+        line-height: 1.65;
+        border-top: 1px solid var(--border);
+      }
+      .qna-a.open {
+        display: block;
+      }
+
+      /* SCHOLARSHIP */
+      .sch-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .sch-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+      }
+      .sch-icon {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+      }
+      .sch-name {
+        font-weight: 700;
+        font-size: 0.85rem;
+        margin-bottom: 4px;
+      }
+      .sch-amt {
+        font-weight: 800;
+        color: var(--accent);
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+      }
+      .sch-desc {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .sch-tag {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 0.68rem;
+        padding: 2px 8px;
+        border-radius: 10px;
+        background: #dcfce7;
+        color: #166534;
+        font-weight: 600;
+      }
+
+      /* NEWS */
+      .news-card {
+        display: flex;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .news-card:last-child {
+        border-bottom: none;
+      }
+      .news-left {
+        flex-shrink: 0;
+        width: 56px;
+        text-align: center;
+      }
+      .news-date-d {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .news-date-m {
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .news-content {
+        flex: 1;
+      }
+      .news-tag {
+        display: inline-block;
+        font-size: 0.65rem;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin-bottom: 5px;
+      }
+      .nt-admission {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+      .nt-placement {
+        background: #dcfce7;
+        color: #166534;
+      }
+      .nt-academics {
+        background: #fef9c3;
+        color: #854d0e;
+      }
+      .nt-scholarship {
+        background: #f3e8ff;
+        color: #6b21a8;
+      }
+      .nt-event {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .news-title {
+        font-weight: 700;
+        font-size: 0.88rem;
+        margin-bottom: 4px;
+      }
+      .news-desc {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* FACILITIES */
+      .facilities-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .fac-item {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px;
+        text-align: center;
+      }
+      .fac-icon {
+        font-size: 1.6rem;
+        margin-bottom: 6px;
+      }
+      .fac-name {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .fac-sub {
+        font-size: 0.68rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      /* RANKING */
+      .ranking-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .rank-item {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .rank-badge {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), #f59e0b);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .rank-body .rank-val {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--text);
+      }
+      .rank-body .rank-src {
+        font-size: 0.72rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .rank-body .rank-year {
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+
+      /* GALLERY */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 14px;
+      }
+      .gallery-img {
+        border-radius: 10px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        background: var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        border: 1px solid var(--border);
+      }
+
+      /* SIDE WIDGETS */
+      .sw-card {
+        background: #fff;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .sw-title {
+        font-weight: 800;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+      @media (max-width:768px) {
+        .sw-card{
+          width: 63%;
+        }
+        .vt-card{
+          width: 63%;
+        }
+        .sec-card{
+          width: 63%;
+        }
+        .thead-course tr{
+          width: 10px;
+        }
+        .btn-back-uni{
+          display: none;
+        }
+        .btn-back-mobi-uni{
+          color: blue;
+          margin-left: 60%;
+        }
+        .hero-inner{
+          padding: 2px 20px 0;
+        }
+      }
+      @media (min-width:768px) {
+        .btn-back-mobi-uni{
+          display: none;
+        }
+        
+      }
+      .sw-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.82rem;
+      }
+      .sw-row:last-child {
+        border-bottom: none;
+      }
+      .sw-key {
+        color: var(--muted);
+        flex-shrink: 0;
+        margin-right: 8px;
+      }
+      .sw-val {
+        font-weight: 700;
+        color: var(--text);
+        text-align: right;
+      }
+      .sw-val.green {
+        color: var(--green);
+      }
+      .sw-val.accent {
+        color: var(--accent);
+      }
+      .contact-btn {
+        width: 100%;
+        margin-top: 12px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: 0.2s;
+      }
+      .contact-btn:hover {
+        background: #c94a28;
+      }
+      .similar-item {
+        display: flex;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        transition: 0.15s;
+      }
+      .similar-item:last-child {
+        border-bottom: none;
+      }
+      .similar-item:hover .si-name {
+        color: var(--accent);
+      }
+      .si-img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        object-fit: contain;
+        padding: 4px;
+        flex-shrink: 0;
+        background: #f5f5f5;
+      }
+      .si-name {
+        font-size: 0.82rem;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .si-loc {
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+      .si-rating {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-top: 2px;
+      }
+      .vt-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-radius: var(--radius);
+        padding: 20px;
+        color: #fff;
+        text-align: center;
+      }
+      .vt-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .vt-title {
+        font-weight: 800;
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+      }
+      .vt-sub {
+        font-size: 0.75rem;
+        color: #aaa;
+        margin-bottom: 14px;
+      }
+      .vt-btn {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 9px 20px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 1023px) {
+        .nav-r1 {
+          padding: 0 1.2rem;
+          gap: 8px;
+        }
+        .nav-r2 {
+          padding: 0 1.2rem;
+        }
+        .auth-btns {
+          display: none;
+        }
+        .exp-mega {
+          width: min(620px, 95vw);
+          right: -40px;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr 340px;
+          gap: 1.5rem;
+        }
+        .detail-body {
+          grid-template-columns: 1fr 280px;
+        }
+      }
+      @media (max-width: 767px) {
+        :root {
+          --nav-h: 54px;
+          --nav2-h: 0px;
+        }
+        .nav-search {
+          display: none;
+        }
+        .explore-wrap {
+          display: none;
+        }
+        .notif-wrap {
+          display: none;
+        }
+        .ham-btn {
+          display: flex;
+        }
+        .nav-r2 {
+          display: none;
+        }
+        .mobile-search-bar {
+          display: block;
+        }
+        .detail-body {
+          grid-template-columns: 1fr;
+        }
+        .side-col {
+          order: -1;
+          position: static;
+        }
+        .hero-stats {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .placement-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .highlights-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .facilities-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ranking-grid {
+          grid-template-columns: 1fr;
+        }
+        .sch-grid {
+          grid-template-columns: 1fr;
+        }
+        .bottom-nav {
+          display: block;
+        }
+        .exp-mega {
+          width: 95vw;
+          right: -10px;
+        }
+        .courses-mega {
+          width: 95vw;
+          left: 0;
+        }
+        .courses-wrap:hover .courses-mega {
+          display: none;
+        }
+        .fg {
+          grid-template-columns: 1fr;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero-logo {
+          width: 100%;
+        }
+        .hero-top {
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 520px) {
+        .hero-name {
+          font-size: 1.2rem;
+        }
+        .hero-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .highlights-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="topbar d-none d-md-block">
+      <div
+        class="d-flex align-items-center justify-content-between px-4 py-1 gap-3"
+      >
+        <div class="d-flex align-items-center gap-3">
+          <a href="#">📞 1800-XXX-XXXX (Toll Free)</a>
+          <span class="tb-sep">|</span>
+          <a href="#">📧 help@campuswalkin.com</a>
+          <span class="tb-sep">|</span>
+          <a href="#">Compare Colleges</a>
+          <a href="#">Rank Predictor</a>
+          <a href="#">Scholarships</a>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <p class="mb-0">We're on your favourite socials!</p>
+          <span class="tb-sep">|</span>
+          <a href="#" style="color: #4860ff; font-weight: 700"
+            ><i class="bi bi-facebook"></i
+          ></a>
+          <a href="#" style="color: hwb(0 37% 0%); font-weight: 700"
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a href="#" style="color: hwb(239 26% 3%); font-weight: 700"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+          <a href="#" style="color: hwb(0 0% 0%); font-weight: 700"
+            ><i class="bi bi-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar-custom">
+      <!-- ROW 1 -->
+      <div class="nav-r1 d-flex align-items-center gap-2 px-4">
+        <!-- Logo -->
+        <a
+          href="#"
+          class="logo d-flex align-items-center gap-2 flex-shrink-0 text-decoration-none"
+        >
+          <div class="logo-mark">🎓</div>
+          <div>
+            <div class="logo-text">Campus<span>Walkin</span></div>
+            <div class="logo-sub">Find Your Perfect Course</div>
+          </div>
+        </a>
+
+        <div class="course-wrap">
+          <p class="course-title">Select Goal & Program</p>
+          <div class="course-pill" onclick="toggleCourses()">
+            <span id="courseName">BCA, B.Tech</span>
+            <svg
+              width="10"
+              height="6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 12 8"
+            >
+              <polyline points="1 1 6 7 11 1" />
+            </svg>
+          </div>
+          <div class="course-dd" id="courseDD">
+            <h4>Select Your Study Preference</h4>
+            <input
+              type="text"
+              class="course-search"
+              placeholder="Search program..."
+              oninput="filterCourses(this.value)"
+            />
+            <div id="courseList">
+              <div class="course-cat">Engineering</div>
+              <div class="course-grid">
+                <div class="course-item" onclick="goCourse('btech.html')">
+                  BE/B.Tech <span class="arrow">›</span>
+                </div>
+                <div class="course-item" onclick="goCourse('diploma.html')">
+                  Diploma in Engineering <span class="arrow">›</span>
+                </div>
+                <div class="course-item" onclick="goCourse('mtech.html')">
+                  ME/M.Tech <span class="arrow">›</span>
+                </div>
+              </div>
+              <div class="course-cat">Management</div>
+              <div class="course-grid">
+                <div class="course-item" onclick="goCourse('mba.html')">
+                  MBA/PGDM <span class="arrow">›</span>
+                </div>
+                <div class="course-item" onclick="goCourse('bba.html')">
+                  BBA/BMS <span class="arrow">›</span>
+                </div>
+                <div class="course-item" onclick="goCourse('exec-mba.html')">
+                  Executive MBA <span class="arrow">›</span>
+                </div>
+              </div>
+              <div class="course-cat">Commerce</div>
+              <div class="course-grid">
+                <div class="course-item" onclick="goCourse('bcom.html')">
+                  B.Com <span class="arrow">›</span>
+                </div>
+                <div class="course-item" onclick="goCourse('mcom.html')">
+                  M.Com <span class="arrow">›</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <nav class="center-nav d-none d-lg-flex">
+          <a href="index.html" class="cn-link">Home</a>
+          <div class="program-wrap" id="programWrap">
+            <button class="program-btn" onclick="toggleProgram()">
+              Programs
+              <svg
+                width="11"
+                height="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 12 8"
+              >
+                <polyline points="1 1 6 7 11 1"></polyline>
+              </svg>
+            </button>
+            <div class="programs-card">
+              <div class="program-grid">
+                <div class="category">
+                  <h2><i class="bi bi-mortarboard"></i> Executive Education</h2>
+                  <ul class="program-list">
+                    <li>Executive MBA</li>
+                    <li>Senior Management Programme</li>
+                    <li>Leadership Development</li>
+                  </ul>
+                  <div class="institution-row">IIM Ahmedabad, ISB, XLRI</div>
+                </div>
+                <div class="category">
+                  <h2><i class="bi bi-graph-up-arrow"></i> MBA / Management</h2>
+                  <ul class="program-list">
+                    <li>Full-time MBA</li>
+                    <li>Part-time MBA</li>
+                    <li>Online MBA</li>
+                  </ul>
+                  <div class="institution-row">
+                    IIM Bangalore, IIM Kozhikode
+                  </div>
+                </div>
+                <div class="category">
+                  <h2><i class="fa-solid fa-brain"></i> Data Science & AI</h2>
+                  <ul class="program-list">
+                    <li>PG in Data Science</li>
+                    <li>AI & ML Certificate</li>
+                    <li>Deep Learning</li>
+                  </ul>
+                  <div class="institution-row">IIT Delhi, IIT Madras</div>
+                </div>
+                <div class="category">
+                  <h2><i class="bi bi-bar-chart"></i> Marketing Programs</h2>
+                  <ul class="program-list">
+                    <li>Digital Marketing</li>
+                    <li>Brand Management</li>
+                    <li>Growth Hacking</li>
+                  </ul>
+                  <div class="institution-row">IIM Indore, MICA, NMIMS</div>
+                </div>
+                <div class="category">
+                  <h2>
+                    <i class="bi bi-currency-dollar"></i> Finance Programs
+                  </h2>
+                  <ul class="program-list">
+                    <li>CFA Prep</li>
+                    <li>Financial Analytics</li>
+                    <li>Risk Management</li>
+                  </ul>
+                  <div class="institution-row">
+                    IIM Calcutta, NISM, BSE Institute
+                  </div>
+                </div>
+                <div class="category">
+                  <h2><i class="bi bi-laptop"></i> Technology Programs</h2>
+                  <ul class="program-list">
+                    <li>Cloud Computing</li>
+                    <li>Cybersecurity</li>
+                    <li>Full Stack Development</li>
+                  </ul>
+                  <div class="institution-row">IIT Bombay, BITS Pilani</div>
+                </div>
+                <div class="category">
+                  <h2>
+                    <i class="bi bi-heart-pulse"></i> Healthcare & Analytics
+                  </h2>
+                  <ul class="program-list">
+                    <li>Healthcare Management</li>
+                    <li>Pharma Analytics</li>
+                    <li>Clinical Research</li>
+                  </ul>
+                  <div class="institution-row">IIHMR, Symbiosis, Manipal</div>
+                </div>
+                <div class="featured-section">
+                  <div class="featured-text">
+                    <h3>Executive MBA from IIM</h3>
+                    <p>
+                      Transform your career with India's top-ranked executive
+                      program.
+                    </p>
+                    <button class="featured-link">
+                      <a href="#">Learn More →</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="universities.html" class="cn-link">Universities</a>
+          <a href="#" class="cn-link">Compare</a>
+          <a href="#" class="cn-link">Blog</a>
+          <a href="#" class="cn-link">About</a>
+          <a href="#" class="cn-link">Contact</a>
+        </nav>
+
+        <div></div>
+
+        <!-- RIGHT -->
+        <div class="d-flex align-items-center gap-2 flex-shrink-0 ms-auto">
+          <!-- Explore -->
+          <div class="explore-wrap d-none d-lg-block" id="exploreWrap">
+            <button class="explore-btn" onclick="toggleLoc()">
+              <span class="exp-label">Explore</span>
+              <svg
+                width="11"
+                height="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 12 8"
+              >
+                <polyline points="1 1 6 7 11 1" />
+              </svg>
+            </button>
+            <div class="exp-mega">
+              <div class="em-title">Explore More</div>
+              <div class="em-grid">
+                <div>
+                  <a href="#" class="em-item"><span>🏛️ Top Colleges</span></a>
+                  <a href="#" class="em-item"><span>📝 Exams</span></a>
+                  <a href="#" class="em-item"><span>✈️ Study Abroad</span></a>
+                  <a href="#" class="em-item"><span>🏆 Executive</span></a>
+                  <a href="#" class="em-item"><span>💻 Online</span></a>
+                  <a href="#" class="em-item"><span>🎓 UG Degrees</span></a>
+                  <a href="#" class="em-item"><span>Exams</span></a>
+                </div>
+                <div>
+                  <a href="#" class="em-item"
+                    ><span>Admission alert 2026</span></a
+                  >
+                  <a href="#" class="em-item"><span>✈️ Study Abroad</span></a>
+                  <a href="#" class="em-item"><span>Abroad Exam</span></a>
+                  <a href="#" class="em-item"><span>Ask a Question</span></a>
+                  <a href="#" class="em-item"><span>Course finder</span></a>
+                  <a href="#" class="em-item"><span>💰 Scholarships</span></a>
+                  <a href="#" class="em-item"><span>📊 Rank Predictor</span></a>
+                </div>
+              </div>
+              <div class="em-title">Popular Exams</div>
+              <div class="em-tags">
+                <span class="em-tag">JEE Main</span
+                ><span class="em-tag">NEET</span><span class="em-tag">CAT</span>
+                <span class="em-tag">GATE</span><span class="em-tag">CLAT</span
+                ><span class="em-tag">CUET</span> <span class="em-tag">GRE</span
+                ><span class="em-tag">GMAT</span
+                ><span class="em-tag">IELTS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification -->
+          <div class="notif-wrap d-none d-md-block" id="notifWrap">
+            <div class="icon-btn" onclick="toggleNotif()">
+              <svg
+                width="15"
+                height="15"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+              </svg>
+              <div class="n-dot"></div>
+            </div>
+            <div class="notif-panel">
+              <div class="np-hd">
+                Notifications <a href="#">Mark all read</a>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #eff4ff">📣</div>
+                <div>
+                  <div class="np-t1">JEE Main 2025 results declared!</div>
+                  <div class="np-t2">2 hours ago</div>
+                </div>
+                <div class="np-unread"></div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #ebfaf6">🎓</div>
+                <div>
+                  <div class="np-t1">New MBA scholarship ₹50,000</div>
+                  <div class="np-t2">5 hours ago</div>
+                </div>
+                <div class="np-unread"></div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #fff8eb">✈️</div>
+                <div>
+                  <div class="np-t1">IELTS prep batch starting Mon</div>
+                  <div class="np-t2">Yesterday</div>
+                </div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #fff3f0">📋</div>
+                <div>
+                  <div class="np-t1">CAT 2025 registration open</div>
+                  <div class="np-t2">2 days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamburger (mobile) -->
+          <div
+            class="ham-btn"
+            id="hamBtn"
+            onclick="openDrawer()"
+            aria-label="Menu"
+          >
+            <span></span><span></span><span></span>
+          </div>
+
+          <!-- Auth (desktop) -->
+          <div class="auth-btns d-none d-lg-flex gap-2">
+            <button class="btn-ln">Login</button>
+            <button class="btn-su">Apply Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="nav-r2 d-none d-md-flex">
+        <div class="courses-wrap" id="coursesWrap">
+          <button class="courses-btn" onclick="toggleAllCourses(event)">
+            <svg
+              width="12"
+              height="12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="16" y2="12" />
+              <line x1="3" y1="18" x2="11" y2="18" />
+            </svg>
+            All Courses
+            <svg
+              class="chevron"
+              width="10"
+              height="6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 12 8"
+            >
+              <polyline points="1 1 6 7 11 1" />
+            </svg>
+          </button>
+          <div class="courses-mega">
+            <div class="cm-inner">
+              <div class="cm-side" id="cmSide">
+                <div class="cm-si active" data-cat="management">Management</div>
+                <div class="cm-si" data-cat="technology">Technology</div>
+                <div class="cm-si" data-cat="medical">Medical</div>
+                <div class="cm-si" data-cat="law">Law</div>
+                <div class="cm-si" data-cat="arts">Arts & Design</div>
+                <div class="cm-si" data-cat="science">Science</div>
+                <div class="cm-si" data-cat="engineering">Engineering</div>
+                <div class="cm-si" data-cat="commerce">Commerce</div>
+              </div>
+              <div class="cm-content">
+                <div class="cm-tabs" id="cmTabs">
+                  <div class="cm-tab active" data-mode="all">All</div>
+                  <div class="cm-tab" data-mode="online">🌐 Online</div>
+                  <div class="cm-tab" data-mode="offline">🏫 Offline</div>
+                  <div class="cm-tab" data-mode="study-abroad">
+                    ✈️ Study Abroad
+                  </div>
+                  <div class="cm-tab" data-mode="executive">
+                    💼 Executive Program
+                  </div>
+                  <div class="cm-tab" data-mode="dba">🎓 DBA</div>
+                </div>
+                <div class="cm-grid" id="cmGrid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r2-sep"></div>
+        <a href="#" class="np2 active">B.Tech</a>
+        <a href="#" class="np2">BCA</a>
+        <a href="#" class="np2">BA</a>
+        <div class="r2-sep"></div>
+        <a href="#" class="np2 abroad-p">MBA</a>
+        <a href="#" class="np2">BBA</a>
+        <a href="#" class="np2">B.Sc (Nursing)</a>
+        <a
+          href="#"
+          class="np2"
+          style="
+            background-color: rgb(12, 21, 64);
+            color: white;
+            border-radius: 7px;
+          "
+          >Top University</a
+        >
+        <a href="#" class="np2"
+          >🗓️ Admission 2025 <span class="new-tag">New</span></a
+        >
+        <div class="r2-sep"></div>
+      </div>
+    </div>
+  <div class="mobile-drawer" id="mDrawer">
+    <div class="md-head">
+      <strong>Menu</strong>
+      <button class="md-close" onclick="closeDrawer()">×</button>
+    </div>
+
+    <div class="md-auth">
+      <button class="btn-ln">Login</button>
+      <button class="btn-su">Apply</button>
+    </div>
+
+    <div class="md-nav">
+      <a href="index.html">Home</a>
+      <button class="md-acc-btn" onclick="toggleAcc(this)">
+        Programs
+        <span>⌄</span>
+      </button>
+      <div class="md-acc-body">
+        <a href="#">Executive MBA</a>
+        <a href="#">Full-time MBA</a>
+        <a href="#">Data Science</a>
+        <a href="#">Marketing</a>
+        <a href="#">Finance</a>
+      </div>
+      <a href="universities.html">Universities</a>
+      <a href="#">Compare</a>
+      <a href="#">Blog</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <button class="md-acc-btn" onclick="toggleAcc(this)">
+        Courses
+        <span>⌄</span>
+      </button>
+      <div class="md-acc-body">
+        <a href="btech.html">B.Tech</a>
+        <a href="bca.html">BCA</a>
+        <a href="mba.html">MBA</a>
+        <a href="bba.html">BBA</a>
+      </div>
+      <button class="md-acc-btn" onclick="toggleAcc(this)">
+        Explore
+        <span>⌄</span>
+      </button>
+      <div class="md-acc-body">
+        <a href="#">Top Colleges</a>
+        <a href="#">Exams</a>
+        <a href="#">Study Abroad</a>
+        <a href="#">Scholarships</a>
+      </div>
+      </div>
+    </div>
+    <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
+  
+    <!-- MOBILE SEARCH BAR -->
+    <div class="mobile-search-bar">
+      <div class="msb-inner">
+        <svg
+          class="msb-icon"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input
+          class="msb-input"
+          type="text"
+          placeholder="Search colleges, courses, exams…"
+        />
+        <button class="msb-sbtn">Search</button>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+     <a href="universities.html" class="btn btn-back-mobi-uni" >Go to Course <i class="bi bi-arrow-right"></i></a>
+      <div class="hero-inner">
+        
+        <div class="hero-top">
+
+          <div class="hero-logo">
+            <img id="heroLogo" src="./girl.png" alt="College Logo" />
+          </div>
+          <div class="hero-info">
+            <div class="hero-badges" id="heroBadges"></div>
+            <div class="hero-name" id="heroName"></div>
+            <div class="hero-loc">
+              <svg
+                width="12"
+                height="12"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              <span id="heroLoc"></span>
+            </div>
+            <div class="hero-rating-row">
+              <div class="rating-big">
+                <div class="rb-score" id="heroRating"></div>
+                <div class="rb-stars" id="heroStars"></div>
+                <div class="rb-count" id="heroReviews"></div>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <button class="btn-apply">Apply Now</button>
+              <button class="btn-brochure">📄 Download Brochure</button>
+              <button class="btn-compare">⊕ Compare</button>
+            </div>
+          </div>
+          <a href="universities.html" class="btn btn-back-uni" >Go to Course <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="hero-stats" id="heroStats"></div>
+        
+      </div>
+    </div>
+
+    <!-- NAV TABS -->
+    <div class="nav-tabs-custom">
+      <div class="nav-tabs-inner">
+        <div class="nav-tab active" onclick="scrollToSection('overview', this)">
+          Overview
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('ranking', this)">
+          Rankings
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('courses', this)">
+          Courses & Fees
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('cutoff', this)">
+          Cut Off
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('admission', this)">
+          Admission
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('placement', this)">
+          Placement
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('results', this)">
+          Results
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('reviews', this)">
+          Reviews
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('qna', this)">Q&A</div>
+        <div class="nav-tab" onclick="scrollToSection('scholarship', this)">
+          Scholarship
+        </div>
+        <div class="nav-tab" onclick="scrollToSection('news', this)">News</div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="detail-body">
+      <div class="main-col">
+        <div class="sec-card" id="overview">
+          <div class="sec-title">Overview</div>
+          <div class="overview-text" id="overviewText"></div>
+          <div class="highlights-grid" id="highlightsGrid"></div>
+        </div>
+        <div class="sec-card" id="ranking">
+          <div class="sec-title">Rankings & Accreditations</div>
+          <div class="ranking-grid" id="rankingGrid"></div>
+        </div>
+        <div class="sec-card" id="courses">
+          <div class="sec-title">Courses & Fees</div>
+          <div class="courses-filter" id="coursesFilter"></div>
+          <table class="courses-table" id="coursesTable">
+            <thead class="thead-course">
+              <tr>
+                <th>Course</th>
+                <th>Level</th>
+                <th>Duration</th>
+                <th>Total Fees</th>
+                <th>Seats</th>
+                <th>Eligibility</th>
+              </tr>
+            </thead>
+            <tbody id="coursesBody"></tbody>
+          </table>
+        </div>
+        <div class="sec-card" id="cutoff">
+          <div class="sec-title">Cut Off</div>
+          <div class="cutoff-tabs" id="cutoffTabs"></div>
+          <table class="cutoff-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Opening Rank</th>
+                <th>Closing Rank</th>
+                <th>Round</th>
+              </tr>
+            </thead>
+            <tbody id="cutoffBody"></tbody>
+          </table>
+        </div>
+        <div class="sec-card" id="admission">
+          <div class="sec-title">Admission Process</div>
+          <div class="admission-steps" id="admissionSteps"></div>
+        </div>
+        <div class="sec-card" id="placement">
+          <div class="sec-title">Placement</div>
+          <div class="placement-stats" id="placementStats"></div>
+          <div class="placement-chart" id="placementChart"></div>
+          <div
+            style="
+              font-size: 0.78rem;
+              font-weight: 700;
+              margin-bottom: 8px;
+              color: var(--muted);
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            "
+          >
+            Top Recruiters
+          </div>
+          <div class="recruiter-logos" id="recruiterLogos"></div>
+        </div>
+        <div class="sec-card" id="results">
+          <div class="sec-title">Exam Results</div>
+          <div class="result-year-tabs" id="resultTabs"></div>
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Appeared</th>
+                <th>Pass Rate</th>
+                <th>Distinction %</th>
+                <th>Trend</th>
+              </tr>
+            </thead>
+            <tbody id="resultBody"></tbody>
+          </table>
+        </div>
+        <div class="sec-card" id="reviews">
+          <div class="sec-title">Student Reviews</div>
+          <div id="reviewsList"></div>
+        </div>
+        <div class="sec-card" id="qna">
+          <div class="sec-title">Questions & Answers</div>
+          <div id="qnaList"></div>
+        </div>
+        <div class="sec-card" id="scholarship">
+          <div class="sec-title">Scholarships</div>
+          <div class="sch-grid" id="scholarshipList"></div>
+        </div>
+        <div class="sec-card" id="news">
+          <div class="sec-title">Latest News & Updates</div>
+          <div id="newsList"></div>
+        </div>
+      </div>
+
+      <!-- SIDE COL -->
+      <div class="side-col">
+        <div class="sw-card">
+          <div class="sw-title">Quick Info</div>
+          <div id="quickInfo"></div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-title">📅 Important Dates 2025</div>
+          <div id="deadlines"></div>
+        </div>
+        <div class="vt-card">
+          <div class="vt-icon">🏛️</div>
+          <div class="vt-title">Virtual Campus Tour</div>
+          <div class="vt-sub">Explore the campus from home</div>
+          <button class="vt-btn">▶ Watch Tour</button>
+        </div>
+        <div class="sw-card">
+          <div class="sw-title">Contact & Address</div>
+          <div
+            id="contactInfo"
+            style="font-size: 0.8rem; line-height: 1.8; color: #555"
+          ></div>
+          <button class="contact-btn">📞 Contact Admissions</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleCourses(e) {
+        e.stopPropagation();
+        document.getElementById("coursesWrap").classList.toggle("open");
+      }
+      document.addEventListener("click", () => {
+        document.getElementById("coursesWrap").classList.remove("open");
+      });
+    </script>
+    <script>
+      const data = {
+        management: {
+          courses: {
+            all: [
+              { n: "MBA", s: "800+ colleges" },
+              { n: "PGDM", s: "350+ colleges" },
+              { n: "BBA", s: "1,200+ colleges" },
+              { n: "Executive MBA", s: "120+ programs" },
+              { n: "MBA Finance", s: "500+ colleges" },
+              { n: "MBA Marketing", s: "650+ colleges" },
+            ],
+            online: [
+              {
+                n: "MBA Online",
+                s: "200+ colleges",
+                colleges: [
+                  { name: "IIM Ahmedabad", link: "https://www.iima.ac.in" },
+                  { name: "IIM Bangalore", link: "https://www.iimb.ac.in" },
+                  { name: "XLRI", link: "https://www.xlri.ac.in" },
+                ],
+              },
+            ],
+            offline: [
+              { n: "MBA", s: "600+ colleges" },
+              { n: "BBA", s: "900+ colleges" },
+              { n: "PGDM", s: "260+ colleges" },
+              { n: "MBA Marketing", s: "450+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MBA USA", s: "50+ universities" },
+              { n: "MBA UK", s: "30+ universities" },
+              { n: "MBA Canada", s: "20+ universities" },
+              { n: "MBA Australia", s: "15+ universities" },
+            ],
+            executive: [
+              { n: "Executive MBA", s: "120+ programs" },
+              { n: "EMBA Finance", s: "45+ programs" },
+              { n: "EMBA Leadership", s: "30+ programs" },
+              { n: "Weekend MBA", s: "60+ programs" },
+            ],
+            dba: [
+              { n: "DBA Management", s: "25+ programs" },
+              { n: "DBA Strategy", s: "18+ programs" },
+              { n: "DBA Leadership", s: "12+ programs" },
+            ],
+          },
+        },
+        technology: {
+          courses: {
+            all: [
+              { n: "B.Tech", s: "1,500+ colleges" },
+              { n: "M.Tech", s: "600+ colleges" },
+              { n: "MCA", s: "800+ colleges" },
+              { n: "BCA", s: "1,100+ colleges" },
+              { n: "Data Science", s: "400+ programs" },
+              { n: "AI & ML", s: "300+ programs" },
+            ],
+            online: [
+              { n: "Online B.Tech", s: "100+ colleges" },
+              { n: "Online MCA", s: "200+ colleges" },
+              { n: "Data Science Online", s: "300+ programs" },
+              { n: "AI & ML Online", s: "250+ programs" },
+            ],
+            offline: [
+              { n: "B.Tech", s: "1,400+ colleges" },
+              { n: "M.Tech", s: "580+ colleges" },
+              { n: "MCA", s: "700+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Computer Science USA", s: "80+ universities" },
+              { n: "MS AI UK", s: "25+ universities" },
+              { n: "MS Data Science Canada", s: "18+ universities" },
+            ],
+            executive: [
+              { n: "Executive PG in AI", s: "40+ programs" },
+              { n: "Executive Data Science", s: "35+ programs" },
+              { n: "PG DevOps", s: "20+ programs" },
+            ],
+            dba: [
+              { n: "PhD Computer Science", s: "200+ programs" },
+              { n: "DBA Technology", s: "10+ programs" },
+            ],
+          },
+        },
+        medical: {
+          courses: {
+            all: [
+              { n: "MBBS", s: "600+ colleges" },
+              { n: "MD", s: "400+ colleges" },
+              { n: "BDS", s: "300+ colleges" },
+              { n: "B.Pharma", s: "800+ colleges" },
+              { n: "Nursing", s: "1,000+ colleges" },
+              { n: "BAMS", s: "250+ colleges" },
+            ],
+            online: [
+              { n: "MPH Online", s: "50+ programs" },
+              { n: "Online Nursing", s: "80+ programs" },
+              { n: "Online Pharmacy", s: "60+ programs" },
+            ],
+            offline: [
+              { n: "MBBS", s: "600+ colleges" },
+              { n: "BDS", s: "300+ colleges" },
+              { n: "BAMS", s: "250+ colleges" },
+              { n: "B.Pharma", s: "800+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MBBS Russia", s: "30+ universities" },
+              { n: "MBBS China", s: "25+ universities" },
+              { n: "MBBS Philippines", s: "15+ universities" },
+            ],
+            executive: [
+              { n: "Executive Healthcare Mgmt", s: "20+ programs" },
+              { n: "Hospital Administration", s: "30+ programs" },
+            ],
+            dba: [
+              { n: "PhD Medicine", s: "150+ programs" },
+              { n: "DBA Healthcare", s: "8+ programs" },
+            ],
+          },
+        },
+        law: {
+          courses: {
+            all: [
+              { n: "LLB", s: "900+ colleges" },
+              { n: "LLM", s: "400+ colleges" },
+              { n: "BA LLB", s: "500+ colleges" },
+              { n: "BBA LLB", s: "350+ colleges" },
+              { n: "Cyber Law", s: "80+ programs" },
+              { n: "Corporate Law", s: "200+ programs" },
+            ],
+            online: [
+              { n: "LLM Online", s: "60+ programs" },
+              { n: "Diploma Cyber Law", s: "40+ programs" },
+              { n: "Online Paralegal", s: "25+ programs" },
+            ],
+            offline: [
+              { n: "LLB", s: "900+ colleges" },
+              { n: "BA LLB", s: "500+ colleges" },
+              { n: "LLM", s: "380+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "LLM USA", s: "30+ universities" },
+              { n: "LLM UK", s: "20+ universities" },
+              { n: "LLM Singapore", s: "10+ universities" },
+            ],
+            executive: [
+              { n: "Executive LLM", s: "15+ programs" },
+              { n: "PG Corporate Law", s: "20+ programs" },
+            ],
+            dba: [
+              { n: "PhD Law", s: "100+ programs" },
+              { n: "DBA Law", s: "5+ programs" },
+            ],
+          },
+        },
+        arts: {
+          courses: {
+            all: [
+              { n: "BFA", s: "400+ colleges" },
+              { n: "MFA", s: "200+ colleges" },
+              { n: "B.Des", s: "300+ colleges" },
+              { n: "Animation", s: "250+ institutes" },
+              { n: "Fashion Design", s: "180+ institutes" },
+              { n: "UI/UX Design", s: "150+ programs" },
+            ],
+            online: [
+              { n: "Online UI/UX", s: "100+ programs" },
+              { n: "Online Graphic Design", s: "80+ programs" },
+              { n: "Digital Art Online", s: "60+ programs" },
+            ],
+            offline: [
+              { n: "BFA", s: "400+ colleges" },
+              { n: "B.Des", s: "300+ colleges" },
+              { n: "Fashion Design", s: "180+ institutes" },
+            ],
+            "study-abroad": [
+              { n: "MFA USA", s: "20+ universities" },
+              { n: "Design UK", s: "15+ universities" },
+              { n: "Fashion Italy", s: "10+ institutes" },
+            ],
+            executive: [
+              { n: "Executive Design Program", s: "12+ programs" },
+              { n: "PG Animation", s: "18+ programs" },
+            ],
+            dba: [{ n: "PhD Fine Arts", s: "50+ programs" }],
+          },
+        },
+        science: {
+          courses: {
+            all: [
+              { n: "B.Sc", s: "2,000+ colleges" },
+              { n: "M.Sc", s: "1,200+ colleges" },
+              { n: "Biotechnology", s: "300+ colleges" },
+              { n: "Forensic Science", s: "100+ colleges" },
+              { n: "B.Sc IT", s: "500+ colleges" },
+              { n: "Environmental Science", s: "200+ colleges" },
+            ],
+            online: [
+              { n: "M.Sc Online", s: "100+ programs" },
+              { n: "Online Biotechnology", s: "50+ programs" },
+              { n: "Data Analytics Online", s: "80+ programs" },
+            ],
+            offline: [
+              { n: "B.Sc", s: "2,000+ colleges" },
+              { n: "M.Sc", s: "1,200+ colleges" },
+              { n: "Biotechnology", s: "300+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Science USA", s: "60+ universities" },
+              { n: "M.Sc UK", s: "30+ universities" },
+            ],
+            executive: [
+              { n: "Executive Data Science", s: "25+ programs" },
+              { n: "PG Biotechnology", s: "15+ programs" },
+            ],
+            dba: [
+              { n: "PhD Science", s: "300+ programs" },
+              { n: "DBA Research Science", s: "6+ programs" },
+            ],
+          },
+        },
+        engineering: {
+          courses: {
+            all: [
+              { n: "B.E / B.Tech", s: "1,800+ colleges" },
+              { n: "M.E / M.Tech", s: "700+ colleges" },
+              { n: "Diploma Engg", s: "2,000+ institutes" },
+              { n: "Civil Engineering", s: "1,200+ colleges" },
+              { n: "Mechanical Engg", s: "1,100+ colleges" },
+              { n: "Electrical Engg", s: "900+ colleges" },
+            ],
+            online: [
+              { n: "Online B.Tech", s: "80+ colleges" },
+              { n: "M.Tech Online", s: "100+ programs" },
+              { n: "Online Diploma", s: "200+ institutes" },
+            ],
+            offline: [
+              { n: "B.E / B.Tech", s: "1,800+ colleges" },
+              { n: "Diploma Engg", s: "2,000+ institutes" },
+              { n: "Civil Engineering", s: "1,200+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Engineering USA", s: "90+ universities" },
+              { n: "M.Eng UK", s: "40+ universities" },
+              { n: "MS Germany", s: "30+ universities" },
+            ],
+            executive: [
+              { n: "Executive PG Engineering", s: "20+ programs" },
+              { n: "PG Robotics", s: "15+ programs" },
+              { n: "PG Aerospace", s: "10+ programs" },
+            ],
+            dba: [
+              { n: "PhD Engineering", s: "250+ programs" },
+              { n: "DBA Engineering Mgmt", s: "8+ programs" },
+            ],
+          },
+        },
+        commerce: {
+          courses: {
+            all: [
+              { n: "B.Com", s: "2,500+ colleges" },
+              { n: "M.Com", s: "1,000+ colleges" },
+              { n: "CA Foundation", s: "500+ institutes" },
+              { n: "CMA", s: "200+ institutes" },
+              { n: "CFA", s: "150+ programs" },
+              { n: "BBA", s: "1,200+ colleges" },
+            ],
+            online: [
+              { n: "B.Com Online", s: "200+ colleges" },
+              { n: "Online M.Com", s: "80+ programs" },
+              { n: "CFA Online", s: "100+ programs" },
+            ],
+            offline: [
+              { n: "B.Com", s: "2,500+ colleges" },
+              { n: "CA Foundation", s: "500+ institutes" },
+              { n: "M.Com", s: "1,000+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "BCom Australia", s: "15+ universities" },
+              { n: "Finance UK", s: "20+ universities" },
+              { n: "Accounting USA", s: "25+ universities" },
+            ],
+            executive: [
+              { n: "Executive Finance", s: "30+ programs" },
+              { n: "PG Accounting", s: "20+ programs" },
+              { n: "Executive CFA Prep", s: "10+ programs" },
+            ],
+            dba: [
+              { n: "PhD Commerce", s: "150+ programs" },
+              { n: "DBA Finance", s: "10+ programs" },
+            ],
+          },
+        },
+      };
+      let activeCategory = "management",
+        activeMode = "all";
+      function toggleAllCourses(e) {
+        e.stopPropagation();
+        const wrap = e.currentTarget.closest(".courses-wrap");
+        wrap.classList.toggle("open");
+      }
+      document.addEventListener("click", () => {
+        document
+          .querySelectorAll(".courses-wrap")
+          .forEach((w) => w.classList.remove("open"));
+      });
+      document
+        .querySelectorAll(".courses-mega")
+        .forEach((menu) =>
+          menu.addEventListener("click", (e) => e.stopPropagation()),
+        );
+      function render() {
+        const cat = data[activeCategory];
+        const courses = cat.courses[activeMode] || cat.courses.all;
+        document.getElementById("cmGrid").innerHTML = courses
+          .map(
+            (c) =>
+              `<div class="cm-item"><div class="cm-c"><div class="cm-cn">${c.n}</div><div class="cm-cs">${c.s}</div></div><div class="cm-drop"><div class="cm-h-title">Top Colleges</div><div class="cm-h-list">${(c.colleges || []).map((col) => `<a href="${col.link}" target="_blank">${col.name}</a>`).join("")}</div><a href="#" class="cm-view">View More →</a></div></div>`,
+          )
+          .join("");
+      }
+      document.getElementById("cmSide").addEventListener("click", (e) => {
+        const el = e.target.closest(".cm-si");
+        if (!el) return;
+        document
+          .querySelectorAll(".cm-si")
+          .forEach((x) => x.classList.remove("active"));
+        el.classList.add("active");
+        activeCategory = el.dataset.cat;
+        render();
+      });
+      document.getElementById("cmTabs").addEventListener("click", (e) => {
+        const tab = e.target.closest(".cm-tab");
+        if (!tab) return;
+        document
+          .querySelectorAll(".cm-tab")
+          .forEach((x) => x.classList.remove("active"));
+        tab.classList.add("active");
+        activeMode = tab.dataset.mode;
+        render();
+      });
+      render();
+    </script>
+    <script>
+      const colleges = [
+        {
+          id: 1,
+          name: "IIT Madras – Indian Institute of Technology [IITM]",
+          location: "Chennai, Tamil Nadu",
+          accred: ["AICTE", "NIRF #1", "QS Ranked"],
+          type: "Government",
+          rating: 8.3,
+          reviews: 60,
+          fees: { btech: "₹2.53L", mtech: "₹1.03L" },
+          courses: ["BE/B.Tech", "M.Tech", "MBA", "PhD"],
+          img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUWGBsaFxYYGBsdHRgbGhgaGh0dGBgaHiggGxslHhcWIjEhJSorLi4uGh8zODMtNygtLisBCgoKDg0OGxAQGy8lHyUtLS0tLS0uLS0tLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLy0tLS0tLf/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAgMEBgcBAAj/xABREAACAQIEAwQECQgGBwcFAAABAhEDIQAEEjEFIkEGE1FhMnGBkQcUI0JSU5LR0hZUk6GiscHwFzNigtPhFSQ0coOj40Rkc7KzwuJDY3Tx8v/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EAC4RAAICAQMBBwMEAwEAAAAAAAABAhEDEiExBBMUQVFhkaEiUvAycbHhgcHRM//aAAwDAQACEQMRAD8AreTyzZie7ZFCKPT5dUsVE8xXVBBMkeABBGr1JlKpU1nu2YDSxio9LVDnUxISAgUSB6XUME...",
+          state: "Tamil Nadu",
+          feesNum: 2.53,
+          placementLPA: 24,
+          badge: "Government",
+        },
+        {
+          id: 2,
+          name: "IIT Bombay – Indian Institute of Technology [IITB]",
+          location: "Mumbai, Maharashtra",
+          accred: ["AICTE", "UGC", "NIRF #3"],
+          type: "Government",
+          rating: 8.5,
+          reviews: 98,
+          fees: { btech: "₹2.31L", mtech: "₹72K" },
+          courses: ["BE/B.Tech", "M.Tech", "MBA", "PhD"],
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/IIT_Bombay_Logo.svg/120px-IIT_Bombay_Logo.svg.png",
+          state: "Maharashtra",
+          feesNum: 2.31,
+          placementLPA: 22,
+          badge: "Government",
+        },
+        {
+          id: 3,
+          name: "IIM Ahmedabad – Indian Institute of Management [IIMA]",
+          location: "Ahmedabad, Gujarat",
+          accred: ["AACSB", "EQUIS", "NIRF #1 Mgmt"],
+          type: "Government",
+          rating: 9.1,
+          reviews: 142,
+          fees: { pgp: "₹23.0L", epgp: "₹31.5L" },
+          courses: ["MBA/PGP", "PGPX", "FPM"],
+          img: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/IIM_Ahmedabad_Logo.svg/120px-IIM_Ahmedabad_Logo.svg.png",
+          state: "Gujarat",
+          feesNum: 23.0,
+          placementLPA: 35,
+          badge: "Government",
+        },
+        {
+          id: 4,
+          name: "VIT University – Vellore Institute of Technology",
+          location: "Vellore, Tamil Nadu",
+          accred: ["NAAC A++", "AICTE", "UGC"],
+          type: "Deemed",
+          rating: 7.8,
+          reviews: 215,
+          fees: { btech: "₹1.98L", mtech: "₹1.45L" },
+          courses: ["BE/B.Tech", "M.Tech", "MBA", "MCA"],
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/VIT_logo.png/120px-VIT_logo.png",
+          state: "Tamil Nadu",
+          feesNum: 1.98,
+          placementLPA: 8,
+          badge: "Deemed",
+        },
+        {
+          id: 5,
+          name: "Manipal Academy of Higher Education [MAHE]",
+          location: "Manipal, Karnataka",
+          accred: ["NAAC A+", "AICTE", "UGC"],
+          type: "Deemed",
+          rating: 7.6,
+          reviews: 189,
+          fees: { btech: "₹2.12L", mbbs: "₹7.25L" },
+          courses: ["BE/B.Tech", "MBBS", "MBA", "BBA/BBM"],
+          img: "https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/Manipal_Academy_of_Higher_Education_Logo.png/120px-Manipal_Academy_of_Higher_Education_Logo.png",
+          state: "Karnataka",
+          feesNum: 2.12,
+          placementLPA: 9,
+          badge: "Deemed",
+        },
+        {
+          id: 6,
+          name: "Delhi University – University of Delhi [DU]",
+          location: "New Delhi, Delhi",
+          accred: ["NAAC A++", "UGC", "NIRF #17"],
+          type: "Central",
+          rating: 7.9,
+          reviews: 302,
+          fees: { ba: "₹18K", bcom: "₹22K", bsc: "₹24K" },
+          courses: ["BA", "B.Com", "B.Sc", "MA", "MBA"],
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Delhi_university_logo.png/120px-Delhi_university_logo.png",
+          state: "Delhi",
+          feesNum: 0.22,
+          placementLPA: 6,
+          badge: "Government",
+        },
+        {
+          id: 7,
+          name: "BITS Pilani – Birla Institute of Technology and Science",
+          location: "Pilani, Rajasthan",
+          accred: ["NAAC A", "AICTE"],
+          type: "Deemed",
+          rating: 8.2,
+          reviews: 178,
+          fees: { btech: "₹5.16L", mtech: "₹2.85L" },
+          courses: ["BE/B.Tech", "M.Tech", "MBA", "MSc"],
+          img: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/120px-BITS_Pilani-Logo.svg.png",
+          state: "Rajasthan",
+          feesNum: 5.16,
+          placementLPA: 16,
+          badge: "Deemed",
+        },
+        {
+          id: 8,
+          name: "Amity University – Amity University Noida",
+          location: "Noida, Uttar Pradesh",
+          accred: ["NAAC A+", "AICTE", "UGC"],
+          type: "Private",
+          rating: 7.2,
+          reviews: 420,
+          fees: { btech: "₹1.85L", mba: "₹2.95L" },
+          courses: ["BE/B.Tech", "MBA", "BBA/BBM", "B.Sc", "LLB"],
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Amity_University_logo.png/120px-Amity_University_logo.png",
+          state: "Uttar Pradesh",
+          feesNum: 1.85,
+          placementLPA: 7,
+          badge: "Private",
+        },
+        {
+          id: 9,
+          name: "IIT Delhi – Indian Institute of Technology [IITD]",
+          location: "New Delhi, Delhi",
+          accred: ["AICTE", "NIRF #2"],
+          type: "Government",
+          rating: 8.4,
+          reviews: 88,
+          fees: { btech: "₹2.19L", mtech: "₹58K" },
+          courses: ["BE/B.Tech", "M.Tech", "PhD", "MBA"],
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/IIT_Delhi_logo.png/120px-IIT_Delhi_logo.png",
+          state: "Delhi",
+          feesNum: 2.19,
+          placementLPA: 28,
+          badge: "Government",
+        },
+        {
+          id: 10,
+          name: "Christ University – Christ (Deemed to be University)",
+          location: "Bangalore, Karnataka",
+          accred: ["NAAC A+", "UGC", "AICTE"],
+          type: "Deemed",
+          rating: 7.5,
+          reviews: 265,
+          fees: { ba: "₹1.10L", bcom: "₹98K", mba: "₹2.45L" },
+          courses: ["BA", "B.Com", "MBA", "BBA/BBM", "LLB"],
+          img: "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Christ_University_logo.png/120px-Christ_University_logo.png",
+          state: "Karnataka",
+          feesNum: 1.1,
+          placementLPA: 7,
+          badge: "Deemed",
+        },
+        {
+          id: 11,
+          name: "Manipal University Sikkim",
+          location: "Gangtok, Sikkim",
+          accred: ["AICTE", "UGC", "NAAC B++"],
+          type: "Private",
+          rating: 7.0,
+          reviews: 45,
+          fees: { btech: "₹1.80L", mba: "₹2.20L" },
+          courses: ["BE/B.Tech", "MBA", "BBA/BBM", "MCA"],
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IIT_Madras_Logo.svg/120px-IIT_Madras_Logo.svg.png",
+          state: "Sikkim",
+          feesNum: 1.8,
+          placementLPA: 7,
+          badge: "Private",
+        },
+      ];
+
+      function getExtendedData(c) {
+        const isIIT = c.name.includes("IIT"),
+          isIIM = c.name.includes("IIM"),
+          lpa = c.placementLPA;
+        const overviewMap = {
+          1: "IIT Madras, established in 1959, is India's premier engineering institution in Chennai. Consistently ranked #1 by NIRF, it is known for world-class research, innovation, and industry connect. The campus spans over 600 acres of lush greenery with state-of-the-art labs and the iconic Research Park – India's first on-campus technology park.",
+          2: "IIT Bombay, founded in 1958, is one of India's most prestigious engineering institutions. Situated on the picturesque Powai Lake campus in Mumbai, IITB is renowned for its vibrant entrepreneurial culture, world-class infrastructure, and exceptional alumni network spanning global tech giants.",
+          3: "IIM Ahmedabad, founded in 1961, is Asia's top-ranked business school and dream destination for management aspirants. Designed by architect Louis Kahn, the historic brick campus is an architectural marvel. IIMA's flagship PGP programme has produced leaders including Mukesh Ambani and several Fortune 500 CEOs.",
+          4: "VIT University was established in 1984 by G. Viswanathan. Accredited with NAAC A++ grade, VIT is one of India's largest private universities with over 50,000 students and strong industry collaborations with 400+ global companies.",
+          5: "Manipal Academy of Higher Education (MAHE), established in 1953, is a deemed university spread across 600+ acres. Offering 300+ courses across 30 disciplines, MAHE is one of India's first private medical institutions with collaborations with 500+ global universities.",
+          6: "University of Delhi, established in 1922, is one of India's largest central universities with 90 constituent colleges serving over 3 lakh students. DU's vibrant campuses are intellectual hubs with distinguished faculty and highly competitive admissions.",
+          7: "BITS Pilani, established in 1964, is India's premier private technical university known for its unique dual-degree programmes and Practice School model. The autonomous institution has campuses in Pilani, Goa, and Hyderabad.",
+          8: "Amity University Noida, established in 2005, is one of India's largest private universities offering 250+ programmes. Known for industry-linked curriculum and collaborations with over 1000 companies for internships and placements.",
+          9: "IIT Delhi, established in 1961, is India's second-ranked engineering institution in the heart of New Delhi. IITD benefits from proximity to India's policy and business centres and is a pioneer in interdisciplinary research and entrepreneurship.",
+          10: "Christ University (Deemed), Bangalore, established in 1969, is known for academic excellence in humanities, commerce, and management. With multiple campuses, Christ offers holistic education blending academics, sports, arts, and community service.",
+          11: "Manipal University Sikkim is part of the Manipal Education Group. Nestled in the scenic hills of Sikkim, it offers quality education in engineering, management, and sciences in a serene Himalayan campus setting.",
+        };
+        const examMap = {
+          Government: "JEE Advanced / GATE / CAT",
+          Deemed: "JEE Main / Management Entrance / NEET",
+          Central: "CUET / DU Entrance Test",
+          Private: "University-Level Entrance / JEE Main",
+        };
+        const coursesMap = {
+          1: [
+            {
+              name: "B.Tech – Computer Science",
+              level: "UG",
+              dur: "4 Yrs",
+              fees: "₹2.53L",
+              seats: "120",
+              elig: "JEE Advanced",
+              cat: "Engineering",
+            },
+            {
+              name: "B.Tech – Electrical Engg.",
+              level: "UG",
+              dur: "4 Yrs",
+              fees: "₹2.53L",
+              seats: "90",
+              elig: "JEE Advanced",
+              cat: "Engineering",
+            },
+            {
+              name: "B.Tech – Mechanical Engg.",
+              level: "UG",
+              dur: "4 Yrs",
+              fees: "₹2.53L",
+              seats: "80",
+              elig: "JEE Advanced",
+              cat: "Engineering",
+            },
+            {
+              name: "B.Tech – Civil Engg.",
+              level: "UG",
+              dur: "4 Yrs",
+              fees: "₹2.53L",
+              seats: "80",
+              elig: "JEE Advanced",
+              cat: "Engineering",
+            },
+            {
+              name: "B.Tech – Aerospace Engg.",
+              level: "UG",
+              dur: "4 Yrs",
+              fees: "₹2.53L",
+              seats: "40",
+              elig: "JEE Advanced",
+              cat: "Engineering",
+            },
+            {
+              name: "B.Tech – Chemical Engg.",
+              level: "UG",
+              dur: "4 Yrs",
+              fees: "₹2.53L",
+              seats: "60",
+              elig: "JEE Advanced",
+              cat: "Engineering",
+            },
+            {
+              name: "M.Tech – AI & Data Science",
+              level: "PG",
+              dur: "2 Yrs",
+              fees: "₹1.03L",
+              seats: "50",
+              elig: "GATE",
+              cat: "Engineering",
+            },
+            {
+              name: "M.Tech – VLSI Design",
+              level: "PG",
+              dur: "2 Yrs",
+              fees: "₹1.03L",
+              seats: "30",
+              elig: "GATE",
+              cat: "Engineering",
+            },
+            {
+              name: "MBA – Technology Management",
+              level: "PG",
+              dur: "2 Yrs",
+              fees: "₹4.20L",
+              seats: "60",
+              elig: "CAT/GMAT",
+              cat: "Management",
+            },
+            {
+              name: "M.Sc – Mathematics",
+              level: "PG",
+              dur: "2 Yrs",
+              fees: "₹58K",
+              seats: "40",
+              elig: "JAM",
+              cat: "Science",
+            },
+            {
+              name: "M.Sc – Physics",
+              level: "PG",
+              dur: "2 Yrs",
+              fees: "₹58K",
+              seats: "40",
+              elig: "JAM",
+              cat: "Science",
+            },
+            {
+              name: "Ph.D – Engineering",
+              level: "PhD",
+              dur: "4-6 Yrs",
+              fees: "₹22K/yr",
+              seats: "Open",
+              elig: "GATE + Interview",
+              cat: "Research",
+            },
+            {
+              name: "Ph.D – Science",
+              level: "PhD",
+              dur: "4-6 Yrs",
+              fees: "₹22K/yr",
+              seats: "Open",
+              elig: "NET + Interview",
+              cat: "Research",
+            },
+            {
+              name: "Executive MBA",
+              level: "PG",
+              dur: "1 Yr",
+              fees: "₹8.50L",
+              seats: "30",
+              elig: "5 Yrs Experience",
+              cat: "Management",
+            },
+            {
+              name: "B.S – Data Science (Online)",
+              level: "UG",
+              dur: "4 Yrs",
+              fees: "₹40K/yr",
+              seats: "Open",
+              elig: "10+2 Any Stream",
+              cat: "Online",
+            },
+          ],
+          3: [
+            {
+              name: "PGP (MBA) – General Management",
+              level: "PG",
+              dur: "2 Yrs",
+              fees: "₹23.0L",
+              seats: "400",
+              elig: "CAT 99%ile",
+              cat: "Management",
+            },
+            {
+              name: "PGP-FABM – Agri Business",
+              level: "PG",
+              dur: "2 Yrs",
+              fees: "₹16.0L",
+              seats: "50",
+              elig: "CAT",
+              cat: "Management",
+            },
+            {
+              name: "PGPX – Executive MBA",
+              level: "PG",
+              dur: "1 Yr",
+              fees: "₹31.5L",
+              seats: "100",
+              elig: "GMAT + 5 Yrs Exp",
+              cat: "Management",
+            },
+            {
+              name: "FPM – Fellow Programme (PhD)",
+              level: "PhD",
+              dur: "4-5 Yrs",
+              fees: "Fully Funded",
+              seats: "20",
+              elig: "CAT/GMAT + Interview",
+              cat: "Research",
+            },
+            {
+              name: "ePGP – Online MBA",
+              level: "PG",
+              dur: "1 Yr",
+              fees: "₹18.5L",
+              seats: "100",
+              elig: "3 Yrs Work Exp",
+              cat: "Online",
+            },
+            {
+              name: "PGPEM – Energy Management",
+              level: "PG",
+              dur: "1 Yr",
+              fees: "₹14.0L",
+              seats: "40",
+              elig: "Engineer + 2 Yrs Exp",
+              cat: "Management",
+            },
+            {
+              name: "Certificate – Business Analytics",
+              level: "Cert",
+              dur: "3 Months",
+              fees: "₹1.20L",
+              seats: "Open",
+              elig: "Graduation",
+              cat: "Management",
+            },
+            {
+              name: "Certificate – Digital Marketing",
+              level: "Cert",
+              dur: "3 Months",
+              fees: "₹80K",
+              seats: "Open",
+              elig: "Graduation",
+              cat: "Management",
+            },
+          ],
+        };
+        function defaultCourses(c) {
+          const rows = [];
+          if (c.fees.btech || c.fees.be)
+            rows.push(
+              {
+                name: "B.Tech – Computer Science & Engg.",
+                level: "UG",
+                dur: "4 Yrs",
+                fees: c.fees.btech || c.fees.be,
+                seats: "120",
+                elig: "JEE Main/Adv",
+                cat: "Engineering",
+              },
+              {
+                name: "B.Tech – Electronics & Comm.",
+                level: "UG",
+                dur: "4 Yrs",
+                fees: c.fees.btech || c.fees.be,
+                seats: "90",
+                elig: "JEE Main",
+                cat: "Engineering",
+              },
+              {
+                name: "B.Tech – Mechanical Engg.",
+                level: "UG",
+                dur: "4 Yrs",
+                fees: c.fees.btech || c.fees.be,
+                seats: "90",
+                elig: "JEE Main",
+                cat: "Engineering",
+              },
+              {
+                name: "B.Tech – Civil Engg.",
+                level: "UG",
+                dur: "4 Yrs",
+                fees: c.fees.btech || c.fees.be,
+                seats: "60",
+                elig: "JEE Main",
+                cat: "Engineering",
+              },
+              {
+                name: "B.Tech – Information Technology",
+                level: "UG",
+                dur: "4 Yrs",
+                fees: c.fees.btech || c.fees.be,
+                seats: "60",
+                elig: "JEE Main",
+                cat: "Engineering",
+              },
+              {
+                name: "B.Tech – Data Science & AI",
+                level: "UG",
+                dur: "4 Yrs",
+                fees: c.fees.btech || c.fees.be,
+                seats: "60",
+                elig: "JEE Main",
+                cat: "Engineering",
+              },
+            );
+          if (c.fees.mtech)
+            rows.push(
+              {
+                name: "M.Tech – Computer Science",
+                level: "PG",
+                dur: "2 Yrs",
+                fees: c.fees.mtech,
+                seats: "30",
+                elig: "GATE",
+                cat: "Engineering",
+              },
+              {
+                name: "M.Tech – Data Science",
+                level: "PG",
+                dur: "2 Yrs",
+                fees: c.fees.mtech,
+                seats: "25",
+                elig: "GATE",
+                cat: "Engineering",
+              },
+            );
+          if (c.fees.mba || c.fees.pgp)
+            rows.push(
+              {
+                name: "MBA – General Management",
+                level: "PG",
+                dur: "2 Yrs",
+                fees: c.fees.mba || c.fees.pgp,
+                seats: "120",
+                elig: "CAT/MAT",
+                cat: "Management",
+              },
+              {
+                name: "MBA – Marketing",
+                level: "PG",
+                dur: "2 Yrs",
+                fees: c.fees.mba || c.fees.pgp,
+                seats: "60",
+                elig: "CAT/MAT",
+                cat: "Management",
+              },
+              {
+                name: "MBA – Finance",
+                level: "PG",
+                dur: "2 Yrs",
+                fees: c.fees.mba || c.fees.pgp,
+                seats: "60",
+                elig: "CAT/MAT",
+                cat: "Management",
+              },
+            );
+          if (c.fees.mbbs)
+            rows.push(
+              {
+                name: "MBBS",
+                level: "UG",
+                dur: "5.5 Yrs",
+                fees: c.fees.mbbs,
+                seats: "150",
+                elig: "NEET-UG",
+                cat: "Medical",
+              },
+              {
+                name: "BDS – Dental Surgery",
+                level: "UG",
+                dur: "5 Yrs",
+                fees: "₹5.80L",
+                seats: "60",
+                elig: "NEET-UG",
+                cat: "Medical",
+              },
+              {
+                name: "B.Pharm",
+                level: "UG",
+                dur: "4 Yrs",
+                fees: "₹1.20L",
+                seats: "60",
+                elig: "NEET/PCB",
+                cat: "Medical",
+              },
+              {
+                name: "MD – General Medicine",
+                level: "PG",
+                dur: "3 Yrs",
+                fees: "₹8.50L",
+                seats: "20",
+                elig: "NEET-PG",
+                cat: "Medical",
+              },
+              {
+                name: "MS – Surgery",
+                level: "PG",
+                dur: "3 Yrs",
+                fees: "₹8.50L",
+                seats: "15",
+                elig: "NEET-PG",
+                cat: "Medical",
+              },
+            );
+          if (c.fees.ba)
+            rows.push(
+              {
+                name: "BA – English (Hons)",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.ba,
+                seats: "80",
+                elig: "10+2 Any Stream",
+                cat: "Arts",
+              },
+              {
+                name: "BA – Political Science (Hons)",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.ba,
+                seats: "80",
+                elig: "10+2 Any Stream",
+                cat: "Arts",
+              },
+              {
+                name: "BA – Economics (Hons)",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.ba,
+                seats: "80",
+                elig: "10+2 Any Stream",
+                cat: "Arts",
+              },
+              {
+                name: "BA – History (Hons)",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.ba,
+                seats: "60",
+                elig: "10+2 Any Stream",
+                cat: "Arts",
+              },
+              {
+                name: "MA – English",
+                level: "PG",
+                dur: "2 Yrs",
+                fees: "₹32K",
+                seats: "40",
+                elig: "Graduation in English",
+                cat: "Arts",
+              },
+            );
+          if (c.fees.bcom)
+            rows.push(
+              {
+                name: "B.Com (Hons)",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.bcom,
+                seats: "100",
+                elig: "10+2 Commerce",
+                cat: "Commerce",
+              },
+              {
+                name: "B.Com – Accounting & Finance",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.bcom,
+                seats: "80",
+                elig: "10+2 Commerce",
+                cat: "Commerce",
+              },
+              {
+                name: "M.Com",
+                level: "PG",
+                dur: "2 Yrs",
+                fees: "₹40K",
+                seats: "60",
+                elig: "B.Com Graduation",
+                cat: "Commerce",
+              },
+            );
+          if (c.fees.bsc)
+            rows.push(
+              {
+                name: "B.Sc – Computer Science",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.bsc,
+                seats: "80",
+                elig: "10+2 PCM",
+                cat: "Science",
+              },
+              {
+                name: "B.Sc – Physics (Hons)",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.bsc,
+                seats: "60",
+                elig: "10+2 PCM",
+                cat: "Science",
+              },
+              {
+                name: "B.Sc – Chemistry (Hons)",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: c.fees.bsc,
+                seats: "60",
+                elig: "10+2 PCM",
+                cat: "Science",
+              },
+            );
+          if (!rows.length || c.courses.includes("LLB"))
+            rows.push(
+              {
+                name: "LLB – Law",
+                level: "UG",
+                dur: "3 Yrs",
+                fees: "₹90K",
+                seats: "60",
+                elig: "Graduation",
+                cat: "Law",
+              },
+              {
+                name: "BA LLB (Integrated)",
+                level: "UG",
+                dur: "5 Yrs",
+                fees: "₹1.10L",
+                seats: "60",
+                elig: "10+2",
+                cat: "Law",
+              },
+            );
+          rows.push({
+            name: "Ph.D – Various Disciplines",
+            level: "PhD",
+            dur: "3-6 Yrs",
+            fees: "₹20K/yr",
+            seats: "Open",
+            elig: "PG + NET/JRF",
+            cat: "Research",
+          });
+          return rows;
+        }
+        const coursesData = coursesMap[c.id] || defaultCourses(c);
+        const allCats = [...new Set(coursesData.map((r) => r.cat))];
+        return {
+          overview:
+            overviewMap[c.id] ||
+            `${c.name} is a leading institution known for academic excellence and strong placements.`,
+          highlights: [
+            {
+              icon: "🏛️",
+              label: "Established",
+              val: [
+                1959, 1958, 1961, 1984, 1953, 1922, 1964, 2005, 1961, 1969,
+                2010,
+              ][c.id - 1],
+            },
+            {
+              icon: "📍",
+              label: "Campus",
+              val: [
+                "600 Acres",
+                "550 Acres",
+                "100 Acres",
+                "250 Acres",
+                "600 Acres",
+                "Multiple",
+                "290 Acres",
+                "150 Acres",
+                "325 Acres",
+                "70 Acres",
+                "50 Acres",
+              ][c.id - 1],
+            },
+            {
+              icon: "🎓",
+              label: "Students",
+              val: [
+                "9,000+",
+                "11,000+",
+                "1,200+",
+                "52,000+",
+                "28,000+",
+                "3,00,000+",
+                "13,000+",
+                "1,75,000+",
+                "8,500+",
+                "32,000+",
+                "4,500+",
+              ][c.id - 1],
+            },
+            {
+              icon: "👨‍🏫",
+              label: "Faculty",
+              val: [
+                "600+",
+                "800+",
+                "100+",
+                "2,000+",
+                "2,500+",
+                "5,000+",
+                "500+",
+                "5,500+",
+                "550+",
+                "1,800+",
+                "300+",
+              ][c.id - 1],
+            },
+            {
+              icon: "🏆",
+              label: "NIRF Rank",
+              val: c.accred.find((a) => a.includes("NIRF")) || "Ranked",
+            },
+            {
+              icon: "✅",
+              label: "Accreditation",
+              val: c.accred
+                .filter((a) => !a.includes("NIRF") && !a.includes("QS"))
+                .join(", "),
+            },
+          ],
+          rankings: [
+            {
+              src: "NIRF",
+              val:
+                c.accred
+                  .find((a) => a.includes("NIRF"))
+                  ?.replace("NIRF ", "")
+                  ?.replace("Mgmt", "Mgmt")
+                  ?.trim() || "Top 50",
+              year: "2024",
+              icon: "🏅",
+            },
+            {
+              src: "QS Asia",
+              val: c.accred.includes("QS Ranked") ? "Top 200" : "Top 500",
+              year: "2024",
+              icon: "🌏",
+            },
+            {
+              src: "India Today",
+              val: isIIT ? "Top 5 Engg" : isIIM ? "Top 3 MBA" : "Top 20",
+              year: "2024",
+              icon: "📰",
+            },
+            {
+              src: "Outlook",
+              val: isIIT ? "Top 5" : "Top 20",
+              year: "2024",
+              icon: "📊",
+            },
+          ],
+          coursesData,
+          allCats,
+          cutoffExams: isIIT
+            ? ["JEE Advanced", "GATE"]
+            : isIIM
+              ? ["CAT", "GMAT"]
+              : ["JEE Main", "State CET"],
+          cutoffData: {
+            "JEE Advanced": [
+              { cat: "General", open: "1", close: "2200", round: "Round 3" },
+              { cat: "OBC-NCL", open: "1", close: "1100", round: "Round 3" },
+              { cat: "SC", open: "1", close: "680", round: "Round 3" },
+              { cat: "ST", open: "1", close: "310", round: "Round 3" },
+              { cat: "EWS", open: "1", close: "850", round: "Round 3" },
+            ],
+            GATE: [
+              { cat: "General", open: "750", close: "850", round: "Final" },
+              { cat: "OBC", open: "700", close: "800", round: "Final" },
+              { cat: "SC/ST", open: "600", close: "720", round: "Final" },
+            ],
+            CAT: [
+              { cat: "General", open: "98", close: "100", round: "Final" },
+              { cat: "NC-OBC", open: "90", close: "98", round: "Final" },
+              { cat: "SC", open: "75", close: "90", round: "Final" },
+              { cat: "ST", open: "60", close: "80", round: "Final" },
+            ],
+            GMAT: [
+              { cat: "General", open: "680", close: "760", round: "Final" },
+            ],
+            "JEE Main": [
+              { cat: "General", open: "1", close: "45000", round: "Round 2" },
+              { cat: "OBC-NCL", open: "1", close: "25000", round: "Round 2" },
+              { cat: "SC", open: "1", close: "12000", round: "Round 2" },
+              { cat: "ST", open: "1", close: "6000", round: "Round 2" },
+            ],
+            "State CET": [
+              { cat: "General", open: "1", close: "80000", round: "Round 3" },
+              { cat: "OBC", open: "1", close: "50000", round: "Round 3" },
+            ],
+          },
+          admissionSteps: [
+            {
+              title: "Check Eligibility",
+              desc: "Verify academic qualifications and age criteria for your chosen programme.",
+              tip: "",
+            },
+            {
+              title: "Appear for Entrance Exam",
+              desc: `Qualify ${examMap[c.type]}. Scores are mandatory for shortlisting.`,
+              tip: "💡 Tip: Apply for JEE/CAT at least 6 months in advance",
+            },
+            {
+              title: "Fill Online Application",
+              desc: "Visit the official website and complete the online application form with required documents.",
+              tip: "",
+            },
+            {
+              title: "Pay Application Fee",
+              desc: "Pay the non-refundable fee via Net Banking / UPI / Card.",
+              tip: "💡 Fee: ₹300–₹1,500 depending on category",
+            },
+            {
+              title: "Shortlisting & WAT/GD/PI",
+              desc: "Shortlisted candidates are called for Written Ability Test, Group Discussion, and Personal Interview.",
+              tip: "",
+            },
+            {
+              title: "Final Merit List & Offer Letter",
+              desc: "Selection based on entrance score, academic record, and interview. Offer letters released online.",
+              tip: "",
+            },
+            {
+              title: "Fee Payment & Enrollment",
+              desc: "Pay semester fee within the deadline. Collect student ID and report to campus.",
+              tip: "💡 Keep all documents attested before reporting",
+            },
+          ],
+          placement: {
+            avgLPA: `₹${lpa}L`,
+            maxLPA: `₹${lpa * 2.5}L`,
+            placedPct: `${Math.min(98, 80 + c.id)}%`,
+            medianLPA: `₹${(lpa * 0.8).toFixed(1)}L`,
+            topSalary: `₹${lpa * 3}L`,
+            offers: `${200 + c.id * 40}+`,
+            sectorBreakdown: [
+              { sector: "Technology", pct: isIIT ? 42 : isIIM ? 18 : 35 },
+              { sector: "Finance/BFSI", pct: isIIT ? 15 : isIIM ? 32 : 12 },
+              { sector: "Consulting", pct: isIIT ? 12 : isIIM ? 28 : 8 },
+              { sector: "Core Engg.", pct: isIIT ? 20 : isIIM ? 5 : 25 },
+              { sector: "Others", pct: isIIT ? 11 : isIIM ? 17 : 20 },
+            ],
+          },
+          recruiters: isIIT
+            ? [
+                "Microsoft",
+                "Google",
+                "Amazon",
+                "Goldman Sachs",
+                "McKinsey",
+                "Deloitte",
+                "Apple",
+                "Samsung",
+                "NVIDIA",
+                "Meta",
+                "DE Shaw",
+                "Rubrik",
+                "Uber",
+                "LinkedIn",
+                "Adobe",
+              ]
+            : isIIM
+              ? [
+                  "McKinsey",
+                  "BCG",
+                  "Bain",
+                  "Goldman Sachs",
+                  "JP Morgan",
+                  "Morgan Stanley",
+                  "Google",
+                  "Amazon",
+                  "HUL",
+                  "HDFC Bank",
+                  "Aditya Birla",
+                  "Marico",
+                  "P&G",
+                  "Nestle",
+                  "KPMG",
+                ]
+              : [
+                  "TCS",
+                  "Infosys",
+                  "Wipro",
+                  "Cognizant",
+                  "Accenture",
+                  "Capgemini",
+                  "HCL",
+                  "Tech Mahindra",
+                  "Deloitte",
+                  "EY",
+                  "L&T",
+                  "IBM",
+                  "Oracle",
+                  "Hexaware",
+                ],
+          results: [
+            {
+              year: "2024",
+              course: "B.Tech",
+              appeared: 2200,
+              pass: 98.4,
+              distinction: 34.2,
+              trend: "+0.5",
+            },
+            {
+              year: "2024",
+              course: "M.Tech",
+              appeared: 480,
+              pass: 99.1,
+              distinction: 41.8,
+              trend: "+1.2",
+            },
+            {
+              year: "2024",
+              course: "MBA/PGP",
+              appeared: 350,
+              pass: 99.5,
+              distinction: 48.0,
+              trend: "+2.1",
+            },
+            {
+              year: "2023",
+              course: "B.Tech",
+              appeared: 2050,
+              pass: 97.9,
+              distinction: 31.6,
+              trend: "-",
+            },
+            {
+              year: "2023",
+              course: "M.Tech",
+              appeared: 450,
+              pass: 98.8,
+              distinction: 39.3,
+              trend: "-",
+            },
+            {
+              year: "2023",
+              course: "MBA/PGP",
+              appeared: 320,
+              pass: 99.1,
+              distinction: 44.2,
+              trend: "-",
+            },
+          ],
+          reviews: [
+            {
+              name: "Rahul Sharma",
+              course: "B.Tech CSE 2023",
+              rating: 5,
+              text: "Amazing campus life and faculty. Placements are top-notch – I got placed at Microsoft with a ₹42 LPA package. Lab infrastructure and research opportunities are world-class. Hostel life is collaborative and the alumni network is truly global.",
+              tags: [
+                "Great Placements",
+                "Good Faculty",
+                "Research",
+                "Campus Life",
+              ],
+              helpful: 42,
+            },
+            {
+              name: "Priya Verma",
+              course: "M.Tech 2022",
+              rating: 4,
+              text: "The academic rigour is intense but very rewarding. Faculty is extremely knowledgeable and helpful during research. Canteen food could be better but overall an excellent experience. The alumni network has been very helpful after graduation.",
+              tags: ["Good Faculty", "Tough Academics", "Alumni Network"],
+              helpful: 28,
+            },
+            {
+              name: "Ankit Singh",
+              course: "B.Tech Mech 2024",
+              rating: 4,
+              text: "Very good exposure to industry through internships and campus drives. Some departments need better lab upgrades. The entrepreneurship cell organises amazing hackathons and startup weekends. The library has excellent resources.",
+              tags: ["Industry Exposure", "Internships", "E-Cell"],
+              helpful: 19,
+            },
+            {
+              name: "Sneha Joshi",
+              course: "MBA 2023",
+              rating: 5,
+              text: "The MBA programme here completely transformed my career. The peer learning from brilliant classmates is invaluable. The case study method is very practical. Placements were excellent – I got a consulting role at BCG.",
+              tags: ["MBA", "Consulting", "Great ROI"],
+              helpful: 35,
+            },
+          ],
+          ratingDist: [
+            { star: 5, pct: 62 },
+            { star: 4, pct: 24 },
+            { star: 3, pct: 10 },
+            { star: 2, pct: 3 },
+            { star: 1, pct: 1 },
+          ],
+          qna: [
+            {
+              q: `What is the admission process for ${c.courses[0]} at ${c.name.split("–")[0].trim()}?`,
+              a: `Admission to ${c.courses[0]} requires qualifying the relevant entrance exam (${examMap[c.type]}), followed by counselling/interview rounds. Final selection is merit-based.`,
+            },
+            {
+              q: "Is hostel facility available on campus?",
+              a: "Yes, separate hostels for boys and girls are available with mess, Wi-Fi, laundry, and 24/7 security. Allotment is done at admission based on availability.",
+            },
+            {
+              q: "What scholarships are available?",
+              a: "Merit scholarships, government scholarships (SC/ST/OBC/EWS), and need-based financial aid are available. Students can also apply for PM Scholarship and state scholarships.",
+            },
+            {
+              q: "What is the average placement package?",
+              a: `The average placement is ₹${lpa} LPA. The highest package has gone up to ₹${lpa * 2.5} LPA from top MNC recruiters.`,
+            },
+            {
+              q: "Are international exchange programs available?",
+              a: "Yes, exchange programmes with partner universities in USA, Germany, UK, Australia, Singapore, and Japan are available for 3rd or 4th year students.",
+            },
+            {
+              q: "What is the refund policy if I withdraw admission?",
+              a: "Refund policies follow UGC guidelines. Students withdrawing before a certain date are eligible for partial refund. Refer to the official prospectus for year-specific deadlines.",
+            },
+          ],
+          scholarships: [
+            {
+              icon: "🥇",
+              name: "Merit Scholarship",
+              amt: "Up to 100% tuition waiver",
+              desc: "Awarded to top academic performers. Renewed every semester based on CGPA above 8.5.",
+              tag: "Renewable",
+            },
+            {
+              icon: "💰",
+              name: "Need-Based Aid",
+              amt: "Up to ₹1.5L/year",
+              desc: "Financial assistance for students from economically weaker sections (EWS). Income certificate required.",
+              tag: "Annual",
+            },
+            {
+              icon: "🏛️",
+              name: "SC/ST/OBC Scholarship",
+              amt: "Full fee waiver",
+              desc: "Central & state government scholarships for reserved category students. Apply via NSP portal.",
+              tag: "Govt. Scheme",
+            },
+            {
+              icon: "⚽",
+              name: "Sports Excellence Award",
+              amt: "Up to ₹50K/year",
+              desc: "For students representing at national or state level in AIFF / SAI recognised events.",
+              tag: "Merit",
+            },
+            {
+              icon: "🔬",
+              name: "Research Fellowship",
+              amt: "₹28K–₹35K/month",
+              desc: "JRF/SRF fellowships for PhD scholars funded by UGC, DST, CSIR, or the institute.",
+              tag: "PhD Only",
+            },
+            {
+              icon: "🌍",
+              name: "International Student Scholarship",
+              amt: "25–50% tuition waiver",
+              desc: "Special incentive for students from SAARC and African nations. Subject to availability.",
+              tag: "International",
+            },
+          ],
+          news: [
+            {
+              title: "Admission 2025 Applications Open",
+              date: "Jan",
+              month: "2025",
+              tag: "Admission",
+              tagCls: "nt-admission",
+              desc: "Applications for the 2025 batch are now open across all UG and PG programmes. Apply before the deadline.",
+            },
+            {
+              title: "Placement Season Record Broken",
+              date: "Dec",
+              month: "2024",
+              tag: "Placement",
+              tagCls: "nt-placement",
+              desc: `Highest package reached ₹${lpa * 3} LPA with ${Math.min(98, 80 + c.id)}% placement rate in the current season.`,
+            },
+            {
+              title: "New AI & Cybersecurity Specialisation Launched",
+              date: "Nov",
+              month: "2024",
+              tag: "Academics",
+              tagCls: "nt-academics",
+              desc: "New B.Tech specialisations in Artificial Intelligence and Cybersecurity introduced from the 2025 batch.",
+            },
+            {
+              title: "Scholarship Deadline Extended to 31st March",
+              date: "Oct",
+              month: "2024",
+              tag: "Scholarship",
+              tagCls: "nt-scholarship",
+              desc: "Students can now apply for all merit and need-based scholarships until the extended date of 31st March 2025.",
+            },
+            {
+              title: "Annual Tech Fest '25 – Registrations Open",
+              date: "Sep",
+              month: "2024",
+              tag: "Event",
+              tagCls: "nt-event",
+              desc: "The annual technical festival opens registrations. 50+ events, hackathons, and celebrity lectures expected.",
+            },
+          ],
+          quickInfo: [
+            { key: "Type", val: c.type },
+            {
+              key: "Affiliation",
+              val:
+                c.type === "Government"
+                  ? "Ministry of Education, GoI"
+                  : c.type === "Central"
+                    ? "UGC / Central Govt"
+                    : c.accred.includes("NAAC A++")
+                      ? "NAAC A++"
+                      : "UGC Approved",
+            },
+            {
+              key: "Approval",
+              val: c.accred
+                .filter(
+                  (a) =>
+                    !a.includes("NIRF") &&
+                    !a.includes("QS") &&
+                    !a.includes("Mgmt"),
+                )
+                .join(", "),
+            },
+            {
+              key: "Campus",
+              val: [
+                "600 Acres",
+                "550 Acres",
+                "100 Acres",
+                "250 Acres",
+                "600 Acres",
+                "Multiple",
+                "290 Acres",
+                "150 Acres",
+                "325 Acres",
+                "70 Acres",
+                "50 Acres",
+              ][c.id - 1],
+            },
+            { key: "Total Courses", val: "50+" },
+            { key: "Mode", val: "Full Time / On Campus" },
+          ],
+          deadlines: [
+            { key: "Applications Open", val: "Jan 2025" },
+            { key: "Last Date to Apply", val: "Mar 15, 2025" },
+            { key: "Entrance Exam", val: "Apr–May 2025" },
+            { key: "Results Declared", val: "Jun 2025" },
+            { key: "Counselling", val: "Jul–Aug 2025" },
+            { key: "Classes Begin", val: "Aug 2025" },
+          ],
+          contact: {
+            addr: `Admission Office, ${c.name.split("–")[0].trim()}, ${c.location}`,
+            phone: "+91-44-2257-8000",
+            email: "admissions@college.edu.in",
+            web: "www.college.edu.in",
+          },
+        };
+      }
+
+      const savedId = parseInt(localStorage.getItem("selectedCollegeId")) || 1;
+      const college = colleges.find((c) => c.id === savedId) || colleges[0];
+      const ext = getExtendedData(college);
+
+      document.getElementById("heroLogo").src = college.img;
+      document.getElementById("heroLogo").alt = college.name;
+      document.getElementById("heroName").textContent = college.name;
+      document.getElementById("heroLoc").textContent = college.location;
+      document.getElementById("heroRating").textContent = college.rating;
+
+      const starsEl = document.getElementById("heroStars");
+      const fullStars = Math.floor(college.rating / 2);
+      for (let i = 0; i < 5; i++)
+        starsEl.innerHTML += `<span class="rb-star">${i < fullStars ? "⭐" : "☆"}</span>`;
+      document.getElementById("heroReviews").textContent =
+        `(${college.reviews} reviews)`;
+
+      const badgeMap = {
+        Government: "hb-govt",
+        Deemed: "hb-deemed",
+        Private: "hb-private",
+        Central: "hb-govt",
+      };
+      const badgesEl = document.getElementById("heroBadges");
+      badgesEl.innerHTML = `<span class="hb ${badgeMap[college.badge] || "hb-govt"}">${college.type}</span>`;
+      college.accred.forEach((a) => {
+        const cls = a.includes("NIRF")
+          ? "hb-nirf"
+          : a.includes("NAAC")
+            ? "hb-naac"
+            : "hb-aicte";
+        badgesEl.innerHTML += `<span class="hb ${cls}">${a}</span>`;
+      });
+
+      document.getElementById("heroStats").innerHTML = `
+      <div class="hs-item"><div class="hs-val">${college.rating}/10</div><div class="hs-lbl">Rating</div></div>
+      <div class="hs-item"><div class="hs-val">#${
+        college.accred
+          .find((a) => a.includes("NIRF"))
+          ?.replace("NIRF ", "")
+          ?.replace("#", "")
+          ?.replace("Mgmt", "")
+          ?.trim() || "–"
+      } NIRF</div><div class="hs-lbl">Ranking</div></div>
+      <div class="hs-item"><div class="hs-val">₹${college.placementLPA}L</div><div class="hs-lbl">Avg Package</div></div>
+      <div class="hs-item"><div class="hs-val">${college.reviews}+</div><div class="hs-lbl">Reviews</div></div>
+      <div class="hs-item"><div class="hs-val">${ext.coursesData.length}+</div><div class="hs-lbl">Courses</div></div>`;
+
+      document.getElementById("overviewText").innerHTML =
+        `<p>${ext.overview}</p>`;
+      document.getElementById("highlightsGrid").innerHTML = ext.highlights
+        .map(
+          (h) =>
+            `<div class="hl-item"><div class="hl-icon">${h.icon}</div><div><div class="hl-label">${h.label}</div><div class="hl-val">${h.val}</div></div></div>`,
+        )
+        .join("");
+      document.getElementById("rankingGrid").innerHTML = ext.rankings
+        .map(
+          (r) =>
+            `<div class="rank-item"><div class="rank-badge">${r.icon}</div><div class="rank-body"><div class="rank-val">${r.val}</div><div class="rank-src">${r.src} Ranking</div><div class="rank-year">${r.year}</div></div></div>`,
+        )
+        .join("");
+
+      let activeCat = "All";
+      const filterEl = document.getElementById("coursesFilter");
+      const allCatsWithAll = ["All", ...ext.allCats];
+      function renderCourses() {
+        const d =
+          activeCat === "All"
+            ? ext.coursesData
+            : ext.coursesData.filter((r) => r.cat === activeCat);
+        const levelMap = {
+          UG: "lb-ug",
+          PG: "lb-pg",
+          PhD: "lb-phd",
+          Cert: "lb-cert",
+        };
+        document.getElementById("coursesBody").innerHTML = d
+          .map(
+            (r) =>
+              `<tr><td><div class="course-name">${r.name}</div><div class="course-sub">${r.cat}</div></td><td><span class="level-badge ${levelMap[r.level] || "lb-ug"}">${r.level}</span></td><td><span class="course-dur">${r.dur}</span></td><td><span class="fee-tag">${r.fees}</span></td><td><span class="seats-tag">${r.seats}</span></td><td><span class="eligibility-tag">${r.elig}</span></td></tr>`,
+          )
+          .join("");
+      }
+      filterEl.innerHTML = allCatsWithAll
+        .map(
+          (cat) =>
+            `<button class="cf-btn ${cat === activeCat ? "active" : ""}" onclick="activeCat='${cat}';renderCourses();document.querySelectorAll('.cf-btn').forEach(b=>b.classList.toggle('active',b.textContent==='${cat}'))">${cat}</button>`,
+        )
+        .join("");
+      renderCourses();
+
+      const cutoffTabsEl = document.getElementById("cutoffTabs");
+      const cutoffBodyEl = document.getElementById("cutoffBody");
+      let activeCutoff = ext.cutoffExams[0];
+      function renderCutoff() {
+        const d = ext.cutoffData[activeCutoff] || [];
+        cutoffBodyEl.innerHTML = d
+          .map(
+            (r) =>
+              `<tr><td>${r.cat}</td><td class="rank-highlight">${r.open}</td><td class="rank-highlight">${r.close}</td><td>${r.round}</td></tr>`,
+          )
+          .join("");
+      }
+      cutoffTabsEl.innerHTML = ext.cutoffExams
+        .map(
+          (e) =>
+            `<div class="ct-tab ${e === activeCutoff ? "active" : ""}" onclick="activeCutoff='${e}';renderCutoff();document.querySelectorAll('.ct-tab').forEach(t=>t.classList.toggle('active',t.textContent.trim()==='${e}'))">${e}</div>`,
+        )
+        .join("");
+      renderCutoff();
+
+      document.getElementById("admissionSteps").innerHTML = ext.admissionSteps
+        .map(
+          (s, i) =>
+            `<div class="as-step"><div class="as-num">${i + 1}</div><div class="as-content"><div class="as-title">${s.title}</div><div class="as-desc">${s.desc}</div>${s.tip ? `<span class="as-tip">${s.tip}</span>` : ""}</div></div>`,
+        )
+        .join("");
+
+      const p = ext.placement;
+      document.getElementById("placementStats").innerHTML =
+        `<div class="ps-item"><div class="ps-val">${p.avgLPA}</div><div class="ps-lbl">Avg Package</div></div><div class="ps-item"><div class="ps-val">${p.maxLPA}</div><div class="ps-lbl">Highest Package</div></div><div class="ps-item"><div class="ps-val">${p.placedPct}</div><div class="ps-lbl">Placement Rate</div></div><div class="ps-item"><div class="ps-val">${p.medianLPA}</div><div class="ps-lbl">Median Package</div></div><div class="ps-item"><div class="ps-val">${p.offers}</div><div class="ps-lbl">Total Offers</div></div><div class="ps-item"><div class="ps-val">${p.topSalary}</div><div class="ps-lbl">Top Salary</div></div>`;
+      document.getElementById("placementChart").innerHTML =
+        `<div class="pc-title">Placement by Sector</div>${p.sectorBreakdown.map((s) => `<div class="pc-bar-row"><div class="pc-label">${s.sector}</div><div class="pc-bar-bg"><div class="pc-bar-fill" style="width:${s.pct}%"></div></div><div class="pc-pct">${s.pct}%</div></div>`).join("")}`;
+      document.getElementById("recruiterLogos").innerHTML = ext.recruiters
+        .map((r) => `<div class="recruiter-chip">${r}</div>`)
+        .join("");
+
+      const years = [...new Set(ext.results.map((r) => r.year))];
+      let activeYear = years[0];
+      const resultTabsEl = document.getElementById("resultTabs");
+      const resultBodyEl = document.getElementById("resultBody");
+      function renderResult() {
+        resultBodyEl.innerHTML = ext.results
+          .filter((r) => r.year === activeYear)
+          .map(
+            (r) =>
+              `<tr><td>${r.course}</td><td>${r.appeared.toLocaleString()}</td><td><span class="pass-rate">${r.pass}%</span></td><td>${r.distinction}%</td><td>${r.trend && r.trend !== "-" ? `<span class="trend-up">▲ ${r.trend}</span>` : "–"}</td></tr>`,
+          )
+          .join("");
+      }
+      resultTabsEl.innerHTML = years
+        .map(
+          (y) =>
+            `<div class="ry-tab ${y === activeYear ? "active" : ""}" onclick="activeYear='${y}';renderResult();document.querySelectorAll('.ry-tab').forEach(t=>t.classList.toggle('active',t.textContent.trim()==='${y}'))">${y}</div>`,
+        )
+        .join("");
+      renderResult();
+
+      const avatarColors = [
+        "#e85d3a",
+        "#16a34a",
+        "#7c3aed",
+        "#0369a1",
+        "#e8a020",
+      ];
+      document.getElementById("reviewsList").innerHTML = ext.reviews
+        .map(
+          (r, i) =>
+            `<div class="review-card"><div class="review-header"><div class="rv-avatar" style="background:${avatarColors[i % 5]}">${r.name
+              .split(" ")
+              .map((w) => w[0])
+              .join("")
+              .slice(
+                0,
+                2,
+              )}</div><div><div class="rv-name">${r.name}</div><div class="rv-meta">${r.course}</div></div><div class="rv-rating">${"⭐".repeat(r.rating)}</div></div><div class="rv-text">${r.text}</div><div class="rv-tags">${r.tags.map((t) => `<span class="rv-tag">${t}</span>`).join("")}</div><div class="rv-helpful">👍 ${r.helpful} people found this helpful</div></div>`,
+        )
+        .join("");
+      document.getElementById("qnaList").innerHTML = ext.qna
+        .map(
+          (q) =>
+            `<div class="qna-item"><div class="qna-q" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.qna-arrow').style.transform=this.nextElementSibling.classList.contains('open')?'rotate(180deg)':'';">${q.q}<span class="qna-arrow">▾</span></div><div class="qna-a">${q.a}</div></div>`,
+        )
+        .join("");
+      document.getElementById("scholarshipList").innerHTML = ext.scholarships
+        .map(
+          (s) =>
+            `<div class="sch-card"><div class="sch-icon">${s.icon}</div><div class="sch-name">${s.name}</div><div class="sch-amt">${s.amt}</div><div class="sch-desc">${s.desc}</div><span class="sch-tag">${s.tag}</span></div>`,
+        )
+        .join("");
+      document.getElementById("newsList").innerHTML = ext.news
+        .map(
+          (n) =>
+            `<div class="news-card"><div class="news-left"><div class="news-date-d">${n.date}</div><div class="news-date-m">${n.month}</div></div><div class="news-content"><span class="news-tag ${n.tagCls}">${n.tag}</span><div class="news-title">${n.title}</div><div class="news-desc">${n.desc}</div></div></div>`,
+        )
+        .join("");
+      document.getElementById("quickInfo").innerHTML = ext.quickInfo
+        .map(
+          (r) =>
+            `<div class="sw-row"><span class="sw-key">${r.key}</span><span class="sw-val">${r.val}</span></div>`,
+        )
+        .join("");
+      document.getElementById("deadlines").innerHTML = ext.deadlines
+        .map(
+          (r) =>
+            `<div class="sw-row"><span class="sw-key">${r.key}</span><span class="sw-val accent">${r.val}</span></div>`,
+        )
+        .join("");
+      document.getElementById("contactInfo").innerHTML =
+        `📍 ${ext.contact.addr}<br>📞 ${ext.contact.phone}<br>📧 ${ext.contact.email}<br>🌐 ${ext.contact.web}`;
+
+      function scrollToSection(id, tab) {
+        document
+          .querySelectorAll(".nav-tab")
+          .forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        const el = document.getElementById(id);
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }
+      const sections = [
+        "overview",
+        "ranking",
+        "courses",
+        "cutoff",
+        "admission",
+        "placement",
+        "results",
+        "reviews",
+        "qna",
+        "scholarship",
+        "news",
+      ];
+      window.addEventListener("scroll", () => {
+        const tabs = document.querySelectorAll(".nav-tab");
+        let current = sections[0];
+        sections.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && window.scrollY >= el.offsetTop - 130) current = id;
+        });
+        tabs.forEach((t, i) =>
+          t.classList.toggle("active", sections[i] === current),
+        );
+      });
+    </script>
+    <script>
+  function openDrawer(){
+    document.getElementById("mDrawer") .classList.add("open");
+    document.getElementById("mOverlay").classList.add("show");
+  }
+  function closeDrawer (){
+  document.getElementById("mDrawer").classList.remove("open")
+  document.getElementById("mOverlay").classList.remove("show")
+  }
+  function toggleAcc(btn){
+  btn.classList.toggle("open");
+  let body = btn.nextElementSibling;
+  body.classList.toggle("open")
+  }
+    </script>
+  </body>
+</html>

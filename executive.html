@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <style>
+          :root {
+        --bg: #f4f6fb;
+        --white: #fff;
+        --navy: #0b1437;
+        --navy2: #162050;
+        --text: #1a2340;
+        --muted: #6b7a99;
+        --border: #dde3f0;
+        --light: #e8ecf7;
+        --exec: #e85d3a;
+        --exec-bg: #fff3f0;
+        --online: #0aab87;
+        --online-bg: #ebfaf6;
+        --offline: #5c4ee8;
+        --offline-bg: #f0eeff;
+        --abroad: #e8a020;
+        --abroad-bg: #fff8eb;
+        --accent: #2563eb;
+        --accent2: #eff4ff;
+        --sh1: 0 1px 4px rgba(0, 0, 0, 0.06);
+        --sh2: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --sh3: 0 12px 40px rgba(0, 0, 0, 0.12);
+        --nav-h: 60px;
+        --nav2-h: 44px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      button,
+      input,
+      select {
+        font-family: inherit;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* ─────────────────────────────────────
+   TOPBAR  (hidden on mobile)
+───────────────────────────────────── */
+      .topbar {
+        background: var(--navy);
+        color: #aab4cc;
+        font-size: 0.72rem;
+        padding: 5px 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        white-space: nowrap;
+      }
+      .topbar a {
+        color: #aab4cc;
+        transition: color 0.2s;
+      }
+      .topbar a:hover {
+        color: #fff;
+      }
+      .tb-left,
+      .tb-right {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+      .tb-sep {
+        opacity: 0.3;
+        padding: 0 2px;
+      }
+      @media (max-width: 767px) {
+        .topbar {
+          display: none;
+        }
+      }
+
+      /* ─────────────────────────────────────
+   NAVBAR WRAPPER
+───────────────────────────────────── */
+      .navbar {
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 300;
+        box-shadow: var(--sh1);
+      }
+
+      /* ── ROW 1 ── */
+      .nav-r1 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 2rem;
+        height: var(--nav-h);
+      }
+
+      /* Logo */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        text-decoration: none;
+      }
+      .logo-mark {
+        width: 34px;
+        height: 34px;
+        background: linear-gradient(135deg, #2563eb, #0aab87);
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .logo-text {
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: 1.15rem;
+        color: var(--navy);
+        letter-spacing: -0.5px;
+      }
+      .logo-text span {
+        color: var(--accent);
+      }
+      .logo-sub {
+        font-size: 0.58rem;
+        color: var(--muted);
+        font-weight: 500;
+        display: block;
+        margin-top: -2px;
+      }
+
+      /* Location */
+      .loc-wrap {
+        position: relative;
+        flex-shrink: 0;
+        margin-top: 10px;
+      }
+      @media screen {
+      }
+      .loc-pill {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        color: #6b7280;
+        transition: all 0.25s ease;
+      }
+
+      .loc-pill:hover {
+        border-color: #6c3cff;
+        color: #6c3cff;
+      }
+
+      .loc-pill .ln {
+        color: #111827;
+        font-weight: 600;
+      }
+
+      .loc-pill .pin {
+        color: #ff5a3c;
+        font-size: 0.9rem;
+      }
+
+      .loc-pill svg {
+        margin-left: 4px;
+        transition: transform 0.3s;
+      }
+
+      .loc-pill:hover svg {
+        transform: rotate(180deg);
+      }
+
+      /* Dropdown */
+
+      .loc-dd {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: -100%;
+        width: 200px;
+        background: #ffffff;
+        border: 1px solid #e8e8e8;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        padding: 12px;
+        z-index: 100;
+      }
+
+      /* Dropdown items */
+
+      .loc-dd a {
+        display: block;
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        text-decoration: none;
+        color: #374151;
+        transition: all 0.2s;
+      }
+
+      .loc-dd a:hover {
+        background: #f3f4f6;
+        color: #6c3cff;
+      }
+      .loc-wrap:hover .loc-dd,
+      .loc-wrap.open .loc-dd {
+        display: block;
+        animation: dropIn 0.2s ease;
+      }
+      .loc-dd input {
+        width: 100%;
+        padding: 7px 10px;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        font-size: 0.8rem;
+        outline: none;
+        margin-bottom: 8px;
+        color: var(--text);
+      }
+      .loc-dd input:focus {
+        border-color: var(--accent);
+      }
+      .loc-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 9px;
+        border-radius: 7px;
+        font-size: 0.79rem;
+        cursor: pointer;
+        transition: background 0.15s;
+        color: var(--text);
+      }
+      .loc-item:hover {
+        background: var(--bg);
+      }
+
+      /* Search center */
+      .nav-search {
+        flex: 1;
+        min-width: 0;
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .ns-input {
+        width: 100%;
+        padding: 9px 48px 9px 40px;
+        border: 1.5px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.86rem;
+        color: var(--text);
+        background: var(--bg);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .ns-input:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        background: #fff;
+      }
+      .ns-input::placeholder {
+        color: var(--muted);
+      }
+      .ns-icon {
+        position: absolute;
+        left: 13px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        pointer-events: none;
+      }
+      .ns-btn {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        padding: 5px 14px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .ns-btn:hover {
+        background: #1d4ed8;
+      }
+
+      /* Right controls */
+      .nav-r1-right {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+
+      /* Explore */
+      .explore-wrap {
+        position: relative;
+      }
+      .explore-btn {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 7px 13px;
+        background-color: #0285c72f;
+        color: #0055ff;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s;
+      }
+      .explore-btn:hover,
+      .explore-wrap:hover .explore-btn {
+        background: #1d4ed8;
+        color: white;
+      }
+      .explore-btn svg {
+        transition: transform 0.25s;
+      }
+      .explore-wrap:hover .explore-btn svg,
+      .explore-wrap.open .explore-btn svg {
+        transform: rotate(180deg);
+      }
+      .exp-mega {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        width: 620px;
+        background: var(--white);
+        border: 1px solid rgb(240, 240, 240);
+        border-radius: 14px;
+        box-shadow: var(--sh3);
+        padding: 1.3rem;
+        z-index: 400;
+        animation: dropIn 0.2s ease;
+      }
+      .explore-wrap:hover .exp-mega,
+      .explore-wrap.open .exp-mega {
+        display: block;
+      }
+      .em-title {
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+      }
+      .em-grid {
+        gap: 7px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .em-grid > div {
+        width: 50%; /* aadha idhar aadha udhar */
+      }
+      .em-item {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 12px;
+        color: var(--text);
+        transition: all 0.2s;
+        font-size: 0.71rem;
+        font-weight: 600;
+      }
+      .em-item:hover {
+        border-color: var(--accent);
+        background: var(--accent2);
+        color: var(--accent);
+      }
+      .em-item span:first-child {
+        font-size: 0.8rem;
+      }
+      .em-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .em-tag {
+        padding: 4px 10px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.71rem;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-weight: 600;
+      }
+      .em-grid a {
+        border-bottom: 2px solid rgb(249, 249, 249);
+      }
+      .em-tag:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+
+      /* Icon btn */
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1.5px solid var(--border);
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--muted);
+        transition: all 0.2s;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .icon-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+      .n-dot {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 7px;
+        height: 7px;
+        background: #e85d3a;
+        border-radius: 50%;
+        border: 1.5px solid #fff;
+      }
+
+      /* Notif panel */
+      .notif-wrap {
+        position: relative;
+      }
+      .notif-panel {
+        display: none;
+        position: absolute;
+        top: calc(100%+8px);
+        right: 0;
+        width: 290px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        box-shadow: var(--sh3);
+        z-index: 400;
+        overflow: hidden;
+        animation: dropIn 0.2s ease;
+      }
+      .notif-wrap:hover .notif-panel,
+      .notif-wrap.open .notif-panel {
+        display: block;
+      }
+      .np-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.79rem;
+        font-weight: 700;
+      }
+      .np-hd a {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .np-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .np-row:last-child {
+        border-bottom: none;
+      }
+      .np-row:hover {
+        background: var(--bg);
+      }
+      .np-ic {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+      .np-t1 {
+        font-size: 0.73rem;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.3;
+      }
+      .np-t2 {
+        font-size: 0.66rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .np-unread {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-top: 5px;
+        flex-shrink: 0;
+      }
+
+      /* Auth */
+      .auth-btns {
+        display: flex;
+        gap: 5px;
+      }
+      .btn-ln {
+        padding: 6px 13px;
+        border: 1.5px solid var(--border);
+        border-radius: 7px;
+        background: none;
+        font-size: 0.79rem;
+        font-weight: 600;
+        color: var(--text);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-ln:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .btn-su {
+        padding: 6px 13px;
+        border: 1.5px solid var(--accent);
+        border-radius: 7px;
+        background: var(--accent);
+        font-size: 0.79rem;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-su:hover {
+        background: #1d4ed8;
+      }
+
+      /* Hamburger (mobile only) */
+      .ham-btn {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        padding: 6px;
+        border: 1.5px solid var(--border);
+        border-radius: 7px;
+        background: var(--bg);
+      }
+      .ham-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+      .ham-btn.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .ham-btn.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      /* ── ROW 2 ── */
+      .nav-r2 {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        padding: 0 2rem;
+        height: var(--nav2-h);
+        border-top: 1px solid var(--border);
+        overflow-x: auto;
+        background: var(--white);
+      }
+      .nav-r2::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* All Courses mega */
+      .courses-wrap {
+        position: relative;
+        flex-shrink: 0;
+      }
+      .courses-wrap.open .courses-mega {
+        display: block;
+      }
+      .courses-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 13px;
+        background: var(--navy);
+        color: #fff;
+        border-radius: 7px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+        border: none;
+        transition: background 0.2s;
+        flex-shrink: 0;
+      }
+      .courses-btn:hover,
+      .courses-wrap:hover .courses-btn {
+        background: var(--navy2);
+      }
+      .courses-btn svg {
+        transition: transform 0.25s;
+      }
+      .courses-wrap:hover .courses-btn svg {
+        transform: rotate(180deg);
+      }
+      .courses-mega {
+        display: none;
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        width: 720px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--sh3);
+        padding: 1.3rem;
+        z-index: 400;
+        animation: dropIn 0.2s ease;
+      }
+      .courses-wrap:hover .courses-mega {
+        display: block;
+      }
+      .cm-inner {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 1rem;
+      }
+      .cm-side {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .cm-si {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 9px;
+        border-radius: 7px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--muted);
+      }
+      .cm-si:hover,
+      .cm-si.active {
+        background: var(--accent2);
+        color: var(--accent);
+      }
+      .cm-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+      }
+      .cm-c {
+        padding: 9px 11px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .cm-c:hover {
+        border-color: var(--accent);
+        background: var(--accent2);
+      }
+      .cm-cn {
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 1px;
+      }
+      .cm-cs {
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+      .cm-pop {
+        margin-top: 0.9rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid var(--border);
+      }
+      .cm-pt {
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 7px;
+      }
+      .cm-ptags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .cm-ptag {
+        padding: 3px 9px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .cm-ptag:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+
+      /* Nav pills row 2 */
+      .np2 {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 4px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        cursor: pointer;
+        color: var(--muted);
+        white-space: nowrap;
+        transition: all 0.2s;
+        text-decoration: none;
+        flex-shrink: 0;
+        border: 1px solid transparent;
+      }
+      .np2:hover {
+        color: black;
+      }
+      .np2.finder-p {
+        background: var(--accent2);
+        border-color: #c7d9ff;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .np2.finder-p:hover {
+        background: #dce8ff;
+      }
+      .new-tag {
+        background: var(--exec);
+        color: #fff;
+        font-size: 0.58rem;
+        font-weight: 800;
+        padding: 1px 4px;
+        border-radius: 3px;
+        text-transform: uppercase;
+      }
+      .r2-sep {
+        height: 20px;
+        width: 1px;
+        flex-shrink: 0;
+      }
+
+      /* ─────────────────────────────────────
+   MOBILE NAV DRAWER
+───────────────────────────────────── */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 490;
+        backdrop-filter: blur(2px);
+      }
+      .mobile-overlay.open {
+        display: block;
+      }
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: min(320px, 90vw);
+        height: 100vh;
+        background: var(--white);
+        z-index: 500;
+        overflow-y: auto;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: var(--sh3);
+      }
+      .mobile-drawer.open {
+        left: 0;
+      }
+      .md-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .md-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+        color: var(--muted);
+      }
+      .md-body {
+        padding: 0.8rem 1rem;
+      }
+      .md-section {
+        margin-bottom: 1.2rem;
+      }
+      .md-sec-title {
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0.5rem 0.4rem;
+        margin-bottom: 4px;
+      }
+      .md-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 10px;
+        border-radius: 9px;
+        cursor: pointer;
+        transition: background 0.15s;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .md-item:hover {
+        background: var(--bg);
+      }
+      .md-item .mi {
+        font-size: 1rem;
+        width: 28px;
+        text-align: center;
+      }
+      .md-item .mt {
+        font-size: 0.84rem;
+        font-weight: 600;
+      }
+      .md-item .mb {
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+      .md-auth {
+        padding: 1rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: sticky;
+        bottom: 0;
+        background: var(--white);
+      }
+      .md-auth button {
+        width: 100%;
+        padding: 11px;
+        border-radius: 9px;
+        font-size: 0.87rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .md-login {
+        background: var(--bg);
+        border: 1.5px solid var(--border);
+        color: var(--text);
+      }
+      .md-signup {
+        background: var(--accent);
+        border: 1.5px solid var(--accent);
+        color: #fff;
+      }
+
+      /* Mobile search bar below nav (shown on mobile) */
+      .mobile-search-bar {
+        display: none;
+        padding: 0.6rem 1rem;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+      }
+      .msb-inner {
+        position: relative;
+      }
+      .msb-input {
+        width: 100%;
+        padding: 9px 42px 9px 36px;
+        border: 1.5px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        outline: none;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .msb-input:focus {
+        border-color: var(--accent);
+        background: #fff;
+      }
+      .msb-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+      }
+      .msb-sbtn {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        padding: 5px 12px;
+        font-size: 0.73rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      
+      /* ─────────────────────────────────────
+   FOOTER
+───────────────────────────────────── */
+      footer {
+        background: var(--navy);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 40px 2rem 20px;
+      }
+      .fi {
+        max-width: 1160px;
+        margin: 0 auto;
+      }
+      .fg {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      .fb p {
+        font-size: 0.76rem;
+        color: #5c7599;
+        margin-top: 8px;
+        line-height: 1.6;
+      }
+      .fl {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+      .fl-t {
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #3d5280;
+        margin-bottom: 9px;
+      }
+      .fl-a {
+        display: block;
+        font-size: 0.76rem;
+        color: #5c7599;
+        text-decoration: none;
+        margin-bottom: 5px;
+        transition: color 0.2s;
+      }
+      .fl-a:hover {
+        color: #aab4cc;
+      }
+      .fb-bot {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .fb-bot p {
+        font-size: 0.7rem;
+        color: #3d5280;
+      }
+
+      /* ─────────────────────────────────────
+   MOBILE BOTTOM NAV
+───────────────────────────────────── */
+      .bottom-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        z-index: 200;
+        padding: 4px 0 env(safe-area-inset-bottom, 4px);
+      }
+      .bn-inner {
+        display: flex;
+        justify-content: space-around;
+      }
+      .bn-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        padding: 6px 8px;
+        cursor: pointer;
+        border-radius: 9px;
+        min-width: 56px;
+        transition: background 0.2s;
+        border: none;
+        background: none;
+      }
+      .bn-item:hover,
+      .bn-item.active {
+        background: var(--accent2);
+      }
+      .bn-icon {
+        font-size: 1.2rem;
+      }
+      .bn-lbl {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .bn-item.active .bn-lbl {
+        color: var(--accent);
+      }
+
+      /* ─────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────── */
+      @keyframes dropIn {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-left > * {
+        animation: fadeUp 0.55s ease both;
+      }
+      .hero-badge {
+        animation-delay: 0.05s;
+      }
+      .hero h1 {
+        animation-delay: 0.13s;
+      }
+      .hero-desc {
+        animation-delay: 0.21s;
+      }
+      .hs-box {
+        animation-delay: 0.29s;
+      }
+      .hero-tags {
+        animation-delay: 0.37s;
+      }
+
+      /* ─────────────────────────────────────
+   RESPONSIVE — TABLET (768–1023)
+───────────────────────────────────── */
+      @media (max-width: 1023px) {
+        .nav-r1 {
+          padding: 0 1.2rem;
+          gap: 8px;
+        }
+        .nav-r2 {
+          padding: 0 1.2rem;
+        }
+        .loc-pill .ln {
+          display: none;
+        }
+        .auth-btns {
+          display: none;
+        }
+        .explore-btn span.exp-label {
+          display: none;
+        }
+        .exp-mega {
+          width: min(620px, 95vw);
+          right: -40px;
+        }
+        .hero {
+          padding: 44px 1.2rem 0;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr 340px;
+          gap: 1.5rem;
+        }
+        .hero-right {
+          display: none;
+        }
+        .section {
+          padding: 44px 1.2rem;
+        }
+        .finder-sec {
+          padding: 36px 1.2rem;
+        }
+        .abroad-sec {
+          padding: 44px 1.2rem;
+        }
+        .trust-strip {
+          padding: 32px 1.2rem;
+        }
+        .cta-sec {
+          padding: 44px 1.2rem;
+        }
+        footer {
+          padding: 36px 1.2rem 18px;
+        }
+        .cat4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .finder-card {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.8rem;
+        }
+        .fc-go {
+          grid-column: 1/-1;
+          justify-self: start;
+        }
+        .fg {
+          grid-template-columns: 1fr;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .trust-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.8rem;
+        }
+      }
+
+      /* ─────────────────────────────────────
+   RESPONSIVE — MOBILE (<768)
+───────────────────────────────────── */
+      @media (max-width: 767px) {
+        :root {
+          --nav-h: 54px;
+          --nav2-h: 0px;
+        }
+        .nav-r1 {
+          padding: 0 1rem;
+          gap: 7px;
+        }
+        .loc-pill {
+          padding: 6px 9px;
+        }
+        .loc-pill .pin-txt {
+          display: none;
+        }
+        .nav-search {
+          display: none;
+        }
+        .explore-wrap {
+          display: none;
+        }
+        .notif-wrap {
+          display: none;
+        }
+        .ham-btn {
+          display: flex;
+        }
+        .nav-r2 {
+          display: none;
+        }
+        .mobile-search-bar {
+          display: block;
+        }
+        .hero {
+          padding: 36px 1rem 0;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr;
+        }
+        .hero-right {
+          display: none;
+        }
+        .hero-left {
+          padding-bottom: 2rem;
+        }
+        .hero h1 {
+          font-size: 1.7rem;
+        }
+        .hero-desc {
+          font-size: 0.84rem;
+        }
+        .hs-tabs {
+          gap: 4px;
+        }
+        .hs-tab {
+          padding: 4px 9px;
+          font-size: 0.68rem;
+        }
+        .hs-row {
+          flex-direction: column;
+          gap: 6px;
+        }
+        .hs-go {
+          width: 100%;
+          padding: 11px;
+        }
+        .hero-tags {
+          gap: 5px;
+        }
+        .section {
+          padding: 36px 1rem;
+        }
+        .cat4 {
+          grid-template-columns: 1fr 1fr;
+        }
+        .c4 {
+          padding: 1.1rem;
+        }
+        .c4-title {
+          font-size: 0.95rem;
+        }
+        .c4-desc {
+          display: none;
+        }
+        .finder-sec {
+          padding: 32px 1rem;
+        }
+        .finder-card {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.7rem;
+        }
+        .fc-go {
+          grid-column: 1/-1;
+        }
+        .cft-tabs {
+          overflow-x: auto;
+          flex-wrap: nowrap;
+          padding-bottom: 4px;
+        }
+        .cft-tabs::-webkit-scrollbar {
+          display: none;
+        }
+        .cft {
+          flex-shrink: 0;
+        }
+        .abroad-sec {
+          padding: 36px 1rem;
+        }
+        .ctry-grid {
+          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        }
+        .trust-strip {
+          padding: 28px 1rem;
+        }
+        .trust-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.7rem;
+        }
+        .ts-n {
+          font-size: 1.5rem;
+        }
+        .cta-sec {
+          padding: 36px 1rem 80px;
+        }
+        .cta-box {
+          padding: 1.6rem;
+        }
+        .cta-box h2 {
+          font-size: 1.25rem;
+        }
+        .cta-btns {
+          width: 100%;
+        }
+        .cta-p,
+        .cta-g {
+          flex: 1;
+          text-align: center;
+        }
+        footer {
+          padding: 32px 1rem 80px;
+        }
+        .fg {
+          grid-template-columns: 1fr;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .fb-bot {
+          flex-direction: column;
+          gap: 0.4rem;
+        }
+        .bottom-nav {
+          display: block;
+        }
+        .exp-mega {
+          width: 95vw;
+          right: -10px;
+        }
+        .courses-mega {
+          width: 95vw;
+          left: 0;
+        }
+        .courses-wrap:hover .courses-mega {
+          display: none;
+        } /* disable hover on mobile */
+      }
+
+      @media (max-width: 420px) {
+        .cat4 {
+          grid-template-columns: 1fr;
+        }
+        .c4-desc {
+          display: none;
+        }
+        .finder-card {
+          grid-template-columns: 1fr;
+        }
+        .fl {
+          grid-template-columns: 1fr 1fr;
+        }
+        .trust-grid {
+          gap: 0.6rem;
+        }
+      }
+
+      /* ── LAYOUT ── */
+      .layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 0;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem 3rem;
+        align-items: start;
+      }
+
+      /* ─────────────────────────────────────
+   CTA
+───────────────────────────────────── */
+      .cta-sec {
+        padding: 52px 2rem;
+        background: var(--bg);
+      }
+      .cta-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+      }
+      .cta-box {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+        border-radius: 20px;
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-box::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 240px;
+        height: 240px;
+        background: rgba(37, 99, 235, 0.2);
+        border-radius: 50%;
+        filter: blur(60px);
+      }
+      .cta-box h2 {
+        font-family: "Fraunces", serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.2;
+        position: relative;
+      }
+      .cta-box p {
+        color: #8aa4d0;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        position: relative;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 9px;
+        flex-shrink: 0;
+        position: relative;
+        flex-wrap: wrap;
+      }
+      .cta-p {
+        padding: 11px 24px;
+        background: linear-gradient(135deg, #2563eb, #0aab87);
+        border: none;
+        border-radius: 9px;
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .cta-p:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+      .cta-g {
+        padding: 11px 24px;
+        background: rgba(255, 255, 255, 0.09);
+        border: 1.5px solid rgba(255, 255, 255, 0.15);
+        border-radius: 9px;
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .cta-g:hover {
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+    </style>
+</head>
+
+<body>
+    <!-- TOP BAR (desktop only) -->
+    <div class="topbar">
+      <div class="tb-left">
+        <a href="#">📞 1800-XXX-XXXX (Toll Free)</a>
+        <span class="tb-sep">|</span>
+        <a href="#">📧 help@campuswalkin.com</a>
+        <span class="tb-sep">|</span>
+        <a href="#">Compare Colleges</a>
+        <a href="#">Rank Predictor</a>
+        <a href="#">Scholarships</a>
+      </div>
+      <div class="tb-right">
+        <p>We’re on your favourite socials!</p>
+        <span class="tb-sep">|</span>
+        <a href="#" style="color: #4860ff; font-weight: 700"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a href="#" style="color: hwb(0 37% 0%); font-weight: 700"
+          ><i class="bi bi-instagram"></i
+        ></a>
+        <a href="#" style="color: hwb(239 26% 3%); font-weight: 700"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a href="#" style="color: hwb(0 0% 0%); font-weight: 700"
+          ><i class="bi bi-youtube"></i
+        ></a>
+      </div>
+    </div>
+    <!-- ═══ NAVBAR ═══ -->
+    <div class="navbar">
+      <!-- ROW 1 -->
+      <div class="nav-r1">
+        <!-- LOGO -->
+        <a href="#" class="logo">
+          <div class="logo-mark">🎓</div>
+          <div>
+            <div class="logo-text">Campus<span>Walkin</span></div>
+            <div class="logo-sub">Find Your Perfect Course</div>
+          </div>
+        </a>
+
+        <!-- LOCATION -->
+        <div class="loc-wrap" id="locWrap">
+          <p style="color: orange">Select City</p>
+          <div class="loc-pill" onclick="toggleLoc(event)">
+            <span class="ln" id="locName">BCA,B.Tech</span>
+            <svg
+              width="10"
+              height="6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 12 8"
+            >
+              <polyline points="1 1 6 7 11 1" />
+            </svg>
+          </div>
+          <div class="loc-dd">
+            <input
+              type="text"
+              placeholder="Search city or state…"
+              oninput="filterLocs(this.value)"
+            />
+            <div id="locList">
+              <div class="loc-item" onclick="setLoc('All India')">
+                🇮🇳 All India
+              </div>
+              <div class="loc-item" onclick="setLoc('Delhi NCR')">
+                Delhi NCR
+              </div>
+              <div class="loc-item" onclick="setLoc('Mumbai')">Mumbai</div>
+              <div class="loc-item" onclick="setLoc('Bangalore')">
+                Bangalore
+              </div>
+              <div class="loc-item" onclick="setLoc('Chennai')">Chennai</div>
+              <div class="loc-item" onclick="setLoc('Hyderabad')">
+                Hyderabad
+              </div>
+              <div class="loc-item" onclick="setLoc('Pune')">Pune</div>
+              <div class="loc-item" onclick="setLoc('Kolkata')">Kolkata</div>
+              <div class="loc-item" onclick="setLoc('Ahmedabad')">
+                Ahmedabad
+              </div>
+              <div class="loc-item" onclick="setLoc('Jaipur')">Jaipur</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEARCH (desktop/tablet) -->
+        <div class="nav-search">
+          <svg
+            class="ns-icon"
+            width="14"
+            height="14"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+          <input
+            class="ns-input"
+            type="text"
+            id="navQ"
+            placeholder="Search courses, colleges, exams…"
+          />
+          <button class="ns-btn" onclick="doNavSearch()">Search</button>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="nav-r1-right">
+          <!-- Explore -->
+          <div class="explore-wrap" id="exploreWrap">
+            <button class="explore-btn" onclick="toggleLoc(event)">
+              <span class="exp-label">Explore</span>
+              <svg
+                width="11"
+                height="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 12 8"
+              >
+                <polyline points="1 1 6 7 11 1" />
+              </svg>
+            </button>
+            <div class="exp-mega">
+              <div class="em-title">Explore More</div>
+              <div class="em-grid">
+                <div>
+                  <a href="#" class="em-item"><span>🏛️ Top Colleges</span></a>
+                  <a href="#" class="em-item"><span>📝 Exams</span></a>
+                  <a href="#" class="em-item"><span>✈️ Study Abroad</span></a>
+                  <a href="#" class="em-item"><span>🏆 Executive</span></a>
+                  <a href="#" class="em-item"><span>💻 Online</span></a>
+                  <a href="#" class="em-item"><span>🎓 UG Degrees</span></a>
+                  <a href="#" class="em-item"><span>Exams</span></a>
+                </div>
+                <div>
+                  <a href="#" class="em-item"
+                    ><span>Admission alert 2026</span></a
+                  >
+                  <a href="#" class="em-item"><span>✈️ Study Abroad</span></a>
+                  <a href="#" class="em-item"><span>Abroad Exam</span></a>
+                  <a href="#" class="em-item"><span>Ask a Question</span></a>
+                  <a href="#" class="em-item"><span>Course finder</span></a>
+                  <a href="#" class="em-item"><span>💰 Scholarships</span></a>
+                  <a href="#" class="em-item"><span>📊 Rank Predictor</span></a>
+                </div>
+              </div>
+              <div class="em-title">Popular Exams</div>
+              <div class="em-tags">
+                <span class="em-tag">JEE Main</span
+                ><span class="em-tag">NEET</span><span class="em-tag">CAT</span>
+                <span class="em-tag">GATE</span><span class="em-tag">CLAT</span
+                ><span class="em-tag">CUET</span> <span class="em-tag">GRE</span
+                ><span class="em-tag">GMAT</span
+                ><span class="em-tag">IELTS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification -->
+          <div class="notif-wrap" id="notifWrap">
+            <div class="icon-btn" onclick="toggleNotif()">
+              <svg
+                width="15"
+                height="15"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+              </svg>
+              <div class="n-dot"></div>
+            </div>
+            <div class="notif-panel">
+              <div class="np-hd">
+                Notifications <a href="#">Mark all read</a>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #eff4ff">📣</div>
+                <div>
+                  <div class="np-t1">JEE Main 2025 results declared!</div>
+                  <div class="np-t2">2 hours ago</div>
+                </div>
+                <div class="np-unread"></div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #ebfaf6">🎓</div>
+                <div>
+                  <div class="np-t1">New MBA scholarship ₹50,000</div>
+                  <div class="np-t2">5 hours ago</div>
+                </div>
+                <div class="np-unread"></div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #fff8eb">✈️</div>
+                <div>
+                  <div class="np-t1">IELTS prep batch starting Mon</div>
+                  <div class="np-t2">Yesterday</div>
+                </div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #fff3f0">📋</div>
+                <div>
+                  <div class="np-t1">CAT 2025 registration open</div>
+                  <div class="np-t2">2 days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamburger (mobile) -->
+          <div
+            class="ham-btn"
+            id="hamBtn"
+            onclick="openDrawer()"
+            aria-label="Menu"
+          >
+            <span></span><span></span><span></span>
+          </div>
+
+          <!-- Auth (desktop) -->
+          <div class="auth-btns">
+            <button class="btn-ln">Login</button>
+            <button class="btn-su">Register Free</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 (desktop/tablet) -->
+      <div class="nav-r2">
+        <!-- All Courses -->
+        <div class="courses-wrap" id="coursesWrap">
+          <button class="courses-btn" onclick="toggleCourses(event)">
+            <svg
+              width="12"
+              height="12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="16" y2="12" />
+              <line x1="3" y1="18" x2="11" y2="18" />
+            </svg>
+            All Courses
+            <svg
+              width="10"
+              height="6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 12 8"
+            >
+              <polyline points="1 1 6 7 11 1" />
+            </svg>
+          </button>
+          <div class="courses-mega">
+            <div class="cm-inner">
+              <div class="cm-side">
+                <div class="cm-si active">🎯 Management</div>
+                <div class="cm-si">💻 Technology</div>
+                <div class="cm-si">🏥 Medical</div>
+                <div class="cm-si">⚖️ Law</div>
+                <div class="cm-si">🎨 Arts & Design</div>
+                <div class="cm-si">🔬 Science</div>
+                <div class="cm-si">📐 Engineering</div>
+                <div class="cm-si">💰 Commerce</div>
+              </div>
+              <div>
+                <div class="cm-grid">
+                  <a href="#" class="cm-c"
+                    ><div class="cm-cn">MBA</div>
+                    <div class="cm-cs">800+ colleges</div></a
+                  >
+                  <a href="#" class="cm-c"
+                    ><div class="cm-cn">PGDM</div>
+                    <div class="cm-cs">350+ colleges</div></a
+                  >
+                  <a href="#" class="cm-c"
+                    ><div class="cm-cn">BBA</div>
+                    <div class="cm-cs">1,200+ colleges</div></a
+                  >
+                  <a href="#" class="cm-c"
+                    ><div class="cm-cn">Executive MBA</div>
+                    <div class="cm-cs">120+ programs</div></a
+                  >
+                  <a href="#" class="cm-c"
+                    ><div class="cm-cn">MBA Finance</div>
+                    <div class="cm-cs">500+ colleges</div></a
+                  >
+                  <a href="#" class="cm-c"
+                    ><div class="cm-cn">MBA Marketing</div>
+                    <div class="cm-cs">650+ colleges</div></a
+                  >
+                </div>
+                <div class="cm-pop">
+                  <div class="cm-pt">🔥 Trending</div>
+                  <div class="cm-ptags">
+                    <span class="cm-ptag">Data Science</span
+                    ><span class="cm-ptag">AI & ML</span>
+                    <span class="cm-ptag">Cyber Security</span
+                    ><span class="cm-ptag">Digital Marketing</span>
+                    <span class="cm-ptag">Cloud Computing</span
+                    ><span class="cm-ptag">Product Management</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="r2-sep"></div>
+        <a href="#" class="np2 active">B.Tech</a>
+        <a href="#" class="np2">BCA</a>
+        <a href="#" class="np2">BA</a>
+        <div class="r2-sep"></div>
+        <a href="#" class="np2 abroad-p">MBA</a>
+        <a href="#" class="np2">BBA</a>
+        <a href="#" class="np2">B.Sc (Nursing)</a>
+        <a
+          href="#"
+          class="np2"
+          style="
+            background-color: rgb(12, 21, 64);
+            color: white;
+            border-radius: 7px;
+          "
+          >Top University</a
+        >
+        <a href="#" class="np2"
+          >🗓️ Admission 2025 <span class="new-tag">New</span></a
+        >
+        <div class="r2-sep"></div>
+        <!-- <a href="#course-finder" class="np2 finder-p">🔍 Course Finder</a> -->
+      </div>
+    </div>
+    <!-- Mobile search bar -->
+    <div class="mobile-search-bar">
+      <div class="msb-inner">
+        <svg
+          class="msb-icon"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="#6b7a99"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.35-4.35" />
+        </svg>
+        <input
+          class="msb-input"
+          type="text"
+          placeholder="Search courses, colleges, exams…"
+        />
+        <button class="msb-sbtn">Go</button>
+      </div>
+    </div>
+    <section>
+        <div>
+            <img src="https://www.shutterstock.com/image-illustration/dark-gray-geometric-background-light-600nw-2671613617.jpg" alt="" style="width: 100%; object-fit: contain;">
+
+        </div>
+    </section>
+        <!-- ═══ CTA ═══ -->
+    <div class="cta-sec">
+      <div class="cta-inner">
+        <div class="cta-box">
+          <div>
+            <h2>Not Sure Which Course<br />Is Right for You?</h2>
+            <p>
+              Talk to a real expert — free, no spam, just honest guidance for
+              your goals.
+            </p>
+          </div>
+          <div class="cta-btns">
+            <button class="cta-p">📞 Book Free Counselling</button>
+            <button class="cta-g">🔍 Try Course Finder</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- ═══ FOOTER ═══ -->
+    <footer>
+      <div class="fi">
+        <div class="fg">
+          <div class="fb">
+            <div
+              style="
+                font-family: &quot;Fraunces&quot;, serif;
+                font-size: 1.15rem;
+                font-weight: 900;
+                color: #fff;
+              "
+            >
+              Campus<span style="color: #60a5fa">Walkin</span>
+            </div>
+            <p>
+              India's most student-friendly platform to discover, compare and
+              enroll in Executive, Online, Offline and Study Abroad programs.
+            </p>
+          </div>
+          <div class="fl">
+            <div>
+              <div class="fl-t">Programs</div>
+              <a href="#" class="fl-a">Executive Programs</a>
+              <a href="#" class="fl-a">Online Courses</a>
+              <a href="#" class="fl-a">Offline / Campus</a>
+              <a href="#" class="fl-a">Study Abroad</a>
+              <a href="#" class="fl-a">Scholarships</a>
+            </div>
+            <div>
+              <div class="fl-t">Explore</div>
+              <a href="#" class="fl-a">Top Colleges</a>
+              <a href="#" class="fl-a">Exams 2025</a>
+              <a href="#" class="fl-a">Rank Predictor</a>
+              <a href="#" class="fl-a">Course Finder</a>
+              <a href="#" class="fl-a">Compare Colleges</a>
+            </div>
+            <div>
+              <div class="fl-t">Study Abroad</div>
+              <a href="#" class="fl-a">Study in USA</a>
+              <a href="#" class="fl-a">Study in UK</a>
+              <a href="#" class="fl-a">Study in Canada</a>
+              <a href="#" class="fl-a">Study in Australia</a>
+              <a href="#" class="fl-a">Visa Guidance</a>
+            </div>
+            <div>
+              <div class="fl-t">Company</div>
+              <a href="#" class="fl-a">About Us</a>
+              <a href="#" class="fl-a">Careers</a>
+              <a href="#" class="fl-a">Contact</a>
+              <a href="#" class="fl-a">Privacy Policy</a>
+              <a href="#" class="fl-a">Terms of Use</a>
+            </div>
+          </div>
+        </div>
+        <div class="fb-bot">
+          <p>© 2025 CampusWalkin. All rights reserved.</p>
+          <p>Made with ❤️ for Indian students</p>
+        </div>
+      </div>
+    </footer>
+
+        <script>
+      function toggleCourses(e) {
+        e.stopPropagation();
+        document.getElementById("coursesWrap").classList.toggle("open");
+      }
+      document.addEventListener("click", () => {
+        document.getElementById("coursesWrap").classList.remove("open");
+      });
+    </script>
+    <script>
+      /* ── Location ── */
+      function toggleLoc(e) {
+        e.stopPropagation();
+        document.getElementById("locWrap").classList.toggle("open");
+      }
+
+      function setLoc(name) {
+        document.getElementById("locName").textContent = name;
+        document.getElementById("locWrap").classList.remove("open");
+      }
+
+      function filterLocs(v) {
+        document.querySelectorAll("#locList .loc-item").forEach((i) => {
+          i.style.display = i.textContent
+            .toLowerCase()
+            .includes(v.toLowerCase())
+            ? ""
+            : "none";
+        });
+      }
+
+      /* ── Explore ── */
+      function toggleExplore(e) {
+        e.stopPropagation();
+        document.getElementById("exploreWrap").classList.toggle("open");
+      }
+
+      /* ── Global outside click close ── */
+      document.addEventListener("click", function () {
+        document.getElementById("locWrap").classList.remove("open");
+        document.getElementById("exploreWrap").classList.remove("open");
+      });
+
+      /* ── Mobile drawer ── */
+      function openDrawer() {
+        document.getElementById("mDrawer").classList.add("open");
+        document.getElementById("mOverlay").classList.add("open");
+        document.getElementById("hamBtn").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        document.getElementById("mDrawer").classList.remove("open");
+        document.getElementById("mOverlay").classList.remove("open");
+        document.getElementById("hamBtn").classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      /* ── Search ── */
+      function doNavSearch() {
+        const q = document.getElementById("navQ").value.trim();
+        if (q) {
+          document.getElementById("cTitle").textContent =
+            'Results for "' + q + '"';
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+      document.getElementById("navQ").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") doNavSearch();
+      });
+
+      function fillHero(t) {
+        document.getElementById("heroQ").value = t;
+        document.getElementById("heroQ").focus();
+      }
+      function heroSearch() {
+        const q = document.getElementById("heroQ").value.trim();
+        if (q) {
+          document.getElementById("cTitle").textContent =
+            'Results for "' + q + '"';
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      document.getElementById("heroQ").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") heroSearch();
+      });
+
+      /* ── Hero tabs ── */
+      function setTab(el, type) {
+        document
+          .querySelectorAll(".hs-tab")
+          .forEach((t) => t.classList.remove("active"));
+        el.classList.add("active");
+        const ph = {
+          executive: "Search Executive MBA, PGDM programs…",
+          online: "Search online courses, certifications…",
+          offline: "Search colleges, universities, campuses…",
+          abroad: "Search universities in USA, UK, Canada…",
+        };
+        document.getElementById("heroQ").placeholder = ph[type] || "";
+      }
+
+      /* ── Course filter ── */
+      function filterCourse(type, el) {
+        if (el) {
+          document
+            .querySelectorAll(".cft")
+            .forEach((t) => t.classList.remove("active"));
+          el.classList.add("active");
+        }
+        const titles = {
+          all: "All Featured Courses",
+          exec: "Executive Programs",
+          online: "Online Courses",
+          offline: "Offline / Campus Courses",
+          abroad: "Study Abroad Programs",
+        };
+        document.getElementById("cTitle").textContent =
+          titles[type] || "All Featured Courses";
+        document.querySelectorAll(".cc").forEach((c) => {
+          const show = type === "all" || c.dataset.type === type;
+          c.style.display = show ? "" : "none";
+          if (show) c.style.animation = "fadeUp .35s ease both";
+        });
+        if (el)
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      /* ── Save toggle ── */
+      document.querySelectorAll(".cc-save").forEach((b) => {
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          b.textContent = b.textContent === "🤍" ? "❤️" : "🤍";
+        });
+      });
+
+      /* ── Bottom nav active ── */
+      function bnActive(el) {
+        document
+          .querySelectorAll(".bn-item")
+          .forEach((b) => b.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+      /* ── Row 2 nav active ── */
+      document.querySelectorAll(".np2").forEach((n) => {
+        n.addEventListener("click", function () {
+          document
+            .querySelectorAll(".np2")
+            .forEach((x) => x.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
+</body>
+</html>

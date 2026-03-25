@@ -1,0 +1,18 @@
+[
+  {
+    "name": "IIM Ahmedabad",
+    "category": "Management",
+    "location": "Ahmedabad, Gujarat",
+    "programs": 12,
+    "established": 1961,
+    "rank": "#1 B-School"
+  },
+  {
+    "name": "IIT Delhi",
+    "category": "Engineering",
+    "location": "New Delhi",
+    "programs": 18,
+    "established": 1961,
+    "rank": "#2 Engineering"
+  }
+]

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Details</title>
+    <style>
+      /* ====== Basic table styling (same as your UI) ====== */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      .rank-badge {
+        font-weight: bold;
+      }
+      .college-logo {
+        width: 50px;
+        height: 50px;
+        background: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+      .college-info {
+        display: flex;
+        align-items: center;
+      }
+      .college-actions button {
+        margin-right: 5px;
+      }
+      .placement-badge,
+      .best-badge,
+      .ugc-tag {
+        background: #ffd;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 12px;
+        margin-left: 5px;
+      }
+      .stars {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>College Details</h1>
+
+    <table id="collegeTable">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>College</th>
+          <th>Fees</th>
+          <th>Placement</th>
+          <th>Rating</th>
+          <th>Rank Details</th>
+        </tr>
+      </thead>
+      <tbody id="collegeBody"></tbody>
+    </table>
+
+    <script>
+      // ======= Your colleges array =======
+      const colleges = [
+        {
+          id: 1,
+          rank: 1,
+          name: "IIMA - Indian Institute of Management, Ahmedabad",
+          abbr: "IIMA",
+          city: "Ahmedabad",
+          state: "Gujarat",
+          approved: "UGC Approved",
+          fees: 2750000,
+          feesLabel: "₹ 27,50,000",
+          feesNote: "PG Program Food And Agri-Business Management - Total Fees",
+          avgPkg: 3522591,
+          avgPkgLabel: "₹ 35,22,591",
+          highPkg: "₹ 1,10,00,000",
+          placement100: true,
+          placementScore: "990/1000",
+          rating: 4.6,
+          reviews: 59,
+          bestPlacement: true,
+          rankMain: "#1ˢᵗ/372 in India for Management",
+          rankYear: "2025",
+          extraRanks: 8,
+          cdScore: 1988,
+          stream: "Management",
+          duration: "2 years",
+          courseType: "Degree",
+        },
+        {
+          id: 5,
+          rank: 5,
+          name: "IIMB - Indian Institute of Management, Bangalore",
+          abbr: "IIMB",
+          city: "Bangalore",
+          state: "Karnataka",
+          approved: "UGC Approved",
+          fees: 2400000,
+          feesLabel: "₹ 24,00,000",
+          feesNote: "MBA - Total Fees",
+          avgPkg: 3100000,
+          avgPkgLabel: "₹ 31,00,000",
+          highPkg: "₹ 95,00,000",
+          placement100: true,
+          placementScore: "968/1000",
+          rating: 4.5,
+          reviews: 74,
+        bestPlacement: true,
+          rankMain: "#2ⁿᵈ/372 in India for Management",
+          rankYear: "2025",
+          extraRanks: 7,
+          cdScore: 1935,
+          stream: "Management",
+          duration: "2 years",
+          courseType: "Degree",
+        },
+        // Add more colleges as needed
+      ];
+
+      // ======= Function to get CSS class for rank =======
+      function getRankClass(rank) {
+        if (rank === 1) return "top-rank";
+        if (rank <= 5) return "high-rank";
+        return "normal-rank";
+      }
+
+      // ======= Render Table =======
+      function renderTable(data) {
+        const tbody = document.getElementById("collegeBody");
+        tbody.innerHTML = "";
+
+        data.forEach((c, i) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+        <td>
+          <div class="rank-badge ${getRankClass(c.rank)}">#${c.rank}</div>
+          <div class="cd-score">CD Score: ${c.cdScore}/2000</div>
+        </td>
+        <td>
+          <div class="college-info">
+            <div class="college-logo">${c.abbr.slice(0, 3)}</div>
+            <div>
+              <a href="college.html?id=${c.id}" class="college-name">${c.name}</a>
+              <div class="college-loc">${c.city}, ${c.state} <span class="ugc-tag">${c.approved}</span></div>
+              <div class="college-actions">
+                <button class="btn-apply">→ Apply Now</button>
+                <button class="btn-brochure">⬇ Download Brochure</button>
+                <label class="compare-check"><input type="checkbox"> Add To Compare</label>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="fee-amount">${c.feesLabel}</div>
+          <div class="fee-note">${c.feesNote}</div>
+        </td>
+        <td>
+          <div class="avg-pkg">${c.avgPkgLabel}</div>
+          <div class="high-pkg">Average Package<br>${c.highPkg}<br>Highest Package</div>
+          ${c.placement100 ? '<span class="placement-badge">100% Placement</span>' : ""}
+          <div class="placement-score">Placement Score: ${c.placementScore}</div>
+        </td>
+        <td>
+          <div class="stars">
+            <span class="rating-num">${c.rating} / 5</span>
+          </div>
+          <div class="rating-sub">Based on ${c.reviews} User Reviews</div>
+          ${c.bestPlacement ? '<div class="best-badge">✓ Best in Placements</div>' : ""}
+        </td>
+        <td>
+          <div class="rank-main">${c.rankMain}</div>
+          <div class="rank-year">${c.rankYear}</div>
+          <div class="more-ranks">+ ${c.extraRanks} More ▾</div>
+        </td>
+      `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      // ======= Load college based on ID in URL =======
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const collegeId = parseInt(params.get("id"));
+
+        let filteredData = colleges;
+        if (collegeId) {
+          filteredData = colleges.filter((c) => c.id === collegeId);
+        }
+
+        renderTable(filteredData);
+      });
+    </script>
+  </body>
+</html>
