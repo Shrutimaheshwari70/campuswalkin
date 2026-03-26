@@ -81,6 +81,7 @@
         min-height: 100vh;
         overflow-x: hidden;
       }
+      
       img {
         max-width: 100%;
         display: block;
@@ -137,11 +138,17 @@
         height: var(--nav-h);
       }
 
+
       /* Logo */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        text-decoration: none;
+      }
       .logo-mark {
-        width: 34px;
-        height: 34px;
-        background: linear-gradient(135deg, #0e2049, #4c0a58);
+        width: 130px;
         border-radius: 9px;
         display: flex;
         align-items: center;
@@ -177,17 +184,29 @@
         font-size: 13px;
         font-weight: 600;
         color: #333;
+        /* padding-top: -90px; */
       }
       .course-title {
-        font-size: 11px;
+        font-size: 13px;
         color: #ff7a00;
         font-weight: 600;
-        margin-bottom: 1px;
+margin-bottom: -4px;
         letter-spacing: 0.4px;
+      }
+       .course-wrap.open .course-dd {
+        display: block;
       }
       .course-pill:hover {
         border-color: #1a408b;
       }
+       @media (max-width: 1024px) {
+        
+        /* Shrink course-wrap */
+        .course-wrap {
+          width: 190px;
+        }
+
+       }
       .course-dd {
         position: absolute;
         top: 55px;
@@ -198,7 +217,8 @@
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         padding: 20px;
         display: none;
-        z-index: 999;
+        z-index: 99999;
+
       }
       .course-dd h4 {
         font-size: 16px;
@@ -1806,7 +1826,7 @@
         position: absolute;
         cursor: pointer;
         top: 40px;
-        left: 220px;
+        left: 290px;
         transform: translateX(-50%) translateY(20px);
         width: 100vw;
         background: #fff;
@@ -1956,7 +1976,6 @@
         max-width: 100%;
         margin: 0 auto;
         padding: 24px 24px 0;
-        min-height: 100vh;
       }
       .hero-top {
         display: flex;
@@ -3280,16 +3299,13 @@
         <!-- Logo -->
         <a
           href="#"
-          class="logo d-flex align-items-center gap-2 flex-shrink-0 text-decoration-none"
         >
-          <div class="logo-mark">🎓</div>
-          <div>
-            <div class="logo-text">Campus<span>Walkin</span></div>
-            <div class="logo-sub">Find Your Perfect Course</div>
+             <div class="logo-mark">
+            <img src="./campuswalkin_logo.png" alt="" />
           </div>
         </a>
 
-        <div class="course-wrap">
+        <div class="course-wrap"id="courseWrap">
           <p class="course-title">Select Goal & Program</p>
           <div class="course-pill" onclick="toggleCourses()">
             <span id="courseName">BCA, B.Tech</span>
@@ -4323,7 +4339,7 @@
           reviews: 60,
           fees: { btech: "₹2.53L", mtech: "₹1.03L" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "PhD"],
-          img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUWGBsaFxYYGBsdHRgbGhgaGh0dGBgaHiggGxslHhcWIjEhJSorLi4uGh8zODMtNygtLisBCgoKDg0OGxAQGy8lHyUtLS0tLS0uLS0tLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLy0tLS0tLf/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAgMEBgcBAAj/xABREAACAQIEAwQECQgGBwcFAAABAhEDIQAEEjEFIkEGE1FhMnGBkQcUI0JSU5LR0hZUk6GiscHwFzNigtPhFSQ0coOj40Rkc7KzwuJDY3Tx8v/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EAC4RAAICAQMBBwMEAwEAAAAAAAABAhEDEiExBBMUQVFhkaEiUvAycbHhgcHRM//aAAwDAQACEQMRAD8AreTyzZie7ZFCKPT5dUsVE8xXVBBMkeABBGr1JlKpU1nu2YDSxio9LVDnUxISAgUSB6XUME...",
+          img:"iit-madras.jpg",
           state: "Tamil Nadu",
           feesNum: 2.53,
           placementLPA: 24,
@@ -4339,7 +4355,7 @@
           reviews: 98,
           fees: { btech: "₹2.31L", mtech: "₹72K" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "PhD"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/IIT_Bombay_Logo.svg/120px-IIT_Bombay_Logo.svg.png",
+          img: "iit-bombay.avif",
           state: "Maharashtra",
           feesNum: 2.31,
           placementLPA: 22,
@@ -4355,7 +4371,7 @@
           reviews: 142,
           fees: { pgp: "₹23.0L", epgp: "₹31.5L" },
           courses: ["MBA/PGP", "PGPX", "FPM"],
-          img: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/IIM_Ahmedabad_Logo.svg/120px-IIM_Ahmedabad_Logo.svg.png",
+          img: "iim-ahmdabad.jpg",
           state: "Gujarat",
           feesNum: 23.0,
           placementLPA: 35,
@@ -4371,7 +4387,7 @@
           reviews: 215,
           fees: { btech: "₹1.98L", mtech: "₹1.45L" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "MCA"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/VIT_logo.png/120px-VIT_logo.png",
+          img: "vit.jpg",
           state: "Tamil Nadu",
           feesNum: 1.98,
           placementLPA: 8,
@@ -4387,7 +4403,7 @@
           reviews: 189,
           fees: { btech: "₹2.12L", mbbs: "₹7.25L" },
           courses: ["BE/B.Tech", "MBBS", "MBA", "BBA/BBM"],
-          img: "https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/Manipal_Academy_of_Higher_Education_Logo.png/120px-Manipal_Academy_of_Higher_Education_Logo.png",
+          img: "manipal-uni.jpg",
           state: "Karnataka",
           feesNum: 2.12,
           placementLPA: 9,
@@ -4403,7 +4419,7 @@
           reviews: 302,
           fees: { ba: "₹18K", bcom: "₹22K", bsc: "₹24K" },
           courses: ["BA", "B.Com", "B.Sc", "MA", "MBA"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Delhi_university_logo.png/120px-Delhi_university_logo.png",
+          img: "du.jpg",
           state: "Delhi",
           feesNum: 0.22,
           placementLPA: 6,
@@ -4419,7 +4435,7 @@
           reviews: 178,
           fees: { btech: "₹5.16L", mtech: "₹2.85L" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "MSc"],
-          img: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/120px-BITS_Pilani-Logo.svg.png",
+          img: "bits-pilani.jpg",
           state: "Rajasthan",
           feesNum: 5.16,
           placementLPA: 16,
@@ -4435,7 +4451,7 @@
           reviews: 420,
           fees: { btech: "₹1.85L", mba: "₹2.95L" },
           courses: ["BE/B.Tech", "MBA", "BBA/BBM", "B.Sc", "LLB"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Amity_University_logo.png/120px-Amity_University_logo.png",
+          img: "amity.jpg",
           state: "Uttar Pradesh",
           feesNum: 1.85,
           placementLPA: 7,
@@ -4451,7 +4467,7 @@
           reviews: 88,
           fees: { btech: "₹2.19L", mtech: "₹58K" },
           courses: ["BE/B.Tech", "M.Tech", "PhD", "MBA"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/IIT_Delhi_logo.png/120px-IIT_Delhi_logo.png",
+          img: "iit-delhi.jpg",
           state: "Delhi",
           feesNum: 2.19,
           placementLPA: 28,
@@ -4467,28 +4483,13 @@
           reviews: 265,
           fees: { ba: "₹1.10L", bcom: "₹98K", mba: "₹2.45L" },
           courses: ["BA", "B.Com", "MBA", "BBA/BBM", "LLB"],
-          img: "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Christ_University_logo.png/120px-Christ_University_logo.png",
+          img: "christ.jpg",
           state: "Karnataka",
           feesNum: 1.1,
           placementLPA: 7,
           badge: "Deemed",
         },
-        {
-          id: 11,
-          name: "Manipal University Sikkim",
-          location: "Gangtok, Sikkim",
-          accred: ["AICTE", "UGC", "NAAC B++"],
-          type: "Private",
-          rating: 7.0,
-          reviews: 45,
-          fees: { btech: "₹1.80L", mba: "₹2.20L" },
-          courses: ["BE/B.Tech", "MBA", "BBA/BBM", "MCA"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IIT_Madras_Logo.svg/120px-IIT_Madras_Logo.svg.png",
-          state: "Sikkim",
-          feesNum: 1.8,
-          placementLPA: 7,
-          badge: "Private",
-        },
+ 
       ];
 
       function getExtendedData(c) {
@@ -5800,5 +5801,6 @@
   body.classList.toggle("open")
   }
     </script>
+
   </body>
 </html>

@@ -80,6 +80,7 @@
         background: var(--bg);
         color: var(--text);
         min-height: 100vh;
+        overflow-x: hidden;
       }
       img {
         max-width: 100%;
@@ -169,13 +170,13 @@
         z-index: 300;
         box-shadow: var(--sh1);
       }
-      @media (max-width:992px) {
+      @media (max-width: 992px) {
         .center-nav,
         .nav-r2,
-        .course-wrap{
+        .course-wrap {
           display: none;
         }
-        .ham-btn{
+        .ham-btn {
           display: flex;
         }
       }
@@ -197,9 +198,7 @@
         text-decoration: none;
       }
       .logo-mark {
-        width: 34px;
-        height: 34px;
-        background: linear-gradient(135deg, #0e2049, #4c0a58);
+        width: 130px;
         border-radius: 9px;
         display: flex;
         align-items: center;
@@ -1132,141 +1131,167 @@
         left: 0;
       }
       /* ── Mobile Drawer ── */
-.mobile-drawer {
-  position: fixed;
-  top: 0; left: -100%;
-  width: 82vw;
-  max-width: 320px;
-  height: 100dvh;
-  background: var(--white, #fff);
-  z-index: 1000;
-  overflow-y: auto;
-  box-shadow: 4px 0 30px rgba(0,0,0,.13);
-  transition: left .3s cubic-bezier(.22,1,.36,1);
-  padding: 0 0 40px;
-  display: flex;
-  flex-direction: column;
-}
-.mobile-drawer.open { left: 0; }
- 
-.mobile-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.45);
-  z-index: 999;
-  backdrop-filter: blur(2px);
-}
-.mobile-overlay.show { display: block; }
- 
-.md-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border, #e5e7eb);
-  position: sticky;
-  top: 0;
-  background: var(--white, #fff);
-  z-index: 2;
-}
-.md-close {
-  width: 32px; height: 32px;
-  border-radius: 7px;
-  border: 1.5px solid var(--border, #e5e7eb);
-  background: none;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  color: var(--text, #333);
-  font-size: 18px;
-  line-height: 1;
-}
-.md-auth {
-  display: flex;
-  gap: 8px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border, #e5e7eb);
-}
-.md-auth button { flex: 1; }
- 
-/* Search inside drawer */
-.md-search {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border, #e5e7eb);
-}
-.md-search .ns-input {
-  padding-left: 36px;
-  background: var(--bg, #f7f7f7);
-}
- 
-/* Nav links inside drawer */
-.md-nav { padding: 8px 0; }
-.md-nav a {
-  display: block;
-  padding: 11px 20px;
-  font-size: .88rem;
-  font-weight: 600;
-  color: var(--text, #333);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border, #e5e7eb);
-  transition: background .15s, color .15s;
-}
-.md-nav a:hover { background: var(--bg, #f5f5f5); color: var(--accent, #2563eb); }
- 
-/* Accordion for Programs inside drawer */
-.md-acc-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 11px 20px;
-  font-size: .88rem;
-  font-weight: 600;
-  color: var(--text, #333);
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--border, #e5e7eb);
-  cursor: pointer;
-  text-align: left;
-}
-.md-acc-btn svg { transition: transform .25s; flex-shrink: 0; }
-.md-acc-btn.open svg { transform: rotate(180deg); }
-.md-acc-body {
-  display: none;
-  padding: 10px 20px 14px 28px;
-  border-bottom: 1px solid var(--border, #e5e7eb);
-  background: var(--bg, #f9f9f9);
-}
-.md-acc-body.open { display: block; }
-.md-acc-body a {
-  display: block;
-  padding: 7px 0;
-  font-size: .82rem;
-  color: var(--muted, #888);
-  text-decoration: none;
-  font-weight: 500;
-  border: none;
-}
-.md-acc-body a:hover { color: var(--accent, #2563eb); }
- 
-/* Course tags in drawer */
-.md-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border, #e5e7eb);
-}
-.md-tags span {
-  padding: 5px 11px;
-  background: var(--bg, #f0f0f0);
-  border: 1px solid var(--border, #e5e7eb);
-  border-radius: 6px;
-  font-size: .75rem;
-  font-weight: 600;
-  color: var(--muted, #555);
-  cursor: pointer;
-}
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 82vw;
+        max-width: 320px;
+        height: 100dvh;
+        background: var(--white, #fff);
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.13);
+        transition: left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        padding: 0 0 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      .mobile-drawer.open {
+        left: 0;
+      }
+
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+      }
+      .mobile-overlay.show {
+        display: block;
+      }
+
+      .md-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        position: sticky;
+        top: 0;
+        background: var(--white, #fff);
+        z-index: 2;
+      }
+      .md-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        border: 1.5px solid var(--border, #e5e7eb);
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--text, #333);
+        font-size: 18px;
+        line-height: 1;
+      }
+      .md-auth {
+        display: flex;
+        gap: 8px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-auth button {
+        flex: 1;
+      }
+
+      /* Search inside drawer */
+      .md-search {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-search .ns-input {
+        padding-left: 36px;
+        background: var(--bg, #f7f7f7);
+      }
+
+      /* Nav links inside drawer */
+      .md-nav {
+        padding: 8px 0;
+      }
+      .md-nav a {
+        display: block;
+        padding: 11px 20px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text, #333);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .md-nav a:hover {
+        background: var(--bg, #f5f5f5);
+        color: var(--accent, #2563eb);
+      }
+
+      /* Accordion for Programs inside drawer */
+      .md-acc-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 11px 20px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text, #333);
+        background: none;
+        border: none;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        cursor: pointer;
+        text-align: left;
+      }
+      .md-acc-btn svg {
+        transition: transform 0.25s;
+        flex-shrink: 0;
+      }
+      .md-acc-btn.open svg {
+        transform: rotate(180deg);
+      }
+      .md-acc-body {
+        display: none;
+        padding: 10px 20px 14px 28px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        background: var(--bg, #f9f9f9);
+      }
+      .md-acc-body.open {
+        display: block;
+      }
+      .md-acc-body a {
+        display: block;
+        padding: 7px 0;
+        font-size: 0.82rem;
+        color: var(--muted, #888);
+        text-decoration: none;
+        font-weight: 500;
+        border: none;
+      }
+      .md-acc-body a:hover {
+        color: var(--accent, #2563eb);
+      }
+
+      /* Course tags in drawer */
+      .md-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-tags span {
+        padding: 5px 11px;
+        background: var(--bg, #f0f0f0);
+        border: 1px solid var(--border, #e5e7eb);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--muted, #555);
+        cursor: pointer;
+      }
 
       .md-head {
         display: flex;
@@ -2078,7 +2103,8 @@
         display: grid;
         grid-template-columns: 280px 1fr;
         gap: 0;
-        max-width: 1280px;
+        max-width: 100%;
+        padding: 30px;
         margin: 0 auto;
         align-items: start;
         margin-top: 10px;
@@ -2579,12 +2605,11 @@
         position: absolute;
         cursor: pointer;
         top: 40px;
-        left: 250px;
+        left: 280px;
         transform: translateX(-50%) translateY(20px);
         width: 100vw;
 
         background: #fff;
-        border-radius: 25px;
         box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
         padding: 35px;
 
@@ -2732,7 +2757,15 @@
         font-weight: 700;
         cursor: pointer;
       }
-
+      .no-results {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* center horizontally */
+        justify-content: center;
+        text-align: center;
+        min-height: 90vh;
+        width: 100%;
+      }
       /* ── COLLEGE CARD ── */
       .college-card {
         background: var(--white);
@@ -2758,11 +2791,11 @@
         position: relative;
         overflow: hidden;
         height: 100%;
-        min-height: 190px;
       }
       .cc-img-wrap img {
         width: 100%;
         height: 100%;
+
         object-fit: cover;
         transition: transform 0.4s;
       }
@@ -3403,10 +3436,8 @@
       <div class="nav-r1">
         <!-- LOGO -->
         <a href="#" class="logo">
-          <div class="logo-mark">🎓</div>
-          <div>
-            <div class="logo-text">Campus<span>Walkin</span></div>
-            <div class="logo-sub">Find Your Perfect Course</div>
+          <div class="logo-mark">
+            <img src="./campuswalkin_logo.png" alt="" />
           </div>
         </a>
 
@@ -3444,15 +3475,18 @@
               <!-- ENGINEERING -->
               <div class="course-cat">Engineering</div>
               <div class="course-grid">
-                <div class="course-item" onclick="goCourse('btech.html')">
+                <div class="course-item" onclick="selectCourse('BE/B.Tech')">
                   BE/B.Tech <span class="arrow">›</span>
                 </div>
 
-                <div class="course-item" onclick="goCourse('diploma.html')">
+                <div
+                  class="course-item"
+                  onclick="selectCourse('Diploma in Engineering')"
+                >
                   Diploma in Engineering <span class="arrow">›</span>
                 </div>
 
-                <div class="course-item" onclick="goCourse('mtech.html')">
+                <div class="course-item" onclick="selectCourse('ME/M.Tech')">
                   ME/M.Tech <span class="arrow">›</span>
                 </div>
               </div>
@@ -3460,15 +3494,18 @@
               <!-- MANAGEMENT -->
               <div class="course-cat">Management</div>
               <div class="course-grid">
-                <div class="course-item" onclick="goCourse('mba.html')">
+                <div class="course-item" onclick="selectCourse('MBA/PGDM')">
                   MBA/PGDM <span class="arrow">›</span>
                 </div>
 
-                <div class="course-item" onclick="goCourse('bba.html')">
+                <div class="course-item" onclick="selectCourse('BBA/BMS')">
                   BBA/BMS <span class="arrow">›</span>
                 </div>
 
-                <div class="course-item" onclick="goCourse('exec-mba.html')">
+                <div
+                  class="course-item"
+                  onclick="selectCourse('Executive MBA')"
+                >
                   Executive MBA <span class="arrow">›</span>
                 </div>
               </div>
@@ -3476,11 +3513,11 @@
               <!-- COMMERCE -->
               <div class="course-cat">Commerce</div>
               <div class="course-grid">
-                <div class="course-item" onclick="goCourse('bcom.html')">
+                <div class="course-item" onclick="selectCourse('B.Com')">
                   B.Com <span class="arrow">›</span>
                 </div>
 
-                <div class="course-item" onclick="goCourse('mcom.html')">
+                <div class="course-item" onclick="selectCourse('M.Com')">
                   M.Com <span class="arrow">›</span>
                 </div>
               </div>
@@ -3820,54 +3857,54 @@
       </div>
     </div>
     <div class="mobile-drawer" id="mDrawer">
-    <div class="md-head">
-      <strong>Menu</strong>
-      <button class="md-close" onclick="closeDrawer()">×</button>
-    </div>
+      <div class="md-head">
+        <strong>Menu</strong>
+        <button class="md-close" onclick="closeDrawer()">×</button>
+      </div>
 
-    <div class="md-auth">
-      <button class="btn-ln">Login</button>
-      <button class="btn-su">Apply</button>
-    </div>
+      <div class="md-auth">
+        <button class="btn-ln">Login</button>
+        <button class="btn-su">Apply</button>
+      </div>
 
-    <div class="md-nav">
-      <a href="index.html">Home</a>
-      <button class="md-acc-btn" onclick="toggleAcc(this)">
-        Programs
-        <span>⌄</span>
-      </button>
-      <div class="md-acc-body">
-        <a href="#">Executive MBA</a>
-        <a href="#">Full-time MBA</a>
-        <a href="#">Data Science</a>
-        <a href="#">Marketing</a>
-        <a href="#">Finance</a>
-      </div>
-      <a href="universities.html">Universities</a>
-      <a href="#">Compare</a>
-      <a href="#">Blog</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <button class="md-acc-btn" onclick="toggleAcc(this)">
-        Courses
-        <span>⌄</span>
-      </button>
-      <div class="md-acc-body">
-        <a href="btech.html">B.Tech</a>
-        <a href="bca.html">BCA</a>
-        <a href="mba.html">MBA</a>
-        <a href="bba.html">BBA</a>
-      </div>
-      <button class="md-acc-btn" onclick="toggleAcc(this)">
-        Explore
-        <span>⌄</span>
-      </button>
-      <div class="md-acc-body">
-        <a href="#">Top Colleges</a>
-        <a href="#">Exams</a>
-        <a href="#">Study Abroad</a>
-        <a href="#">Scholarships</a>
-      </div>
+      <div class="md-nav">
+        <a href="index.html">Home</a>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Programs
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="#">Executive MBA</a>
+          <a href="#">Full-time MBA</a>
+          <a href="#">Data Science</a>
+          <a href="#">Marketing</a>
+          <a href="#">Finance</a>
+        </div>
+        <a href="universities.html">Universities</a>
+        <a href="#">Compare</a>
+        <a href="#">Blog</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Courses
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="btech.html">B.Tech</a>
+          <a href="bca.html">BCA</a>
+          <a href="mba.html">MBA</a>
+          <a href="bba.html">BBA</a>
+        </div>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Explore
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="#">Top Colleges</a>
+          <a href="#">Exams</a>
+          <a href="#">Study Abroad</a>
+          <a href="#">Scholarships</a>
+        </div>
       </div>
     </div>
     <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
@@ -4166,11 +4203,17 @@
               </div>
             </div>
             <div class="fs-sec-body open">
-              <div class="tag-chips" style="margin-top: 0.6rem">
-                <div class="tag-chip"></div>
-                <div class="tag-chip"></div>
-                <div class="tag-chip"></div>
-                <div class="tag-chip"></div>
+              <input
+                type="range"
+                id="feesRange"
+                min="0"
+                max="500000"
+                step="10000"
+                value="500000"
+                oninput="filterByFees(this.value)"
+              />
+              <div style="font-size: 12px; margin-top: 5px">
+                Max Fees: ₹<span id="feesValue">500000</span>
               </div>
             </div>
           </div>
@@ -4247,64 +4290,7 @@
             </div>
             <div class="fs-sec-body open">
               <!-- Duration chips -->
-              <div
-                style="
-                  font-size: 0.65rem;
-                  font-weight: 800;
-                  letter-spacing: 1px;
-                  text-transform: uppercase;
-                  color: var(--muted);
-                  margin-bottom: 6px;
-                "
-              >
-                Duration
-              </div>
-              <div class="tag-chips" style="margin-bottom: 0.8rem">
-                <div
-                  class="tag-chip"
-                  style="
-                    --chip-active: #fff3f0;
-                    --chip-border: #e85d3a;
-                    --chip-text: #e85d3a;
-                  "
-                  onclick="toggleChipColor(this, 'exec-3-6m')"
-                >
-                  3–6 Months
-                </div>
-                <div
-                  class="tag-chip"
-                  style="
-                    --chip-active: #fff3f0;
-                    --chip-border: #e85d3a;
-                    --chip-text: #e85d3a;
-                  "
-                  onclick="toggleChipColor(this, 'exec-6-12m')"
-                >
-                  6–12 Months
-                </div>
-                <div
-                  class="tag-chip"
-                  style="
-                    --chip-active: #fff3f0;
-                    --chip-border: #e85d3a;
-                    --chip-text: #e85d3a;
-                  "
-                  onclick="toggleChipColor(this, 'exec-1yr')"
-                >
-                  1 Year
-                </div>
-                <div
-                  class="tag-chip"
-                  style="
-                    --chip-active: #fff3f0;
-                    --chip-border: #e85d3a;
-                    --chip-text: #e85d3a;
-                  "
-                  onclick="toggleChipColor(this, 'exec-2yr')"
-                >
-                  2 Years
-                </div>
-              </div>
+
               <!-- Offered by -->
               <div
                 style="
@@ -4318,7 +4304,7 @@
               >
                 Offered By
               </div>
-              <div id="exec-by-list">
+              <div id="exec-by-list-2">
                 <div
                   class="filter-check"
                   onclick="toggleCheck(this, 'IIM Executive')"
@@ -4734,7 +4720,7 @@
           <div id="collegesList"></div>
 
           <!-- No results -->
-          <div class="no-results" id="noResults" style="display: none">
+          <div class="no-results" id="noResults">
             <div style="font-size: 2.5rem; margin-bottom: 0.8rem">🔍</div>
             <h3>No colleges fmatch your filters</h3>
             <p style="font-size: 0.82rem">
@@ -5738,7 +5724,7 @@
           reviews: 60,
           fees: { btech: "₹2.53L", mtech: "₹1.03L" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "PhD"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IIT_Madras_Logo.svg/120px-IIT_Madras_Logo.svg.png",
+          img: "iit-madras.jpg",
           imgBg: "linear-gradient(135deg,#e8f4ea,#d4e9d6)",
           state: "Tamil Nadu",
           feesNum: 2.53,
@@ -5756,7 +5742,7 @@
           reviews: 98,
           fees: { btech: "₹2.31L", mtech: "₹72K" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "PhD"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/IIT_Bombay_Logo.svg/120px-IIT_Bombay_Logo.svg.png",
+          img: "iit-bombay.avif",
           imgBg: "linear-gradient(135deg,#e8f0fa,#d4e0f0)",
           state: "Maharashtra",
           feesNum: 2.31,
@@ -5774,7 +5760,7 @@
           reviews: 142,
           fees: { pgp: "₹23.0L", epgp: "₹31.5L" },
           courses: ["MBA/PGP", "PGPX", "FPM"],
-          img: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/IIM_Ahmedabad_Logo.svg/120px-IIM_Ahmedabad_Logo.svg.png",
+          img: "iim-ahmdabad.jpg",
           imgBg: "linear-gradient(135deg,#fff5ee,#ffe8d6)",
           state: "Gujarat",
           feesNum: 23.0,
@@ -5791,7 +5777,7 @@
           reviews: 215,
           fees: { btech: "₹1.98L", mtech: "₹1.45L" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "MCA"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/VIT_logo.png/120px-VIT_logo.png",
+          img: "vit.jpg",
           imgBg: "linear-gradient(135deg,#f0f4ff,#e0e8ff)",
           state: "Tamil Nadu",
           feesNum: 1.98,
@@ -5808,7 +5794,7 @@
           reviews: 189,
           fees: { btech: "₹2.12L", mbbs: "₹7.25L" },
           courses: ["BE/B.Tech", "MBBS", "MBA", "BBA/BBM"],
-          img: "https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/Manipal_Academy_of_Higher_Education_Logo.png/120px-Manipal_Academy_of_Higher_Education_Logo.png",
+          img: "manipal-uni.jpg",
           imgBg: "linear-gradient(135deg,#fff0f8,#ffe0f0)",
           state: "Karnataka",
           feesNum: 2.12,
@@ -5825,7 +5811,7 @@
           reviews: 302,
           fees: { ba: "₹18K", bcom: "₹22K", bsc: "₹24K" },
           courses: ["BA", "B.Com", "B.Sc", "MA", "MBA"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Delhi_university_logo.png/120px-Delhi_university_logo.png",
+          img: "du.jpg",
           imgBg: "linear-gradient(135deg,#fffbf0,#fff5d0)",
           state: "Delhi",
           feesNum: 0.22,
@@ -5842,7 +5828,7 @@
           reviews: 178,
           fees: { btech: "₹5.16L", mtech: "₹2.85L" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "MSc"],
-          img: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/120px-BITS_Pilani-Logo.svg.png",
+          img: "bits-pilani.jpg",
           imgBg: "linear-gradient(135deg,#f5f3ff,#ece8ff)",
           state: "Rajasthan",
           feesNum: 5.16,
@@ -5859,7 +5845,7 @@
           reviews: 420,
           fees: { btech: "₹1.85L", mba: "₹2.95L" },
           courses: ["BE/B.Tech", "MBA", "BBA/BBM", "B.Sc", "LLB"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Amity_University_logo.png/120px-Amity_University_logo.png",
+          img: "amity.jpg",
           imgBg: "linear-gradient(135deg,#f0fff8,#e0fff0)",
           state: "Uttar Pradesh",
           feesNum: 1.85,
@@ -5876,7 +5862,7 @@
           reviews: 88,
           fees: { btech: "₹2.19L", mtech: "₹58K" },
           courses: ["BE/B.Tech", "M.Tech", "PhD", "MBA"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/IIT_Delhi_logo.png/120px-IIT_Delhi_logo.png",
+          img: "iit-delhi.jpg",
           imgBg: "linear-gradient(135deg,#ebfaf6,#d0f5eb)",
           state: "Delhi",
           feesNum: 2.19,
@@ -5893,7 +5879,7 @@
           reviews: 265,
           fees: { ba: "₹1.10L", bcom: "₹98K", mba: "₹2.45L" },
           courses: ["BA", "B.Com", "MBA", "BBA/BBM", "LLB"],
-          img: "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Christ_University_logo.png/120px-Christ_University_logo.png",
+          img: "christ.jpg",
           imgBg: "linear-gradient(135deg,#fff8eb,#fff0d0)",
           state: "Karnataka",
           feesNum: 1.1,
@@ -5910,7 +5896,7 @@
           reviews: 60,
           fees: { btech: "₹2.53L", mtech: "₹1.03L" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "PhD", "bsc", "ba"],
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IIT_Madras_Logo.svg/120px-IIT_Madras_Logo.svg.png",
+          img: "manipal-uni.jpg",
           imgBg: "linear-gradient(135deg,#e8f4ea,#d4e9d6)",
           state: "Tamil Nadu",
           feesNum: 2.53,
@@ -5938,7 +5924,7 @@
             "Canada Colleges",
             "Australia Institutes",
           ],
-          img: "https://upload.wikimedia.org/wikipedia/en/5/5b/Manav_Rachna_logo.png",
+          img: "manav-rachna.jpg",
           imgBg: "linear-gradient(135deg,#eef2ff,#dbeafe)",
           state: "Haryana",
           feesNum: 6,
@@ -5962,7 +5948,7 @@
             "Masters pathway abroad",
           ],
           topPartners: ["USA Universities", "UK Universities"],
-          img: "https://upload.wikimedia.org/wikipedia/en/9/9b/MITAOE_logo.png",
+          img: "mit.jpg",
           imgBg: "linear-gradient(135deg,#ecfeff,#cffafe)",
           state: "Maharashtra",
           feesNum: 4.5,
@@ -5990,7 +5976,7 @@
           ],
           duration: "6–12 Months",
           mode: "Online + Weekend",
-          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IIT_Madras_Logo.svg/120px-IIT_Madras_Logo.svg.png",
+          img: "iit-madras.jpg",
           imgBg: "linear-gradient(135deg,#e8f4ea,#d4e9d6)",
           state: "Tamil Nadu",
           feesNum: 2,
@@ -6014,7 +6000,7 @@
           ],
           duration: "1–2 Years",
           mode: "Weekend / Hybrid",
-          img: "https://upload.wikimedia.org/wikipedia/en/5/5c/IIM_Bangalore_Logo.svg",
+          img: "iim-banglore.webp",
           imgBg: "linear-gradient(135deg,#eef2ff,#e0e7ff)",
           state: "Karnataka",
           feesNum: 15,
@@ -6032,106 +6018,170 @@
       const PER_PAGE = 5;
       let currentSort = "popularity";
 
+      function filterByFees(value) {
+        document.getElementById("feesValue").textContent = value;
+        // remove old fee filters
+        Object.keys(activeFilters)
+          .filter(
+            (k) =>
+              typeof activeFilters[k] === "object" &&
+              activeFilters[k].type === "fees",
+          )
+          .forEach((k) => delete activeFilters[k]);
+        //  add new filter (convert lakh)
+        activeFilters["feesRange"] = {
+          type: "fees",
+          min: 0,
+          max: value / 100000,
+        };
+        currentPage = 1;
+        renderColleges();
+      }
       /* ════════════════════════════════════════════
    FILTER LOGIC
 ════════════════════════════════════════════ */
-function getFilteredColleges() {
-  return colleges.filter((c) => {
+      function getFilteredColleges() {
+        return colleges.filter((c) => {
+          /* ── COURSE FILTER ── */
+          const cf = Object.keys(activeFilters).filter(
+            (k) => activeFilters[k] === "course",
+          );
+          if (cf.length) {
+            const has = cf.some((f) =>
+              c.courses.some((co) =>
+                co.toLowerCase().includes(f.toLowerCase()),
+              ),
+            );
+            if (!has) return false;
+          }
 
-    /* ── COURSE FILTER ── */
-    const cf = Object.keys(activeFilters).filter(
-      (k) => activeFilters[k] === "course"
-    );
-    if (cf.length) {
-      const has = cf.some((f) =>
-        c.courses.some((co) =>
-          co.toLowerCase().includes(f.toLowerCase())
-        )
-      );
-      if (!has) return false;
-    }
+          /* ── STATE FILTER ── */
+          const sf = Object.keys(activeFilters).filter(
+            (k) => activeFilters[k] === "state",
+          );
+          if (sf.length && !sf.includes(c.state)) return false;
 
-    /* ── STATE FILTER ── */
-    const sf = Object.keys(activeFilters).filter(
-      (k) => activeFilters[k] === "state"
-    );
-    if (sf.length && !sf.includes(c.state)) return false;
+          /* ── TYPE FILTER ── */
+          const tf = Object.keys(activeFilters).filter(
+            (k) => activeFilters[k] === "type",
+          );
+          if (
+            tf.length &&
+            !tf.includes(c.type) &&
+            !tf.some((t) => c.type.includes(t))
+          )
+            return false;
 
-    /* ── TYPE FILTER ── */
-    const tf = Object.keys(activeFilters).filter(
-      (k) => activeFilters[k] === "type"
-    );
-    if (
-      tf.length &&
-      !tf.includes(c.type) &&
-      !tf.some((t) => c.type.includes(t))
-    )
-      return false;
+          /* ── ACCREDITATION FILTER ── */
+          const af = Object.keys(activeFilters).filter(
+            (k) => activeFilters[k] === "accred",
+          );
+          if (af.length) {
+            const has = af.some((f) =>
+              c.accred.some((a) => a.includes(f.split(" ")[0])),
+            );
+            if (!has) return false;
+          }
 
-    /* ── ACCREDITATION FILTER ── */
-    const af = Object.keys(activeFilters).filter(
-      (k) => activeFilters[k] === "accred"
-    );
-    if (af.length) {
-      const has = af.some((f) =>
-        c.accred.some((a) => a.includes(f.split(" ")[0]))
-      );
-      if (!has) return false;
-    }
+          /* ── EXECUTIVE "OFFERED BY" FILTER ── */
+          const execOrgFilters = Object.keys(activeFilters).filter((k) =>
+            k.includes("Executive"),
+          );
 
-    /* ── EXECUTIVE "OFFERED BY" FILTER ── */
-    const execOrgFilters = Object.keys(activeFilters).filter((k) =>
-      k.includes("Executive")
-    );
+          if (execOrgFilters.length) {
+            const match = execOrgFilters.some((f) => {
+              if (f.includes("IIM") && c.name.includes("IIM")) return true;
+              if (f.includes("IIT") && c.name.includes("IIT")) return true;
+              if (f.includes("ISB") && c.name.includes("ISB")) return true;
+              if (f.includes("XLRI") && c.name.includes("XLRI")) return true;
+              if (f.includes("MICA") && c.name.includes("MICA")) return true;
+              return false;
+            });
 
-    if (execOrgFilters.length) {
-      const match = execOrgFilters.some((f) => {
-        if (f.includes("IIM") && c.name.includes("IIM")) return true;
-        if (f.includes("IIT") && c.name.includes("IIT")) return true;
-        if (f.includes("ISB") && c.name.includes("ISB")) return true;
-        if (f.includes("XLRI") && c.name.includes("XLRI")) return true;
-        if (f.includes("MICA") && c.name.includes("MICA")) return true;
-        return false;
-      });
+            if (!match) return false;
+          }
 
-      if (!match) return false;
-    }
+          /* ── EXECUTIVE CHIP FILTER (Duration + Specialisation) ── */
+          const chipFilters = Object.keys(activeFilters).filter(
+            (k) => activeFilters[k] === "chip",
+          );
 
-    /* ── EXECUTIVE CHIP FILTER (Duration + Specialisation) ── */
-    const chipFilters = Object.keys(activeFilters).filter(
-      (k) => activeFilters[k] === "chip"
-    );
+          if (chipFilters.length) {
+            const match = chipFilters.some((f) => {
+              if (!c.duration && !c.courses) return false;
 
-    if (chipFilters.length) {
-      const match = chipFilters.some((f) => {
+              // Duration
+              if (f === "exec-3-6m" && c.duration?.includes("3")) return true;
+              if (f === "exec-6-12m" && c.duration?.includes("6")) return true;
+              if (f === "exec-1yr" && c.duration?.includes("1")) return true;
+              if (f === "exec-2yr" && c.duration?.includes("2")) return true;
 
-        if (!c.duration && !c.courses) return false;
+              // Specialisation
+              if (
+                f === "exec-mba" &&
+                c.courses.some((x) => x.toLowerCase().includes("mba"))
+              )
+                return true;
+              if (
+                f === "exec-pgp" &&
+                c.courses.some((x) => x.toLowerCase().includes("pgp"))
+              )
+                return true;
+              if (
+                f === "exec-pgdm" &&
+                c.courses.some((x) => x.toLowerCase().includes("pgdm"))
+              )
+                return true;
+              if (
+                f === "exec-hr" &&
+                c.courses.some((x) => x.toLowerCase().includes("hr"))
+              )
+                return true;
+              if (
+                f === "exec-mktg" &&
+                c.courses.some((x) => x.toLowerCase().includes("marketing"))
+              )
+                return true;
+              if (
+                f === "exec-fin" &&
+                c.courses.some((x) => x.toLowerCase().includes("finance"))
+              )
+                return true;
+              if (
+                f === "exec-ops" &&
+                c.courses.some((x) => x.toLowerCase().includes("operations"))
+              )
+                return true;
+              if (
+                f === "exec-it" &&
+                c.courses.some(
+                  (x) =>
+                    x.toLowerCase().includes("data") ||
+                    x.toLowerCase().includes("tech"),
+                )
+              )
+                return true;
 
-        // Duration
-        if (f === "exec-3-6m" && c.duration?.includes("3")) return true;
-        if (f === "exec-6-12m" && c.duration?.includes("6")) return true;
-        if (f === "exec-1yr" && c.duration?.includes("1")) return true;
-        if (f === "exec-2yr" && c.duration?.includes("2")) return true;
+              return false;
+            });
 
-        // Specialisation
-        if (f === "exec-mba" && c.courses.some(x => x.toLowerCase().includes("mba"))) return true;
-        if (f === "exec-pgp" && c.courses.some(x => x.toLowerCase().includes("pgp"))) return true;
-        if (f === "exec-pgdm" && c.courses.some(x => x.toLowerCase().includes("pgdm"))) return true;
-        if (f === "exec-hr" && c.courses.some(x => x.toLowerCase().includes("hr"))) return true;
-        if (f === "exec-mktg" && c.courses.some(x => x.toLowerCase().includes("marketing"))) return true;
-        if (f === "exec-fin" && c.courses.some(x => x.toLowerCase().includes("finance"))) return true;
-        if (f === "exec-ops" && c.courses.some(x => x.toLowerCase().includes("operations"))) return true;
-        if (f === "exec-it" && c.courses.some(x => x.toLowerCase().includes("data") || x.toLowerCase().includes("tech"))) return true;
+            if (!match) return false;
+          }
+          /* ── FEES FILTER ── */
+          const feeFilters = Object.values(activeFilters).filter(
+            (f) => typeof f === "object" && f.type === "fees",
+          );
 
-        return false;
-      });
+          if (feeFilters.length) {
+            const match = feeFilters.some((f) => {
+              return c.feesNum >= f.min && c.feesNum <= f.max;
+            });
 
-      if (!match) return false;
-    }
-
-    return true;
-  });
-}
+            if (!match) return false;
+          }
+          return true;
+        });
+      }
       function sortList(list) {
         return [...list].sort((a, b) => {
           if (currentSort === "rating") return b.rating - a.rating;
@@ -6196,7 +6246,7 @@ function getFilteredColleges() {
   <div class="college-card" data-id="${c.id}">
     <div class="cc-inner">
       <div class="cc-img-wrap" style="background:${c.imgBg}">
-        <img src="${c.img}" alt="${c.name}" style="object-fit:contain;padding:1.5rem"/>
+        <img src="${c.img}" alt="${c.name}"/>
         <div class="cc-rank-badge">🏆 ${c.accred.find((a) => a.includes("NIRF")) || "Ranked"}</div>
         <div class="cc-type-badge ${typeClass}">${c.badge}</div>
       </div>
@@ -6263,27 +6313,6 @@ function getFilteredColleges() {
           });
         });
       }
-      /* ── COMPARE ── */
-      function toggleCompare(id, btn) {
-        if (compareList.includes(id)) {
-          compareList = compareList.filter((x) => x !== id);
-          if (btn) {
-            btn.classList.remove("added");
-            btn.textContent = "⊕ Compare";
-          }
-        } else {
-          if (compareList.length >= 3) {
-            alert("You can compare up to 3 colleges.");
-            return;
-          }
-          compareList.push(id);
-          if (btn) {
-            btn.classList.add("added");
-            btn.textContent = "✓ Added";
-          }
-        }
-        updateCompareBar();
-      }
       function updateCompareBar() {
         const bar = document.getElementById("compareBar");
         const items = document.getElementById("compareItems");
@@ -6300,14 +6329,6 @@ function getFilteredColleges() {
         } else {
           bar.classList.remove("visible");
         }
-      }
-      function compareNow() {
-        alert(
-          "Opening comparison for:\n" +
-            compareList
-              .map((id) => colleges.find((c) => c.id === id).name)
-              .join("\n"),
-        );
       }
 
       /* ── PAGINATION ── */
@@ -6589,19 +6610,81 @@ function getFilteredColleges() {
       renderColleges();
     </script>
     <script>
-  function openDrawer(){
-    document.getElementById("mDrawer") .classList.add("open");
-    document.getElementById("mOverlay").classList.add("show");
-  }
-  function closeDrawer (){
-  document.getElementById("mDrawer").classList.remove("open")
-  document.getElementById("mOverlay").classList.remove("show")
-  }
-  function toggleAcc(btn){
-  btn.classList.toggle("open");
-  let body = btn.nextElementSibling;
-  body.classList.toggle("open")
-  }
+      function openDrawer() {
+        document.getElementById("mDrawer").classList.add("open");
+        document.getElementById("mOverlay").classList.add("show");
+      }
+      function closeDrawer() {
+        document.getElementById("mDrawer").classList.remove("open");
+        document.getElementById("mOverlay").classList.remove("show");
+      }
+      function toggleAcc(btn) {
+        btn.classList.toggle("open");
+        let body = btn.nextElementSibling;
+        body.classList.toggle("open");
+      }
+    </script>
+   <script>
+      const courseCityMap = {
+        "BE/B.Tech": ["Delhi", "Mumbai", "Banglore"],
+        "Diploma in Engineering": ["Pune", "Chennai"],
+        "ME/M.Tech": ["Delhi", "Hyderabad"],
+        "MBA/PGDM": ["Hyderabad", "Delhi"],
+        "BBA/BMS": ["Noida", "Gurgaon"],
+        "Executive MBA": ["Mumbai", "Banglore"],
+        "B.Com": ["Delhi", "Jaipur"],
+        "M.Com": ["Kolkata", "Lucknow"],
+      };
+      function selectCourse(courseName) {
+        const cities = courseCityMap[courseName];
+        const courseList = document.getElementById("courseList");
+        courseList.innerHTML = `
+        <div class="course-cat"> Select City for ${courseName} </div>
+        <div class="course-grid">
+        ${cities
+          .map(
+            (city) => `
+        <div class = "course-item" onclick="goToPage('${city}')">
+          ${city} <span class="arrow">›</span>
+          </div>
+        `,
+          )
+          .join("")}
+        </div>
+        <div style="margin-top:10px; cursor:pointer; color:blue" onclick="location.reload()">
+            ← Back
+        </div>
+        `;
+      }
+      
+      function filterCourses(value) {
+        value = value.toLowerCase();
+        const categories = document.querySelectorAll(
+          "#courseList .course-cat",
+        );
+        categories.forEach((cat) => {
+          const grid = cat.nextElementSibling;
+          const items = grid.querySelectorAll(".course-item");
+          let matchFound = false;
+          items.forEach((item) => {
+            const text = item.innerText.toLowerCase();
+            if (text.includes(value)) {
+              item.style.display = "block";
+              matchFound = true;
+            } else {
+              item.style.display = "none";
+            }
+          });
+          // show hide category
+          if (matchFound) {
+            cat.style.display = "block";
+            grid.style.display = "grid";
+          } else {
+            cat.style.display = "none";
+            grid.style.display = "none";
+          }
+        });
+      }
     </script>
     <script src="script.js"></script>
   </body>
