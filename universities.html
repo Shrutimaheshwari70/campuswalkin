@@ -3256,8 +3256,6 @@
           </div>
         </a>
 
-  
-
         <nav class="center-nav">
           <a href="index.html" class="cn-link">Home</a>
           <div class="program-wrap" id="programWrap">
@@ -4149,8 +4147,7 @@
                 <div
                   class="tag-chip"
                   onclick="toggleChipColor(this, 'exec-it')"
-                >
-                </div>
+                ></div>
               </div>
             </div>
           </div>
@@ -5739,7 +5736,7 @@
           placementLPA: 30,
           badge: "Executive",
         },
-              {
+        {
           id: 16,
           name: " Xavier Labor Relations Institute",
           location: "Jamshedpur",
@@ -6021,9 +6018,7 @@
         <div class="cc-actions">
           <button class="cca-apply">Apply Now</button>
           <button class="cca-brochure">Brochure</button>
-          <button class="cca-compare ${inCompare ? "added" : ""}" data-cmp="${c.id}">
-            ${inCompare ? "✓ Added" : "⊕ Compare"}
-          </button>
+        
         </div>
       </div>
     </div>
@@ -6062,6 +6057,36 @@
           });
         });
       }
+      function toggleCompare(id, btn) {
+        const index = compareList.indexOf(id);
+        if (index > -1) {
+            compareList.splice(index, 1);
+          if (btn) {
+            btn.classList.remove("added");
+            btn.textContent = "⊕ Compare";
+          }
+        } else {
+          if (compareList.length >= 3) {
+            alert("Max 3 colleges only");
+            return;
+          }
+          compareList.push(id);
+          if (btn) {
+            btn.classList.add("added");
+            btn.textContent = "✓ Added";
+          }
+        }
+        updateCompareBar();
+      }
+      function compareNow() {
+        if (compareList.length < 2) {
+          alert("Select at least 2 colleges");
+          return;
+        }
+        localStorage.setItem("compareColleges", JSON.stringify(compareList));
+        localStorage.setItem("allColleges", JSON.stringify(colleges));
+        window.location.href = "compare.html";
+      }
       function updateCompareBar() {
         const bar = document.getElementById("compareBar");
         const items = document.getElementById("compareItems");
@@ -6079,7 +6104,6 @@
           bar.classList.remove("visible");
         }
       }
-
       /* ── PAGINATION ── */
       function renderPagination(total) {
         const pages = Math.ceil(total / PER_PAGE);
@@ -6373,7 +6397,7 @@
         body.classList.toggle("open");
       }
     </script>
-   <script>
+    <script>
       const courseCityMap = {
         "BE/B.Tech": ["Delhi", "Mumbai", "Banglore"],
         "Diploma in Engineering": ["Pune", "Chennai"],
@@ -6405,12 +6429,10 @@
         </div>
         `;
       }
-      
+
       function filterCourses(value) {
         value = value.toLowerCase();
-        const categories = document.querySelectorAll(
-          "#courseList .course-cat",
-        );
+        const categories = document.querySelectorAll("#courseList .course-cat");
         categories.forEach((cat) => {
           const grid = cat.nextElementSibling;
           const items = grid.querySelectorAll(".course-item");

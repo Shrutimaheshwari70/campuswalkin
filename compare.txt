@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compare Programs</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0d0d0d;
+    --ink-2: #3a3a3a;
+    --ink-3: #717171;
+    --ink-4: #a8a8a8;
+    --surface: #ffffff;
+    --surface-2: #f7f6f3;
+    --surface-3: #efede8;
+    --border: #e2e0db;
+    --border-2: #c8c6c0;
+    --accent: #1a4fff;
+    --accent-light: #eef1ff;
+    --gold: #c9a84c;
+    --gold-light: #fdf6e7;
+    --green: #1a7a4a;
+    --green-light: #eef8f2;
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 20px;
+    --r-xl: 28px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+    --shadow-lg: 0 4px 24px rgba(0,0,0,0.08), 0 12px 48px rgba(0,0,0,0.06);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface-2);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 48px 24px;
+  }
+
+  /* ── Section Wrapper ── */
+  .compare-section {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .section-heading {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    color: var(--ink-3);
+    margin-bottom: 40px;
+    max-width: 480px;
+  }
+
+  /* ── Compare Cards Row ── */
+  .compare-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  /* ── Add Program Trigger Card ── */
+  .add-card {
+    width: 180px;
+    min-width: 160px;
+    min-height: 220px;
+    border: 1.5px dashed var(--border-2);
+    border-radius: var(--r-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    background: var(--surface);
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .add-card:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    transform: translateY(-2px);
+  }
+
+  .add-card .add-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--ink-2);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .add-card:hover .add-icon {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .add-card span {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-3);
+  }
+
+  /* ── Stepper Panel ── */
+  .stepper-panel {
+    flex: 1;
+    min-width: 320px;
+    background: var(--surface);
+    border-radius: var(--r-xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+
+  /* ── Step Progress Header ── */
+  .step-header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .progress-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 18px;
+  }
+
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .progress-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border-2);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-3);
+    transition: all 0.25s ease;
+  }
+
+  .progress-dot.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(26, 79, 255, 0.12);
+  }
+
+  .progress-dot.done {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+  }
+
+  .progress-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-4);
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+
+  .progress-step.active .progress-label { color: var(--accent); }
+  .progress-step.done .progress-label { color: var(--green); }
+
+  .progress-line {
+    flex: 1;
+    height: 1.5px;
+    background: var(--border);
+    margin-bottom: 18px;
+    transition: background 0.3s;
+  }
+
+  .progress-line.done { background: var(--green); }
+
+  .step-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-top: 3px;
+  }
+
+  /* ── Step Body ── */
+  .step-body {
+    padding: 24px 28px;
+  }
+
+  /* ── Search Input ── */
+  .search-wrap {
+    position: relative;
+    margin-bottom: 16px;
+  }
+
+  .search-wrap i {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-4);
+    font-size: 15px;
+    pointer-events: none;
+  }
+
+  .search-inp {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    background: var(--surface-2);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .search-inp::placeholder { color: var(--ink-4); }
+
+  .search-inp:focus {
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(26,79,255,0.08);
+  }
+
+  /* ── Options Grid ── */
+  .opts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+    gap: 10px;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 2px;
+  }
+
+  .opts-grid::-webkit-scrollbar { width: 4px; }
+  .opts-grid::-webkit-scrollbar-track { background: transparent; }
+  .opts-grid::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 4px; }
+
+  .opt-tile {
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 14px 13px;
+    cursor: pointer;
+    background: var(--surface);
+    transition: all 0.18s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .opt-tile:hover {
+    border-color: var(--border-2);
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+  }
+
+  .opt-tile.selected {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .opt-tile .check-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .opt-tile.selected .check-badge { display: flex; }
+
+  .opt-tile .check-badge i { font-size: 10px; color: #fff; }
+
+  .opt-tile .tile-icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .opt-tile .tile-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  .opt-tile .tile-meta {
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+
+  .opt-tile.selected .tile-name { color: var(--accent); }
+
+  /* ── Footer Actions ── */
+  .step-footer {
+    padding: 18px 28px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .breadcrumb-trail {
+    font-size: 12px;
+    color: var(--ink-3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .breadcrumb-trail span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .breadcrumb-trail .crumb-sep { color: var(--border-2); flex-shrink: 0; }
+
+  .btn-back {
+    padding: 9px 18px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: all 0.18s;
+    flex-shrink: 0;
+  }
+
+  .btn-back:hover { background: var(--surface-3); border-color: var(--border-2); }
+
+  .btn-next {
+    padding: 9px 22px;
+    border-radius: var(--r-sm);
+    border: none;
+    background: var(--accent);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+
+  .btn-next:hover { background: #1540dd; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(26,79,255,0.3); }
+  .btn-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  /* ── Result / Detail Card ── */
+  .result-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .result-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--r-md);
+    background: var(--surface-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .result-name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .result-location {
+    font-size: 13px;
+    color: var(--ink-3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .stat-box {
+    background: var(--surface-2);
+    border-radius: var(--r-sm);
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+  }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-4);
+    margin-bottom: 5px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .tags-section { margin-bottom: 16px; }
+
+  .tags-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-4);
+    margin-bottom: 8px;
+  }
+
+  .tags-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .tag {
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--surface-3);
+    color: var(--ink-2);
+    border: 1px solid var(--border);
+  }
+
+  .tag.blue { background: var(--accent-light); color: var(--accent); border-color: rgba(26,79,255,0.15); }
+  .tag.gold { background: var(--gold-light); color: #7a5c1a; border-color: rgba(201,168,76,0.25); }
+  .tag.green { background: var(--green-light); color: var(--green); border-color: rgba(26,122,74,0.2); }
+
+  .btn-add {
+    width: 100%;
+    padding: 13px;
+    border-radius: var(--r-md);
+    border: none;
+    background: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+
+  .btn-add:hover { background: #222; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
+
+  /* ── Added Program Card ── */
+  .added-card {
+    width: 200px;
+    min-width: 180px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 18px 16px;
+    box-shadow: var(--shadow);
+    position: relative;
+    animation: slideIn 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .added-card .remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 11px;
+    color: var(--ink-3);
+    transition: all 0.15s;
+  }
+
+  .added-card .remove-btn:hover { background: #ffeef0; border-color: #f9b0b8; color: #c9242e; }
+
+  .added-card .card-icon { font-size: 28px; margin-bottom: 10px; }
+
+  .added-card .card-uni {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  .added-card .card-city {
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+  }
+
+  .added-card .card-rank {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    background: var(--gold-light);
+    padding: 3px 9px;
+    border-radius: 100px;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--ink-4); }
+  .empty-state i { font-size: 36px; margin-bottom: 12px; display: block; }
+  .empty-state p { font-size: 14px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 720px) {
+    .compare-row { flex-direction: column; }
+    .add-card, .added-card { width: 100%; min-width: unset; }
+    .stepper-panel { min-width: unset; width: 100%; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<section class="compare-section">
+  <p class="section-eyebrow">Program Comparison</p>
+  <h2 class="section-heading">Compare top programs<br><em>side by side</em></h2>
+  <p class="section-sub">Select up to 4 programs to compare their curriculum, fees, and rankings.</p>
+
+  <div class="compare-row" id="compareRow">
+    <!-- Added program cards render here -->
+
+    <!-- Add Program trigger -->
+    <div class="add-card" id="addCard" onclick="openStepper()">
+      <div class="add-icon"><i class="bi bi-plus-lg"></i></div>
+      <span>Add Program</span>
+    </div>
+
+    <!-- Stepper Panel (hidden by default) -->
+    <div class="stepper-panel" id="stepperPanel" style="display:none;">
+
+      <!-- Progress Header -->
+      <div class="step-header">
+        <div class="progress-track" id="progressTrack"></div>
+        <div class="step-title" id="stepTitle"></div>
+        <div class="step-desc" id="stepDesc"></div>
+      </div>
+
+      <!-- Body (dynamic) -->
+      <div class="step-body" id="stepBody"></div>
+
+      <!-- Footer -->
+      <div class="step-footer" id="stepFooter"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const DATA = {
+    cities: [
+      { id:'delhi',     name:'Delhi',     icon:'🏛️', count:12, state:'Delhi' },
+      { id:'mumbai',    name:'Mumbai',    icon:'🌊', count:9,  state:'Maharashtra' },
+      { id:'bangalore', name:'Bangalore', icon:'💻', count:11, state:'Karnataka' },
+      { id:'chennai',   name:'Chennai',   icon:'🎭', count:7,  state:'Tamil Nadu' },
+      { id:'pune',      name:'Pune',      icon:'🎓', count:8,  state:'Maharashtra' },
+      { id:'hyderabad', name:'Hyderabad', icon:'💎', count:6,  state:'Telangana' },
+      { id:'kolkata',   name:'Kolkata',   icon:'📚', count:5,  state:'West Bengal' },
+      { id:'ahmedabad', name:'Ahmedabad', icon:'🏗️', count:4,  state:'Gujarat' },
+      { id:'jaipur',    name:'Jaipur',    icon:'🏰', count:5,  state:'Rajasthan' },
+      { id:'lucknow',   name:'Lucknow',   icon:'🌿', count:4,  state:'Uttar Pradesh' },
+    ],
+    universities: {
+      delhi:     [
+        { id:'iitd',  name:'IIT Delhi',           icon:'⚙️', type:'IIT',        rank:'#2',  fee:'₹2.2L/yr' },
+        { id:'du',    name:'Delhi University',     icon:'🏛️', type:'Central',    rank:'#12', fee:'₹18K/yr' },
+        { id:'jnu',   name:'JNU',                  icon:'🔬', type:'Central',    rank:'#3',  fee:'₹22K/yr' },
+        { id:'dtu',   name:'DTU',                  icon:'🛠️', type:'State',      rank:'#18', fee:'₹1.4L/yr' },
+        { id:'nsit',  name:'Netaji Subhas Univ.',  icon:'📐', type:'State',      rank:'#32', fee:'₹95K/yr' },
+      ],
+      mumbai:    [
+        { id:'iitb',  name:'IIT Bombay',           icon:'⚗️', type:'IIT',        rank:'#1',  fee:'₹2.1L/yr' },
+        { id:'mu',    name:'Univ. of Mumbai',      icon:'🏛️', type:'State',      rank:'#20', fee:'₹14K/yr' },
+        { id:'tiss',  name:'TISS Mumbai',          icon:'🤝', type:'Central',    rank:'#8',  fee:'₹36K/yr' },
+        { id:'spj',   name:'S.P. Jain',            icon:'💼', type:'Private',    rank:'#22', fee:'₹18L/yr' },
+      ],
+      bangalore: [
+        { id:'iisc',  name:'IISc Bangalore',       icon:'🔭', type:'Central',    rank:'#1',  fee:'₹28K/yr' },
+        { id:'iimb',  name:'IIM Bangalore',        icon:'📊', type:'IIM',        rank:'#1',  fee:'₹23L/yr' },
+        { id:'bu',    name:'Bangalore Univ.',      icon:'🏫', type:'State',      rank:'#25', fee:'₹10K/yr' },
+        { id:'rvce',  name:'RVCE',                 icon:'🖥️', type:'Private',    rank:'#35', fee:'₹1.6L/yr' },
+        { id:'christ',name:'Christ Univ.',         icon:'✝️', type:'Deemed',     rank:'#28', fee:'₹1.1L/yr' },
+      ],
+      chennai:   [
+        { id:'iitm',  name:'IIT Madras',           icon:'🏗️', type:'IIT',        rank:'#1',  fee:'₹2.3L/yr' },
+        { id:'annau', name:'Anna University',      icon:'⚙️', type:'State',      rank:'#10', fee:'₹45K/yr' },
+        { id:'loyola',name:'Loyola College',       icon:'📖', type:'Private',    rank:'#40', fee:'₹40K/yr' },
+      ],
+      pune:      [
+        { id:'iiserp',name:'IISER Pune',           icon:'🔬', type:'Central',    rank:'#7',  fee:'₹16K/yr' },
+        { id:'sppu',  name:'Savitribai Phule U.',  icon:'🎓', type:'State',      rank:'#22', fee:'₹12K/yr' },
+        { id:'symb',  name:'Symbiosis Intl.',      icon:'🌐', type:'Deemed',     rank:'#30', fee:'₹3.5L/yr' },
+        { id:'coep',  name:'COEP Tech. Univ.',     icon:'⚡', type:'State',      rank:'#26', fee:'₹1L/yr' },
+      ],
+      hyderabad: [
+        { id:'uoh',   name:'Univ. of Hyderabad',   icon:'🔬', type:'Central',    rank:'#9',  fee:'₹18K/yr' },
+        { id:'iith',  name:'IIT Hyderabad',        icon:'⚙️', type:'IIT',        rank:'#5',  fee:'₹2.1L/yr' },
+        { id:'bits',  name:'BITS Pilani, Hyd.',    icon:'💡', type:'Deemed',     rank:'#15', fee:'₹5.5L/yr' },
+      ],
+      kolkata:   [
+        { id:'cu',    name:'Calcutta University',  icon:'📜', type:'State',      rank:'#28', fee:'₹8K/yr' },
+        { id:'jadu',  name:'Jadavpur University',  icon:'⚙️', type:'State',      rank:'#15', fee:'₹6K/yr' },
+        { id:'iimcal',name:'IIM Calcutta',         icon:'📊', type:'IIM',        rank:'#2',  fee:'₹27L/yr' },
+      ],
+      ahmedabad: [
+        { id:'iima',  name:'IIM Ahmedabad',        icon:'📈', type:'IIM',        rank:'#1',  fee:'₹24L/yr' },
+        { id:'iitgn', name:'IIT Gandhinagar',      icon:'⚙️', type:'IIT',        rank:'#8',  fee:'₹2.0L/yr' },
+        { id:'nirma', name:'Nirma University',     icon:'🏫', type:'Deemed',     rank:'#34', fee:'₹1.8L/yr' },
+      ],
+      jaipur:    [
+        { id:'bits_j',name:'BITS Pilani',          icon:'💡', type:'Deemed',     rank:'#13', fee:'₹5.2L/yr' },
+        { id:'mnit',  name:'MNIT Jaipur',          icon:'⚙️', type:'NIT',        rank:'#20', fee:'₹1.5L/yr' },
+        { id:'molassi',name:'Univ. of Rajasthan',  icon:'🏛️', type:'State',      rank:'#38', fee:'₹12K/yr' },
+      ],
+      lucknow:   [
+        { id:'lknu',  name:'Univ. of Lucknow',     icon:'🏛️', type:'State',      rank:'#42', fee:'₹10K/yr' },
+        { id:'bbau',  name:'Babasaheb Ambedkar U.',icon:'📖', type:'Central',    rank:'#36', fee:'₹14K/yr' },
+      ],
+    }
+  };
+
+  const STEPS = [
+    { title: 'Choose a City', desc: 'Select the city where you want to study' },
+    { title: 'Choose a University', desc: '' },
+    { title: 'Program Details', desc: '' },
+  ];
+
+  let state = { step: 0, city: null, university: null };
+  let addedPrograms = [];
+
+  function openStepper() {
+    if (addedPrograms.length >= 4) return alert('Maximum 4 programs can be compared.');
+    state = { step: 0, city: null, university: null };
+    document.getElementById('stepperPanel').style.display = 'block';
+    document.getElementById('addCard').style.display = 'none';
+    render();
+  }
+
+  function closeStepper() {
+    document.getElementById('stepperPanel').style.display = 'none';
+    document.getElementById('addCard').style.display = 'flex';
+  }
+
+  function render() {
+    renderProgress();
+    if (state.step === 0) renderCityStep();
+    else if (state.step === 1) renderUniStep();
+    else renderDetailStep();
+  }
+
+  function renderProgress() {
+    const track = document.getElementById('progressTrack');
+    track.innerHTML = STEPS.map((s, i) => {
+      const cls = i < state.step ? 'done' : i === state.step ? 'active' : '';
+      const icon = i < state.step
+        ? '<i class="bi bi-check-lg" style="font-size:13px;"></i>'
+        : (i + 1);
+      const lineCls = i < state.step ? 'done' : '';
+      return `
+        <div class="progress-step ${cls}">
+          <div class="progress-dot ${cls}">${icon}</div>
+          <div class="progress-label">${s.title.split(' ')[1] || s.title}</div>
+        </div>
+        ${i < STEPS.length - 1 ? `<div class="progress-line ${lineCls}"></div>` : ''}
+      `;
+    }).join('');
+
+    const stepTitleEl = document.getElementById('stepTitle');
+    const stepDescEl  = document.getElementById('stepDesc');
+    const city = state.city ? DATA.cities.find(c => c.id === state.city) : null;
+    if (state.step === 1 && city) {
+      stepTitleEl.textContent = `Universities in ${city.name}`;
+      stepDescEl.textContent  = `${city.state} — ${city.count} universities available`;
+    } else {
+      stepTitleEl.textContent = STEPS[state.step].title;
+      stepDescEl.textContent  = STEPS[state.step].desc;
+    }
+  }
+
+  /* ──── Step 0: City ──── */
+  function renderCityStep() {
+    document.getElementById('stepBody').innerHTML = `
+      <div class="search-wrap">
+        <i class="bi bi-search"></i>
+        <input class="search-inp" id="citySearch" placeholder="Search cities or states…" oninput="filterCities(this.value)" />
+      </div>
+      <div class="opts-grid" id="cityGrid"></div>
+    `;
+    renderCityGrid('');
+    renderFooter();
+  }
+
+  function filterCities(q) { renderCityGrid(q); }
+
+  function renderCityGrid(q) {
+    q = q.toLowerCase();
+    const list = DATA.cities.filter(c =>
+      c.name.toLowerCase().includes(q) || c.state.toLowerCase().includes(q)
+    );
+    document.getElementById('cityGrid').innerHTML = list.map(c => `
+      <div class="opt-tile ${state.city === c.id ? 'selected' : ''}" onclick="selectCity('${c.id}')">
+        <div class="check-badge"><i class="bi bi-check-lg"></i></div>
+        <span class="tile-icon">${c.icon}</span>
+        <div class="tile-name">${c.name}</div>
+        <div class="tile-meta">${c.count} universities</div>
+      </div>
+    `).join('') || '<div style="color:var(--ink-4);font-size:13px;padding:8px 0;">No results found</div>';
+    updateNextBtn();
+  }
+
+  function selectCity(id) {
+    state.city = id;
+    state.university = null;
+    renderCityGrid((document.getElementById('citySearch') || {value:''}).value);
+  }
+
+  /* ──── Step 1: University ──── */
+  function renderUniStep() {
+    document.getElementById('stepBody').innerHTML = `
+      <div class="search-wrap">
+        <i class="bi bi-search"></i>
+        <input class="search-inp" id="uniSearch" placeholder="Search universities…" oninput="filterUnis(this.value)" />
+      </div>
+      <div class="opts-grid" id="uniGrid"></div>
+    `;
+    renderUniGrid('');
+    renderFooter();
+  }
+
+  function filterUnis(q) { renderUniGrid(q); }
+
+  function renderUniGrid(q) {
+    q = q.toLowerCase();
+    const list = (DATA.universities[state.city] || []).filter(u =>
+      u.name.toLowerCase().includes(q) || u.type.toLowerCase().includes(q)
+    );
+    document.getElementById('uniGrid').innerHTML = list.map(u => `
+      <div class="opt-tile ${state.university === u.id ? 'selected' : ''}" onclick="selectUni('${u.id}')">
+        <div class="check-badge"><i class="bi bi-check-lg"></i></div>
+        <span class="tile-icon">${u.icon}</span>
+        <div class="tile-name">${u.name}</div>
+        <div class="tile-meta">${u.type} · ${u.rank}</div>
+      </div>
+    `).join('') || '<div style="color:var(--ink-4);font-size:13px;padding:8px 0;">No results found</div>';
+    updateNextBtn();
+  }
+
+  function selectUni(id) {
+    state.university = id;
+    renderUniGrid((document.getElementById('uniSearch') || {value:''}).value);
+  }
+
+  /* ──── Step 2: Details ──── */
+  function renderDetailStep() {
+    const city = DATA.cities.find(c => c.id === state.city);
+    const uni  = (DATA.universities[state.city] || []).find(u => u.id === state.university);
+    const programs = ['MBA', 'B.Tech', 'M.Tech', 'BBA', 'PhD', 'MCA'];
+    const modes    = ['Full-time', 'Part-time', 'Online', 'Executive'];
+
+    document.getElementById('stepBody').innerHTML = `
+      <div class="result-hero">
+        <div class="result-avatar">${uni.icon}</div>
+        <div>
+          <div class="result-name">${uni.name}</div>
+          <div class="result-location">
+            <i class="bi bi-geo-alt" style="font-size:12px;"></i>
+            ${city.icon} ${city.name}, ${city.state}
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-label">National Rank</div>
+          <div class="stat-value">${uni.rank}</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Institute Type</div>
+          <div class="stat-value" style="font-size:14px;">${uni.type}</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Avg. Fee</div>
+          <div class="stat-value" style="font-size:14px;">${uni.fee}</div>
+        </div>
+      </div>
+
+      <div class="tags-section">
+        <div class="tags-label">Programs Offered</div>
+        <div class="tags-row">${programs.map(p => `<span class="tag blue">${p}</span>`).join('')}</div>
+      </div>
+
+      <div class="tags-section">
+        <div class="tags-label">Study Mode</div>
+        <div class="tags-row">${modes.map(m => `<span class="tag gold">${m}</span>`).join('')}</div>
+      </div>
+
+      <button class="btn-add" onclick="addToCompare()">
+        <i class="bi bi-plus-circle-fill"></i> Add to Comparison
+      </button>
+    `;
+    renderFooter();
+  }
+
+  /* ──── Footer ──── */
+  function renderFooter() {
+    const city = state.city ? DATA.cities.find(c => c.id === state.city) : null;
+    const uni  = state.university ? (DATA.universities[state.city] || []).find(u => u.id === state.university) : null;
+
+    const crumbs = [];
+    if (city) crumbs.push(`${city.icon} ${city.name}`);
+    if (uni)  crumbs.push(uni.name);
+
+    document.getElementById('stepFooter').innerHTML = `
+      <div class="breadcrumb-trail">
+        ${crumbs.map((c, i) => `
+          ${i > 0 ? '<i class="bi bi-chevron-right crumb-sep" style="font-size:10px;"></i>' : ''}
+          <span>${c}</span>
+        `).join('')}
+      </div>
+      <div style="display:flex;gap:8px;">
+        ${state.step > 0 ? `<button class="btn-back" onclick="goBack()"><i class="bi bi-arrow-left" style="font-size:11px;"></i> Back</button>` : `<button class="btn-back" onclick="closeStepper()">Cancel</button>`}
+        ${state.step < 2 ? `<button class="btn-next" id="nextBtn" onclick="goNext()" ${!canProceed() ? 'disabled' : ''}><span>Next</span><i class="bi bi-arrow-right" style="font-size:12px;"></i></button>` : ''}
+      </div>
+    `;
+  }
+
+  function updateNextBtn() {
+    const btn = document.getElementById('nextBtn');
+    if (btn) btn.disabled = !canProceed();
+    renderFooter();
+  }
+
+  function canProceed() {
+    if (state.step === 0) return !!state.city;
+    if (state.step === 1) return !!state.university;
+    return false;
+  }
+
+  function goNext() {
+    if (!canProceed()) return;
+    state.step++;
+    render();
+  }
+
+  function goBack() {
+    if (state.step > 0) { state.step--; render(); }
+  }
+
+  /* ──── Add to Compare ──── */
+  function addToCompare() {
+    const city = DATA.cities.find(c => c.id === state.city);
+    const uni  = (DATA.universities[state.city] || []).find(u => u.id === state.university);
+    const already = addedPrograms.find(p => p.uniId === state.university);
+    if (already) { alert('This university is already in your comparison.'); return; }
+
+    addedPrograms.push({ cityId: state.city, uniId: state.university, city, uni });
+    renderAddedCards();
+    closeStepper();
+  }
+
+  function removeProgram(uniId) {
+    addedPrograms = addedPrograms.filter(p => p.uniId !== uniId);
+    renderAddedCards();
+    if (addedPrograms.length < 4) {
+      document.getElementById('addCard').style.display = 'flex';
+    }
+  }
+
+  function renderAddedCards() {
+    const existing = document.querySelectorAll('.added-card');
+    existing.forEach(el => el.remove());
+
+    const row = document.getElementById('compareRow');
+    const addCard = document.getElementById('addCard');
+
+    addedPrograms.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'added-card';
+      card.innerHTML = `
+        <button class="remove-btn" onclick="removeProgram('${p.uniId}')"><i class="bi bi-x"></i></button>
+        <div class="card-icon">${p.uni.icon}</div>
+        <div class="card-uni">${p.uni.name}</div>
+        <div class="card-city">${p.city.icon} ${p.city.name}</div>
+        <div class="card-rank"><i class="bi bi-trophy-fill" style="font-size:10px;"></i> ${p.uni.rank}</div>
+        <div style="margin-top:6px;font-size:11px;color:var(--ink-3);">${p.uni.type} · ${p.uni.fee}</div>
+      `;
+      row.insertBefore(card, addCard);
+    });
+
+    if (addedPrograms.length >= 4) {
+      addCard.style.display = 'none';
+    }
+  }
+</script>
+</body>
+</html>
