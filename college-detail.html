@@ -22,6 +22,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
@@ -81,7 +85,7 @@
         min-height: 100vh;
         overflow-x: hidden;
       }
-      
+
       img {
         max-width: 100%;
         display: block;
@@ -114,17 +118,17 @@
           display: none !important;
         }
       }
-@media (max-width: 992px) {
-  .center-nav,
-  .nav-r2,
-  .course-wrap {
-    display: none;
-  }
+      @media (max-width: 992px) {
+        .center-nav,
+        .nav-r2,
+        .course-wrap {
+          display: none;
+        }
 
-  .ham-btn {
-    display: flex;
-  }
-}
+        .ham-btn {
+          display: flex;
+        }
+      }
       /* NAVBAR */
       .navbar-custom {
         background: var(--white);
@@ -137,7 +141,6 @@
       .nav-r1 {
         height: var(--nav-h);
       }
-
 
       /* Logo */
       .logo {
@@ -177,7 +180,7 @@
       .center-nav {
         display: flex;
         align-items: center;
-        padding-left:25%;
+        padding-left: 25%;
         gap: 20px;
       }
       .cn-link {
@@ -1805,21 +1808,8 @@
       .btn-brochure:hover {
         background: #fff5f3;
       }
-      .btn-compare {
-        background: #fff;
-        color: var(--text);
-        border: 1.5px solid var(--border);
-        padding: 10px 18px;
-        border-radius: 9px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        cursor: pointer;
-        font-family: "DM Sans", sans-serif;
-      }
-      .btn-compare:hover {
-        background: #f5f5f5;
-      }
-      .btn-back-uni{
+
+      .btn-back-uni {
         color: blue;
         margin-left: 17%;
       }
@@ -2372,6 +2362,7 @@
         padding: 16px;
         margin-bottom: 12px;
         transition: 0.2s;
+        max-width: 100%;
       }
       .review-card:hover {
         border-color: #ddd;
@@ -2413,6 +2404,8 @@
         font-size: 0.83rem;
         color: #444;
         line-height: 1.65;
+        word-wrap: break-word;       /* ✅ old support */
+  overflow-wrap: break-word; 
       }
       .rv-tags {
         display: flex;
@@ -2428,15 +2421,7 @@
         color: var(--muted);
         font-weight: 600;
       }
-      .rv-helpful {
-        font-size: 0.72rem;
-        color: var(--muted);
-        margin-top: 8px;
-        cursor: pointer;
-      }
-      .rv-helpful:hover {
-        color: var(--accent);
-      }
+
 
       /* Q&A */
       .qna-item {
@@ -2696,38 +2681,38 @@
         color: var(--muted);
         margin-bottom: 12px;
       }
-      @media (max-width:768px) {
-        .sw-card{
+      @media (max-width: 768px) {
+        .sw-card {
           width: 63%;
         }
-        .vt-card{
+        .vt-card {
           width: 63%;
         }
-        .sec-card{
+        .sec-card {
           width: 63%;
         }
-        .thead-course tr{
+        .thead-course tr {
           width: 10px;
         }
-        .btn-back-uni{
+        .btn-back-uni {
           display: none;
         }
-        .btn-back-mobi-uni{
+        .btn-back-mobi-uni {
           color: blue;
           margin-left: 60%;
-        }.btn-back-mobi-uni:hover{
+        }
+        .btn-back-mobi-uni:hover {
           border: none;
           margin-left: 60%;
         }
-        .hero-inner{
+        .hero-inner {
           padding: 2px 20px 0;
         }
       }
-      @media (min-width:768px) {
-        .btn-back-mobi-uni{
+      @media (min-width: 768px) {
+        .btn-back-mobi-uni {
           display: none;
         }
-        
       }
       .sw-row {
         display: flex;
@@ -2955,6 +2940,169 @@
           grid-template-columns: 1fr;
         }
       }
+   /* FORM CONTAINER */
+#reviewForm {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 25px;
+  border: none;
+  width: 40%;
+}
+
+/* INPUT + TEXTAREA */
+#reviewForm input,
+#reviewForm textarea,
+#reviewForm select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+  background: #f7f7f9;
+}
+
+/* FOCUS EFFECT */
+#reviewForm input:focus,
+#reviewForm textarea:focus,
+#reviewForm select:focus {
+  background: #fff;
+  border-color: #7b2cbf;
+  box-shadow: 0 0 0 2px rgba(123,44,191,0.15);
+}
+
+/* TEXTAREA HEIGHT */
+#reviewForm textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+/* SELECT ROW */
+#reviewForm .d-flex {
+  gap: 10px;
+}
+
+/* STAR RATING */
+#starRating i {
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 20px;
+}
+
+#starRating i:hover {
+  color: #f7b500;
+  transform: scale(1.2);
+}
+
+/* SUBMIT BUTTON */
+.submit-review {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(90deg, #2b3c8f, #7b2cbf);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.submit-review:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ADD REVIEW BUTTON */
+#reviewBtn {
+  background: linear-gradient(135deg, #2b3c8f, #7b2cbf);
+  border: none;
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+#reviewBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* EDIT + DELETE BUTTONS */
+.editBtn,
+.deleteBtn {
+  background: #2b3c8f;
+  color: white;
+  padding: 5px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  transition: 0.2s;
+}
+
+.editBtn:hover,
+.deleteBtn:hover {
+  background: #1d2c6b;
+}
+.review-card {
+  position: relative;
+}
+
+/* top right menu */
+.review-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* 3 dots button */
+.menu-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  min-width: 100px;
+  padding: 5px;
+  z-index: 10;
+}
+
+/* show dropdown */
+.review-actions.active .dropdown-menu {
+  display: flex;
+}
+
+/* buttons */
+.dropdown-menu button {
+  border: none;
+  background: none;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background: #f2f2f2;
+}
+
+.deleteBtn {
+  color: red;
+}
     </style>
   </head>
   <body>
@@ -2996,14 +3144,11 @@
       <!-- ROW 1 -->
       <div class="nav-r1 d-flex align-items-center gap-2 px-4">
         <!-- Logo -->
-        <a
-          href="#"
-        >
-             <div class="logo-mark">
+        <a href="#">
+          <div class="logo-mark">
             <img src="./campuswalkin_logo.png" alt="" />
           </div>
         </a>
-
 
         <nav class="center-nav d-none d-lg-flex">
           <a href="index.html" class="cn-link">Home</a>
@@ -3326,59 +3471,59 @@
         <div class="r2-sep"></div>
       </div>
     </div>
-  <div class="mobile-drawer" id="mDrawer">
-    <div class="md-head">
-      <strong>Menu</strong>
-      <button class="md-close" onclick="closeDrawer()">×</button>
-    </div>
+    <div class="mobile-drawer" id="mDrawer">
+      <div class="md-head">
+        <strong>Menu</strong>
+        <button class="md-close" onclick="closeDrawer()">×</button>
+      </div>
 
-    <div class="md-auth">
-      <button class="btn-ln">Login</button>
-      <button class="btn-su">Apply</button>
-    </div>
+      <div class="md-auth">
+        <button class="btn-ln">Login</button>
+        <button class="btn-su">Apply</button>
+      </div>
 
-    <div class="md-nav">
-      <a href="index.html">Home</a>
-      <button class="md-acc-btn" onclick="toggleAcc(this)">
-        Programs
-        <span>⌄</span>
-      </button>
-      <div class="md-acc-body">
-        <a href="#">Executive MBA</a>
-        <a href="#">Full-time MBA</a>
-        <a href="#">Data Science</a>
-        <a href="#">Marketing</a>
-        <a href="#">Finance</a>
-      </div>
-      <a href="universities.html">Universities</a>
-      <a href="#">Compare</a>
-      <a href="#">Blog</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <button class="md-acc-btn" onclick="toggleAcc(this)">
-        Courses
-        <span>⌄</span>
-      </button>
-      <div class="md-acc-body">
-        <a href="btech.html">B.Tech</a>
-        <a href="bca.html">BCA</a>
-        <a href="mba.html">MBA</a>
-        <a href="bba.html">BBA</a>
-      </div>
-      <button class="md-acc-btn" onclick="toggleAcc(this)">
-        Explore
-        <span>⌄</span>
-      </button>
-      <div class="md-acc-body">
-        <a href="#">Top Colleges</a>
-        <a href="#">Exams</a>
-        <a href="#">Study Abroad</a>
-        <a href="#">Scholarships</a>
-      </div>
+      <div class="md-nav">
+        <a href="index.html">Home</a>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Programs
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="#">Executive MBA</a>
+          <a href="#">Full-time MBA</a>
+          <a href="#">Data Science</a>
+          <a href="#">Marketing</a>
+          <a href="#">Finance</a>
+        </div>
+        <a href="universities.html">Universities</a>
+        <a href="#">Compare</a>
+        <a href="#">Blog</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Courses
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="btech.html">B.Tech</a>
+          <a href="bca.html">BCA</a>
+          <a href="mba.html">MBA</a>
+          <a href="bba.html">BBA</a>
+        </div>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Explore
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="#">Top Colleges</a>
+          <a href="#">Exams</a>
+          <a href="#">Study Abroad</a>
+          <a href="#">Scholarships</a>
+        </div>
       </div>
     </div>
     <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
-  
+
     <!-- MOBILE SEARCH BAR -->
     <div class="mobile-search-bar">
       <div class="msb-inner">
@@ -3405,11 +3550,11 @@
 
     <!-- HERO -->
     <div class="hero">
-     <a href="universities.html" class="btn btn-back-mobi-uni" >Go to Course <i class="bi bi-arrow-right"></i></a>
+      <a href="universities.html" class="btn btn-back-mobi-uni"
+        >Go to Course <i class="bi bi-arrow-right"></i
+      ></a>
       <div class="hero-inner">
-        
         <div class="hero-top">
-
           <div class="hero-logo">
             <img id="heroLogo" src="./girl.png" alt="College Logo" />
           </div>
@@ -3439,13 +3584,13 @@
             <div class="hero-actions">
               <button class="btn-apply">Apply Now</button>
               <button class="btn-brochure">📄 Download Brochure</button>
-              <button class="btn-compare">⊕ Compare</button>
             </div>
           </div>
-          <a href="universities.html" class="btn btn-back-uni" >Go to Course <i class="bi bi-arrow-right"></i></a>
+          <a href="universities.html" class="btn btn-back-uni"
+            >Go to Course <i class="bi bi-arrow-right"></i
+          ></a>
         </div>
         <div class="hero-stats" id="heroStats"></div>
-        
       </div>
     </div>
 
@@ -3565,10 +3710,60 @@
             </thead>
             <tbody id="resultBody"></tbody>
           </table>
-        </div>
+        </div>  
         <div class="sec-card" id="reviews">
           <div class="sec-title">Student Reviews</div>
           <div id="reviewsList"></div>
+            <div id="reviewsContainer"></div>
+
+          <div class="d-flex justify-content-center">
+            <button id="reviewBtn" onclick="toggleForm()">Add Review</button>
+          </div>
+
+          <!-- FORM (hidden by default) -->
+          <div id="reviewForm" class="p-3  rounded-3 mt-4 mx-auto">
+            <input type="text" id="name" placeholder="Your Name" class="w-100 p-1 border-black mb-2"/>
+            <br />
+            <textarea id="review" placeholder="Write your review" class="w-100 p-1 border-black" ></textarea>
+
+            <br />
+            <div class="d-flex gap-3">
+              <select id="slct-course" >
+              <option value="" disabled selected>Select Course</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="M.Tech">M.Tech</option>
+              <option value="BBA">BBA</option>
+              <option value="BCA">BCA</option>
+            </select>
+            <br /><br />
+            <select id="slct-year">
+              <option value="" disabled selected>Select Year</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2000">2000</option>
+            </select>
+            </div>
+            <div id="starRating" class="fs-5 mt-2">
+              <span onclick="setRating(1)"
+                ><i class="bi bi-star-fill text-secondary"></i
+              ></span>
+              <span onclick="setRating(2)"
+                ><i class="bi bi-star-fill text-secondary"></i
+              ></span>
+              <span onclick="setRating(3)"
+                ><i class="bi bi-star-fill text-secondary"></i
+              ></span>
+              <span onclick="setRating(4)"
+                ><i class="bi bi-star-fill text-secondary"></i
+              ></span>
+              <span onclick="setRating(5)"
+                ><i class="bi bi-star-fill text-secondary"></i
+              ></span>
+            </div>
+            <button onclick="addOrUpdateReview()" class="submit-review rounded-5 mt-2 mx-auto">Submit</button>
+          </div>
+
         </div>
         <div class="sec-card" id="qna">
           <div class="sec-title">Questions & Answers</div>
@@ -3610,7 +3805,7 @@
         </div>
       </div>
     </div>
-   <!-- ═══ FOOTER ═══ -->
+    <!-- ═══ FOOTER ═══ -->
     <footer>
       <div class="fi">
         <div class="fg">
@@ -4059,7 +4254,7 @@
           reviews: 60,
           fees: { btech: "₹2.53L", mtech: "₹1.03L" },
           courses: ["BE/B.Tech", "M.Tech", "MBA", "PhD"],
-          img:"iit-madras.jpg",
+          img: "iit-madras.jpg",
           state: "Tamil Nadu",
           feesNum: 2.53,
           placementLPA: 24,
@@ -4209,7 +4404,6 @@
           placementLPA: 7,
           badge: "Deemed",
         },
- 
       ];
 
       function getExtendedData(c) {
@@ -5434,7 +5628,7 @@
               .slice(
                 0,
                 2,
-              )}</div><div><div class="rv-name">${r.name}</div><div class="rv-meta">${r.course}</div></div><div class="rv-rating">${"⭐".repeat(r.rating)}</div></div><div class="rv-text">${r.text}</div><div class="rv-tags">${r.tags.map((t) => `<span class="rv-tag">${t}</span>`).join("")}</div><div class="rv-helpful">👍 ${r.helpful} people found this helpful</div></div>`,
+              )}</div><div><div class="rv-name">${r.name}</div><div class="rv-meta">${r.course}</div></div><div class="rv-rating">${"⭐".repeat(r.rating)}</div></div><div class="rv-text">${r.text}</div><div class="rv-tags">${r.tags.map((t) => ``).join("")}</div></div>`,
         )
         .join("");
       document.getElementById("qnaList").innerHTML = ext.qna
@@ -5507,20 +5701,178 @@
       });
     </script>
     <script>
-  function openDrawer(){
-    document.getElementById("mDrawer") .classList.add("open");
-    document.getElementById("mOverlay").classList.add("show");
-  }
-  function closeDrawer (){
-  document.getElementById("mDrawer").classList.remove("open")
-  document.getElementById("mOverlay").classList.remove("show")
-  }
-  function toggleAcc(btn){
-  btn.classList.toggle("open");
-  let body = btn.nextElementSibling;
-  body.classList.toggle("open")
-  }
+      function openDrawer() {
+        document.getElementById("mDrawer").classList.add("open");
+        document.getElementById("mOverlay").classList.add("show");
+      }
+      function closeDrawer() {
+        document.getElementById("mDrawer").classList.remove("open");
+        document.getElementById("mOverlay").classList.remove("show");
+      }
+      function toggleAcc(btn) {
+        btn.classList.toggle("open");
+        let body = btn.nextElementSibling;
+        body.classList.toggle("open");
+      }
     </script>
+    <script>
+      let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+      let editIndex = -1;
 
+      // 🔹 Show / Hide Form
+      function toggleForm() {
+        const form = document.getElementById("reviewForm");
+         if (form.style.display === "none" || form.style.display === "") {
+    form.style.display = "block";
+  } else {
+    form.style.display = "none";
+  }
+      }
+
+      // 🔹 Render Reviews
+     function renderReviews() {
+  const container = document.getElementById("reviewsContainer");
+  container.innerHTML = "";
+
+  reviews.forEach((rev, index) => {
+    const initials = getInitials(rev.name);
+
+container.innerHTML += `
+  <div class="review-card">
+
+    <!-- 🔥 3 DOT MENU -->
+    <div class="review-actions">
+      <button class="menu-btn">⋮</button>
+      <div class="dropdown-menu">
+        <button onclick="editReview(${index})">Edit</button>
+        <button onclick="deleteReview(${index})" class="deleteBtn">Delete</button>
+      </div>
+    </div>
+
+    <div class="review-header">
+      <div class="rv-avatar" style="background:#0369a1">${initials}</div>
+
+      <div>
+        <div class="rv-name">${rev.name}</div>
+        <div class="rv-meta">${rev.selectCourse} • ${rev.selectYear}</div>
+      </div>
+
+      <div class="rv-rating">${getStars(rev.rating)}</div>
+    </div>
+
+    <div class="rv-text">
+      <p>${rev.text}</p>
+    </div>
+
+  </div>
+    `;
+  });
+}
+document.addEventListener("click", function(e) {
+  document.querySelectorAll(".review-actions").forEach(menu => {
+    if (menu.contains(e.target)) {
+      menu.classList.toggle("active");
+    } else {
+      menu.classList.remove("active");
+    }
+  });
+});
+      let currentRating = 0;
+      function setRating(value) {
+        currentRating = value;
+        const stars = document.querySelectorAll("#starRating span");
+        stars.forEach((star, index) => {
+          if (index < value) {
+            star.classList.add("active");
+            star.innerHTML = '<i class="bi bi-star-fill text-warning"></i>';
+          } else {
+            star.classList.remove("active");
+            star.innerHTML = '<i class="bi bi-star-fill text-secondary"></i>';
+          }
+        });
+      }
+      function getInitials(name) {
+        return name
+          .trim() // ✔️ dot lagana hai
+          .split(/\s+/)
+          .map((word) => word[0])
+          .join("")
+          .substring(0, 2)
+          .toUpperCase(); // ✔️ correct method
+      }
+      function getStars(rating) {
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+          if (i <= rating) {
+            stars += '<i class="bi bi-star-fill text-warning "></i>';
+          } else {
+            stars += '<i class="bi bi-star-fill text-secondary"></i>';
+          }
+        }
+        return stars;
+      }
+      // 🔹 Add / Update
+      function addOrUpdateReview() {
+        const name = document.getElementById("name").value;
+        const text = document.getElementById("review").value;
+        const selectCourse = document.getElementById("slct-course").value;
+        const selectYear = document.getElementById("slct-year").value;
+        if (!name || !text || !selectCourse || !selectYear) {
+          alert("Fill all fields");
+          return;
+        }
+
+        if (editIndex === -1) {
+          reviews.push({
+            name,
+            text,
+            selectCourse,
+            selectYear,
+            rating: currentRating,
+          });
+        } else {
+          reviews[editIndex] = {
+            name,
+            text,
+            selectCourse,
+            selectYear,
+            rating: currentRating,
+          };
+          editIndex = -1;
+        }
+
+        localStorage.setItem("reviews", JSON.stringify(reviews));
+
+        document.getElementById("name").value = "";
+        document.getElementById("review").value = "";
+
+        // hide form after submit
+        document.getElementById("reviewForm").style.display = "none";
+
+        renderReviews();
+      }
+      // 🔹 Edit
+      function editReview(index) {
+        document.getElementById("name").value = reviews[index].name;
+        document.getElementById("review").value = reviews[index].text;
+        document.getElementById("slct-course").value =
+          review[index].selectCourse;
+        document.getElementById("slct-year").value = review[index].selectYear;
+        editIndex = index;
+
+        // open form when editing
+        document.getElementById("reviewForm").style.display = "block";
+      }
+
+      // 🔹 Delete
+      function deleteReview(index) {
+        reviews.splice(index, 1);
+        localStorage.setItem("reviews", JSON.stringify(reviews));
+        renderReviews();
+      }
+
+      // initial load
+      renderReviews();
+    </script>
   </body>
 </html>

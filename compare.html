@@ -3724,7 +3724,6 @@
         <div class="badge">🏆 <span>${u.rank}</span></div>
       </div>
       <div class="card-footer">
-        <a href="program.html?id=${u.id}"><button class="btn-view">view program</button></a>
 
       </div>
     </div>
@@ -3856,6 +3855,11 @@
               type: "IIT",
               rank: "#1",
               fee: "₹2.1L/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               id: "mu",
@@ -3875,6 +3879,12 @@
               type: "Central",
               rank: "#8",
               fee: "₹36K/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
+              
             },
             {
               id: "spj",
@@ -3882,6 +3892,11 @@
               type: "Private",
               rank: "#22",
               fee: "₹18L/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
           ],
           bangalore: [
@@ -3891,6 +3906,11 @@
               type: "Central",
               rank: "#1",
               fee: "₹28K/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               img: "iim-banglore.jpg",
@@ -3899,6 +3919,11 @@
               type: "IIM",
               rank: "#1",
               fee: "₹23L/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               id: "bu",
@@ -3906,6 +3931,11 @@
               type: "State",
               rank: "#25",
               fee: "₹10K/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               id: "rvce",
@@ -3913,6 +3943,11 @@
               type: "Private",
               rank: "#35",
               fee: "₹1.6L/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               img: "christ.jpg",
@@ -3921,6 +3956,11 @@
               type: "Deemed",
               rank: "#28",
               fee: "₹1.1L/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
           ],
           chennai: [
@@ -3931,6 +3971,11 @@
               type: "IIT",
               rank: "#1",
               fee: "₹2.3L/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               id: "annau",
@@ -3938,6 +3983,11 @@
               type: "State",
               rank: "#10",
               fee: "₹45K/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               id: "loyola",
@@ -3945,6 +3995,11 @@
               type: "Private",
               rank: "#40",
               fee: "₹40K/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
           ],
           pune: [
@@ -3954,6 +4009,11 @@
               type: "Central",
               rank: "#7",
               fee: "₹16K/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               id: "sppu",
@@ -3961,6 +4021,11 @@
               type: "State",
               rank: "#22",
               fee: "₹12K/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               id: "symb",
@@ -3968,6 +4033,11 @@
               type: "Deemed",
               rank: "#30",
               fee: "₹3.5L/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
             {
               id: "coep",
@@ -3975,6 +4045,11 @@
               type: "State",
               rank: "#26",
               fee: "₹1L/yr",
+                  courses: {
+                engineering: ["B.Tech", "M.Tech", "PhD"],
+                management: ["MBA", "Executive MBA"],
+                science: ["MSc", "PhD"],
+              },
             },
           ],
           hyderabad: [
@@ -4517,18 +4592,19 @@
       </tr>
 
       <tr class="action-row">
-        <th></th>
-        ${addedPrograms.map(p => `
-          <td>
-            <a class="btn-view" href="/university/${p.uniId}" onclick="viewDetails('${p.uniId}'); return false;">
-              View details
-            </a><br>
-            <a class="btn-apply" href="/apply/${p.uniId}" onclick="applyNow('${p.uniId}'); return false;">
-              Apply now
-            </a>
-          </td>
-        `).join("")}
-      </tr>
+  <th></th>
+  ${addedPrograms.map(p => `
+    <td>
+      <a class="btn-view" href="college-details.html?id=${p.uniId}">
+        View details
+      </a><br>
+
+      <a class="btn-apply" href="apply.html?id=${p.uniId}">
+        Apply now
+      </a>
+    </td>
+  `).join("")}
+</tr>
 
     </table>
   `;
