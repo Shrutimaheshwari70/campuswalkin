@@ -1086,7 +1086,7 @@
         text-align: start;
       }
       .hero-img-wrapper {
-        position: relative;
+        /* position: relative; */
         width: 100%;
         height: 450px; /* adjust height as needed */
         overflow: hidden;
@@ -1109,6 +1109,7 @@
           rgba(0, 0, 82, 0.904),
           rgba(73, 3, 73, 0.619)
         );
+      
       }
       .hero h1 {
         font-family: "Lato", sans-serif;
@@ -1130,6 +1131,36 @@
         margin-bottom: 1.8rem;
         max-width: 500px;
       }
+      /* 📱 Tablet */
+@media (max-width: 992px) {
+  .hero {
+    height: auto;
+  }
+
+  .hero-img-wrapper {
+    height: 600px;
+  }
+
+  .hero-section {
+    top: 20%;
+    left: 5%;
+    right: 5%;
+  }
+
+  .search-bar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .search-bar > * {
+    flex: 1 1 45%; /* 2 per row */
+  }
+
+  .search-btn {
+    flex: 1 1 100%;
+  }
+}
+
       /* ONE-LINE SEARCH BAR */
       .search-bar {
         display: flex;
@@ -3436,19 +3467,33 @@
         color: purple;
       }
       .card1-rev {
-        height: 300px;
-        border-radius: 10px;
-        padding: 30px;
-        background: linear-gradient(to right, #6b11cb17, #2574fc0d);
-        border: 2px solid rgb(228, 228, 228);
-        text-align: center;
-        min-width: 460px; /* fixed width */
-      }
+  height: auto;
+  border-radius: 10px;
+  padding: 30px;
+  background: linear-gradient(to right, #6b11cb17, #2574fc0d);
+  border: 2px solid rgb(228, 228, 228);
+  text-align: center;
+  width: 100%;        /* 🔥 full width */
+  max-width: 350px;   /* 🔥 limit for desktop */
+}
       .card-box-suc {
-        display: flex;
-        gap: 30px;
-        padding: 30px 100px 0;
-      }
+  display: flex;
+  gap: 30px;
+  padding: 30px 100px 0;
+  flex-wrap: wrap; /* 🔥 important */
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .card-box-suc {
+    padding: 20px;
+    flex-direction: column; /* 🔥 stack cards */
+    align-items: center;
+  }
+
+  .card1-rev {
+    max-width: 100%;
+  }
+}
       .rev-img {
         background-color: purple;
         height: 80px;

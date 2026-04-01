@@ -129,7 +129,115 @@
           display: flex;
         }
       }
+            /* ══════════════════════════
+   BREAKPOINT — Tablet ≤ 1024px
+══════════════════════════ */
+      @media (max-width: 1024px) {
+        /* Hide some nav links to save space */
+        .center-nav .cn-link:nth-child(n + 5) {
+          display: none;
+        }
+
+        /* Shrink explore label */
+        .exp-label {
+          display: none;
+        }
+
+        /* Explore mega — align left on tablet */
+        .exp-mega {
+          right: auto;
+          left: 0;
+          width: 480px;
+        }
+
+        /* Shrink course-wrap */
+        .course-wrap {
+          width: 190px;
+        }
+
+        /* Row 2 — hide some quick links */
+        .nav-r2 .np2:nth-child(n + 8) {
+          display: none;
+        }
+      }
+
+      /* ══════════════════════════
+   BREAKPOINT — Mobile ≤ 768px
+══════════════════════════ */
+      @media (max-width: 768px) {
+        /* Show hamburger, hide desktop auth + desktop nav */
+        .ham-btn {
+          display: flex !important;
+        }
+        .auth-btns {
+          display: none !important;
+        }
+        .center-nav {
+          display: none !important;
+        }
+        .explore-wrap {
+          display: none !important;
+        }
+        .notif-wrap {
+          display: none !important;
+        }
+
+        /* Row 1 */
+        .nav-r1 {
+          padding: 0 14px;
+          height: 56px;
+          gap: 8px;
+        }
+
+        /* Logo text shorter on small screens */
+        .logo-sub {
+          display: none;
+        }
+
+        /* Push hamburger to far right */
+        .nav-r1-right {
+          margin-left: auto;
+        }
+
+        /* Search: full width below logo row */
+        .nav-search {
+          display: none; /* shown inside drawer instead */
+        }
+
+        /* Hide Row 2 entirely */
+        .nav-r2 {
+          display: none !important;
+        }
+      }
+
+      /* ══════════════════════════
+   BREAKPOINT — Small Mobile ≤ 400px
+══════════════════════════ */
+      @media (max-width: 400px) {
+        .logo-text {
+          font-size: 1rem;
+        }
+        .nav-r1 {
+          padding: 0 10px;
+        }
+
+        .mobile-drawer {
+          width: 92vw;
+        }
+      }
+       @media (max-width: 992px) {
+        .center-nav,
+        .nav-r2,
+        .course-wrap {
+          display: none;
+        }
+
+        .ham-btn {
+          display: flex;
+        }
+      }
       /* NAVBAR */
+      
       .navbar-custom {
         background: var(--white);
         border-bottom: 1px solid var(--border);
