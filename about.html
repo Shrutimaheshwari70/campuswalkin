@@ -328,17 +328,17 @@
         transform: rotate(180deg);
       }
       .exp-mega {
-        display: none;
-        top: calc(100% + 8px);
-        right: 0;
-        width: 620px;
-        background: var(--white);
-        border: 1px solid rgb(240, 240, 240);
-        border-radius: 14px;
-        box-shadow: var(--sh3);
-        padding: 1.3rem;
-        z-index: 400;
-        animation: dropIn 0.2s ease;
+           display: none;
+  position: absolute;
+  top: 100%;
+  left: -400px;
+  width: 620px; /* adjust */
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--sh3);
+  padding: 1rem;
+  z-index: 10;
       }
       .explore-wrap:hover .exp-mega,
       .explore-wrap.open .exp-mega {
@@ -3578,16 +3578,18 @@
 
       /* ── Explore ── */
       function toggleExplore(e) {
-        e.stopPropagation();
-        document.getElementById("exploreWrap").classList.toggle("open");
-      }
+  e.stopPropagation(); // Prevent the document click from immediately closing it
+  const wrap = document.getElementById("exploreWrap");
+  wrap.classList.toggle("open");
+}
 
-      /* ── Global outside click close ── */
-      document.addEventListener("click", function () {
-        document.getElementById("locWrap").classList.remove("open");
-        document.getElementById("exploreWrap").classList.remove("open");
-      });
-
+// Close dropdown when clicking outside
+document.addEventListener("click", function (e) {
+  const explore = document.getElementById("exploreWrap");
+  if (!explore.contains(e.target)) {
+    explore.classList.remove("open");
+  }
+});
       /* ── Mobile drawer ── */
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");

@@ -328,18 +328,17 @@
         transform: rotate(180deg);
       }
       .exp-mega {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        right: 0;
-        width: 620px;
-        background: var(--white);
-        border: 1px solid rgb(240, 240, 240);
-        border-radius: 14px;
-        box-shadow: var(--sh3);
-        padding: 1.3rem;
-        z-index: 400;
-        animation: dropIn 0.2s ease;
+         display: none;
+  position: absolute;
+  top: 100%;
+  left: -400px;
+  width: 620px; /* adjust */
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--sh3);
+  padding: 1rem;
+  z-index: 10;
       }
       .explore-wrap:hover .exp-mega,
       .explore-wrap.open .exp-mega {
@@ -3667,9 +3666,7 @@
 
     <!-- HERO -->
     <div class="hero">
-      <a href="universities.html" class="btn btn-back-mobi-uni"
-        >Go to Course <i class="bi bi-arrow-right"></i
-      ></a>
+
       <div class="hero-inner">
         <div class="hero-top">
           <div class="hero-logo">
@@ -3704,9 +3701,7 @@
               <a href="courses.html" type="button" class="cca-allCourses">All courses</a>
             </div>
           </div>
-          <a href="universities.html" class="btn btn-back-uni"
-            >Go to Course <i class="bi bi-arrow-right"></i
-          ></a>
+      
         </div>
         <div class="hero-stats" id="heroStats"></div>
       </div>

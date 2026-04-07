@@ -296,17 +296,17 @@
         transform: rotate(180deg);
       }
       .exp-mega {
-        display: none;
-        top: calc(100% + 8px);
-        right: 0;
-        width: 620px;
-        background: var(--white);
-        border: 1px solid rgb(240, 240, 240);
-        border-radius: 14px;
-        box-shadow: var(--sh3);
-        padding: 1.3rem;
-        z-index: 400;
-        animation: dropIn 0.2s ease;
+      display: none;
+  position: absolute;
+  top: 100%;
+  left: -400px;
+  width: 620px; /* adjust */
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--sh3);
+  padding: 1rem;
+  z-index: 10;
       }
       .explore-wrap:hover .exp-mega,
       .explore-wrap.open .exp-mega {
@@ -1748,6 +1748,7 @@
         border-radius: 7px;
         background: var(--bg);
         overflow: hidden;
+        position: sticky; 
         margin-bottom: 0.6rem;
       }
       .filter-search input {
@@ -1817,7 +1818,7 @@
         padding: 1px 6px;
         border-radius: 100px;
       }
-      .filter-show-more {
+      /* .filter-show-more {
         font-size: 0.78rem;
         font-weight: 700;
         color: var(--accent);
@@ -1828,7 +1829,7 @@
       }
       .filter-show-more:hover {
         color: #1d4ed8;
-      }
+      } */
 
       /* Range slider */
 
@@ -2071,6 +2072,7 @@
         min-height: 90vh;
         width: 100%;
       }
+      
       /* ── COLLEGE CARD ── */
       .college-card {
         background: var(--white);
@@ -2089,7 +2091,7 @@
       }
       .cc-inner {
         display: grid;
-        grid-template-columns: 220px 1fr;
+        grid-template-columns: 400px 1fr;
         gap: 0;
       }
       .cc-img-wrap {
@@ -2098,7 +2100,6 @@
         height: 100%;
       }
       .cc-img-wrap img {
-        width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.4s;
@@ -2145,7 +2146,7 @@
       }
 
       .cc-body {
-        padding: 1.1rem 1.3rem;
+        padding: 1.1rem 1rem;
       }
       .cc-head {
         display: flex;
@@ -2155,7 +2156,7 @@
       }
       .cc-name {
         font-weight: 500;
-        font-size: 1rem;
+        font-size: 1.3rem;
         color: var(--navy);
         line-height: 1.25;
         transition: color 0.2s;
@@ -2184,12 +2185,12 @@
         background: #fff3f0;
         color: #e85d3a;
       }
-
+   
       .cc-location {
         display: flex;
         align-items: center;
         gap: 4px;
-        font-size: 0.74rem;
+        font-size: 0.85rem;
         color: var(--muted);
         margin-bottom: 0.4rem;
       }
@@ -2256,6 +2257,21 @@
         flex-direction: column;
         gap: 1px;
       }
+      #course-list-container::-webkit-scrollbar,
+#state-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+#course-list-container::-webkit-scrollbar-thumb,
+#state-list-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+#course-list-container::-webkit-scrollbar-track,
+#state-list-container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
       .cfi-label {
         font-size: 0.63rem;
         color: var(--muted);
@@ -2321,7 +2337,7 @@
         flex-wrap: wrap;
       }
       .cca-apply {
-        padding: 8px 20px;
+        padding: 10px 30px;
         background: var(--accent);
         color: #fff;
         border: none;
@@ -2338,7 +2354,7 @@
         transform: translateY(-1px);
       }
       .cca-brochure {
-        padding: 8px 18px;
+        padding: 10px 30px;
         background: var(--bg);
         color: var(--text);
         border: 1.5px solid var(--border);
@@ -2878,6 +2894,7 @@
           <a href="#" class="cn-link fw-normal">Blog</a>
           <a href="about.html" class="cn-link fw-normal">About</a>
           <a href="contact.html" class="cn-link fw-normal">Contact</a>
+          
         </div>
         <!-- SEARCH (desktop/tablet) -->
         <div></div>
@@ -3197,7 +3214,7 @@
             <!-- SECTIONS (reused for both sidebar & offcanvas via JS cloning) -->
             <div id="filterSections">
               <!-- 1. COURSE -->
-              <div class="filter-section">
+              <div class="filter-section" style="max-height: 300px; overflow-y: auto">
                 <div class="fs-sec-head" onclick="toggleSection(this)">
                   <span class="fs-sec-title">Course</span>
                   <i class="bi bi-chevron-down fs-sec-toggle open"></i>
@@ -3308,18 +3325,18 @@
                   >
                     No course found
                   </div>
-                  <div
+                  <!-- <div
                     class="filter-show-more"
                     id="course-more"
                     onclick="showMore('course-list', 'course-more')"
                   >
                     + Show 2 more
-                  </div>
+                  </div> -->
                 </div>
               </div>
 
               <!-- 2. STATE -->
-              <div class="filter-section">
+              <div class="filter-section" style="max-height: 250px; overflow-y: auto;">
                 <div class="fs-sec-head" onclick="toggleSection(this)">
                   <span class="fs-sec-title">State</span>
                   <i class="bi bi-chevron-down fs-sec-toggle open"></i>
@@ -3394,13 +3411,6 @@
                       </div>
                       <span class="fc-count">1380</span>
                     </div>
-                  </div>
-                  <div
-                    class="filter-show-more"
-                    id="state-more"
-                    onclick="showMore('state-list', 'state-more')"
-                  >
-                    + Show more states
                   </div>
                 </div>
               </div>
@@ -4442,16 +4452,18 @@
 
       /* ── Explore ── */
       function toggleExplore(e) {
-        e.stopPropagation();
-        document.getElementById("exploreWrap").classList.toggle("open");
-      }
+  e.stopPropagation(); // Prevent the document click from immediately closing it
+  const wrap = document.getElementById("exploreWrap");
+  wrap.classList.toggle("open");
+}
 
-      /* ── Global outside click close ── */
-      document.addEventListener("click", function () {
-        document.getElementById("locWrap").classList.remove("open");
-        document.getElementById("exploreWrap").classList.remove("open");
-      });
-
+// Close dropdown when clicking outside
+document.addEventListener("click", function (e) {
+  const explore = document.getElementById("exploreWrap");
+  if (!explore.contains(e.target)) {
+    explore.classList.remove("open");
+  }
+});
       /* ── Mobile drawer ── */
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");
@@ -4976,17 +4988,15 @@
         <div class="cc-img-wrap" style="background:${c.imgBg}">
           <img src="${c.img}" alt="${c.name}"/>
           <div class="cc-rank-badge">🏆 ${c.accred.find((a) => a.includes("NIRF")) || "Ranked"}</div>
-          <div class="cc-type-badge ${typeClass}">${c.badge}</div>
         </div>
         <div class="cc-body">
           <div class="cc-head">
             <div class="cc-name">${c.name}</div>
-            <div class="cc-wishlist ${inCompare ? "active" : ""}" data-wish="${c.id}">🤍</div>
           </div>
           <div class="cc-location">
             <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
+            </svfg>
             ${c.location}
             <span style="color:var(--border)">|</span>
             ${c.accred.filter((a) => !a.includes("NIRF") && !a.includes("QS") && !a.includes("FT") && !a.includes("Mgmt")).join(" · ")}
@@ -4999,7 +5009,9 @@
             <button class="cca-apply">Apply Now</button>
             <button class="cca-brochure">Brochure</button>
           </div>
+
         </div>
+        
       </div>
     </div>`;
       }
