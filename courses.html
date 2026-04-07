@@ -1,0 +1,2782 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f4f6fb;
+        --white: #fff;
+        --navy: #0b1437;
+        --navy2: #162050;
+        --text: #1a2340;
+        --muted: #6b7a99;
+        --border: #dde3f0;
+        --light: #e8ecf7;
+        --exec: #e85d3a;
+        --exec-bg: #fff3f0;
+        --online: #0aab87;
+        --online-bg: #ebfaf6;
+        --offline: #5c4ee8;
+        --offline-bg: #f0eeff;
+        --abroad: #e8a020;
+        --abroad-bg: #fff8eb;
+        --accent: #2563eb;
+        --accent2: #eff4ff;
+        --sh1: 0 1px 4px rgba(0, 0, 0, 0.06);
+        --sh2: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --sh3: 0 12px 40px rgba(0, 0, 0, 0.12);
+        --nav-h: 60px;
+        --nav2-h: 44px;
+      }
+      :root {
+        --teal: #212d94d4;
+        --teal-light: #2253a3;
+        --teal-bg: #e8f5f3;
+        --gold: #e6a817;
+        --dark: #0f2027;
+        --text: #1c2b35;
+        --muted: #6b7f8a;
+        --border: #d9e8e5;
+        --white: #ffffff;
+        --row-hover: #f0faf8;
+        --shadow: 0 4px 24px rgba(26, 122, 110, 0.1);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      button,
+      input,
+      select {
+        font-family: inherit;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      /* ─────────────────────────────────────
+   TOPBAR  (hidden on mobile)
+───────────────────────────────────── */
+      .topbar {
+        background: var(--navy);
+        color: #aab4cc;
+      }
+      .topbar a {
+        color: #aab4cc;
+        transition: color 0.2s;
+        font-size: 13px;
+      }
+      .topbar a:hover {
+        color: #fff;
+      }
+      .topbar p {
+        font-size: 13px;
+      }
+      /* ─────────────────────────────────────
+   NAVBAR WRAPPER
+───────────────────────────────────── */
+      .navbar {
+        background: var(--white);
+        position: sticky;
+        top: 0;
+        z-index: 300;
+        box-shadow: var(--sh1);
+      }
+      @media (max-width: 992px) {
+        .center-nav,
+        .nav-r2,
+        .course-wrap {
+          display: none;
+        }
+        .ham-btn {
+          display: flex;
+        }
+      }
+      .center-nav .cn-link {
+        font-size: 14px;
+      }
+      .center-nav .program-btn {
+        font-size: 14px;
+      }
+      /* ── ROW 1 ── */
+      .nav-r1 {
+        height: 50px;
+        border-bottom: 2px solid rgb(230, 230, 230);
+      }
+
+      .logo-text {
+        font-weight: 900;
+        font-size: 1.15rem;
+        color: var(--navy);
+        letter-spacing: -0.5px;
+      }
+      .logo-text span {
+        color: var(--muted);
+      }
+      .logo-sub {
+        font-size: 0.58rem;
+        color: var(--muted);
+        font-weight: 500;
+        display: block;
+        margin-top: -2px;
+      }
+      /* WRAP */
+      /* ══════════════════════════
+   BREAKPOINT — Tablet ≤ 1024px
+══════════════════════════ */
+      @media (max-width: 1024px) {
+        /* Hide some nav links to save space */
+        .center-nav .cn-link:nth-child(n + 5) {
+          display: none;
+        }
+
+        /* Shrink explore label */
+        .exp-label {
+          display: none;
+        }
+
+        /* Explore mega — align left on tablet */
+        .exp-mega {
+          right: auto;
+          left: 0;
+          width: 480px;
+        }
+
+        /* Shrink course-wrap */
+        .course-wrap {
+          width: 190px;
+        }
+
+        /* Row 2 — hide some quick links */
+        .nav-r2 .np2:nth-child(n + 8) {
+          display: none;
+        }
+      }
+
+      /* ══════════════════════════
+   BREAKPOINT — Mobile ≤ 768px
+══════════════════════════ */
+      @media (max-width: 768px) {
+        /* Show hamburger, hide desktop auth + desktop nav */
+        .ham-btn {
+          display: flex !important;
+        }
+        .auth-btns {
+          display: none !important;
+        }
+        .center-nav {
+          display: none !important;
+        }
+        .course-wrap {
+          display: none !important;
+        }
+        .explore-wrap {
+          display: none !important;
+        }
+        .notif-wrap {
+          display: none !important;
+        }
+
+        /* Row 1 */
+        .nav-r1 {
+          padding: 0 14px;
+          height: 56px;
+          gap: 8px;
+        }
+
+        /* Logo text shorter on small screens */
+        .logo-sub {
+          display: none;
+        }
+
+        /* Push hamburger to far right */
+        .nav-r1-right {
+          margin-left: auto;
+        }
+
+        /* Search: full width below logo row */
+        .nav-search {
+          display: none; /* shown inside drawer instead */
+        }
+
+        /* Hide Row 2 entirely */
+        .nav-r2 {
+          display: none !important;
+        }
+      }
+
+      /* ══════════════════════════
+   BREAKPOINT — Small Mobile ≤ 400px
+══════════════════════════ */
+      @media (max-width: 400px) {
+        .logo-text {
+          font-size: 1rem;
+        }
+        .nav-r1 {
+          padding: 0 10px;
+        }
+
+        .mobile-drawer {
+          width: 92vw;
+        }
+      }
+      /* Right controls */
+      .nav-r1-right {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+
+      /* Explore */
+      .explore-btn {
+        background-color: #0285c72f;
+        color: #0d1a34;
+        font-size: 0.8rem;
+        transition: background 0.2s;
+      }
+      .explore-btn:hover,
+      .explore-wrap:hover .explore-btn {
+        background: #091430;
+        color: white;
+      }
+      .explore-btn svg {
+        transition: transform 0.25s;
+      }
+      .explore-wrap:hover .explore-btn svg,
+      .explore-wrap.open .explore-btn svg {
+        transform: rotate(180deg);
+      }
+      .exp-mega {
+        display: none;
+        top: calc(100% + 8px);
+        right: 0;
+        width: 620px;
+        background: var(--white);
+        border: 1px solid rgb(240, 240, 240);
+        border-radius: 14px;
+        box-shadow: var(--sh3);
+        padding: 1.3rem;
+        z-index: 400;
+        animation: dropIn 0.2s ease;
+      }
+      .explore-wrap:hover .exp-mega,
+      .explore-wrap.open .exp-mega {
+        display: block;
+      }
+      .em-title {
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+      }
+      .em-grid {
+        gap: 7px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .em-grid > div {
+        width: 50%; /* aadha idhar aadha udhar */
+      }
+      .em-item {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 12px;
+        color: var(--text);
+        transition: all 0.2s;
+        font-size: 0.71rem;
+        font-weight: 600;
+      }
+      .em-item:hover {
+        border-color: var(--accent);
+        background: var(--accent2);
+        color: var(--accent);
+      }
+      .em-item span:first-child {
+        font-size: 0.8rem;
+      }
+      .em-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .em-tag {
+        padding: 4px 10px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.71rem;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-weight: 600;
+      }
+      .em-grid a {
+        border-bottom: 2px solid rgb(249, 249, 249);
+      }
+      .em-tag:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+
+      /* Icon btn */
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1.5px solid var(--border);
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--muted);
+        transition: all 0.2s;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .icon-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+      .n-dot {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 7px;
+        height: 7px;
+        background: #e85d3a;
+        border-radius: 50%;
+        border: 1.5px solid #fff;
+      }
+
+      /* Notif panel */
+      .notif-wrap {
+        position: relative;
+      }
+      .notif-panel {
+        display: none;
+        position: absolute;
+        top: calc(100%+8px);
+        right: 0;
+        width: 290px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        box-shadow: var(--sh3);
+        z-index: 400;
+        overflow: hidden;
+        animation: dropIn 0.2s ease;
+      }
+      .notif-wrap:hover .notif-panel,
+      .notif-wrap.open .notif-panel {
+        display: block;
+      }
+      .np-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.79rem;
+        font-weight: 700;
+      }
+      .np-hd a {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .np-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .np-row:last-child {
+        border-bottom: none;
+      }
+      .np-row:hover {
+        background: var(--bg);
+      }
+      .np-ic {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+      .np-t1 {
+        font-size: 0.73rem;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.3;
+      }
+      .np-t2 {
+        font-size: 0.66rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .np-unread {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-top: 5px;
+        flex-shrink: 0;
+      }
+
+      /* Auth */
+      .auth-btns {
+        display: flex;
+        gap: 5px;
+      }
+      .btn-ln {
+        border: 1.5px solid var(--border);
+        background: none;
+        font-size: 0.82rem;
+        color: var(--text);
+        transition: all 0.2s;
+      }
+      .btn-ln:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .btn-su {
+        border: 1.5px solid white;
+        background: rgb(35, 35, 88);
+        font-size: 0.79rem;
+        color: #fff;
+        transition: all 0.2s;
+      }
+      .btn-su:hover {
+        background: #1d4fd8b4;
+      }
+      /* Hamburger (mobile only) */
+      .ham-btn {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        padding: 6px;
+        border: 1.5px solid var(--border);
+        border-radius: 7px;
+        background: var(--bg);
+      }
+      .ham-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+      .ham-btn.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .ham-btn.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      /* ── ROW 2 ── */
+      .nav-r2::-webkit-scrollbar {
+        display: none;
+      }
+      /* BUTTON */
+      .courses-btn {
+        border: 1px solid #e2e8f0;
+        font-size: 14px;
+      }
+
+      /* SHOW ON HOVER */
+      .cm-wrap:hover .cm-hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+
+      /* GAP FIX (IMPORTANT) */
+      .cm-hover::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 0;
+        width: 10px;
+        height: 100%;
+      }
+
+      /* OPTIONAL STYLING */
+      .cm-h-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .cm-h-list div {
+        font-size: 10px;
+        padding: 3px 0;
+      }
+      .cm-h-list a {
+        font-size: 11px;
+      }
+      .cm-view {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 12px;
+        color: #4f46e5;
+        text-decoration: none;
+      }
+      .courses-wrap.open .chevron {
+        transform: rotate(180deg);
+      }
+
+      .courses-mega {
+        position: absolute;
+        min-width: 100vw;
+        margin-top: 4px;
+        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+      }
+      .courses-wrap.open .courses-mega {
+        display: block;
+      }
+      .courses-btn .chevron {
+        color: rgb(192, 192, 192);
+      }
+      /* INNER */
+      .cm-inner {
+        display: flex;
+        min-height: 420px;
+      }
+
+      /* LEFT */
+      .cm-side {
+        width: 220px;
+        background: #f8fafc;
+        border-right: 1px solid #ecb21f;
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      .cm-si {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+      }
+
+      .cm-si.active {
+        background: #eef2ff;
+        color: #4f46e5;
+      }
+
+      /* RIGHT */
+      .cm-content {
+        flex: 1;
+        padding: 15px 30px;
+      }
+
+      /* TABS */
+      .cm-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+
+      .cm-tab {
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: #f1f5f9;
+        cursor: pointer;
+        font-size: 12px;
+      }
+
+      .cm-tab.active {
+        background: #4f46e5;
+        color: #fff;
+      }
+
+      /* GRID */
+      .cm-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      /* CARD */
+      .cm-c {
+        display: block;
+        padding: 10px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+      /* ITEM */
+      .cm-item {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* CARD */
+      .cm-c {
+        padding: 10px;
+        background: #fff;
+      }
+
+      /* DROPDOWN (hidden by default) */
+      .cm-drop {
+        max-height: 0;
+        overflow: hidden;
+        background: #fafafa;
+        padding: 0 10px;
+
+        transition: all 0.3s ease;
+      }
+
+      /* HOVER OPEN */
+      .cm-item:hover .cm-drop {
+        max-height: 220px;
+        padding: 10px;
+      }
+      .cm-c:hover {
+        background: #f5f3ff;
+      }
+
+      /* ── Empty state ── */
+      .cm-empty {
+        padding: 24px;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 13px;
+      } /* SHOW ON HOVER */
+      .courses-wrap:hover .courses-mega {
+        display: block;
+      }
+
+      /* rotate icon on hover */
+      .courses-wrap:hover .chevron {
+        transform: rotate(180deg);
+      }
+
+      /* IMPORTANT: keep parent active when hovering menu */
+      .courses-wrap {
+        position: relative;
+      }
+
+      .courses-mega {
+        display: none;
+        pointer-events: auto;
+      }
+
+      /* FIX GAP ISSUE (so it doesn't close when moving mouse) */
+      .courses-wrap::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 20px; /* bridge gap */
+      }
+      /* Nav pills row 2 */
+      .np2 {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 4px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        /* cursor: pointer; */
+        color: var(--muted);
+        white-space: nowrap;
+        transition: all 0.2s;
+        text-decoration: none;
+        flex-shrink: 0;
+        border: 1px solid transparent;
+      }
+      .np2:hover {
+        color: black;
+      }
+      .np2.finder-p {
+        background: var(--accent2);
+        border-color: #c7d9ff;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .np2.finder-p:hover {
+        background: #dce8ff;
+      }
+      .new-tag {
+        background: var(--exec);
+        color: #fff;
+        font-size: 0.58rem;
+        font-weight: 800;
+        padding: 1px 4px;
+        border-radius: 3px;
+        text-transform: uppercase;
+      }
+      /* ─────────────────────────────────────
+   MOBILE NAV DRAWER
+───────────────────────────────────── */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 490;
+        backdrop-filter: blur(2px);
+      }
+      .mobile-overlay.open {
+        display: block;
+      }
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        width: min(320px, 90vw);
+        height: 100vh;
+        background: var(--white);
+        z-index: 500;
+        overflow-y: auto;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: var(--sh3);
+      }
+      .mobile-drawer.open {
+        left: 0;
+      }
+      /* ── Mobile Drawer ── */
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 82vw;
+        max-width: 320px;
+        height: 100dvh;
+        background: var(--white, #fff);
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.13);
+        transition: left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        padding: 0 0 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      .mobile-drawer.open {
+        left: 0;
+      }
+
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+      }
+      .mobile-overlay.show {
+        display: block;
+      }
+
+      .md-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        position: sticky;
+        top: 0;
+        background: var(--white, #fff);
+        z-index: 2;
+      }
+      .md-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        border: 1.5px solid var(--border, #e5e7eb);
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--text, #333);
+        font-size: 18px;
+        line-height: 1;
+      }
+      .md-auth {
+        display: flex;
+        gap: 8px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-auth button {
+        flex: 1;
+      }
+
+      /* Search inside drawer */
+      .md-search {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-search .ns-input {
+        padding-left: 36px;
+        background: var(--bg, #f7f7f7);
+      }
+
+      /* Nav links inside drawer */
+      .md-nav {
+        padding: 8px 0;
+      }
+      .md-nav a {
+        display: block;
+        padding: 11px 20px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text, #333);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .md-nav a:hover {
+        background: var(--bg, #f5f5f5);
+        color: var(--accent, #2563eb);
+      }
+
+      /* Accordion for Programs inside drawer */
+      .md-acc-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 11px 20px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text, #333);
+        background: none;
+        border: none;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        cursor: pointer;
+        text-align: left;
+      }
+      .md-acc-btn svg {
+        transition: transform 0.25s;
+        flex-shrink: 0;
+      }
+      .md-acc-btn.open svg {
+        transform: rotate(180deg);
+      }
+      .md-acc-body {
+        display: none;
+        padding: 10px 20px 14px 28px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        background: var(--bg, #f9f9f9);
+      }
+      .md-acc-body.open {
+        display: block;
+      }
+      .md-acc-body a {
+        display: block;
+        padding: 7px 0;
+        font-size: 0.82rem;
+        color: var(--muted, #888);
+        text-decoration: none;
+        font-weight: 500;
+        border: none;
+      }
+      .md-acc-body a:hover {
+        color: var(--accent, #2563eb);
+      }
+
+      /* Course tags in drawer */
+      .md-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-tags span {
+        padding: 5px 11px;
+        background: var(--bg, #f0f0f0);
+        border: 1px solid var(--border, #e5e7eb);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--muted, #555);
+        cursor: pointer;
+      }
+
+      .md-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .md-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+        color: var(--muted);
+      }
+      .md-body {
+        padding: 0.8rem 1rem;
+      }
+      .md-section {
+        margin-bottom: 1.2rem;
+      }
+      .md-sec-title {
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0.5rem 0.4rem;
+        margin-bottom: 4px;
+      }
+      .md-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 10px;
+        border-radius: 9px;
+        cursor: pointer;
+        transition: background 0.15s;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .md-item:hover {
+        background: var(--bg);
+      }
+      .md-item .mi {
+        font-size: 1rem;
+        width: 28px;
+        text-align: center;
+      }
+      .md-item .mt {
+        font-size: 0.84rem;
+        font-weight: 600;
+      }
+      .md-item .mb {
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+      .md-auth {
+        padding: 1rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: sticky;
+        bottom: 0;
+        background: var(--white);
+      }
+
+      /* MEGA MENU */
+      .programs-card {
+        position: absolute;
+        cursor: pointer;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        width: 100vw;
+
+        background: #fff;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+        padding: 35px;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.35s ease;
+        z-index: 9999;
+      }
+
+      /* HOVER OPEN */
+      .program-wrap:hover .programs-card {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      /* CLICK LOCK */
+      .program-wrap.active .programs-card {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+
+      /* arrow animation */
+      .program-btn svg {
+        transition: transform 0.3s ease;
+      }
+
+      .program-wrap:hover .program-btn svg,
+      .program-wrap.active .program-btn svg {
+        transform: rotate(180deg);
+      }
+      .programs-card.show {
+        display: block;
+      }
+      .program-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      /* CATEGORY */
+      .category h2 {
+        color: #1f2b3a;
+      }
+      .category i {
+        background-color: rgba(72, 0, 255, 0.062);
+        color: purple;
+      }
+      .program-list li {
+        color: #444;
+      }
+      .institution-row {
+        font-size: 13px;
+        color: #888;
+      }
+      /* FEATURED SECTION */
+      .featured-section {
+        background: linear-gradient(120deg, #102a44, #1b3b5c);
+      }
+      .featured-text h3 {
+        color: #fff;
+      }
+      .featured-text p {
+        color: #d7e6ff;
+      }
+
+      .featured-link {
+        color: #1b0842;
+      }
+      .featured-link a {
+        font-size: 14px;
+      }
+      /* ── SKELETON ── */
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e8e8e8 50%,
+          #f0f0f0 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.4s infinite;
+        border-radius: 6px;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+      @media (max-width: 1023px) {
+        .layout {
+          grid-template-columns: 240px 1fr;
+          padding: 0 1.2rem 3rem;
+        }
+      }
+      @media (max-width: 767px) {
+        .topnav {
+          display: none;
+        }
+        .navbar {
+          padding: 0 1rem;
+          height: 52px;
+        }
+        .nav-search-bar {
+          display: none;
+        }
+        .page-header {
+          padding: 0.8rem 1rem;
+        }
+        .ad-banner {
+          margin: 0.8rem 1rem;
+        }
+        .layout {
+          grid-template-columns: 1fr;
+          padding: 0 1rem 5rem;
+        }
+        .filters-sidebar {
+          display: none;
+        }
+        .main-content {
+          padding-left: 0;
+        }
+        .mobile-filter-btn {
+          display: flex;
+        }
+        .mob-filter-panel .filters-sidebar {
+          display: block;
+          position: static;
+          max-height: none;
+          border: none;
+          border-radius: 0;
+        }
+        .cc-inner {
+          grid-template-columns: 1fr;
+        }
+        .cc-img-wrap {
+          height: 180px;
+          min-height: 0;
+        }
+
+        .cc-fees-row {
+          gap: 0.5rem;
+        }
+        .sort-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.6rem;
+        }
+      }
+      @media (max-width: 479px) {
+        .cc-actions {
+          gap: 6px;
+        }
+        .cca-apply,
+        .cca-brochure {
+          padding: 7px 14px;
+          font-size: 0.74rem;
+        }
+      }
+      .center-nav {
+        padding-left: 20%;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .card-header {
+        background: linear-gradient(
+          135deg,
+          var(--card-top) 0%,
+          var(--card-grad-2) 100%
+        );
+        padding: 1.8rem 1.5rem 1.4rem;
+        position: relative;
+        min-height: 130px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.6rem;
+      }
+
+      .card-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")
+          repeat;
+        pointer-events: none;
+      }
+
+      .card-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .card-name {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: #fff;
+        position: relative;
+        z-index: 1;
+      }
+
+      .card-category {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 0.25rem 0.7rem;
+        border-radius: 20px;
+        backdrop-filter: blur(6px);
+        position: relative;
+        z-index: 1;
+        width: fit-content;
+        letter-spacing: 0.3px;
+      }
+
+      .card-body {
+        padding: 1.2rem 1.5rem 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+
+      .card-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      .meta-row svg {
+        flex-shrink: 0;
+      }
+
+      .badge {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #b45309;
+        margin-top: 0.2rem;
+      }
+
+      .card-footer {
+        padding: 0 1.5rem 1.4rem;
+      }
+
+      .btn-view {
+        width: 100%;
+        padding: 0.65rem;
+        border-radius: 10px;
+        border: 1.5px solid var(--border);
+        background: transparent;
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-view:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      /* EMPTY STATE */
+      .empty {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 4rem 2rem;
+        color: var(--muted);
+      }
+
+      .empty svg {
+        margin-bottom: 1rem;
+        opacity: 0.3;
+      }
+      .empty h3 {
+        font-family: "Sora", sans-serif;
+        font-size: 1.2rem;
+        color: var(--text);
+        margin-bottom: 0.4rem;
+      }
+
+      /* CATEGORY COLORS */
+      .cat-management .card-header {
+        background: linear-gradient(135deg, #3b1d8a 0%, #6b35c2 100%);
+      }
+      .cat-engineering .card-header {
+        background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      }
+      .cat-marketing .card-header {
+        background: linear-gradient(135deg, #7c1d3a 0%, #db2777 100%);
+      }
+      .cat-multidiscipline .card-header {
+        background: linear-gradient(135deg, #064e3b 0%, #10b981 100%);
+      }
+
+      @media (max-width: 680px) {
+        nav ul {
+          display: none;
+        }
+        .hero-strip h1 {
+          font-size: 1.7rem;
+        }
+        .search-bar-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+      /* ─────────────────────────────────────
+   FOOTER
+───────────────────────────────────── */
+      footer {
+        background: #0f1729;
+        border-top: 1px solid rgb(12, 4, 34);
+        padding: 40px 2rem 20px;
+        margin-top: 30px;
+      }
+      .fi {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .fg {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 5rem;
+        margin-bottom: 2rem;
+      }
+      .fb p {
+        font-size: 0.79rem;
+        color: #bcbcbc;
+        margin-top: 8px;
+        line-height: 1.8;
+      }
+      .fl {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+      .fl-t {
+        font-size: 0.99rem;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        margin-bottom: 15px;
+      }
+      .fl-a {
+        display: block;
+        font-size: 0.85rem;
+        color: #c2c2c2;
+        text-decoration: none;
+        margin-bottom: 15px;
+        transition: color 0.2s;
+      }
+      .fl-a:hover {
+        color: #aab4cc;
+      }
+      .fb-bot {
+        border-top: 1px solid rgba(144, 144, 144, 0.371);
+        padding-top: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .fb-bot p {
+        font-size: 0.7rem;
+        color: #3d5280;
+      }
+      .left-footer {
+        display: flex;
+        gap: 20px;
+      }
+      .left-footer p {
+        color: rgb(160, 160, 160);
+        font-size: 13px;
+      }
+      .right-footer p {
+        color: rgb(160, 160, 160);
+        font-size: 13px;
+      }
+      .right-footer i {
+        color: rgb(160, 160, 160);
+        font-size: 13px;
+      }
+      .footer-icons-social {
+        margin-top: 20px;
+        gap: 10px;
+        display: flex;
+        color: rgb(160, 160, 160);
+      }
+      .footer-icons-social i {
+        padding: 8px;
+        background-color: rgba(219, 219, 219, 0.138);
+        border: 1px solid rgb(5, 5, 54);
+        border-radius: 5px;
+      }
+      .cw-logo {
+        padding: 6px;
+        color: white;
+        background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
+        font-size: 15px;
+        border-radius: 4px;
+      }
+      .uni-p {
+        background-color: pink;
+        height: 100%;
+        width: 100%;
+      }
+      /* --------------universities */
+      .uni-banner {
+        /* position: relative; */
+        width: 100%;
+        height: 250px;
+        background:
+          linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+          url("https://future-explorer-app.lovable.app/assets/universities-hero-AoGjEXCB.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .uni-banner h5 {
+        color: rgb(179, 179, 179);
+      }
+      /* ── LAYOUT ── */
+      .layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 0;
+        max-width: 100%;
+        padding: 30px;
+        margin: 0 auto;
+        align-items: start;
+        margin-top: 10px;
+      }
+
+      /* ─────────────────────────────────────
+   CTA
+───────────────────────────────────── */
+      .cta-sec {
+        padding: 52px 2rem;
+        background: var(--bg);
+      }
+      .cta-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+      }
+      .cta-box {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+        border-radius: 20px;
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-box::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 240px;
+        height: 240px;
+        background: rgba(37, 99, 235, 0.2);
+        border-radius: 50%;
+        filter: blur(60px);
+      }
+      .cta-box h2 {
+        font-family: "Fraunces", serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.2;
+        position: relative;
+      }
+      .cta-box p {
+        color: #8aa4d0;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        position: relative;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 9px;
+        flex-shrink: 0;
+        position: relative;
+        flex-wrap: wrap;
+      }
+      .cta-p {
+        padding: 11px 24px;
+        background: linear-gradient(135deg, #2563eb, #0aab87);
+        border: none;
+        border-radius: 9px;
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .cta-p:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+      .cta-g {
+        padding: 11px 24px;
+        background: rgba(255, 255, 255, 0.09);
+        border: 1.5px solid rgba(255, 255, 255, 0.15);
+        border-radius: 9px;
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .cta-g:hover {
+        background: rgba(255, 255, 255, 0.14);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR (desktop only) -->
+    <div
+      class="topbar d-none d-md-flex align-items-center px-2 px-lg-5 flex-nowrap"
+    >
+      <div
+        class="tb-left d-flex align-items-center gap-2 flex-nowrap overflow-auto w-100"
+      >
+        <a href="#">📞 1800-XXX-XXXX (Toll Free)</a>
+        <span class="tb-sep">|</span>
+        <a href="#">📧 help@campuswalkin.com</a>
+        <span class="tb-sep">|</span>
+        <a href="#" class="d-none d-xl-inline">Compare Colleges</a>
+        <a href="#" class="d-none d-xl-inline">Rank Predictor</a>
+        <a href="#" class="d-none d-xl-inline">Scholarships</a>
+      </div>
+      <div class="tb-right d-flex align-items-center gap-3 flex-nowrap ms-3">
+        <p class="mb-0 d-lg-block text-nowrap">
+          We’re on your favourite socials!
+        </p>
+        <span class="tb-sep">|</span>
+        <a href="#" style="color: #4860ff; font-weight: 700"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a href="#" style="color: hwb(0 37% 0%); font-weight: 700"
+          ><i class="bi bi-instagram"></i
+        ></a>
+        <a href="#" style="color: hwb(239 26% 3%); font-weight: 700"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a href="#" style="color: hwb(0 0% 0%); font-weight: 700"
+          ><i class="bi bi-youtube"></i
+        ></a>
+      </div>
+    </div>
+    <!-- ═══ NAVBAR ═══ -->
+    <div class="navbar bg-white">
+      <!-- ROW 1 -->
+      <div
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-5"
+      >
+        <!-- LOGO -->
+        <div class="left-nav">
+          <a href="#" class="logo">
+            <div class="logo-mark w-75">
+              <img src="./campuswalkin_logo.png" alt="" />
+            </div>
+          </a>
+        </div>
+        <div
+          class="center-nav d-flex align-items-center justify-content-center gap-3"
+        >
+          <a href="index.html" class="cn-link fw-normal">Home</a>
+          <div class="program-wrap d-flex align-items-center" id="programWrap">
+            <button
+              class="program-btn border-0 bg-transparent"
+              onclick="toggleProgram()"
+            >
+              Programs
+              <svg
+                width="11"
+                height="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 12 8"
+              >
+                <polyline points="1 1 6 7 11 1"></polyline>
+              </svg>
+            </button>
+            <div class="programs-card bg-white">
+              <div class="program-grid d-grid gap-4">
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-mortarboard"></i>
+                    Executive Education
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Executive MBA</li>
+                    <li class="fs-6 py-1">Senior Management Programme</li>
+                    <li class="fs-6 py-1">Leadership Development</li>
+                  </ul>
+                  <div class="institution-row">IIM Ahmedabad, ISB, XLRI</div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-graph-up-arrow"></i> MBA
+                    / Management
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Full-time MBA</li>
+                    <li class="fs-6 py-1">Part-time MBA</li>
+                    <li class="fs-6 py-1">Online MBA</li>
+                  </ul>
+                  <div class="institution-row">
+                    IIM Bangalore, IIM Kozhikode
+                  </div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 fa-solid fa-brain"></i> Data
+                    Science & AI
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">PG in Data Science</li>
+                    <li class="fs-6 py-1">AI & ML Certificate</li>
+                    <li class="fs-6 py-1">Deep Learning</li>
+                  </ul>
+                  <div class="institution-row">IIT Delhi, IIT Madras</div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-bar-chart"></i> Marketing
+                    Programs
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Digital Marketing</li>
+                    <li class="fs-6 py-1">Brand Management</li>
+                    <li class="fs-6 py-1">Growth Hacking</li>
+                  </ul>
+                  <div class="institution-row">IIM Indore, MICA, NMIMS</div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-currency-dollar"></i>
+                    Finance Programs
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">CFA Prep</li>
+                    <li class="fs-6 py-1">Financial Analytics</li>
+                    <li class="fs-6 py-1">Risk Management</li>
+                  </ul>
+                  <div class="institution-row">
+                    IIM Calcutta, NISM, BSE Institute
+                  </div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-laptop"></i> Technology
+                    Programs
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Cloud Computing</li>
+                    <li class="fs-6 py-1">Cybersecurity</li>
+                    <li class="fs-6 py-1">Full Stack Development</li>
+                  </ul>
+                  <div class="institution-row">IIT Bombay, BITS Pilani</div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-heart-pulse"></i>
+                    Healthcare & Analytics
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Healthcare Management</li>
+                    <li class="fs-6 py-1">Pharma Analytics</li>
+                    <li class="fs-6 py-1">Clinical Research</li>
+                  </ul>
+                  <div class="institution-row">IIHMR, Symbiosis, Manipal</div>
+                </div>
+                <div class="featured-section p-4 rounded-4">
+                  <div class="featured-text">
+                    <h3 class="fs-4">Executive MBA from IIM</h3>
+                    <p class="fs-6">
+                      Transform your career with India's top-ranked executive
+                      program.
+                    </p>
+                    <button class="featured-link border-0 rounded-5 px-2 py-1">
+                      <a href="#">Learn More →</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="universities.html" class="cn-link fw-normal">Universities</a>
+          <a href="compare.html" class="cn-link fw-normal">Compare</a>
+          <a href="#" class="cn-link fw-normal">Blog</a>
+          <a href="about.html" class="cn-link fw-normal">About</a>
+          <a href="contact.html" class="cn-link fw-normal">Contact</a>
+        </div>
+        <!-- SEARCH (desktop/tablet) -->
+        <div></div>
+        <!-- RIGHT -->
+        <div class="nav-r1-right">
+          <!-- Explore -->
+          <div class="explore-wrap position-relative" id="exploreWrap">
+            <button
+              class="explore-btn rounded-2 border-0 fw-bold p-2 pointer d-flex align-items-center gap-2"
+              onclick="toggleLoc()"
+            >
+              <span class="exp-label">Explore</span>
+              <svg
+                width="11"
+                height="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 12 8"
+              >
+                <polyline points="1 1 6 7 11 1" />
+              </svg>
+            </button>
+            <div class="exp-mega position-absolute">
+              <div class="em-title">Explore More</div>
+              <div class="em-grid">
+                <div>
+                  <a href="#" class="em-item"><span>🏛️ Top Colleges</span></a>
+                  <a href="#" class="em-item"><span>📝 Exams</span></a>
+                  <a href="#" class="em-item"><span>✈️ Study Abroad</span></a>
+                  <a href="#" class="em-item"><span>🏆 Executive</span></a>
+                  <a href="#" class="em-item"><span>💻 Online</span></a>
+                  <a href="#" class="em-item"><span>🎓 UG Degrees</span></a>
+                  <a href="#" class="em-item"><span>Exams</span></a>
+                </div>
+                <div>
+                  <a href="#" class="em-item"
+                    ><span>Admission alert 2026</span></a
+                  >
+                  <a href="#" class="em-item"><span>✈️ Study Abroad</span></a>
+                  <a href="#" class="em-item"><span>Abroad Exam</span></a>
+                  <a href="#" class="em-item"><span>Ask a Question</span></a>
+                  <a href="#" class="em-item"><span>Course finder</span></a>
+                  <a href="#" class="em-item"><span>💰 Scholarships</span></a>
+                  <a href="#" class="em-item"><span>📊 Rank Predictor</span></a>
+                </div>
+              </div>
+              <div class="em-title">Popular Exams</div>
+              <div class="em-tags">
+                <span class="em-tag">JEE Main</span
+                ><span class="em-tag">NEET</span><span class="em-tag">CAT</span>
+                <span class="em-tag">GATE</span><span class="em-tag">CLAT</span
+                ><span class="em-tag">CUET</span> <span class="em-tag">GRE</span
+                ><span class="em-tag">GMAT</span
+                ><span class="em-tag">IELTS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification -->
+          <div class="notif-wrap" id="notifWrap">
+            <div class="icon-btn" onclick="toggleNotif()">
+              <svg
+                width="15"
+                height="15"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+              </svg>
+              <div class="n-dot"></div>
+            </div>
+            <div class="notif-panel">
+              <div class="np-hd">
+                Notifications <a href="#">Mark all read</a>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #eff4ff">📣</div>
+                <div>
+                  <div class="np-t1">JEE Main 2025 results declared!</div>
+                  <div class="np-t2">2 hours ago</div>
+                </div>
+                <div class="np-unread"></div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #ebfaf6">🎓</div>
+                <div>
+                  <div class="np-t1">New MBA scholarship ₹50,000</div>
+                  <div class="np-t2">5 hours ago</div>
+                </div>
+                <div class="np-unread"></div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #fff8eb">✈️</div>
+                <div>
+                  <div class="np-t1">IELTS prep batch starting Mon</div>
+                  <div class="np-t2">Yesterday</div>
+                </div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #fff3f0">📋</div>
+                <div>
+                  <div class="np-t1">CAT 2025 registration open</div>
+                  <div class="np-t2">2 days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamburger (mobile) -->
+          <div
+            class="ham-btn"
+            id="hamBtn"
+            onclick="openDrawer()"
+            aria-label="Menu"
+          >
+            <span></span><span></span><span></span>
+          </div>
+
+          <!-- Auth (desktop) -->
+          <div class="auth-btns">
+            <button class="btn-ln py-1 px-3 rounded-3 fw-bold">Login</button>
+            <button class="btn-su p-2 rounded-3">Apply Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 (desktop/tablet) -->
+      <div class="nav-r2 d-flex w-100 align-items-center gap-2 bg-white">
+        <!-- All Courses -->
+        <div class="courses-wrap position-relative" id="coursesWrap">
+          <button
+            class="courses-btn bg-white mt-2 align-items-center ms-5 p-2 rounded-3"
+            onclick="toggleAllCourses(event)"
+          >
+            <svg
+              width="12"
+              height="12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="16" y2="12" />
+              <line x1="3" y1="18" x2="11" y2="18" />
+            </svg>
+            All Courses
+            <svg
+              class="chevron"
+              width="10"
+              height="6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 12 8"
+            >
+              <polyline points="1 1 6 7 11 1" />
+            </svg>
+          </button>
+
+          <div class="courses-mega">
+            <div class="cm-inner">
+              <!-- Left: Categories -->
+              <div class="cm-side" id="cmSide">
+                <div class="cm-si active" data-cat="management">Management</div>
+                <div class="cm-si" data-cat="technology">Technology</div>
+                <div class="cm-si" data-cat="medical">Medical</div>
+                <div class="cm-si" data-cat="law">Law</div>
+                <div class="cm-si" data-cat="arts">Arts & Design</div>
+                <div class="cm-si" data-cat="science">Science</div>
+                <div class="cm-si" data-cat="engineering">Engineering</div>
+                <div class="cm-si" data-cat="commerce">Commerce</div>
+              </div>
+
+              <!-- Right: Content -->
+              <div class="cm-content">
+                <!-- Mode tabs -->
+                <div class="cm-tabs" id="cmTabs">
+                  <div class="cm-tab active" data-mode="all">All</div>
+                  <div class="cm-tab" data-mode="online">🌐 Online</div>
+                  <div class="cm-tab" data-mode="offline">🏫 Offline</div>
+                  <div class="cm-tab" data-mode="study-abroad">
+                    ✈️ Study Abroad
+                  </div>
+                  <div class="cm-tab" data-mode="executive">
+                    💼 Executive Program
+                  </div>
+                  <div class="cm-tab" data-mode="dba">🎓 DBA</div>
+                </div>
+
+                <!-- Dynamic grid -->
+                <div class="cm-grid" id="cmGrid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="np2 active">B.Tech</a>
+        <a href="#" class="np2">BCA</a>
+        <a href="#" class="np2">BA</a>
+        <div class="r2-sep"></div>
+        <a href="#" class="np2 abroad-p">MBA</a>
+        <a href="#" class="np2">BBA</a>
+        <a href="#" class="np2">B.Sc (Nursing)</a>
+        <a
+          href="#"
+          class="np2"
+          style="
+            background-color: rgb(12, 21, 64);
+            color: white;
+            border-radius: 7px;
+          "
+          >Top University</a
+        >
+        <a href="#" class="np2"
+          >🗓️ Admission 2025 <span class="new-tag">New</span></a
+        >
+        <div class="r2-sep"></div>
+        <!-- <a href="./course.finder.html" class="np2 finder-p">🔍 Course Finder</a> -->
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mDrawer">
+      <div class="md-head">
+        <strong>Menu</strong>
+        <button class="md-close" onclick="closeDrawer()">×</button>
+      </div>
+
+      <div class="md-auth">
+        <button class="btn-ln">Login</button>
+        <button class="btn-su">Apply</button>
+      </div>
+
+      <div class="md-nav">
+        <a href="index.html">Home</a>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Programs
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="#">Executive MBA</a>
+          <a href="#">Full-time MBA</a>
+          <a href="#">Data Science</a>
+          <a href="#">Marketing</a>
+          <a href="#">Finance</a>
+        </div>
+        <a href="universities.html">Universities</a>
+        <a href="compare.html">Compare</a>
+        <a href="#">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Courses
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="btech.html">B.Tech</a>
+          <a href="bca.html">BCA</a>
+          <a href="mba.html">MBA</a>
+          <a href="bba.html">BBA</a>
+        </div>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Explore
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="#">Top Colleges</a>
+          <a href="#">Exams</a>
+          <a href="#">Study Abroad</a>
+          <a href="#">Scholarships</a>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
+    <!-- ----------------------- course  -->
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+      <div class="fi">
+        <div class="fg">
+          <div class="fb">
+            <div style="font-size: 1.25rem; font-weight: 900; color: #fff">
+              <span class="cw-logo">CW</span>
+              CampusWalkin
+            </div>
+            <p>
+              India's leading education marketplace connecting students with top
+              universities and programs.
+            </p>
+            <div class="footer-icons-social">
+              <i class="fa-brands fa-facebook-f"></i>
+              <!-- Instagram -->
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+              <!-- Twitter -->
+              <a href="#"><i class="fa-brands fa-x-twitter"></i> </a>
+              <!-- LinkedIn -->
+              <!-- YouTube -->
+              <a href="#"><i class="fa-brands fa-youtube"></i> </a>
+            </div>
+          </div>
+          <div class="fl">
+            <div>
+              <div class="fl-t">Quick Links</div>
+              <a href="#" class="fl-a">Home</a>
+              <a href="#" class="fl-a">About Us</a>
+              <a href="#" class="fl-a">Programs</a>
+              <a href="#" class="fl-a">Blog</a>
+              <a href="#" class="fl-a">Contact</a>
+              <a href="#" class="fl-a">Compare</a>
+            </div>
+            <div>
+              <div class="fl-t">Programs</div>
+              <a href="#" class="fl-a">Executive Education</a>
+              <a href="#" class="fl-a">Online MBA </a>
+              <a href="#" class="fl-a">Data Science</a>
+              <a href="#" class="fl-a">Finance</a>
+              <a href="#" class="fl-a">Marketing</a>
+              <a href="#" class="fl-a">Technology</a>
+            </div>
+            <div>
+              <div class="fl-t">Top Universities</div>
+              <a href="#" class="fl-a">IIM Ahmedabad</a>
+              <a href="#" class="fl-a">IIT Delhi</a>
+              <a href="#" class="fl-a">ISB Hyderabad</a>
+              <a href="#" class="fl-a">XLRI</a>
+              <a href="#" class="fl-a">IIM Bangalore</a>
+            </div>
+            <div>
+              <div class="fl-t">Study Abroad</div>
+              <a href="#" class="fl-a">USA</a>
+              <a href="#" class="fl-a">UK</a>
+              <a href="#" class="fl-a">Canada</a>
+              <a href="#" class="fl-a">Australia</a>
+              <a href="#" class="fl-a">Germany</a>
+              <a href="#" class="fl-a">Singapore</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="right-footer">
+            <div class="fb-bot">
+              <div class="left-footer">
+                <i class="fa-solid fa-envelope"></i>
+                <p>info@campuswalkin.com</p>
+                <i class="fa-solid fa-phone"></i>
+                <p>+91 98765 43210</p>
+                <i class="fa-solid fa-location-dot"></i>
+                <p>Mumbai, India</p>
+              </div>
+              <div class="right-footer">
+                <p>© 2026 CampusWalkin. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // ── Data ────────────────────────────────────────────────────────────────────
+      const data = {
+        management: {
+          courses: {
+            all: [
+              { n: "MBA", s: "800+ colleges" },
+              { n: "PGDM", s: "350+ colleges" },
+              { n: "BBA", s: "1,200+ colleges" },
+              { n: "Executive MBA", s: "120+ programs" },
+              { n: "MBA Finance", s: "500+ colleges" },
+              { n: "MBA Marketing", s: "650+ colleges" },
+            ],
+            online: [
+              {
+                n: "MBA Online",
+                s: "200+ colleges",
+                colleges: [
+                  { name: "IIM Ahmedabad", link: "https://www.iima.ac.in" },
+                  { name: "IIM Bangalore", link: "https://www.iimb.ac.in" },
+                  { name: "XLRI", link: "https://www.xlri.ac.in" },
+                ],
+              },
+            ],
+            offline: [
+              { n: "MBA", s: "600+ colleges" },
+              { n: "BBA", s: "900+ colleges" },
+              { n: "PGDM", s: "260+ colleges" },
+              { n: "MBA Marketing", s: "450+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MBA USA", s: "50+ universities" },
+              { n: "MBA UK", s: "30+ universities" },
+              { n: "MBA Canada", s: "20+ universities" },
+              { n: "MBA Australia", s: "15+ universities" },
+            ],
+            executive: [
+              { n: "Executive MBA", s: "120+ programs" },
+              { n: "EMBA Finance", s: "45+ programs" },
+              { n: "EMBA Leadership", s: "30+ programs" },
+              { n: "Weekend MBA", s: "60+ programs" },
+            ],
+            dba: [
+              { n: "DBA Management", s: "25+ programs" },
+              { n: "DBA Strategy", s: "18+ programs" },
+              { n: "DBA Leadership", s: "12+ programs" },
+            ],
+          },
+        },
+        technology: {
+          courses: {
+            all: [
+              { n: "B.Tech", s: "1,500+ colleges" },
+              { n: "M.Tech", s: "600+ colleges" },
+              { n: "MCA", s: "800+ colleges" },
+              { n: "BCA", s: "1,100+ colleges" },
+              { n: "Data Science", s: "400+ programs" },
+              { n: "AI & ML", s: "300+ programs" },
+            ],
+            online: [
+              { n: "Online B.Tech", s: "100+ colleges" },
+              { n: "Online MCA", s: "200+ colleges" },
+              { n: "Data Science Online", s: "300+ programs" },
+              { n: "AI & ML Online", s: "250+ programs" },
+            ],
+            offline: [
+              { n: "B.Tech", s: "1,400+ colleges" },
+              { n: "M.Tech", s: "580+ colleges" },
+              { n: "MCA", s: "700+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Computer Science USA", s: "80+ universities" },
+              { n: "MS AI UK", s: "25+ universities" },
+              { n: "MS Data Science Canada", s: "18+ universities" },
+            ],
+            executive: [
+              { n: "Executive PG in AI", s: "40+ programs" },
+              { n: "Executive Data Science", s: "35+ programs" },
+              { n: "PG DevOps", s: "20+ programs" },
+            ],
+            dba: [
+              { n: "PhD Computer Science", s: "200+ programs" },
+              { n: "DBA Technology", s: "10+ programs" },
+            ],
+          },
+        },
+        medical: {
+          courses: {
+            all: [
+              { n: "MBBS", s: "600+ colleges" },
+              { n: "MD", s: "400+ colleges" },
+              { n: "BDS", s: "300+ colleges" },
+              { n: "B.Pharma", s: "800+ colleges" },
+              { n: "Nursing", s: "1,000+ colleges" },
+              { n: "BAMS", s: "250+ colleges" },
+            ],
+            online: [
+              { n: "MPH Online", s: "50+ programs" },
+              { n: "Online Nursing", s: "80+ programs" },
+              { n: "Online Pharmacy", s: "60+ programs" },
+            ],
+            offline: [
+              { n: "MBBS", s: "600+ colleges" },
+              { n: "BDS", s: "300+ colleges" },
+              { n: "BAMS", s: "250+ colleges" },
+              { n: "B.Pharma", s: "800+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MBBS Russia", s: "30+ universities" },
+              { n: "MBBS China", s: "25+ universities" },
+              { n: "MBBS Philippines", s: "15+ universities" },
+            ],
+            executive: [
+              { n: "Executive Healthcare Mgmt", s: "20+ programs" },
+              { n: "Hospital Administration", s: "30+ programs" },
+            ],
+            dba: [
+              { n: "PhD Medicine", s: "150+ programs" },
+              { n: "DBA Healthcare", s: "8+ programs" },
+            ],
+          },
+        },
+        law: {
+          courses: {
+            all: [
+              { n: "LLB", s: "900+ colleges" },
+              { n: "LLM", s: "400+ colleges" },
+              { n: "BA LLB", s: "500+ colleges" },
+              { n: "BBA LLB", s: "350+ colleges" },
+              { n: "Cyber Law", s: "80+ programs" },
+              { n: "Corporate Law", s: "200+ programs" },
+            ],
+            online: [
+              { n: "LLM Online", s: "60+ programs" },
+              { n: "Diploma Cyber Law", s: "40+ programs" },
+              { n: "Online Paralegal", s: "25+ programs" },
+            ],
+            offline: [
+              { n: "LLB", s: "900+ colleges" },
+              { n: "BA LLB", s: "500+ colleges" },
+              { n: "LLM", s: "380+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "LLM USA", s: "30+ universities" },
+              { n: "LLM UK", s: "20+ universities" },
+              { n: "LLM Singapore", s: "10+ universities" },
+            ],
+            executive: [
+              { n: "Executive LLM", s: "15+ programs" },
+              { n: "PG Corporate Law", s: "20+ programs" },
+            ],
+            dba: [
+              { n: "PhD Law", s: "100+ programs" },
+              { n: "DBA Law", s: "5+ programs" },
+            ],
+          },
+        },
+        arts: {
+          courses: {
+            all: [
+              { n: "BFA", s: "400+ colleges" },
+              { n: "MFA", s: "200+ colleges" },
+              { n: "B.Des", s: "300+ colleges" },
+              { n: "Animation", s: "250+ institutes" },
+              { n: "Fashion Design", s: "180+ institutes" },
+              { n: "UI/UX Design", s: "150+ programs" },
+            ],
+            online: [
+              { n: "Online UI/UX", s: "100+ programs" },
+              { n: "Online Graphic Design", s: "80+ programs" },
+              { n: "Digital Art Online", s: "60+ programs" },
+            ],
+            offline: [
+              { n: "BFA", s: "400+ colleges" },
+              { n: "B.Des", s: "300+ colleges" },
+              { n: "Fashion Design", s: "180+ institutes" },
+            ],
+            "study-abroad": [
+              { n: "MFA USA", s: "20+ universities" },
+              { n: "Design UK", s: "15+ universities" },
+              { n: "Fashion Italy", s: "10+ institutes" },
+            ],
+            executive: [
+              { n: "Executive Design Program", s: "12+ programs" },
+              { n: "PG Animation", s: "18+ programs" },
+            ],
+            dba: [{ n: "PhD Fine Arts", s: "50+ programs" }],
+          },
+        },
+        science: {
+          courses: {
+            all: [
+              { n: "B.Sc", s: "2,000+ colleges" },
+              { n: "M.Sc", s: "1,200+ colleges" },
+              { n: "Biotechnology", s: "300+ colleges" },
+              { n: "Forensic Science", s: "100+ colleges" },
+              { n: "B.Sc IT", s: "500+ colleges" },
+              { n: "Environmental Science", s: "200+ colleges" },
+            ],
+            online: [
+              { n: "M.Sc Online", s: "100+ programs" },
+              { n: "Online Biotechnology", s: "50+ programs" },
+              { n: "Data Analytics Online", s: "80+ programs" },
+            ],
+            offline: [
+              { n: "B.Sc", s: "2,000+ colleges" },
+              { n: "M.Sc", s: "1,200+ colleges" },
+              { n: "Biotechnology", s: "300+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Science USA", s: "60+ universities" },
+              { n: "M.Sc UK", s: "30+ universities" },
+            ],
+            executive: [
+              { n: "Executive Data Science", s: "25+ programs" },
+              { n: "PG Biotechnology", s: "15+ programs" },
+            ],
+            dba: [
+              { n: "PhD Science", s: "300+ programs" },
+              { n: "DBA Research Science", s: "6+ programs" },
+            ],
+          },
+        },
+        engineering: {
+          courses: {
+            all: [
+              { n: "B.E / B.Tech", s: "1,800+ colleges" },
+              { n: "M.E / M.Tech", s: "700+ colleges" },
+              { n: "Diploma Engg", s: "2,000+ institutes" },
+              { n: "Civil Engineering", s: "1,200+ colleges" },
+              { n: "Mechanical Engg", s: "1,100+ colleges" },
+              { n: "Electrical Engg", s: "900+ colleges" },
+            ],
+            online: [
+              { n: "Online B.Tech", s: "80+ colleges" },
+              { n: "M.Tech Online", s: "100+ programs" },
+              { n: "Online Diploma", s: "200+ institutes" },
+            ],
+            offline: [
+              { n: "B.E / B.Tech", s: "1,800+ colleges" },
+              { n: "Diploma Engg", s: "2,000+ institutes" },
+              { n: "Civil Engineering", s: "1,200+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Engineering USA", s: "90+ universities" },
+              { n: "M.Eng UK", s: "40+ universities" },
+              { n: "MS Germany", s: "30+ universities" },
+            ],
+            executive: [
+              { n: "Executive PG Engineering", s: "20+ programs" },
+              { n: "PG Robotics", s: "15+ programs" },
+              { n: "PG Aerospace", s: "10+ programs" },
+            ],
+            dba: [
+              { n: "PhD Engineering", s: "250+ programs" },
+              { n: "DBA Engineering Mgmt", s: "8+ programs" },
+            ],
+          },
+        },
+        commerce: {
+          courses: {
+            all: [
+              { n: "B.Com", s: "2,500+ colleges" },
+              { n: "M.Com", s: "1,000+ colleges" },
+              { n: "CA Foundation", s: "500+ institutes" },
+              { n: "CMA", s: "200+ institutes" },
+              { n: "CFA", s: "150+ programs" },
+              { n: "BBA", s: "1,200+ colleges" },
+            ],
+            online: [
+              { n: "B.Com Online", s: "200+ colleges" },
+              { n: "Online M.Com", s: "80+ programs" },
+              { n: "CFA Online", s: "100+ programs" },
+            ],
+            offline: [
+              { n: "B.Com", s: "2,500+ colleges" },
+              { n: "CA Foundation", s: "500+ institutes" },
+              { n: "M.Com", s: "1,000+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "BCom Australia", s: "15+ universities" },
+              { n: "Finance UK", s: "20+ universities" },
+              { n: "Accounting USA", s: "25+ universities" },
+            ],
+            executive: [
+              { n: "Executive Finance", s: "30+ programs" },
+              { n: "PG Accounting", s: "20+ programs" },
+              { n: "Executive CFA Prep", s: "10+ programs" },
+            ],
+            dba: [
+              { n: "PhD Commerce", s: "150+ programs" },
+              { n: "DBA Finance", s: "10+ programs" },
+            ],
+          },
+        },
+      };
+      let activeCategory = "management";
+      let activeMode = "all";
+
+      function toggleAllCourses(e) {
+        e.stopPropagation();
+        const wrap = e.currentTarget.closest(".courses-wrap");
+        wrap.classList.toggle("open");
+      }
+
+      document.addEventListener("click", () => {
+        document.querySelectorAll(".courses-wrap").forEach((w) => {
+          w.classList.remove("open");
+        });
+      });
+
+      document.querySelectorAll(".courses-mega").forEach((menu) => {
+        menu.addEventListener("click", (e) => e.stopPropagation());
+      });
+
+      function render() {
+        const cat = data[activeCategory];
+        const courses = cat.courses[activeMode] || cat.courses.all;
+        document.getElementById("cmGrid").innerHTML = courses
+          .map(
+            (c) => `
+<div class="cm-item">
+
+  <div class="cm-c">
+    <div class="cm-cn">${c.n}</div>
+    <div class="cm-cs">${c.s}</div>
+  </div>
+
+  <div class="cm-drop">
+    <div class="cm-h-title">Top Colleges</div>
+
+    <div class="cm-h-list">
+      ${(c.colleges || [])
+        .map((col) => `<a href="${col.link}" target="_blank">${col.name}</a>`)
+        .join("")}
+    </div>
+
+    <a href="#" class="cm-view">View More →</a>
+  </div>
+
+</div>
+`,
+          )
+          .join("");
+        document.getElementById("cmTrending").innerHTML = cat.trending
+          .map((t) => `<span class="cm-ptag">${t}</span>`)
+          .join("");
+      }
+
+      document.getElementById("cmSide").addEventListener("click", (e) => {
+        const el = e.target.closest(".cm-si");
+        if (!el) return;
+
+        document
+          .querySelectorAll(".cm-si")
+          .forEach((x) => x.classList.remove("active"));
+        el.classList.add("active");
+
+        activeCategory = el.dataset.cat;
+        render();
+      });
+
+      document.getElementById("cmTabs").addEventListener("click", (e) => {
+        const tab = e.target.closest(".cm-tab");
+        if (!tab) return;
+
+        document
+          .querySelectorAll(".cm-tab")
+          .forEach((x) => x.classList.remove("active"));
+        tab.classList.add("active");
+
+        activeMode = tab.dataset.mode;
+        render();
+      });
+
+      render();
+    </script>
+    <script>
+      /* OPEN CLOSE */
+      function toggleCourses(e) {
+        let dd = document.getElementById("courseDD");
+
+        dd.style.display = dd.style.display === "block" ? "none" : "block";
+      }
+
+      /* SEARCH FILTER */
+      function filterCourses(value) {
+        value = value.toLowerCase();
+
+        let items = document.querySelectorAll(".course-item");
+
+        items.forEach((item) => {
+          let text = item.innerText.toLowerCase();
+
+          item.style.display = text.includes(value) ? "flex" : "none";
+        });
+      }
+
+      /* REDIRECT */
+      function goCourse(url) {
+        window.location.href = url;
+      }
+    </script>
+    <script>
+      const programWrap = document.getElementById("programWrap");
+      const programBtn = programWrap.querySelector(".program-btn");
+
+      /* CLICK LOCK */
+      programBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        programWrap.classList.toggle("active");
+      });
+
+      /* OUTSIDE CLICK CLOSE */
+      document.addEventListener("click", function (e) {
+        if (!programWrap.contains(e.target)) {
+          programWrap.classList.remove("active");
+        }
+      });
+    </script>
+    <script>
+      /* ── Location ── */
+      function toggleLoc(e) {
+        e.stopPropagation();
+        document.getElementById("locWrap").classList.toggle("open");
+      }
+
+      function setLoc(name) {
+        document.getElementById("locName").textContent = name;
+        document.getElementById("locWrap").classList.remove("open");
+      }
+
+      function filterLocs(v) {
+        document.querySelectorAll("#locList .loc-item").forEach((i) => {
+          i.style.display = i.textContent
+            .toLowerCase()
+            .includes(v.toLowerCase())
+            ? ""
+            : "none";
+        });
+      }
+
+      /* ── Explore ── */
+      function toggleExplore(e) {
+        e.stopPropagation();
+        document.getElementById("exploreWrap").classList.toggle("open");
+      }
+
+      /* ── Global outside click close ── */
+      document.addEventListener("click", function () {
+        document.getElementById("locWrap").classList.remove("open");
+        document.getElementById("exploreWrap").classList.remove("open");
+      });
+
+      /* ── Mobile drawer ── */
+      function openDrawer() {
+        document.getElementById("mDrawer").classList.add("open");
+        document.getElementById("mOverlay").classList.add("open");
+        document.getElementById("hamBtn").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        document.getElementById("mDrawer").classList.remove("open");
+        document.getElementById("mOverlay").classList.remove("open");
+        document.getElementById("hamBtn").classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      /* ── Search ── */
+      function doNavSearch() {
+        const q = document.getElementById("navQ").value.trim();
+        if (q) {
+          document.getElementById("cTitle").textContent =
+            'Results for "' + q + '"';
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+      document.getElementById("navQ").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") doNavSearch();
+      });
+
+      function fillHero(t) {
+        document.getElementById("heroQ").value = t;
+        document.getElementById("heroQ").focus();
+      }
+      function heroSearch() {
+        const q = document.getElementById("heroQ").value.trim();
+        if (q) {
+          document.getElementById("cTitle").textContent =
+            'Results for "' + q + '"';
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      document.getElementById("heroQ").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") heroSearch();
+      });
+
+      /* ── Hero tabs ── */
+      function setTab(el, type) {
+        document
+          .querySelectorAll(".hs-tab")
+          .forEach((t) => t.classList.remove("active"));
+        el.classList.add("active");
+        const ph = {
+          executive: "Search Executive MBA, PGDM programs…",
+          online: "Search online courses, certifications…",
+          offline: "Search colleges, universities, campuses…",
+          abroad: "Search universities in USA, UK, Canada…",
+        };
+        document.getElementById("heroQ").placeholder = ph[type] || "";
+      }
+
+      /* ── Course filter ── */
+      function filterCourse(type, el) {
+        if (el) {
+          document
+            .querySelectorAll(".cft")
+            .forEach((t) => t.classList.remove("active"));
+          el.classList.add("active");
+        }
+        const titles = {
+          all: "All Featured Courses",
+          exec: "Executive Programs",
+          online: "Online Courses",
+          offline: "Offline / Campus Courses",
+          abroad: "Study Abroad Programs",
+        };
+        document.getElementById("cTitle").textContent =
+          titles[type] || "All Featured Courses";
+        document.querySelectorAll(".cc").forEach((c) => {
+          const show = type === "all" || c.dataset.type === type;
+          c.style.display = show ? "" : "none";
+          if (show) c.style.animation = "fadeUp .35s ease both";
+        });
+        if (el)
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      /* ── Save toggle ── */
+      document.querySelectorAll(".cc-save").forEach((b) => {
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          b.textContent = b.textContent === "🤍" ? "❤️" : "🤍";
+        });
+      });
+
+      /* ── Bottom nav active ── */
+      function bnActive(el) {
+        document
+          .querySelectorAll(".bn-item")
+          .forEach((b) => b.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+      /* ── Row 2 nav active ── */
+      document.querySelectorAll(".np2").forEach((n) => {
+        n.addEventListener("click", function () {
+          document
+            .querySelectorAll(".np2")
+            .forEach((x) => x.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
+    <script>
+      function toggleCourses() {
+        document.getElementById("courseWrap").classList.toggle("open");
+      }
+
+      function goCourse(page) {
+        window.location.href = page;
+      }
+
+      function filterCourses(value) {
+        value = value.toLowerCase();
+
+        let categories = document.querySelectorAll(".course-cat");
+
+        categories.forEach((cat) => {
+          let items = [];
+          let next = cat.nextElementSibling;
+
+          while (next && !next.classList.contains("course-cat")) {
+            if (next.classList.contains("course-item")) {
+              items.push(next);
+            }
+            next = next.nextElementSibling;
+          }
+
+          let visibleCount = 0;
+
+          items.forEach((item) => {
+            let text = item.innerText.toLowerCase();
+
+            if (text.includes(value)) {
+              item.style.display = "block";
+              visibleCount++;
+            } else {
+              item.style.display = "none";
+            }
+          });
+
+          if (visibleCount === 0) {
+            cat.style.display = "none";
+          } else {
+            cat.style.display = "block";
+          }
+        });
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
       rel="stylesheet"
     />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -1774,11 +1776,11 @@
         font-size: 0.66rem;
         color: var(--muted);
       }
+      
       /* ─────────────────────────────────────
    CTA
 ───────────────────────────────────── */
       .cta-sec {
-        padding: 40px;
         background: var(--bg);
       }
       .cta-inner {
@@ -1809,9 +1811,7 @@
         filter: blur(60px);
       }
       .cta-box h2 {
-        /* font-family: "Frau?nces", serif; */
         font-size: 1.6rem;
-        font-weight: 900;
         color: #fff;
         line-height: 1.2;
         position: relative;
@@ -1822,6 +1822,9 @@
         margin-top: 5px;
         position: relative;
       }
+      .form-inp button{
+        background-color: var(--navy2);
+      }
       .cta-btns {
         display: flex;
         gap: 9px;
@@ -1829,10 +1832,10 @@
         position: relative;
         flex-wrap: wrap;
       }
-      #cta-p-open {
+      .cta-p {
         padding: 11px 24px;
-        background: linear-gradient(135deg, #ffffff67, #730e8535);
-        border: 2px solid rgba(161, 7, 76, 0.205);
+        background: linear-gradient(135deg, #2563eb, #0aab87);
+        border: none;
         border-radius: 9px;
         color: #fff;
         font-size: 0.85rem;
@@ -1842,61 +1845,9 @@
           opacity 0.2s,
           transform 0.2s;
       }
-      #cta-p-open:hover {
+      .cta-p:hover {
         opacity: 0.9;
         transform: translateY(-2px);
-      }
-   
-      .top-form{
-        display: flex;
-        justify-content: space-between;
-        background: linear-gradient(to right, #5e0086, #11075d);
-        border: none;
-        height: 70px;
-        padding: 20px;
-      }
-      .top-form h1{
-        cursor: pointer;
-      }
-      
-      .form-popup { 
-        display: none;
-        position: fixed;
-        
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1000;
-        color: white;
-        width: 400px;
-        border-radius: 20px; 
-        overflow: hidden;
-
-      }
-    
-      .bottom-form{
-        background-color: white;
-        height: 350px;
-      }
-      .form-popup input {
-        width: 95%;
-        padding: 14px;
-        margin: 15px 10px 0;
-        border-radius: 12px;
-        border: 2px solid rgba(197, 197, 197, 0.647);
-      }
-      .form-popup button {
-        padding: 7px 10px;
-        border: none;
-        cursor: pointer;
-        border-radius: 8px;
-      }
-      .bottom-form select{
-          width: 95%;
-        padding: 13px;
-        margin: 15px 10px 0;
-        border-radius: 12px;
-        border: 2px solid rgba(197, 197, 197, 0.647); 
       }
       .cta-g {
         padding: 11px 24px;
@@ -1912,20 +1863,13 @@
       .cta-g:hover {
         background: rgba(255, 255, 255, 0.14);
       }
-      .bottom-btn-form{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-        padding: 10px;
+      .form-inp input:focus,
+      .btn-close:focus{
+      border-color: none;
+      box-shadow: none;
+      outline: none;
       }
-      .bottom-btn-form button{
-        padding: 10px;
-        width: 70px;
-                background: linear-gradient(to right, #5e0086, #11075d);
-                color: white;
-      }
+    
       /* ─────────────────────────────────────
    FOOTER
 ───────────────────────────────────── */
@@ -3938,8 +3882,8 @@
           <a href="universities.html" class="cn-link">Universities</a>
           <a href="compare.html" class="cn-link">Compare</a>
           <a href="#" class="cn-link">Blog</a>
-          <a href="#" class="cn-link">About</a>
-          <a href="#" class="cn-link">Contact</a>
+          <a href="about.html" class="cn-link">About</a>
+          <a href="contact.html" class="cn-link">Contact</a>
         </nav>
         <!-- RIGHT -->
         <div class="nav-r1-right">
@@ -4188,10 +4132,10 @@
         </div>
 
         <a href="universities.html">Universities</a>
-        <a href="#">Compare</a>
+        <a href="compare.html">Compare</a>
         <a href="#">Blog</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
 
         <!-- COURSES -->
         <button class="md-acc-btn" onclick="toggleAcc(this)">
@@ -4374,6 +4318,8 @@
         </div>
       </div>
     </section>
+
+    
 
     <!-- ═══ 4 CATEGORIES ═══ -->
     <div class="section-title">
@@ -4907,48 +4853,73 @@
         </div>
       </div>
     </section>
-    <!-- ═══ CTA ═══ -->
-    <div class="cta-sec">
-      <div class="cta-inner">
-        <div class="cta-box">
-          <div>
-            <h2>Not Sure Which Course<br />Is Right for You?</h2>
-            <p>
-              Talk to a real expert — free, no spam, just honest guidance for
-              your goals.
-            </p>
-          </div>
-          <div class="cta-btns">
-            <button id="cta-p-open">Book Free Counselling</button>
-            <!-- --------------form popup  -->
-            <div>
-              <div id="myForm" class="form-popup">
-                <form>
-                  <div class="top-form">
-                    <h2>Get Free Guidance</h2>
-                    <h1 id="cta-p-close">×</h1>
-                  </div>
-                  <div class="bottom-form">
-                    <input type="text" placeholder="Full Name..." />
-                    <input type="email" placeholder="Email" />
-                    <input type="text" placeholder="Phone Number..." />
-                    <select>
-                      <option value="" disabled>Select Program Interest</option>
-                      <option value="">Executive Program</option>
-                      <option value="">Offline Program</option>
-                      <option value="">Online Program</option>
-                    </select>
-                  <div class="bottom-btn-form">
-                      <button type="submit">submit</button>
-                  </div>
-                  </div>
-                </form>
+       <!-- ══════════════ BOTTOM CTA ══════════════ -->
+<div class="cta-sec py-5">
+  <div class="cta-inner">
+    <div class="cta-box">
+      <div>
+        <h2>Not Sure Which Course<br />Is Right for You?</h2>
+        <p>
+          Talk to a real expert — free, no spam, just honest guidance for
+          your goals.
+        </p>
+      </div>
+      <div class="cta-btns">
+        <button
+          class="py-2 border-0 px-2 rounded-2"
+          data-bs-toggle="modal"
+          data-bs-target="#connectModal"
+        >
+          Book Free Counselling
+        </button>
+        <!-- --------------form popup  -->
+        <div class="modal fade" id="connectModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3 rounded-3">
+              <!-- ----------------header  -->
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5>Get Free Guidance</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
               </div>
+              <!-- form ------------------ -->
+              <form class="form-inp">
+                <input
+                  type="text"
+                  placeholder="Enter your name..."
+                  class="form-control mb-2"
+                />
+                <input
+                  type="email"
+                  placeholder="Enter your email..."
+                  class="form-control mb-2"
+                />
+                <input
+                  type="text"
+                  placeholder="Enter your Number..."
+                  class="form-control mb-2"
+                />
+                <select class="form-select mb-2">
+                  <option selected disabled>Choose a program</option>
+                  <option>Executive Program</option>
+                  <option>Offline Program</option>
+                  <option>Online Program</option>
+                </select>
+                <button
+                  type="submit"
+                  class="w-100 text-white py-1 border-0"
+                >Submit</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
     <!-- ═══ FOOTER ═══ -->
     <footer>
@@ -5736,6 +5707,7 @@
         });
       }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   </body>
 </html>

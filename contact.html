@@ -1,0 +1,4451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f4f6fb;
+        --white: #fff;
+        --navy: #0b1437;
+        --navy2: #162050;
+        --text: #1a2340;
+        --muted: #6b7a99;
+        --border: #dde3f0;
+        --light: #e8ecf7;
+        --exec: #e85d3a;
+        --exec-bg: #fff3f0;
+        --online: #0aab87;
+        --online-bg: #ebfaf6;
+        --offline: #5c4ee8;
+        --offline-bg: #f0eeff;
+        --abroad: #e8a020;
+        --abroad-bg: #fff8eb;
+        --accent: #2563eb;
+        --accent2: #eff4ff;
+        --sh1: 0 1px 4px rgba(0, 0, 0, 0.06);
+        --sh2: 0 4px 20px rgba(0, 0, 0, 0.09);
+        --sh3: 0 12px 40px rgba(0, 0, 0, 0.12);
+        --nav-h: 60px;
+        --nav2-h: 44px;
+      }
+      :root {
+        --teal: #212d94d4;
+        --teal-light: #2253a3;
+        --teal-bg: #e8f5f3;
+        --gold: #e6a817;
+        --dark: #0f2027;
+        --text: #1c2b35;
+        --muted: #6b7f8a;
+        --border: #d9e8e5;
+        --white: #ffffff;
+        --row-hover: #f0faf8;
+        --shadow: 0 4px 24px rgba(26, 122, 110, 0.1);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      button,
+      input,
+      select {
+        font-family: inherit;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      /* ─────────────────────────────────────
+   TOPBAR  (hidden on mobile)
+───────────────────────────────────── */
+      .topbar {
+        background: var(--navy);
+        color: #aab4cc;
+      }
+      .topbar a {
+        color: #aab4cc;
+        transition: color 0.2s;
+        font-size: 13px;
+      }
+      .topbar a:hover {
+        color: #fff;
+      }
+      .topbar p {
+        font-size: 13px;
+      }
+      /* ─────────────────────────────────────
+   NAVBAR WRAPPER
+───────────────────────────────────── */
+      .navbar {
+        background: var(--white);
+        position: sticky;
+        top: 0;
+        z-index: 300;
+        box-shadow: var(--sh1);
+      }
+      @media (max-width: 992px) {
+        .center-nav,
+        .nav-r2,
+        .course-wrap {
+          display: none;
+        }
+        .ham-btn {
+          display: flex;
+        }
+      }
+      .center-nav .cn-link {
+        font-size: 14px;
+      }
+      .center-nav .program-btn {
+        font-size: 14px;
+      }
+      /* ── ROW 1 ── */
+      .nav-r1 {
+        height: 50px;
+        border-bottom: 2px solid rgb(230, 230, 230);
+      }
+
+      .logo-text {
+        font-weight: 900;
+        font-size: 1.15rem;
+        color: var(--navy);
+      }
+      .logo-text span {
+        color: var(--muted);
+      }
+      .logo-sub {
+        font-size: 0.58rem;
+        color: var(--muted);
+        font-weight: 500;
+        display: block;
+        margin-top: -2px;
+      }
+      /* WRAP */
+      /* ══════════════════════════
+   BREAKPOINT — Tablet ≤ 1024px
+══════════════════════════ */
+      @media (max-width: 1024px) {
+        /* Hide some nav links to save space */
+        .center-nav .cn-link:nth-child(n + 5) {
+          display: none;
+        }
+        .nav-r1 {
+          border: none;
+        }
+        /* Shrink explore label */
+        .exp-label {
+          display: none;
+        }
+
+        /* Explore mega — align left on tablet */
+        .exp-mega {
+          right: auto;
+          left: 0;
+          width: 480px;
+        }
+
+        /* Shrink course-wrap */
+        .course-wrap {
+          width: 190px;
+        }
+
+        /* Row 2 — hide some quick links */
+        .nav-r2 .np2:nth-child(n + 8) {
+          display: none;
+        }
+      }
+
+      /* ══════════════════════════
+   BREAKPOINT — Mobile ≤ 768px
+══════════════════════════ */
+      @media (max-width: 768px) {
+        /* Show hamburger, hide desktop auth + desktop nav */
+        .ham-btn {
+          display: flex !important;
+        }
+        .nav-r1 {
+          border: none;
+        }
+        .auth-btns {
+          display: none !important;
+        }
+        .center-nav {
+          display: none !important;
+        }
+        .course-wrap {
+          display: none !important;
+        }
+        .explore-wrap {
+          display: none !important;
+        }
+        .notif-wrap {
+          display: none !important;
+        }
+
+        /* Row 1 */
+        .nav-r1 {
+          padding: 0 14px;
+          height: 56px;
+          gap: 8px;
+        }
+
+        /* Logo text shorter on small screens */
+        .logo-sub {
+          display: none;
+        }
+
+        /* Push hamburger to far right */
+        .nav-r1-right {
+          margin-left: auto;
+        }
+
+        /* Search: full width below logo row */
+        .nav-search {
+          display: none; /* shown inside drawer instead */
+        }
+
+        /* Hide Row 2 entirely */
+        .nav-r2 {
+          display: none !important;
+        }
+      }
+
+      /* ══════════════════════════
+   BREAKPOINT — Small Mobile ≤ 400px
+══════════════════════════ */
+      @media (max-width: 400px) {
+        .logo-text {
+          font-size: 1rem;
+        }
+        .nav-r1 {
+          padding: 0 10px;
+        }
+
+        .mobile-drawer {
+          width: 92vw;
+        }
+      }
+      /* Right controls */
+      .nav-r1-right {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+
+      /* Explore */
+      .explore-btn {
+        background-color: #0285c72f;
+        color: #0d1a34;
+        font-size: 0.8rem;
+        transition: background 0.2s;
+      }
+      .explore-btn:hover,
+      .explore-wrap:hover .explore-btn {
+        background: #091430;
+        color: white;
+      }
+      .explore-btn svg {
+        transition: transform 0.25s;
+      }
+      .explore-wrap:hover .explore-btn svg,
+      .explore-wrap.open .explore-btn svg {
+        transform: rotate(180deg);
+      }
+      .exp-mega {
+        display: none;
+        top: calc(100% + 8px);
+        right: 0;
+        width: 620px;
+        background: var(--white);
+        border: 1px solid rgb(240, 240, 240);
+        border-radius: 14px;
+        box-shadow: var(--sh3);
+        padding: 1.3rem;
+        z-index: 400;
+        animation: dropIn 0.2s ease;
+      }
+      .explore-wrap:hover .exp-mega,
+      .explore-wrap.open .exp-mega {
+        display: block;
+      }
+      .em-title {
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+      }
+      .em-grid {
+        gap: 7px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .em-grid > div {
+        width: 50%; /* aadha idhar aadha udhar */
+      }
+      .em-item {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 12px;
+        color: var(--text);
+        transition: all 0.2s;
+        font-size: 0.71rem;
+        font-weight: 600;
+      }
+      .em-item:hover {
+        border-color: var(--accent);
+        background: var(--accent2);
+        color: var(--accent);
+      }
+      .em-item span:first-child {
+        font-size: 0.8rem;
+      }
+      .em-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .em-tag {
+        padding: 4px 10px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.71rem;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-weight: 600;
+      }
+      .em-grid a {
+        border-bottom: 2px solid rgb(249, 249, 249);
+      }
+      .em-tag:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+
+      /* Icon btn */
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1.5px solid var(--border);
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--muted);
+        transition: all 0.2s;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .icon-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+      .n-dot {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 7px;
+        height: 7px;
+        background: #e85d3a;
+        border-radius: 50%;
+        border: 1.5px solid #fff;
+      }
+
+      /* Notif panel */
+      .notif-wrap {
+        position: relative;
+      }
+      .notif-panel {
+        display: none;
+        position: absolute;
+        top: calc(100%+8px);
+        right: 0;
+        width: 290px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        box-shadow: var(--sh3);
+        z-index: 400;
+        overflow: hidden;
+        animation: dropIn 0.2s ease;
+      }
+      .notif-wrap:hover .notif-panel,
+      .notif-wrap.open .notif-panel {
+        display: block;
+      }
+      .np-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.79rem;
+        font-weight: 700;
+      }
+      .np-hd a {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .np-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .np-row:last-child {
+        border-bottom: none;
+      }
+      .np-row:hover {
+        background: var(--bg);
+      }
+      .np-ic {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+      .np-t1 {
+        font-size: 0.73rem;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.3;
+      }
+      .np-t2 {
+        font-size: 0.66rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .np-unread {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-top: 5px;
+        flex-shrink: 0;
+      }
+
+      /* Auth */
+      .auth-btns {
+        display: flex;
+        gap: 5px;
+      }
+      .btn-ln {
+        border: 1.5px solid var(--border);
+        background: none;
+        font-size: 0.82rem;
+        color: var(--text);
+        transition: all 0.2s;
+      }
+      .btn-ln:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .btn-su {
+        border: 1.5px solid white;
+        background: rgb(35, 35, 88);
+        font-size: 0.79rem;
+        color: #fff;
+        transition: all 0.2s;
+      }
+      .btn-su:hover {
+        background: #1d4fd8b4;
+      }
+      /* Hamburger (mobile only) */
+      .ham-btn {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        padding: 6px;
+        border: 1.5px solid var(--border);
+        border-radius: 7px;
+        background: var(--bg);
+      }
+      .ham-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+      .ham-btn.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .ham-btn.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      /* ── ROW 2 ── */
+      .nav-r2::-webkit-scrollbar {
+        display: none;
+      }
+      /* BUTTON */
+      .courses-btn {
+        border: 1px solid #e2e8f0;
+        font-size: 14px;
+      }
+
+      /* SHOW ON HOVER */
+      .cm-wrap:hover .cm-hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+
+      /* GAP FIX (IMPORTANT) */
+      .cm-hover::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 0;
+        width: 10px;
+        height: 100%;
+      }
+
+      /* OPTIONAL STYLING */
+      .cm-h-title {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .cm-h-list div {
+        font-size: 10px;
+        padding: 3px 0;
+      }
+      .cm-h-list a {
+        font-size: 11px;
+      }
+      .cm-view {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 12px;
+        color: #4f46e5;
+        text-decoration: none;
+      }
+      .courses-wrap.open .chevron {
+        transform: rotate(180deg);
+      }
+
+      .courses-mega {
+        position: absolute;
+        min-width: 100vw;
+        margin-top: 4px;
+        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+      }
+      .courses-wrap.open .courses-mega {
+        display: block;
+      }
+      .courses-btn .chevron {
+        color: rgb(192, 192, 192);
+      }
+      /* INNER */
+      .cm-inner {
+        display: flex;
+        min-height: 420px;
+      }
+
+      /* LEFT */
+      .cm-side {
+        width: 220px;
+        background: #f8fafc;
+        border-right: 1px solid #ecb21f;
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      .cm-si {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+      }
+
+      .cm-si.active {
+        background: #eef2ff;
+        color: #4f46e5;
+      }
+
+      /* RIGHT */
+      .cm-content {
+        flex: 1;
+        padding: 15px 30px;
+      }
+
+      /* TABS */
+      .cm-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+
+      .cm-tab {
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: #f1f5f9;
+        cursor: pointer;
+        font-size: 12px;
+      }
+
+      .cm-tab.active {
+        background: #4f46e5;
+        color: #fff;
+      }
+
+      /* GRID */
+      .cm-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      /* CARD */
+      .cm-c {
+        display: block;
+        padding: 10px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+      /* ITEM */
+      .cm-item {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* CARD */
+      .cm-c {
+        padding: 10px;
+        background: #fff;
+      }
+
+      /* DROPDOWN (hidden by default) */
+      .cm-drop {
+        max-height: 0;
+        overflow: hidden;
+        background: #fafafa;
+        padding: 0 10px;
+
+        transition: all 0.3s ease;
+      }
+
+      /* HOVER OPEN */
+      .cm-item:hover .cm-drop {
+        max-height: 220px;
+        padding: 10px;
+      }
+      .cm-c:hover {
+        background: #f5f3ff;
+      }
+
+      /* ── Empty state ── */
+      .cm-empty {
+        padding: 24px;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 13px;
+      } /* SHOW ON HOVER */
+      .courses-wrap:hover .courses-mega {
+        display: block;
+      }
+
+      /* rotate icon on hover */
+      .courses-wrap:hover .chevron {
+        transform: rotate(180deg);
+      }
+
+      /* IMPORTANT: keep parent active when hovering menu */
+      .courses-wrap {
+        position: relative;
+      }
+
+      .courses-mega {
+        display: none;
+        pointer-events: auto;
+      }
+
+      /* FIX GAP ISSUE (so it doesn't close when moving mouse) */
+      .courses-wrap::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 20px; /* bridge gap */
+      }
+      /* Nav pills row 2 */
+      .np2 {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 4px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        /* cursor: pointer; */
+        color: var(--muted);
+        white-space: nowrap;
+        transition: all 0.2s;
+        text-decoration: none;
+        flex-shrink: 0;
+        border: 1px solid transparent;
+      }
+      .np2:hover {
+        color: black;
+      }
+      .np2.finder-p {
+        background: var(--accent2);
+        border-color: #c7d9ff;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .np2.finder-p:hover {
+        background: #dce8ff;
+      }
+      .new-tag {
+        background: var(--exec);
+        color: #fff;
+        font-size: 0.58rem;
+        font-weight: 800;
+        padding: 1px 4px;
+        border-radius: 3px;
+        text-transform: uppercase;
+      }
+      /* ─────────────────────────────────────
+   MOBILE NAV DRAWER
+───────────────────────────────────── */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 490;
+        backdrop-filter: blur(2px);
+      }
+      .mobile-overlay.open {
+        display: block;
+      }
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        width: min(320px, 90vw);
+        height: 100vh;
+        background: var(--white);
+        z-index: 500;
+        overflow-y: auto;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: var(--sh3);
+      }
+      .mobile-drawer.open {
+        left: 0;
+      }
+      /* ── Mobile Drawer ── */
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 82vw;
+        max-width: 320px;
+        height: 100dvh;
+        background: var(--white, #fff);
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.13);
+        transition: left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        padding: 0 0 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      .mobile-drawer.open {
+        left: 0;
+      }
+
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+      }
+      .mobile-overlay.show {
+        display: block;
+      }
+
+      .md-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        position: sticky;
+        top: 0;
+        background: var(--white, #fff);
+        z-index: 2;
+      }
+      .md-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        border: 1.5px solid var(--border, #e5e7eb);
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--text, #333);
+        font-size: 18px;
+        line-height: 1;
+      }
+      .md-auth {
+        display: flex;
+        gap: 8px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-auth button {
+        flex: 1;
+      }
+
+      /* Search inside drawer */
+      .md-search {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-search .ns-input {
+        padding-left: 36px;
+        background: var(--bg, #f7f7f7);
+      }
+
+      /* Nav links inside drawer */
+      .md-nav {
+        padding: 8px 0;
+      }
+      .md-nav a {
+        display: block;
+        padding: 11px 20px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text, #333);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .md-nav a:hover {
+        background: var(--bg, #f5f5f5);
+        color: var(--accent, #2563eb);
+      }
+
+      /* Accordion for Programs inside drawer */
+      .md-acc-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 11px 20px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text, #333);
+        background: none;
+        border: none;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        cursor: pointer;
+        text-align: left;
+      }
+      .md-acc-btn svg {
+        transition: transform 0.25s;
+        flex-shrink: 0;
+      }
+      .md-acc-btn.open svg {
+        transform: rotate(180deg);
+      }
+      .md-acc-body {
+        display: none;
+        padding: 10px 20px 14px 28px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+        background: var(--bg, #f9f9f9);
+      }
+      .md-acc-body.open {
+        display: block;
+      }
+      .md-acc-body a {
+        display: block;
+        padding: 7px 0;
+        font-size: 0.82rem;
+        color: var(--muted, #888);
+        text-decoration: none;
+        font-weight: 500;
+        border: none;
+      }
+      .md-acc-body a:hover {
+        color: var(--accent, #2563eb);
+      }
+
+      /* Course tags in drawer */
+      .md-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+      }
+      .md-tags span {
+        padding: 5px 11px;
+        background: var(--bg, #f0f0f0);
+        border: 1px solid var(--border, #e5e7eb);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--muted, #555);
+        cursor: pointer;
+      }
+
+      .md-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .md-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+        color: var(--muted);
+      }
+      .md-body {
+        padding: 0.8rem 1rem;
+      }
+      .md-section {
+        margin-bottom: 1.2rem;
+      }
+      .md-sec-title {
+        font-size: 0.64rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0.5rem 0.4rem;
+        margin-bottom: 4px;
+      }
+      .md-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 10px;
+        border-radius: 9px;
+        cursor: pointer;
+        transition: background 0.15s;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .md-item:hover {
+        background: var(--bg);
+      }
+      .md-item .mi {
+        font-size: 1rem;
+        width: 28px;
+        text-align: center;
+      }
+      .md-item .mt {
+        font-size: 0.84rem;
+        font-weight: 600;
+      }
+      .md-item .mb {
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+      .md-auth {
+        padding: 1rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: sticky;
+        bottom: 0;
+        background: var(--white);
+      }
+
+      /* MEGA MENU */
+      .programs-card {
+        position: absolute;
+        cursor: pointer;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        width: 100vw;
+
+        background: #fff;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+        padding: 35px;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.35s ease;
+        z-index: 9999;
+      }
+
+      /* HOVER OPEN */
+      .program-wrap:hover .programs-card {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      /* CLICK LOCK */
+      .program-wrap.active .programs-card {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+
+      /* arrow animation */
+      .program-btn svg {
+        transition: transform 0.3s ease;
+      }
+
+      .program-wrap:hover .program-btn svg,
+      .program-wrap.active .program-btn svg {
+        transform: rotate(180deg);
+      }
+      .programs-card.show {
+        display: block;
+      }
+      .program-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      /* CATEGORY */
+      .category h2 {
+        color: #1f2b3a;
+      }
+      .category i {
+        background-color: rgba(72, 0, 255, 0.062);
+        color: purple;
+      }
+      .program-list li {
+        color: #444;
+      }
+      .institution-row {
+        font-size: 13px;
+        color: #888;
+      }
+      /* FEATURED SECTION */
+      .featured-section {
+        background: linear-gradient(120deg, #102a44, #1b3b5c);
+      }
+      .featured-text h3 {
+        color: #fff;
+      }
+      .featured-text p {
+        color: #d7e6ff;
+      }
+
+      .featured-link {
+        color: #1b0842;
+      }
+      .featured-link a {
+        font-size: 14px;
+      }
+      /* ── SKELETON ── */
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e8e8e8 50%,
+          #f0f0f0 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.4s infinite;
+        border-radius: 6px;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+      @media (max-width: 1023px) {
+        .layout {
+          grid-template-columns: 240px 1fr;
+          padding: 0 1.2rem 3rem;
+        }
+      }
+      @media (max-width: 767px) {
+        .topnav {
+          display: none;
+        }
+        .navbar {
+          padding: 0 1rem;
+          height: 52px;
+        }
+        .nav-search-bar {
+          display: none;
+        }
+        .page-header {
+          padding: 0.8rem 1rem;
+        }
+        .ad-banner {
+          margin: 0.8rem 1rem;
+        }
+        .layout {
+          grid-template-columns: 1fr;
+          padding: 0 1rem 5rem;
+        }
+        .filters-sidebar {
+          display: none;
+        }
+        .main-content {
+          padding-left: 0;
+        }
+        .mobile-filter-btn {
+          display: flex;
+        }
+        .mob-filter-panel .filters-sidebar {
+          display: block;
+          position: static;
+          max-height: none;
+          border: none;
+          border-radius: 0;
+        }
+        .cc-inner {
+          grid-template-columns: 1fr;
+        }
+        .cc-img-wrap {
+          height: 180px;
+          min-height: 0;
+        }
+
+        .cc-fees-row {
+          gap: 0.5rem;
+        }
+        .sort-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.6rem;
+        }
+      }
+      @media (max-width: 479px) {
+        .cc-actions {
+          gap: 6px;
+        }
+        .cca-apply,
+        .cca-brochure {
+          padding: 7px 14px;
+          font-size: 0.74rem;
+        }
+      }
+      .center-nav {
+        padding-left: 20%;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .card-header {
+        background: linear-gradient(
+          135deg,
+          var(--card-top) 0%,
+          var(--card-grad-2) 100%
+        );
+        padding: 1.8rem 1.5rem 1.4rem;
+        position: relative;
+        min-height: 130px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.6rem;
+      }
+
+      .card-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")
+          repeat;
+        pointer-events: none;
+      }
+
+      .card-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .card-name {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: #fff;
+        position: relative;
+        z-index: 1;
+      }
+
+      .card-category {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 0.25rem 0.7rem;
+        border-radius: 20px;
+        backdrop-filter: blur(6px);
+        position: relative;
+        z-index: 1;
+        width: fit-content;
+      }
+
+      .card-body {
+        padding: 1.2rem 1.5rem 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+
+      .card-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      .meta-row svg {
+        flex-shrink: 0;
+      }
+
+      .badge {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #b45309;
+        margin-top: 0.2rem;
+      }
+
+      .card-footer {
+        padding: 0 1.5rem 1.4rem;
+      }
+
+      .btn-view {
+        width: 100%;
+        padding: 0.65rem;
+        border-radius: 10px;
+        border: 1.5px solid var(--border);
+        background: transparent;
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-view:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      /* EMPTY STATE */
+      .empty {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 4rem 2rem;
+        color: var(--muted);
+      }
+
+      .empty svg {
+        margin-bottom: 1rem;
+        opacity: 0.3;
+      }
+      .empty h3 {
+        font-family: "Sora", sans-serif;
+        font-size: 1.2rem;
+        color: var(--text);
+        margin-bottom: 0.4rem;
+      }
+
+      /* CATEGORY COLORS */
+      .cat-management .card-header {
+        background: linear-gradient(135deg, #3b1d8a 0%, #6b35c2 100%);
+      }
+      .cat-engineering .card-header {
+        background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      }
+      .cat-marketing .card-header {
+        background: linear-gradient(135deg, #7c1d3a 0%, #db2777 100%);
+      }
+      .cat-multidiscipline .card-header {
+        background: linear-gradient(135deg, #064e3b 0%, #10b981 100%);
+      }
+
+      @media (max-width: 680px) {
+        nav ul {
+          display: none;
+        }
+        .hero-strip h1 {
+          font-size: 1.7rem;
+        }
+        .search-bar-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+      /* ═══════════════════ CONTACT PAGE ═══════════════════ */
+
+      /* HERO */
+      .contact-hero {
+        background: linear-gradient(
+          135deg,
+          #0b1437 0%,
+          #1a3a7a 55%,
+          #0f2d6b 100%
+        );
+        padding: 64px 0 56px;
+        overflow: hidden;
+      }
+
+      .contact-hero::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -60px;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(
+          circle,
+          rgba(10, 171, 135, 0.12) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .hero-dots {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.04) 1px,
+          transparent 1px
+        );
+        background-size: 28px 28px;
+      }
+
+      .contact-hero .eyebrow {
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #60a5fa;
+        margin-bottom: 10px;
+      }
+      .contact-hero h1 {
+        font-weight: 900;
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        color: #fff;
+        line-height: 1.15;
+        position: relative;
+        z-index: 1;
+      }
+      .contact-hero h1 .hl {
+        background: linear-gradient(90deg, #60a5fa, #34d399);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .contact-hero p {
+        color: #94b4da;
+        font-size: 0.95rem;
+        line-height: 1.75;
+        max-width: 480px;
+        margin-top: 12px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Quick contact pills in hero */
+      .hero-contact-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+        position: relative;
+        z-index: 1;
+      }
+      .hcp {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        border-radius: 50px;
+        padding: 8px 16px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #c5d9f5;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .hcp:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+      .hcp i {
+        color: #60a5fa;
+        font-size: 0.85rem;
+      }
+
+      /* Floating stat cards in hero */
+      .hero-side {
+        position: relative;
+        z-index: 1;
+      }
+      .stat-float {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(16px);
+        border-radius: 16px;
+        padding: 20px 22px;
+        animation: floatCard 3.5s ease-in-out infinite alternate;
+      }
+      .stat-float.d2 {
+        animation-delay: 0.9s;
+      }
+      .stat-float.d3 {
+        animation-delay: 1.8s;
+      }
+      @keyframes floatCard {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-10px);
+        }
+      }
+      .sf-val {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1;
+      }
+      .sf-val span {
+        color: #60a5fa;
+      }
+      .sf-lbl {
+        font-size: 0.72rem;
+        color: #94b4da;
+        margin-top: 4px;
+        font-weight: 600;
+      }
+
+      /* ── CONTACT CARDS (top strip) ── */
+      .contact-cards-strip {
+        padding: 0;
+        margin-top: -36px;
+        position: relative;
+        z-index: 10;
+      }
+      .contact-card {
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: 18px;
+        padding: 26px 22px;
+        height: 100%;
+        transition: all 0.25s;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--cc-color, var(--accent));
+        transform: scaleX(0);
+        transition: transform 0.25s;
+        border-radius: 0 0 18px 18px;
+      }
+      .contact-card:hover {
+        box-shadow: var(--sh3);
+        transform: translateY(-4px);
+      }
+      .contact-card:hover::before {
+        transform: scaleX(1);
+      }
+      .cc-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+        background: var(--cc-bg, var(--accent2));
+        color: var(--cc-color, var(--accent));
+      }
+      .cc-card-title {
+        font-size: 0.92rem;
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 5px;
+      }
+      .cc-card-val {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--cc-color, var(--accent));
+        margin-bottom: 3px;
+      }
+      .cc-card-sub {
+        font-size: 0.74rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* ── MAIN LAYOUT ── */
+      .contact-main {
+        padding: 56px 0 60px;
+      }
+
+      /* ── FORM CARD ── */
+      .form-card {
+        background: var(--white);
+        border-radius: 20px;
+        border: 1.5px solid var(--border);
+        padding: 40px 36px;
+        box-shadow: var(--sh2);
+      }
+      .form-card h2 {
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+      .form-card .fc-sub {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+
+      /* Topic tabs */
+      .topic-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 26px;
+      }
+      .ttab {
+        padding: 7px 15px;
+        border-radius: 50px;
+        border: 1.5px solid var(--border);
+        background: var(--bg);
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .ttab:hover,
+      .ttab.active {
+        background: var(--navy);
+        color: #fff;
+        border-color: var(--navy);
+      }
+
+      /* Form fields */
+      .fc-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 6px;
+        display: block;
+      }
+      .fc-input,
+      .fc-select,
+      .fc-textarea {
+        width: 100%;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        padding: 11px 14px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.88rem;
+        color: var(--text);
+        background: var(--bg);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        appearance: none;
+      }
+      .fc-input:focus,
+      .fc-select:focus,
+      .fc-textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        background: #fff;
+      }
+      .fc-textarea {
+        resize: vertical;
+        min-height: 120px;
+        line-height: 1.6;
+      }
+      .fc-select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 8'%3E%3Cpolyline points='1 1 6 7 11 1' fill='none' stroke='%236b7a99' stroke-width='2'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        padding-right: 36px;
+      }
+      .fc-input::placeholder,
+      .fc-textarea::placeholder {
+        color: #aab4cc;
+      }
+
+      /* Checkbox */
+      .fc-check {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .fc-check input {
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        accent-color: var(--accent);
+        flex-shrink: 0;
+      }
+
+      /* Submit */
+      .btn-submit {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+        border: none;
+        border-radius: 12px;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-submit::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, var(--accent), var(--teal));
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .btn-submit:hover {
+        transform: translateY(-2px);
+      }
+      .btn-submit:hover::after {
+        opacity: 1;
+      }
+      .btn-submit span {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Success state */
+      .form-success {
+        display: none;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      .fs-icon {
+        width: 72px;
+        height: 72px;
+        background: linear-gradient(135deg, var(--teal), #2563eb);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        font-size: 2rem;
+        animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      @keyframes popIn {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      .fs-title {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+      .fs-sub {
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      /* ── SIDEBAR ── */
+      .sidebar-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      /* Info block */
+      .info-block {
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: 18px;
+        padding: 26px 24px;
+      }
+      .info-block h3 {
+        font-size: 1.1rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 18px;
+      }
+      .info-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .info-row:last-child {
+        border-bottom: none;
+      }
+      .ir-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .ir-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        margin-bottom: 2px;
+      }
+      .ir-val {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1.4;
+      }
+      .ir-sub {
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-top: 1px;
+      }
+
+      /* Counsellor card */
+      .counsellor-card {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+        border-radius: 18px;
+        padding: 26px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+      .counsellor-card::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 180px;
+        height: 180px;
+        background: rgba(37, 99, 235, 0.25);
+        border-radius: 50%;
+        filter: blur(40px);
+      }
+      .cc-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #60a5fa;
+        margin-bottom: 10px;
+      }
+      .cc-title {
+        font-size: 1.1rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.25;
+        margin-bottom: 8px;
+      }
+      .cc-desc {
+        font-size: 0.78rem;
+        color: #94b4da;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+      .cc-team {
+        display: flex;
+        margin-bottom: 16px;
+      }
+      .cc-av {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        margin-left: -8px;
+        font-weight: 800;
+      }
+      .cc-av:first-child {
+        margin-left: 0;
+      }
+      .cc-team-lbl {
+        font-size: 0.72rem;
+        color: #94b4da;
+        align-self: center;
+        margin-left: 10px;
+        font-weight: 600;
+      }
+      .btn-call {
+        width: 100%;
+        padding: 11px;
+        background: linear-gradient(135deg, #2563eb, var(--teal));
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+      }
+      .btn-call:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      /* Office hours */
+      .hours-block {
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: 18px;
+        padding: 22px 24px;
+      }
+      .hours-block h3 {
+        font-size: 1rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 14px;
+      }
+      .hours-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.8rem;
+      }
+      .hours-row:last-child {
+        border-bottom: none;
+      }
+      .hr-day {
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .hr-time {
+        color: var(--navy);
+        font-weight: 700;
+      }
+      .hr-closed {
+        color: #e85d3a;
+        font-weight: 700;
+      }
+      .online-dot {
+        width: 7px;
+        height: 7px;
+        background: var(--teal);
+        border-radius: 50%;
+        display: inline-block;
+        animation: pulse 1.8s infinite;
+        margin-right: 4px;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(1.4);
+        }
+      }
+
+      /* Social block */
+      .social-block {
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: 18px;
+        padding: 22px 24px;
+      }
+      .social-block h3 {
+        font-size: 1rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 14px;
+      }
+      .social-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .soc-btn {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1.5px solid var(--border);
+        background: var(--bg);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--text);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .soc-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
+      }
+      .soc-btn i {
+        font-size: 1rem;
+      }
+
+      /* ── FAQ ── */
+      .faq-sec {
+        padding: 0 0 60px;
+      }
+      .faq-sec h2 {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+      .faq-sec .faq-sub {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-bottom: 32px;
+      }
+      .faq-item {
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        transition: box-shadow 0.2s;
+      }
+      .faq-item:hover {
+        box-shadow: var(--sh2);
+      }
+      .faq-q {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--navy);
+        user-select: none;
+      }
+      .faq-q i {
+        font-size: 1.1rem;
+        color: var(--muted);
+        transition: transform 0.3s;
+        flex-shrink: 0;
+      }
+      .faq-item.open .faq-q i {
+        transform: rotate(45deg);
+        color: var(--accent);
+      }
+      .faq-item.open .faq-q {
+        color: var(--accent);
+      }
+      .faq-a {
+        display: none;
+        padding: 0 20px 18px;
+        font-size: 0.84rem;
+        color: var(--muted);
+        line-height: 1.75;
+        border-top: 1px solid var(--border);
+        padding-top: 14px;
+      }
+      .faq-item.open .faq-a {
+        display: block;
+      }
+
+      /* ── MAP SECTION ── */
+      .map-sec {
+        padding: 0 0 60px;
+      }
+      .map-sec h2 {
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+      .map-wrap {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1.5px solid var(--border);
+        box-shadow: var(--sh2);
+        height: 380px;
+        background: linear-gradient(135deg, #e8ecf7, #dde3f0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+      .map-placeholder-icon {
+        font-size: 3rem;
+        opacity: 0.4;
+      }
+      .map-offices {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+      }
+      .office-card {
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: 14px;
+        padding: 18px 16px;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .office-card:hover {
+        border-color: var(--accent);
+        box-shadow: var(--sh2);
+      }
+      .oc-city {
+        font-size: 0.92rem;
+        font-weight: 800;
+        color: var(--navy);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 5px;
+      }
+      .oc-city i {
+        color: var(--exec);
+        font-size: 0.85rem;
+      }
+      .oc-addr {
+        font-size: 0.76rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .oc-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.67rem;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 50px;
+        background: var(--accent2);
+        color: var(--accent);
+        margin-top: 7px;
+      }
+      /* ─────────────────────────────────────
+     FOOTER
+  ───────────────────────────────────── */
+      footer {
+        background: #0f1729;
+        padding: 40px 3rem 20px;
+      }
+      .fg {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 5rem;
+        margin-bottom: 2rem;
+      }
+      .footer-icons-social i:hover {
+        color: rgb(132, 132, 238);
+        background-color: var(--navy);
+        border: 1px solid rgb(71, 71, 71);
+      }
+      .fb p {
+        font-size: 0.79rem;
+        color: #bcbcbc;
+        margin-top: 8px;
+        line-height: 1.8;
+      }
+      .fl {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10rem;
+      }
+      .fl-t {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 15px;
+      }
+      .fl-a {
+        display: block;
+        font-size: 0.95rem;
+        color: #c2c2c2;
+        text-decoration: none;
+        margin-bottom: 15px;
+        transition: color 0.2s;
+      }
+      .fl-a:hover {
+        color: #ffffff;
+      }
+      .fb-bot {
+        border-top: 1px solid rgba(144, 144, 144, 0.371);
+        padding-top: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .fb-bot p {
+        font-size: 0.7rem;
+        color: #3d5280;
+      }
+      .left-footer {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .left-footer p {
+        color: rgb(160, 160, 160);
+        font-size: 13px;
+        margin: 0;
+      }
+      .right-footer p {
+        color: rgb(160, 160, 160);
+        font-size: 13px;
+        margin: 0;
+      }
+      .right-footer i {
+        color: rgb(160, 160, 160);
+        font-size: 14px;
+        margin-top: 4px;
+        margin-left: 10px;
+      }
+      .footer-icons-social {
+        margin-top: 20px;
+        gap: 10px;
+        display: flex;
+        color: rgb(160, 160, 160);
+      }
+      .footer-icons-social a {
+        color: rgb(160, 160, 160);
+        text-decoration: none;
+      }
+      .footer-icons-social i {
+        padding: 8px;
+        background-color: rgba(219, 219, 219, 0.138);
+        border: 1px solid rgb(5, 5, 54);
+        border-radius: 5px;
+      }
+      .cw-logo {
+        padding: 6px;
+        color: white;
+        background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
+        font-size: 15px;
+        border-radius: 4px;
+      }
+      /* ─────────────────────────────────────
+     RESPONSIVE OVERRIDES
+  ───────────────────────────────────── */
+
+      /* Tablet: 768px – 1199px */
+      @media (max-width: 1199px) {
+        footer {
+          padding: 40px 2rem 20px;
+        }
+        .fg {
+          grid-template-columns: 200px 1fr;
+          gap: 2.5rem;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      /* Mobile landscape + tablet portrait: up to 767px */
+      @media (max-width: 767px) {
+        footer {
+          padding: 32px 1.25rem 20px;
+        }
+        .fg {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+        .fb-bot {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+        .left-footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .left-footer i {
+          display: none;
+        }
+      }
+
+      .uni-p {
+        background-color: pink;
+        height: 100%;
+        width: 100%;
+      }
+      /* --------------universities */
+      .uni-banner {
+        /* position: relative; */
+        width: 100%;
+        height: 250px;
+        background:
+          linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+          url("https://future-explorer-app.lovable.app/assets/universities-hero-AoGjEXCB.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .uni-banner h5 {
+        color: rgb(179, 179, 179);
+      }
+      /* ── LAYOUT ── */
+      .layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 0;
+        max-width: 100%;
+        padding: 30px;
+        margin: 0 auto;
+        align-items: start;
+        margin-top: 10px;
+      }
+
+      /* ─────────────────────────────────────
+   CTA
+───────────────────────────────────── */
+      .cta-sec {
+        background: var(--bg);
+      }
+      .cta-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+      }
+      .cta-box {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+        border-radius: 20px;
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-box::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 240px;
+        height: 240px;
+        background: rgba(37, 99, 235, 0.2);
+        border-radius: 50%;
+        filter: blur(60px);
+      }
+      .cta-box h2 {
+        font-size: 1.6rem;
+        color: #fff;
+        line-height: 1.2;
+        position: relative;
+      }
+      .cta-box p {
+        color: #8aa4d0;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        position: relative;
+      }
+      .form-inp button{
+        background-color: var(--navy2);
+      }
+      .cta-btns {
+        display: flex;
+        gap: 9px;
+        flex-shrink: 0;
+        position: relative;
+        flex-wrap: wrap;
+      }
+      .cta-p {
+        padding: 11px 24px;
+        background: linear-gradient(135deg, #2563eb, #0aab87);
+        border: none;
+        border-radius: 9px;
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .cta-p:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+      .cta-g {
+        padding: 11px 24px;
+        background: rgba(255, 255, 255, 0.09);
+        border: 1.5px solid rgba(255, 255, 255, 0.15);
+        border-radius: 9px;
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .cta-g:hover {
+        background: rgba(255, 255, 255, 0.14);
+      }
+      .form-inp input:focus,
+      .btn-close:focus{
+      border-color: none;
+      box-shadow: none;
+      outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR (desktop only) -->
+    <div
+      class="topbar d-none d-md-flex align-items-center px-2 px-lg-5 flex-nowrap"
+    >
+      <div
+        class="tb-left d-flex align-items-center gap-2 flex-nowrap overflow-auto w-100"
+      >
+        <a href="#">📞 1800-XXX-XXXX (Toll Free)</a>
+        <span class="tb-sep">|</span>
+        <a href="#">📧 help@campuswalkin.com</a>
+        <span class="tb-sep">|</span>
+        <a href="#" class="d-none d-xl-inline">Compare Colleges</a>
+        <a href="#" class="d-none d-xl-inline">Rank Predictor</a>
+        <a href="#" class="d-none d-xl-inline">Scholarships</a>
+      </div>
+      <div class="tb-right d-flex align-items-center gap-3 flex-nowrap ms-3">
+        <p class="mb-0 d-lg-block text-nowrap">
+          We’re on your favourite socials!
+        </p>
+        <span class="tb-sep">|</span>
+        <a href="#" style="color: #4860ff; font-weight: 700"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a href="#" style="color: hwb(0 37% 0%); font-weight: 700"
+          ><i class="bi bi-instagram"></i
+        ></a>
+        <a href="#" style="color: hwb(239 26% 3%); font-weight: 700"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a href="#" style="color: hwb(0 0% 0%); font-weight: 700"
+          ><i class="bi bi-youtube"></i
+        ></a>
+      </div>
+    </div>
+    <!-- ═══ NAVBAR ═══ -->
+    <div class="navbar bg-white">
+      <!-- ROW 1 -->
+      <div
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-5"
+      >
+        <!-- LOGO -->
+        <div class="left-nav">
+          <a href="#" class="logo">
+            <div class="logo-mark w-75">
+              <img src="./campuswalkin_logo.png" alt="" />
+            </div>
+          </a>
+        </div>
+        <div
+          class="center-nav d-flex align-items-center justify-content-center gap-3"
+        >
+          <a href="index.html" class="cn-link fw-normal">Home</a>
+          <div class="program-wrap d-flex align-items-center" id="programWrap">
+            <button
+              class="program-btn border-0 bg-transparent"
+              onclick="toggleProgram()"
+            >
+              Programs
+              <svg
+                width="11"
+                height="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 12 8"
+              >
+                <polyline points="1 1 6 7 11 1"></polyline>
+              </svg>
+            </button>
+            <div class="programs-card bg-white">
+              <div class="program-grid d-grid gap-4">
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-mortarboard"></i>
+                    Executive Education
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Executive MBA</li>
+                    <li class="fs-6 py-1">Senior Management Programme</li>
+                    <li class="fs-6 py-1">Leadership Development</li>
+                  </ul>
+                  <div class="institution-row">IIM Ahmedabad, ISB, XLRI</div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-graph-up-arrow"></i> MBA
+                    / Management
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Full-time MBA</li>
+                    <li class="fs-6 py-1">Part-time MBA</li>
+                    <li class="fs-6 py-1">Online MBA</li>
+                  </ul>
+                  <div class="institution-row">
+                    IIM Bangalore, IIM Kozhikode
+                  </div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 fa-solid fa-brain"></i> Data
+                    Science & AI
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">PG in Data Science</li>
+                    <li class="fs-6 py-1">AI & ML Certificate</li>
+                    <li class="fs-6 py-1">Deep Learning</li>
+                  </ul>
+                  <div class="institution-row">IIT Delhi, IIT Madras</div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-bar-chart"></i> Marketing
+                    Programs
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Digital Marketing</li>
+                    <li class="fs-6 py-1">Brand Management</li>
+                    <li class="fs-6 py-1">Growth Hacking</li>
+                  </ul>
+                  <div class="institution-row">IIM Indore, MICA, NMIMS</div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-currency-dollar"></i>
+                    Finance Programs
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">CFA Prep</li>
+                    <li class="fs-6 py-1">Financial Analytics</li>
+                    <li class="fs-6 py-1">Risk Management</li>
+                  </ul>
+                  <div class="institution-row">
+                    IIM Calcutta, NISM, BSE Institute
+                  </div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-laptop"></i> Technology
+                    Programs
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Cloud Computing</li>
+                    <li class="fs-6 py-1">Cybersecurity</li>
+                    <li class="fs-6 py-1">Full Stack Development</li>
+                  </ul>
+                  <div class="institution-row">IIT Bombay, BITS Pilani</div>
+                </div>
+                <div class="category">
+                  <h2 class="fs-6 fw-bold">
+                    <i class="p-2 fs-5 rounded-2 bi bi-heart-pulse"></i>
+                    Healthcare & Analytics
+                  </h2>
+                  <ul class="program-list list-unstyled">
+                    <li class="fs-6 py-1">Healthcare Management</li>
+                    <li class="fs-6 py-1">Pharma Analytics</li>
+                    <li class="fs-6 py-1">Clinical Research</li>
+                  </ul>
+                  <div class="institution-row">IIHMR, Symbiosis, Manipal</div>
+                </div>
+                <div class="featured-section p-4 rounded-4">
+                  <div class="featured-text">
+                    <h3 class="fs-4">Executive MBA from IIM</h3>
+                    <p class="fs-6">
+                      Transform your career with India's top-ranked executive
+                      program.
+                    </p>
+                    <button class="featured-link border-0 rounded-5 px-2 py-1">
+                      <a href="#">Learn More →</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="universities.html" class="cn-link fw-normal">Universities</a>
+          <a href="compare.html" class="cn-link fw-normal">Compare</a>
+          <a href="#" class="cn-link fw-normal">Blog</a>
+          <a href="about.html" class="cn-link fw-normal">About</a>
+          <a href="contact.html" class="cn-link fw-normal">Contact</a>
+        </div>
+        <!-- SEARCH (desktop/tablet) -->
+        <div></div>
+        <!-- RIGHT -->
+        <div class="nav-r1-right">
+          <!-- Explore -->
+          <div class="explore-wrap position-relative" id="exploreWrap">
+            <button
+              class="explore-btn rounded-2 border-0 fw-bold p-2 pointer d-flex align-items-center gap-2"
+              onclick="toggleLoc()"
+            >
+              <span class="exp-label">Explore</span>
+              <svg
+                width="11"
+                height="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                viewBox="0 0 12 8"
+              >
+                <polyline points="1 1 6 7 11 1" />
+              </svg>
+            </button>
+            <div class="exp-mega position-absolute">
+              <div class="em-title">Explore More</div>
+              <div class="em-grid">
+                <div>
+                  <a href="#" class="em-item"><span>🏛️ Top Colleges</span></a>
+                  <a href="#" class="em-item"><span>📝 Exams</span></a>
+                  <a href="#" class="em-item"><span>✈️ Study Abroad</span></a>
+                  <a href="#" class="em-item"><span>🏆 Executive</span></a>
+                  <a href="#" class="em-item"><span>💻 Online</span></a>
+                  <a href="#" class="em-item"><span>🎓 UG Degrees</span></a>
+                  <a href="#" class="em-item"><span>Exams</span></a>
+                </div>
+                <div>
+                  <a href="#" class="em-item"
+                    ><span>Admission alert 2026</span></a
+                  >
+                  <a href="#" class="em-item"><span>✈️ Study Abroad</span></a>
+                  <a href="#" class="em-item"><span>Abroad Exam</span></a>
+                  <a href="#" class="em-item"><span>Ask a Question</span></a>
+                  <a href="#" class="em-item"><span>Course finder</span></a>
+                  <a href="#" class="em-item"><span>💰 Scholarships</span></a>
+                  <a href="#" class="em-item"><span>📊 Rank Predictor</span></a>
+                </div>
+              </div>
+              <div class="em-title">Popular Exams</div>
+              <div class="em-tags">
+                <span class="em-tag">JEE Main</span
+                ><span class="em-tag">NEET</span><span class="em-tag">CAT</span>
+                <span class="em-tag">GATE</span><span class="em-tag">CLAT</span
+                ><span class="em-tag">CUET</span> <span class="em-tag">GRE</span
+                ><span class="em-tag">GMAT</span
+                ><span class="em-tag">IELTS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification -->
+          <div class="notif-wrap" id="notifWrap">
+            <div class="icon-btn" onclick="toggleNotif()">
+              <svg
+                width="15"
+                height="15"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+              </svg>
+              <div class="n-dot"></div>
+            </div>
+            <div class="notif-panel">
+              <div class="np-hd">
+                Notifications <a href="#">Mark all read</a>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #eff4ff">📣</div>
+                <div>
+                  <div class="np-t1">JEE Main 2025 results declared!</div>
+                  <div class="np-t2">2 hours ago</div>
+                </div>
+                <div class="np-unread"></div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #ebfaf6">🎓</div>
+                <div>
+                  <div class="np-t1">New MBA scholarship ₹50,000</div>
+                  <div class="np-t2">5 hours ago</div>
+                </div>
+                <div class="np-unread"></div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #fff8eb">✈️</div>
+                <div>
+                  <div class="np-t1">IELTS prep batch starting Mon</div>
+                  <div class="np-t2">Yesterday</div>
+                </div>
+              </div>
+              <div class="np-row">
+                <div class="np-ic" style="background: #fff3f0">📋</div>
+                <div>
+                  <div class="np-t1">CAT 2025 registration open</div>
+                  <div class="np-t2">2 days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamburger (mobile) -->
+          <div
+            class="ham-btn"
+            id="hamBtn"
+            onclick="openDrawer()"
+            aria-label="Menu"
+          >
+            <span></span><span></span><span></span>
+          </div>
+
+          <!-- Auth (desktop) -->
+          <div class="auth-btns">
+            <button class="btn-ln py-1 px-3 rounded-3 fw-bold">Login</button>
+            <button class="btn-su p-2 rounded-3">Apply Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 (desktop/tablet) -->
+      <div class="nav-r2 d-flex w-100 align-items-center gap-2 bg-white">
+        <!-- All Courses -->
+        <div class="courses-wrap position-relative" id="coursesWrap">
+          <button
+            class="courses-btn bg-white mt-2 align-items-center ms-5 p-2 rounded-3"
+            onclick="toggleAllCourses(event)"
+          >
+            <svg
+              width="12"
+              height="12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="16" y2="12" />
+              <line x1="3" y1="18" x2="11" y2="18" />
+            </svg>
+            All Courses
+            <svg
+              class="chevron"
+              width="10"
+              height="6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 12 8"
+            >
+              <polyline points="1 1 6 7 11 1" />
+            </svg>
+          </button>
+
+          <div class="courses-mega">
+            <div class="cm-inner">
+              <!-- Left: Categories -->
+              <div class="cm-side" id="cmSide">
+                <div class="cm-si active" data-cat="management">Management</div>
+                <div class="cm-si" data-cat="technology">Technology</div>
+                <div class="cm-si" data-cat="medical">Medical</div>
+                <div class="cm-si" data-cat="law">Law</div>
+                <div class="cm-si" data-cat="arts">Arts & Design</div>
+                <div class="cm-si" data-cat="science">Science</div>
+                <div class="cm-si" data-cat="engineering">Engineering</div>
+                <div class="cm-si" data-cat="commerce">Commerce</div>
+              </div>
+
+              <!-- Right: Content -->
+              <div class="cm-content">
+                <!-- Mode tabs -->
+                <div class="cm-tabs" id="cmTabs">
+                  <div class="cm-tab active" data-mode="all">All</div>
+                  <div class="cm-tab" data-mode="online">🌐 Online</div>
+                  <div class="cm-tab" data-mode="offline">🏫 Offline</div>
+                  <div class="cm-tab" data-mode="study-abroad">
+                    ✈️ Study Abroad
+                  </div>
+                  <div class="cm-tab" data-mode="executive">
+                    💼 Executive Program
+                  </div>
+                  <div class="cm-tab" data-mode="dba">🎓 DBA</div>
+                </div>
+
+                <!-- Dynamic grid -->
+                <div class="cm-grid" id="cmGrid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="np2 active">B.Tech</a>
+        <a href="#" class="np2">BCA</a>
+        <a href="#" class="np2">BA</a>
+        <div class="r2-sep"></div>
+        <a href="#" class="np2 abroad-p">MBA</a>
+        <a href="#" class="np2">BBA</a>
+        <a href="#" class="np2">B.Sc (Nursing)</a>
+        <a
+          href="#"
+          class="np2"
+          style="
+            background-color: rgb(12, 21, 64);
+            color: white;
+            border-radius: 7px;
+          "
+          >Top University</a
+        >
+        <a href="#" class="np2"
+          >🗓️ Admission 2025 <span class="new-tag">New</span></a
+        >
+        <div class="r2-sep"></div>
+        <!-- <a href="./course.finder.html" class="np2 finder-p">🔍 Course Finder</a> -->
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mDrawer">
+      <div class="md-head">
+        <strong>Menu</strong>
+        <button class="md-close" onclick="closeDrawer()">×</button>
+      </div>
+
+      <div class="md-auth">
+        <button class="btn-ln">Login</button>
+        <button class="btn-su">Apply</button>
+      </div>
+
+      <div class="md-nav">
+        <a href="index.html">Home</a>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Programs
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="#">Executive MBA</a>
+          <a href="#">Full-time MBA</a>
+          <a href="#">Data Science</a>
+          <a href="#">Marketing</a>
+          <a href="#">Finance</a>
+        </div>
+        <a href="universities.html">Universities</a>
+        <a href="compare.html">Compare</a>
+        <a href="#">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Courses
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="btech.html">B.Tech</a>
+          <a href="bca.html">BCA</a>
+          <a href="mba.html">MBA</a>
+          <a href="bba.html">BBA</a>
+        </div>
+        <button class="md-acc-btn" onclick="toggleAcc(this)">
+          Explore
+          <span>⌄</span>
+        </button>
+        <div class="md-acc-body">
+          <a href="#">Top Colleges</a>
+          <a href="#">Exams</a>
+          <a href="#">Study Abroad</a>
+          <a href="#">Scholarships</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
+
+    <!-- ══════════════ CONTACT HERO ══════════════ -->
+    <section class="contact-hero">
+      <div class="hero-dots"></div>
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="eyebrow fade-up d1">Get In Touch</div>
+            <h1 class="fade-up d2">
+              We're Here to <span class="hl">Help You</span><br />Find Your Path
+            </h1>
+            <p class="fade-up d3">
+              Whether you have a question about programs, admissions,
+              scholarships, or anything else — our team of expert counsellors is
+              ready to help.
+            </p>
+            <div class="hero-contact-pills fade-up d4">
+              <a href="tel:18001234567" class="hcp"
+                ><i class="bi bi-telephone-fill"></i> Call Us Free</a
+              >
+              <a href="mailto:help@campuswalkin.com" class="hcp"
+                ><i class="bi bi-envelope-fill"></i> Email Us</a
+              >
+              <span class="hcp"
+                ><i class="bi bi-chat-dots-fill"></i> Live Chat</span
+              >
+              <span class="hcp"><i class="bi bi-whatsapp"></i> WhatsApp</span>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-side row g-3">
+              <div class="col-12">
+                <div class="stat-float">
+                  <div class="d-flex align-items-center gap-3">
+                    <div style="font-size: 2rem">🎓</div>
+                    <div>
+                      <div class="sf-val">5<span>L+</span></div>
+                      <div class="sf-lbl">Students counselled successfully</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-float d2">
+                  <div style="font-size: 1.5rem; margin-bottom: 6px">⚡</div>
+                  <div class="sf-val">2<span>min</span></div>
+                  <div class="sf-lbl">Avg. response time</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-float d3">
+                  <div style="font-size: 1.5rem; margin-bottom: 6px">🌟</div>
+                  <div class="sf-val">4.9<span>★</span></div>
+                  <div class="sf-lbl">Counsellor rating</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ QUICK CONTACT CARDS ══════════════ -->
+    <section class="contact-cards-strip">
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-6 col-lg-3">
+            <div
+              class="contact-card"
+              style="--cc-color: #2563eb; --cc-bg: #eff4ff"
+            >
+              <div class="cc-icon-wrap">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <div class="cc-card-title">Call Us</div>
+              <div class="cc-card-val">1800-XXX-XXXX</div>
+              <div class="cc-card-sub">
+                Toll free · Mon–Sat<br />8 AM – 10 PM IST
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div
+              class="contact-card"
+              style="--cc-color: #0aab87; --cc-bg: #ebfaf6"
+            >
+              <div class="cc-icon-wrap">
+                <i class="bi bi-envelope-fill"></i>
+              </div>
+              <div class="cc-card-title">Email Us</div>
+              <div class="cc-card-val">help@campuswalkin.com</div>
+              <div class="cc-card-sub">
+                We reply within<br />2 business hours
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div
+              class="contact-card"
+              style="--cc-color: #25d366; --cc-bg: #f0fff6"
+            >
+              <div class="cc-icon-wrap"><i class="bi bi-whatsapp"></i></div>
+              <div class="cc-card-title">WhatsApp</div>
+              <div class="cc-card-val">+91 98765 43210</div>
+              <div class="cc-card-sub">
+                Chat instantly with<br />our counsellors
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div
+              class="contact-card"
+              style="--cc-color: #e85d3a; --cc-bg: #fff3f0"
+            >
+              <div class="cc-icon-wrap"><i class="bi bi-geo-alt-fill"></i></div>
+              <div class="cc-card-title">Visit Us</div>
+              <div class="cc-card-val">Mumbai HQ</div>
+              <div class="cc-card-sub">
+                4 offices across India<br />Mumbai · Delhi · Bangalore · Pune
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ MAIN CONTENT ══════════════ -->
+    <section class="contact-main">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <!-- ── FORM ── -->
+          <div class="col-lg-7">
+            <div class="form-card" id="formCard">
+              <h2>Send Us a Message</h2>
+              <p class="fc-sub">
+                Fill in the form and a counsellor will get back to you within 2
+                hours.
+              </p>
+
+              <!-- Topic Tabs -->
+              <div class="topic-tabs">
+                <button class="ttab active" onclick="setTopic(this)">
+                  🎓 Admissions
+                </button>
+                <button class="ttab" onclick="setTopic(this)">
+                  💼 Executive Programs
+                </button>
+                <button class="ttab" onclick="setTopic(this)">
+                  ✈️ Study Abroad
+                </button>
+                <button class="ttab" onclick="setTopic(this)">
+                  💰 Scholarships
+                </button>
+                <button class="ttab" onclick="setTopic(this)">
+                  🤝 Partnership
+                </button>
+                <button class="ttab" onclick="setTopic(this)">❓ Other</button>
+              </div>
+
+              <form id="contactForm" novalidate>
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <label class="fc-label">First Name *</label>
+                    <input
+                      type="text"
+                      class="fc-input"
+                      placeholder="Rahul"
+                      required
+                      id="fname"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="fc-label">Last Name *</label>
+                    <input
+                      type="text"
+                      class="fc-input"
+                      placeholder="Sharma"
+                      required
+                      id="lname"
+                    />
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <label class="fc-label">Email Address *</label>
+                    <input
+                      type="email"
+                      class="fc-input"
+                      placeholder="rahul@example.com"
+                      required
+                      id="email"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="fc-label">Phone Number *</label>
+                    <input
+                      type="tel"
+                      class="fc-input"
+                      placeholder="+91 98765 43210"
+                      required
+                      id="phone"
+                    />
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <label class="fc-label">Course of Interest</label>
+                    <select class="fc-select fc-input">
+                      <option value="">Select a course...</option>
+                      <option>MBA / PGDM</option>
+                      <option>Executive MBA</option>
+                      <option>B.Tech / Engineering</option>
+                      <option>Data Science & AI</option>
+                      <option>Medical (MBBS/MD)</option>
+                      <option>Law (LLB/LLM)</option>
+                      <option>Study Abroad - MS</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="fc-label">Preferred Mode</label>
+                    <select class="fc-select fc-input">
+                      <option value="">Any mode...</option>
+                      <option>Online</option>
+                      <option>Offline / Campus</option>
+                      <option>Executive / Weekend</option>
+                      <option>Study Abroad</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="fc-label">How can we help you? *</label>
+                  <textarea
+                    class="fc-textarea"
+                    placeholder="Tell us what you're looking for, your goals, or any specific questions..."
+                    required
+                    id="message"
+                  ></textarea>
+                </div>
+                <div class="mb-4">
+                  <label class="fc-check">
+                    <input type="checkbox" id="consent" required />
+                    I agree to be contacted by CampusWalkin counsellors via
+                    call, WhatsApp, or email with program information and
+                    updates.
+                  </label>
+                </div>
+                <button type="submit" class="btn-submit">
+                  <span><i class="bi bi-send-fill me-2"></i>Send Message</span>
+                </button>
+              </form>
+
+              <!-- Success state (hidden) -->
+              <div class="form-success" id="formSuccess">
+                <div class="fs-icon">✅</div>
+                <div class="fs-title">Message Sent!</div>
+                <p class="fs-sub">
+                  Thank you! Our counsellor will reach out to you within 2
+                  hours.<br />Check your email for a confirmation.
+                </p>
+                <button onclick="resetForm()" class="btn-ln mt-4">
+                  Send Another Message
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── SIDEBAR ── -->
+          <div class="col-lg-5">
+            <div class="sidebar-inner">
+              <!-- Expert counsellor CTA -->
+              <div class="counsellor-card">
+                <div class="cc-eyebrow">Free Consultation</div>
+                <div class="cc-title">Talk to an Expert Counsellor</div>
+                <div class="cc-desc">
+                  Get personalised guidance on courses, colleges, and admissions
+                  — completely free, no pressure.
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                  <div class="cc-team">
+                    <div
+                      class="cc-av"
+                      style="
+                        background: linear-gradient(135deg, #2563eb, #7c3aed);
+                      "
+                    >
+                      S
+                    </div>
+                    <div
+                      class="cc-av"
+                      style="
+                        background: linear-gradient(135deg, #0aab87, #2563eb);
+                      "
+                    >
+                      A
+                    </div>
+                    <div
+                      class="cc-av"
+                      style="
+                        background: linear-gradient(135deg, #e85d3a, #e8a020);
+                      "
+                    >
+                      P
+                    </div>
+                    <div
+                      class="cc-av"
+                      style="
+                        background: rgba(255, 255, 255, 0.15);
+                        font-size: 0.65rem;
+                        color: #fff;
+                        font-weight: 700;
+                      "
+                    >
+                      +24
+                    </div>
+                  </div>
+                  <span class="cc-team-lbl">Expert counsellors online now</span>
+                </div>
+                <button class="btn-call">
+                  <i class="bi bi-telephone-fill"></i> Schedule a Free Call
+                </button>
+              </div>
+
+              <!-- Contact Info -->
+              <div class="info-block">
+                <h3>Contact Information</h3>
+                <div class="info-row">
+                  <div
+                    class="ir-icon"
+                    style="background: #eff4ff; color: #2563eb"
+                  >
+                    <i class="bi bi-telephone-fill"></i>
+                  </div>
+                  <div>
+                    <div class="ir-label">Phone</div>
+                    <div class="ir-val">1800-XXX-XXXX</div>
+                    <div class="ir-sub">Toll free · All India</div>
+                  </div>
+                </div>
+                <div class="info-row">
+                  <div
+                    class="ir-icon"
+                    style="background: #ebfaf6; color: #0aab87"
+                  >
+                    <i class="bi bi-envelope-fill"></i>
+                  </div>
+                  <div>
+                    <div class="ir-label">Email</div>
+                    <div class="ir-val">help@campuswalkin.com</div>
+                    <div class="ir-sub">Response within 2 hours</div>
+                  </div>
+                </div>
+                <div class="info-row">
+                  <div
+                    class="ir-icon"
+                    style="background: #f5f3ff; color: #7c3aed"
+                  >
+                    <i class="bi bi-geo-alt-fill"></i>
+                  </div>
+                  <div>
+                    <div class="ir-label">Headquarters</div>
+                    <div class="ir-val">Level 12, Bandra Kurla Complex</div>
+                    <div class="ir-sub">Mumbai, Maharashtra – 400051</div>
+                  </div>
+                </div>
+                <div class="info-row">
+                  <div
+                    class="ir-icon"
+                    style="background: #fff8eb; color: #e8a020"
+                  >
+                    <i class="bi bi-whatsapp"></i>
+                  </div>
+                  <div>
+                    <div class="ir-label">WhatsApp</div>
+                    <div class="ir-val">+91 98765 43210</div>
+                    <div class="ir-sub">Instant chat support</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Office Hours -->
+              <div class="hours-block">
+                <h3>🕐 Office Hours</h3>
+                <div class="hours-row">
+                  <span class="hr-day">Monday – Friday</span>
+                  <span class="hr-time"
+                    ><span class="online-dot"></span>8 AM – 10 PM</span
+                  >
+                </div>
+                <div class="hours-row">
+                  <span class="hr-day">Saturday</span>
+                  <span class="hr-time"
+                    ><span class="online-dot"></span>9 AM – 8 PM</span
+                  >
+                </div>
+                <div class="hours-row">
+                  <span class="hr-day">Sunday</span>
+                  <span class="hr-closed">Closed</span>
+                </div>
+                <div class="hours-row">
+                  <span class="hr-day">Live Chat / WhatsApp</span>
+                  <span class="hr-time" style="color: var(--teal)">24 × 7</span>
+                </div>
+              </div>
+
+              <!-- Socials -->
+              <div class="social-block">
+                <h3>Follow Us</h3>
+                <div class="social-grid">
+                  <a href="#" class="soc-btn"
+                    ><i class="bi bi-facebook" style="color: #1877f2"></i>
+                    Facebook</a
+                  >
+                  <a href="#" class="soc-btn"
+                    ><i class="bi bi-instagram" style="color: #e1306c"></i>
+                    Instagram</a
+                  >
+                  <a href="#" class="soc-btn"
+                    ><i class="bi bi-linkedin" style="color: #0a66c2"></i>
+                    LinkedIn</a
+                  >
+                  <a href="#" class="soc-btn"
+                    ><i class="bi bi-youtube" style="color: #ff0000"></i>
+                    YouTube</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ OUR OFFICES ══════════════ -->
+    <section class="map-sec">
+      <div class="container">
+        <div
+          class="sec-eyebrow mb-2"
+          style="
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--accent);
+          "
+        >
+          Our Locations
+        </div>
+        <h2>Visit an Office Near You</h2>
+        <p class="text-muted mb-4" style="font-size: 0.88rem">
+          Walk in anytime during office hours. No appointment needed.
+        </p>
+
+        <div class="map-wrap mb-4">
+          <div class="map-placeholder-icon">🗺️</div>
+          <div style="font-weight: 700; color: var(--navy)">
+            Interactive Map
+          </div>
+          <div style="font-size: 0.78rem">
+            Embed your Google Maps iframe here
+          </div>
+        </div>
+
+        <div class="map-offices">
+          <div class="office-card">
+            <div class="oc-city"><i class="bi bi-geo-alt-fill"></i> Mumbai</div>
+            <div class="oc-addr">
+              Level 12, Platina Tower, Bandra Kurla Complex, Mumbai – 400051
+            </div>
+            <span class="oc-tag"
+              ><i class="bi bi-building"></i> Headquarters</span
+            >
+          </div>
+          <div class="office-card">
+            <div class="oc-city">
+              <i class="bi bi-geo-alt-fill"></i> New Delhi
+            </div>
+            <div class="oc-addr">
+              8th Floor, Tower B, Worldmark 3, Aerocity, New Delhi – 110037
+            </div>
+            <span class="oc-tag" style="background: #ebfaf6; color: #0aab87"
+              ><i class="bi bi-star-fill"></i> North India Hub</span
+            >
+          </div>
+          <div class="office-card">
+            <div class="oc-city">
+              <i class="bi bi-geo-alt-fill"></i> Bangalore
+            </div>
+            <div class="oc-addr">
+              4th Floor, Prestige Meridian 2, MG Road, Bangalore – 560001
+            </div>
+            <span class="oc-tag" style="background: #f5f3ff; color: #7c3aed"
+              ><i class="bi bi-laptop"></i> Tech Hub</span
+            >
+          </div>
+          <div class="office-card">
+            <div class="oc-city"><i class="bi bi-geo-alt-fill"></i> Pune</div>
+            <div class="oc-addr">
+              3rd Floor, Cerebrum IT Park, Kalyani Nagar, Pune – 411014
+            </div>
+            <span class="oc-tag" style="background: #fff8eb; color: #e8a020"
+              ><i class="bi bi-mortarboard"></i> Education Hub</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ FAQ ══════════════ -->
+    <section class="faq-sec">
+      <div class="container">
+        <div
+          class="sec-eyebrow mb-2"
+          style="
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--accent);
+          "
+        >
+          Quick Answers
+        </div>
+        <h2>Frequently Asked Questions</h2>
+        <p class="faq-sub">
+          Can't find your answer here? Just send us a message above.
+        </p>
+        <div class="row g-3">
+          <div class="col-lg-6">
+            <div class="faq-item open">
+              <div class="faq-q" onclick="toggleFaq(this)">
+                Is the counselling service completely free?
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              <div class="faq-a">
+                Yes, 100%! All counselling sessions — whether via call, chat, or
+                in-person — are completely free of charge. We never ask for
+                payment for guidance.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">
+                How quickly will I get a response?
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              <div class="faq-a">
+                For WhatsApp and live chat, typically within minutes. For email
+                and contact form submissions, our counsellors respond within 2
+                business hours during office hours.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">
+                Can I visit an office without an appointment?
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              <div class="faq-a">
+                Absolutely! You can walk in to any of our 4 offices during
+                office hours. However, if you want a dedicated session with a
+                specialist counsellor, booking a slot in advance is recommended.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">
+                Do you help with study abroad applications?
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              <div class="faq-a">
+                Yes! We have dedicated international admissions counsellors
+                specialising in USA, UK, Canada, Australia, Germany, and
+                Singapore. We help with university shortlisting, application
+                essays, visa guidance, and more.
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">
+                I have a complaint / feedback. Who do I contact?
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              <div class="faq-a">
+                We take feedback very seriously. Please email
+                grievances@campuswalkin.com or use the contact form above
+                selecting "Other" as the topic. Our customer success team will
+                respond within 24 hours.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">
+                Can universities / institutions partner with CampusWalkin?
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              <div class="faq-a">
+                Yes! We work with 2,000+ institutions. For partnership
+                enquiries, select "Partnership" in the contact form or email
+                partnerships@campuswalkin.com. Our B2B team will reach out
+                within 24 hours.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">
+                Is my personal data safe?
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              <div class="faq-a">
+                Absolutely. We are fully GDPR and IT Act compliant. Your data is
+                never sold to third parties. It is used only to provide you with
+                relevant guidance and program information. You can request
+                deletion anytime.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">
+                Do you provide loan / financial assistance help?
+                <i class="bi bi-plus-circle-fill"></i>
+              </div>
+              <div class="faq-a">
+                Yes! We partner with leading education loan providers including
+                Credila, Avanse, HDFC Credila, and government schemes. Our
+                counsellors can guide you through the application process for
+                free.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ BOTTOM CTA ══════════════ -->
+<div class="cta-sec py-5">
+  <div class="cta-inner">
+    <div class="cta-box">
+      <div>
+        <h2>Not Sure Which Course<br />Is Right for You?</h2>
+        <p>
+          Talk to a real expert — free, no spam, just honest guidance for
+          your goals.
+        </p>
+      </div>
+      <div class="cta-btns">
+        <button
+          class="py-2 border-0 px-2 rounded-2"
+          data-bs-toggle="modal"
+          data-bs-target="#connectModal"
+        >
+          Book Free Counselling
+        </button>
+        <!-- --------------form popup  -->
+        <div class="modal fade" id="connectModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3 rounded-3">
+              <!-- ----------------header  -->
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5>Get Free Guidance</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <!-- form ------------------ -->
+              <form class="form-inp">
+                <input
+                  type="text"
+                  placeholder="Enter your name..."
+                  class="form-control mb-2"
+                />
+                <input
+                  type="email"
+                  placeholder="Enter your email..."
+                  class="form-control mb-2"
+                />
+                <input
+                  type="text"
+                  placeholder="Enter your Number..."
+                  class="form-control mb-2"
+                />
+                <select class="form-select mb-2">
+                  <option selected disabled>Choose a program</option>
+                  <option>Executive Program</option>
+                  <option>Offline Program</option>
+                  <option>Online Program</option>
+                </select>
+                <button
+                  type="submit"
+                  class="w-100 text-white py-1 border-0"
+                >Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- ----------------------- course  -->
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+      <div class="fi">
+        <div class="fg">
+          <!-- Brand Block -->
+          <div class="fb">
+            <div style="font-size: 1.25rem; font-weight: 900; color: #fff">
+              <span class="cw-logo">CW</span>
+              CampusWalkin
+            </div>
+            <p>
+              India's leading education marketplace connecting students with top
+              universities and programs.
+            </p>
+            <div class="footer-icons-social">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- Links Block -->
+          <div class="fl">
+            <div>
+              <div class="fl-t">Quick Links</div>
+              <a href="#" class="fl-a">Home</a>
+              <a href="#" class="fl-a">About Us</a>
+              <a href="#" class="fl-a">Programs</a>
+              <a href="#" class="fl-a">Blog</a>
+              <a href="#" class="fl-a">Contact</a>
+              <a href="#" class="fl-a">Compare</a>
+            </div>
+            <div>
+              <div class="fl-t">Programs</div>
+              <a href="#" class="fl-a">Executive Education</a>
+              <a href="#" class="fl-a">Online MBA</a>
+              <a href="#" class="fl-a">Data Science</a>
+              <a href="#" class="fl-a">Finance</a>
+              <a href="#" class="fl-a">Marketing</a>
+              <a href="#" class="fl-a">Technology</a>
+            </div>
+            <div>
+              <div class="fl-t">Top Universities</div>
+              <a href="#" class="fl-a">IIM Ahmedabad</a>
+              <a href="#" class="fl-a">IIT Delhi</a>
+              <a href="#" class="fl-a">ISB Hyderabad</a>
+              <a href="#" class="fl-a">XLRI</a>
+              <a href="#" class="fl-a">IIM Bangalore</a>
+            </div>
+            <div>
+              <div class="fl-t">Study Abroad</div>
+              <a href="#" class="fl-a">USA</a>
+              <a href="#" class="fl-a">UK</a>
+              <a href="#" class="fl-a">Canada</a>
+              <a href="#" class="fl-a">Australia</a>
+              <a href="#" class="fl-a">Germany</a>
+              <a href="#" class="fl-a">Singapore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div>
+          <div class="fb-bot">
+            <div class="left-footer">
+              <i class="fa-solid fa-envelope"></i>
+              <p>info@campuswalkin.com</p>
+              <i class="fa-solid fa-phone"></i>
+              <p>+91 98765 43210</p>
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Gurugram, India</p>
+            </div>
+            <div class="right-footer">
+              <p>© 2026 CampusWalkin. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // ── Data ────────────────────────────────────────────────────────────────────
+      const data = {
+        management: {
+          courses: {
+            all: [
+              { n: "MBA", s: "800+ colleges" },
+              { n: "PGDM", s: "350+ colleges" },
+              { n: "BBA", s: "1,200+ colleges" },
+              { n: "Executive MBA", s: "120+ programs" },
+              { n: "MBA Finance", s: "500+ colleges" },
+              { n: "MBA Marketing", s: "650+ colleges" },
+            ],
+            online: [
+              {
+                n: "MBA Online",
+                s: "200+ colleges",
+                colleges: [
+                  { name: "IIM Ahmedabad", link: "https://www.iima.ac.in" },
+                  { name: "IIM Bangalore", link: "https://www.iimb.ac.in" },
+                  { name: "XLRI", link: "https://www.xlri.ac.in" },
+                ],
+              },
+            ],
+            offline: [
+              { n: "MBA", s: "600+ colleges" },
+              { n: "BBA", s: "900+ colleges" },
+              { n: "PGDM", s: "260+ colleges" },
+              { n: "MBA Marketing", s: "450+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MBA USA", s: "50+ universities" },
+              { n: "MBA UK", s: "30+ universities" },
+              { n: "MBA Canada", s: "20+ universities" },
+              { n: "MBA Australia", s: "15+ universities" },
+            ],
+            executive: [
+              { n: "Executive MBA", s: "120+ programs" },
+              { n: "EMBA Finance", s: "45+ programs" },
+              { n: "EMBA Leadership", s: "30+ programs" },
+              { n: "Weekend MBA", s: "60+ programs" },
+            ],
+            dba: [
+              { n: "DBA Management", s: "25+ programs" },
+              { n: "DBA Strategy", s: "18+ programs" },
+              { n: "DBA Leadership", s: "12+ programs" },
+            ],
+          },
+        },
+        technology: {
+          courses: {
+            all: [
+              { n: "B.Tech", s: "1,500+ colleges" },
+              { n: "M.Tech", s: "600+ colleges" },
+              { n: "MCA", s: "800+ colleges" },
+              { n: "BCA", s: "1,100+ colleges" },
+              { n: "Data Science", s: "400+ programs" },
+              { n: "AI & ML", s: "300+ programs" },
+            ],
+            online: [
+              { n: "Online B.Tech", s: "100+ colleges" },
+              { n: "Online MCA", s: "200+ colleges" },
+              { n: "Data Science Online", s: "300+ programs" },
+              { n: "AI & ML Online", s: "250+ programs" },
+            ],
+            offline: [
+              { n: "B.Tech", s: "1,400+ colleges" },
+              { n: "M.Tech", s: "580+ colleges" },
+              { n: "MCA", s: "700+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Computer Science USA", s: "80+ universities" },
+              { n: "MS AI UK", s: "25+ universities" },
+              { n: "MS Data Science Canada", s: "18+ universities" },
+            ],
+            executive: [
+              { n: "Executive PG in AI", s: "40+ programs" },
+              { n: "Executive Data Science", s: "35+ programs" },
+              { n: "PG DevOps", s: "20+ programs" },
+            ],
+            dba: [
+              { n: "PhD Computer Science", s: "200+ programs" },
+              { n: "DBA Technology", s: "10+ programs" },
+            ],
+          },
+        },
+        medical: {
+          courses: {
+            all: [
+              { n: "MBBS", s: "600+ colleges" },
+              { n: "MD", s: "400+ colleges" },
+              { n: "BDS", s: "300+ colleges" },
+              { n: "B.Pharma", s: "800+ colleges" },
+              { n: "Nursing", s: "1,000+ colleges" },
+              { n: "BAMS", s: "250+ colleges" },
+            ],
+            online: [
+              { n: "MPH Online", s: "50+ programs" },
+              { n: "Online Nursing", s: "80+ programs" },
+              { n: "Online Pharmacy", s: "60+ programs" },
+            ],
+            offline: [
+              { n: "MBBS", s: "600+ colleges" },
+              { n: "BDS", s: "300+ colleges" },
+              { n: "BAMS", s: "250+ colleges" },
+              { n: "B.Pharma", s: "800+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MBBS Russia", s: "30+ universities" },
+              { n: "MBBS China", s: "25+ universities" },
+              { n: "MBBS Philippines", s: "15+ universities" },
+            ],
+            executive: [
+              { n: "Executive Healthcare Mgmt", s: "20+ programs" },
+              { n: "Hospital Administration", s: "30+ programs" },
+            ],
+            dba: [
+              { n: "PhD Medicine", s: "150+ programs" },
+              { n: "DBA Healthcare", s: "8+ programs" },
+            ],
+          },
+        },
+        law: {
+          courses: {
+            all: [
+              { n: "LLB", s: "900+ colleges" },
+              { n: "LLM", s: "400+ colleges" },
+              { n: "BA LLB", s: "500+ colleges" },
+              { n: "BBA LLB", s: "350+ colleges" },
+              { n: "Cyber Law", s: "80+ programs" },
+              { n: "Corporate Law", s: "200+ programs" },
+            ],
+            online: [
+              { n: "LLM Online", s: "60+ programs" },
+              { n: "Diploma Cyber Law", s: "40+ programs" },
+              { n: "Online Paralegal", s: "25+ programs" },
+            ],
+            offline: [
+              { n: "LLB", s: "900+ colleges" },
+              { n: "BA LLB", s: "500+ colleges" },
+              { n: "LLM", s: "380+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "LLM USA", s: "30+ universities" },
+              { n: "LLM UK", s: "20+ universities" },
+              { n: "LLM Singapore", s: "10+ universities" },
+            ],
+            executive: [
+              { n: "Executive LLM", s: "15+ programs" },
+              { n: "PG Corporate Law", s: "20+ programs" },
+            ],
+            dba: [
+              { n: "PhD Law", s: "100+ programs" },
+              { n: "DBA Law", s: "5+ programs" },
+            ],
+          },
+        },
+        arts: {
+          courses: {
+            all: [
+              { n: "BFA", s: "400+ colleges" },
+              { n: "MFA", s: "200+ colleges" },
+              { n: "B.Des", s: "300+ colleges" },
+              { n: "Animation", s: "250+ institutes" },
+              { n: "Fashion Design", s: "180+ institutes" },
+              { n: "UI/UX Design", s: "150+ programs" },
+            ],
+            online: [
+              { n: "Online UI/UX", s: "100+ programs" },
+              { n: "Online Graphic Design", s: "80+ programs" },
+              { n: "Digital Art Online", s: "60+ programs" },
+            ],
+            offline: [
+              { n: "BFA", s: "400+ colleges" },
+              { n: "B.Des", s: "300+ colleges" },
+              { n: "Fashion Design", s: "180+ institutes" },
+            ],
+            "study-abroad": [
+              { n: "MFA USA", s: "20+ universities" },
+              { n: "Design UK", s: "15+ universities" },
+              { n: "Fashion Italy", s: "10+ institutes" },
+            ],
+            executive: [
+              { n: "Executive Design Program", s: "12+ programs" },
+              { n: "PG Animation", s: "18+ programs" },
+            ],
+            dba: [{ n: "PhD Fine Arts", s: "50+ programs" }],
+          },
+        },
+        science: {
+          courses: {
+            all: [
+              { n: "B.Sc", s: "2,000+ colleges" },
+              { n: "M.Sc", s: "1,200+ colleges" },
+              { n: "Biotechnology", s: "300+ colleges" },
+              { n: "Forensic Science", s: "100+ colleges" },
+              { n: "B.Sc IT", s: "500+ colleges" },
+              { n: "Environmental Science", s: "200+ colleges" },
+            ],
+            online: [
+              { n: "M.Sc Online", s: "100+ programs" },
+              { n: "Online Biotechnology", s: "50+ programs" },
+              { n: "Data Analytics Online", s: "80+ programs" },
+            ],
+            offline: [
+              { n: "B.Sc", s: "2,000+ colleges" },
+              { n: "M.Sc", s: "1,200+ colleges" },
+              { n: "Biotechnology", s: "300+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Science USA", s: "60+ universities" },
+              { n: "M.Sc UK", s: "30+ universities" },
+            ],
+            executive: [
+              { n: "Executive Data Science", s: "25+ programs" },
+              { n: "PG Biotechnology", s: "15+ programs" },
+            ],
+            dba: [
+              { n: "PhD Science", s: "300+ programs" },
+              { n: "DBA Research Science", s: "6+ programs" },
+            ],
+          },
+        },
+        engineering: {
+          courses: {
+            all: [
+              { n: "B.E / B.Tech", s: "1,800+ colleges" },
+              { n: "M.E / M.Tech", s: "700+ colleges" },
+              { n: "Diploma Engg", s: "2,000+ institutes" },
+              { n: "Civil Engineering", s: "1,200+ colleges" },
+              { n: "Mechanical Engg", s: "1,100+ colleges" },
+              { n: "Electrical Engg", s: "900+ colleges" },
+            ],
+            online: [
+              { n: "Online B.Tech", s: "80+ colleges" },
+              { n: "M.Tech Online", s: "100+ programs" },
+              { n: "Online Diploma", s: "200+ institutes" },
+            ],
+            offline: [
+              { n: "B.E / B.Tech", s: "1,800+ colleges" },
+              { n: "Diploma Engg", s: "2,000+ institutes" },
+              { n: "Civil Engineering", s: "1,200+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "MS Engineering USA", s: "90+ universities" },
+              { n: "M.Eng UK", s: "40+ universities" },
+              { n: "MS Germany", s: "30+ universities" },
+            ],
+            executive: [
+              { n: "Executive PG Engineering", s: "20+ programs" },
+              { n: "PG Robotics", s: "15+ programs" },
+              { n: "PG Aerospace", s: "10+ programs" },
+            ],
+            dba: [
+              { n: "PhD Engineering", s: "250+ programs" },
+              { n: "DBA Engineering Mgmt", s: "8+ programs" },
+            ],
+          },
+        },
+        commerce: {
+          courses: {
+            all: [
+              { n: "B.Com", s: "2,500+ colleges" },
+              { n: "M.Com", s: "1,000+ colleges" },
+              { n: "CA Foundation", s: "500+ institutes" },
+              { n: "CMA", s: "200+ institutes" },
+              { n: "CFA", s: "150+ programs" },
+              { n: "BBA", s: "1,200+ colleges" },
+            ],
+            online: [
+              { n: "B.Com Online", s: "200+ colleges" },
+              { n: "Online M.Com", s: "80+ programs" },
+              { n: "CFA Online", s: "100+ programs" },
+            ],
+            offline: [
+              { n: "B.Com", s: "2,500+ colleges" },
+              { n: "CA Foundation", s: "500+ institutes" },
+              { n: "M.Com", s: "1,000+ colleges" },
+            ],
+            "study-abroad": [
+              { n: "BCom Australia", s: "15+ universities" },
+              { n: "Finance UK", s: "20+ universities" },
+              { n: "Accounting USA", s: "25+ universities" },
+            ],
+            executive: [
+              { n: "Executive Finance", s: "30+ programs" },
+              { n: "PG Accounting", s: "20+ programs" },
+              { n: "Executive CFA Prep", s: "10+ programs" },
+            ],
+            dba: [
+              { n: "PhD Commerce", s: "150+ programs" },
+              { n: "DBA Finance", s: "10+ programs" },
+            ],
+          },
+        },
+      };
+      let activeCategory = "management";
+      let activeMode = "all";
+
+      function toggleAllCourses(e) {
+        e.stopPropagation();
+        const wrap = e.currentTarget.closest(".courses-wrap");
+        wrap.classList.toggle("open");
+      }
+
+      document.addEventListener("click", () => {
+        document.querySelectorAll(".courses-wrap").forEach((w) => {
+          w.classList.remove("open");
+        });
+      });
+
+      document.querySelectorAll(".courses-mega").forEach((menu) => {
+        menu.addEventListener("click", (e) => e.stopPropagation());
+      });
+
+      function render() {
+        const cat = data[activeCategory];
+        const courses = cat.courses[activeMode] || cat.courses.all;
+        document.getElementById("cmGrid").innerHTML = courses
+          .map(
+            (c) => `
+<div class="cm-item">
+
+  <div class="cm-c">
+    <div class="cm-cn">${c.n}</div>
+    <div class="cm-cs">${c.s}</div>
+  </div>
+
+  <div class="cm-drop">
+    <div class="cm-h-title">Top Colleges</div>
+
+    <div class="cm-h-list">
+      ${(c.colleges || [])
+        .map((col) => `<a href="${col.link}" target="_blank">${col.name}</a>`)
+        .join("")}
+    </div>
+
+    <a href="#" class="cm-view">View More →</a>
+  </div>
+
+</div>
+`,
+          )
+          .join("");
+        document.getElementById("cmTrending").innerHTML = cat.trending
+          .map((t) => `<span class="cm-ptag">${t}</span>`)
+          .join("");
+      }
+
+      document.getElementById("cmSide").addEventListener("click", (e) => {
+        const el = e.target.closest(".cm-si");
+        if (!el) return;
+
+        document
+          .querySelectorAll(".cm-si")
+          .forEach((x) => x.classList.remove("active"));
+        el.classList.add("active");
+
+        activeCategory = el.dataset.cat;
+        render();
+      });
+
+      document.getElementById("cmTabs").addEventListener("click", (e) => {
+        const tab = e.target.closest(".cm-tab");
+        if (!tab) return;
+
+        document
+          .querySelectorAll(".cm-tab")
+          .forEach((x) => x.classList.remove("active"));
+        tab.classList.add("active");
+
+        activeMode = tab.dataset.mode;
+        render();
+      });
+
+      render();
+    </script>
+    <script>
+      /* OPEN CLOSE */
+      function toggleCourses(e) {
+        let dd = document.getElementById("courseDD");
+
+        dd.style.display = dd.style.display === "block" ? "none" : "block";
+      }
+
+      /* SEARCH FILTER */
+      function filterCourses(value) {
+        value = value.toLowerCase();
+
+        let items = document.querySelectorAll(".course-item");
+
+        items.forEach((item) => {
+          let text = item.innerText.toLowerCase();
+
+          item.style.display = text.includes(value) ? "flex" : "none";
+        });
+      }
+
+      /* REDIRECT */
+      function goCourse(url) {
+        window.location.href = url;
+      }
+    </script>
+    <script>
+      const programWrap = document.getElementById("programWrap");
+      const programBtn = programWrap.querySelector(".program-btn");
+
+      /* CLICK LOCK */
+      programBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        programWrap.classList.toggle("active");
+      });
+
+      /* OUTSIDE CLICK CLOSE */
+      document.addEventListener("click", function (e) {
+        if (!programWrap.contains(e.target)) {
+          programWrap.classList.remove("active");
+        }
+      });
+    </script>
+    <script>
+      /* ── Location ── */
+      function toggleLoc(e) {
+        e.stopPropagation();
+        document.getElementById("locWrap").classList.toggle("open");
+      }
+
+      function setLoc(name) {
+        document.getElementById("locName").textContent = name;
+        document.getElementById("locWrap").classList.remove("open");
+      }
+
+      function filterLocs(v) {
+        document.querySelectorAll("#locList .loc-item").forEach((i) => {
+          i.style.display = i.textContent
+            .toLowerCase()
+            .includes(v.toLowerCase())
+            ? ""
+            : "none";
+        });
+      }
+
+      /* ── Explore ── */
+      function toggleExplore(e) {
+        e.stopPropagation();
+        document.getElementById("exploreWrap").classList.toggle("open");
+      }
+
+      /* ── Global outside click close ── */
+      document.addEventListener("click", function () {
+        document.getElementById("locWrap").classList.remove("open");
+        document.getElementById("exploreWrap").classList.remove("open");
+      });
+
+      /* ── Mobile drawer ── */
+      function openDrawer() {
+        document.getElementById("mDrawer").classList.add("open");
+        document.getElementById("mOverlay").classList.add("open");
+        document.getElementById("hamBtn").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        document.getElementById("mDrawer").classList.remove("open");
+        document.getElementById("mOverlay").classList.remove("open");
+        document.getElementById("hamBtn").classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      /* ── Search ── */
+      function doNavSearch() {
+        const q = document.getElementById("navQ").value.trim();
+        if (q) {
+          document.getElementById("cTitle").textContent =
+            'Results for "' + q + '"';
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+      document.getElementById("navQ").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") doNavSearch();
+      });
+
+      function fillHero(t) {
+        document.getElementById("heroQ").value = t;
+        document.getElementById("heroQ").focus();
+      }
+      function heroSearch() {
+        const q = document.getElementById("heroQ").value.trim();
+        if (q) {
+          document.getElementById("cTitle").textContent =
+            'Results for "' + q + '"';
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      document.getElementById("heroQ").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") heroSearch();
+      });
+
+      /* ── Hero tabs ── */
+      function setTab(el, type) {
+        document
+          .querySelectorAll(".hs-tab")
+          .forEach((t) => t.classList.remove("active"));
+        el.classList.add("active");
+        const ph = {
+          executive: "Search Executive MBA, PGDM programs…",
+          online: "Search online courses, certifications…",
+          offline: "Search colleges, universities, campuses…",
+          abroad: "Search universities in USA, UK, Canada…",
+        };
+        document.getElementById("heroQ").placeholder = ph[type] || "";
+      }
+
+      /* ── Course filter ── */
+      function filterCourse(type, el) {
+        if (el) {
+          document
+            .querySelectorAll(".cft")
+            .forEach((t) => t.classList.remove("active"));
+          el.classList.add("active");
+        }
+        const titles = {
+          all: "All Featured Courses",
+          exec: "Executive Programs",
+          online: "Online Courses",
+          offline: "Offline / Campus Courses",
+          abroad: "Study Abroad Programs",
+        };
+        document.getElementById("cTitle").textContent =
+          titles[type] || "All Featured Courses";
+        document.querySelectorAll(".cc").forEach((c) => {
+          const show = type === "all" || c.dataset.type === type;
+          c.style.display = show ? "" : "none";
+          if (show) c.style.animation = "fadeUp .35s ease both";
+        });
+        if (el)
+          document
+            .getElementById("cGrid")
+            .scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      /* ── Save toggle ── */
+      document.querySelectorAll(".cc-save").forEach((b) => {
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          b.textContent = b.textContent === "🤍" ? "❤️" : "🤍";
+        });
+      });
+
+      /* ── Bottom nav active ── */
+      function bnActive(el) {
+        document
+          .querySelectorAll(".bn-item")
+          .forEach((b) => b.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+      /* ── Row 2 nav active ── */
+      document.querySelectorAll(".np2").forEach((n) => {
+        n.addEventListener("click", function () {
+          document
+            .querySelectorAll(".np2")
+            .forEach((x) => x.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
+    <script>
+      function toggleCourses() {
+        document.getElementById("courseWrap").classList.toggle("open");
+      }
+
+      function goCourse(page) {
+        window.location.href = page;
+      }
+
+      function filterCourses(value) {
+        value = value.toLowerCase();
+
+        let categories = document.querySelectorAll(".course-cat");
+
+        categories.forEach((cat) => {
+          let items = [];
+          let next = cat.nextElementSibling;
+
+          while (next && !next.classList.contains("course-cat")) {
+            if (next.classList.contains("course-item")) {
+              items.push(next);
+            }
+            next = next.nextElementSibling;
+          }
+
+          let visibleCount = 0;
+
+          items.forEach((item) => {
+            let text = item.innerText.toLowerCase();
+
+            if (text.includes(value)) {
+              item.style.display = "block";
+              visibleCount++;
+            } else {
+              item.style.display = "none";
+            }
+          });
+
+          if (visibleCount === 0) {
+            cat.style.display = "none";
+          } else {
+            cat.style.display = "block";
+          }
+        });
+      }
+    </script>
+    <script>
+      /* Mobile drawer */
+      function openDrawer() {
+        document.getElementById("mDrawer").classList.add("open");
+        document.getElementById("mOverlay").classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        document.getElementById("mDrawer").classList.remove("open");
+        document.getElementById("mOverlay").classList.remove("show");
+        document.body.style.overflow = "";
+      }
+
+      /* Topic tabs */
+      function setTopic(el) {
+        document
+          .querySelectorAll(".ttab")
+          .forEach((t) => t.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+      /* FAQ accordion */
+      function toggleFaq(el) {
+        const item = el.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+        document
+          .querySelectorAll(".faq-item")
+          .forEach((i) => i.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      }
+
+      /* Form submit */
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const fname = document.getElementById("fname").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const message = document.getElementById("message").value.trim();
+          const consent = document.getElementById("consent").checked;
+
+          if (!fname || !email || !phone || !message || !consent) {
+            // Simple shake animation on empty required fields
+            [
+              fname && "fname",
+              email && "email",
+              phone && "phone",
+              message && "message",
+            ].forEach((id) => {
+              if (!id) return;
+              const el = document.getElementById(id);
+              if (!el || el.value.trim()) return;
+              el.style.borderColor = "#e85d3a";
+              el.style.animation = "shake .4s ease";
+              setTimeout(() => {
+                el.style.animation = "";
+              }, 400);
+            });
+            if (!consent) {
+              document
+                .getElementById("consent")
+                .closest(".fc-check").style.color = "#e85d3a";
+            }
+            return;
+          }
+
+          // Show success
+          document.getElementById("contactForm").style.display = "none";
+          document.getElementById("formSuccess").style.display = "block";
+          document
+            .getElementById("formCard")
+            .querySelector("h2").style.display = "none";
+          document
+            .getElementById("formCard")
+            .querySelector(".fc-sub").style.display = "none";
+          document
+            .getElementById("formCard")
+            .querySelector(".topic-tabs").style.display = "none";
+        });
+
+      function resetForm() {
+        document.getElementById("contactForm").reset();
+        document.getElementById("contactForm").style.display = "block";
+        document.getElementById("formSuccess").style.display = "none";
+        document.getElementById("formCard").querySelector("h2").style.display =
+          "";
+        document
+          .getElementById("formCard")
+          .querySelector(".fc-sub").style.display = "";
+        document
+          .getElementById("formCard")
+          .querySelector(".topic-tabs").style.display = "";
+      }
+    </script>
+
+    <style>
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(-6px);
+        }
+        40% {
+          transform: translateX(6px);
+        }
+        60% {
+          transform: translateX(-4px);
+        }
+        80% {
+          transform: translateX(4px);
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
