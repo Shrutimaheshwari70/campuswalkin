@@ -1,0 +1,101 @@
+<body>
+
+<h1 id="title"></h1>
+
+<div class="filter" id="filterBtns"></div>
+
+<div class="courses" id="coursesList"></div>
+
+<script>
+
+const colleges = [
+  {
+    id: 1,
+    name: "IIT Madras",
+    fees: { btech: "₹2.5L", mtech: "₹1L" }
+  },
+  {
+    id: 2,
+    name: "IIT Bombay",
+    fees: { btech: "₹2.3L", mtech: "₹70K" }
+  },
+  {
+    id: 3,
+    name: "IIM Ahmedabad",
+    fees: { mba: "₹23L" }
+  }
+];
+
+// Dynamic courses generator
+function getCourses(c) {
+  let arr = [];
+
+  if (c.fees.btech) {
+    arr.push(
+      { name: "B.Tech CSE", cat: "Engineering", dur: "4 Yrs", fees: c.fees.btech },
+      { name: "B.Tech Mechanical", cat: "Engineering", dur: "4 Yrs", fees: c.fees.btech }
+    );
+  }
+
+  if (c.fees.mtech) {
+    arr.push(
+      { name: "M.Tech AI", cat: "Engineering", dur: "2 Yrs", fees: c.fees.mtech }
+    );
+  }
+
+  if (c.fees.mba) {
+    arr.push(
+      { name: "MBA", cat: "Management", dur: "2 Yrs", fees: c.fees.mba }
+    );
+  }
+
+  return arr;
+}
+
+// GET ID FROM LOCAL STORAGE
+const id = localStorage.getItem("selectedCollegeId") || 1;
+const college = colleges.find(c => c.id == id);
+
+// SET TITLE
+document.getElementById("title").innerText = college.name + " - All Courses";
+
+// GET COURSES
+const courses = getCourses(college);
+
+// FILTER
+let active = "All";
+const cats = ["All", ...new Set(courses.map(c => c.cat))];
+
+function renderFilter() {
+  document.getElementById("filterBtns").innerHTML = cats.map(c =>
+    `<button class="${c===active?'active':''}" onclick="setFilter('${c}')">${c}</button>`
+  ).join("");
+}
+
+function setFilter(c) {
+  active = c;
+  renderFilter();
+  renderCourses();
+}
+
+// RENDER COURSES
+function renderCourses() {
+  const data = active === "All" ? courses : courses.filter(c => c.cat === active);
+
+  document.getElementById("coursesList").innerHTML = data.map(c => `
+    <div class="card">
+      <h3>${c.name}</h3>
+      <span class="tag">${c.cat}</span>
+      <p>Duration: ${c.dur}</p>
+      <p>Fees: ${c.fees}</p>
+    </div>
+  `).join("");
+}
+
+// INIT
+renderFilter();
+renderCourses();
+
+</script>
+
+</body>

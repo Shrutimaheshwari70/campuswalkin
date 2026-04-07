@@ -544,8 +544,7 @@
       .ham-btn.active span:nth-child(3) {
         transform: translateY(-6px) rotate(-45deg);
       }
-
-      /* ── ROW 2 ── */
+  /* ── ROW 2 ── */
       .nav-r2::-webkit-scrollbar {
         display: none;
       }
@@ -599,7 +598,7 @@
 
       .courses-mega {
         position: absolute;
-        min-width: 100%;
+        min-width: 100vw;
         margin-top: 4px;
         width: 100%;
         background: #fff;
@@ -748,6 +747,7 @@
         width: 100%;
         height: 20px; /* bridge gap */
       }
+    
       /* Nav pills row 2 */
       .np2 {
         display: flex;
@@ -1629,7 +1629,7 @@
         overflow: hidden;
         position: sticky;
         top: 76px;
-        max-height: calc(100vh - 100px);
+        height: 1300px;
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: #dde3f0 transparent;
@@ -1720,6 +1720,9 @@
       .fs-sec-body {
         margin-top: 0.7rem;
         display: none;
+      }
+      .fs-sec-body input{
+        width: 100%;
       }
       .fs-sec-body.open {
         display: block;
@@ -3004,7 +3007,7 @@
         </div>
       </div>
 
-      <!-- ROW 2 (desktop/tablet) -->
+            <!-- ROW 2 (desktop/tablet) -->
       <div class="nav-r2 d-flex w-100 align-items-center gap-2 bg-white">
         <!-- All Courses -->
         <div class="courses-wrap position-relative" id="coursesWrap">
@@ -3150,8 +3153,10 @@
         </div>
       </div>
     </div>
+
     <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
-    <!-- ---------------------------------university -->
+
+       <!-- ---------------------------------university -->
     <section class="uni-section">
       <div class="uni-banner d-flex align-items-center">
         <div class="container p-5">

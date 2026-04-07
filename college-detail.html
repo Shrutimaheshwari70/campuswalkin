@@ -1895,7 +1895,6 @@
         font-weight: 700;
         cursor: pointer;
         transition: 0.2s;
-        font-family: "DM Sans", sans-serif;
       }
       .btn-apply:hover {
         background: #c94a28;
@@ -1911,12 +1910,21 @@
         font-weight: 700;
         cursor: pointer;
         transition: 0.2s;
-        font-family: "DM Sans", sans-serif;
       }
       .btn-brochure:hover {
         background: #fff5f3;
       }
-
+      .cca-allCourses{
+              background: #fff;
+        color: var(--accent);
+        border: 1.5px solid var(--accent);
+        padding: 10px 20px;
+        border-radius: 9px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+      }
       .btn-back-uni {
         color: blue;
         margin-left: 17%;
@@ -3211,6 +3219,7 @@
 .deleteBtn {
   color: red;
 }
+
     </style>
   </head>
   <body>
@@ -3666,7 +3675,7 @@
           <div class="hero-logo">
             <img id="heroLogo" src="./girl.png" alt="College Logo" />
           </div>
-          <div class="hero-info">
+          <div class="hero-info w-100">
             <div class="hero-badges" id="heroBadges"></div>
             <div class="hero-name" id="heroName"></div>
             <div class="hero-loc">
@@ -3692,6 +3701,7 @@
             <div class="hero-actions">
               <button class="btn-apply">Apply Now</button>
               <button class="btn-brochure">📄 Download Brochure</button>
+              <a href="courses.html" type="button" class="cca-allCourses">All courses</a>
             </div>
           </div>
           <a href="universities.html" class="btn btn-back-uni"
