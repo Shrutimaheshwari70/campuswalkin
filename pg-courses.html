@@ -8,7 +8,16 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -72,31 +81,15 @@
         --row-hover: #f0faf8;
         --shadow: 0 4px 24px rgba(26, 122, 110, 0.1);
       }
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+      body,
       html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background: var(--bg);
-        color: var(--text);
-        min-height: 100vh;
         overflow-x: hidden;
       }
       img {
         max-width: 100%;
         display: block;
       }
-      button,
-      input,
-      select {
-        font-family: inherit;
-      }
+
       a {
         text-decoration: none;
         color: inherit;
@@ -122,9 +115,11 @@
       /* ─────────────────────────────────────
    NAVBAR WRAPPER
 ───────────────────────────────────── */
+
       .navbar {
         background: var(--white);
         position: sticky;
+
         top: 0;
         z-index: 300;
         box-shadow: var(--sh1);
@@ -152,10 +147,8 @@
       }
 
       .logo-text {
-        font-weight: 900;
         font-size: 1.15rem;
         color: var(--navy);
-        letter-spacing: -0.5px;
       }
       .logo-text span {
         color: var(--muted);
@@ -163,7 +156,6 @@
       .logo-sub {
         font-size: 0.58rem;
         color: var(--muted);
-        font-weight: 500;
         display: block;
         margin-top: -2px;
       }
@@ -176,7 +168,9 @@
         .center-nav .cn-link:nth-child(n + 5) {
           display: none;
         }
-
+        .nav-r1 {
+          border: none;
+        }
         /* Shrink explore label */
         .exp-label {
           display: none;
@@ -207,6 +201,9 @@
         /* Show hamburger, hide desktop auth + desktop nav */
         .ham-btn {
           display: flex !important;
+        }
+        .nav-r1 {
+          border: none;
         }
         .auth-btns {
           display: none !important;
@@ -296,18 +293,17 @@
         transform: rotate(180deg);
       }
       .exp-mega {
-      display: none;
-  position: absolute;
-  top: 100%;
-  left: -450px;
-  
-  width: 620px; /* adjust */
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: var(--sh3);
-  padding: 1rem;
-  z-index: 10;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -450px;
+        width: 600px; /* adjust */
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: var(--sh3);
+        padding: 1rem;
+        z-index: 10;
       }
       .explore-wrap:hover .exp-mega,
       .explore-wrap.open .exp-mega {
@@ -315,8 +311,6 @@
       }
       .em-title {
         font-size: 0.65rem;
-        font-weight: 800;
-        letter-spacing: 1.5px;
         text-transform: uppercase;
         color: var(--muted);
         margin-bottom: 8px;
@@ -343,7 +337,6 @@
         color: var(--text);
         transition: all 0.2s;
         font-size: 0.71rem;
-        font-weight: 600;
       }
       .em-item:hover {
         border-color: var(--accent);
@@ -367,7 +360,6 @@
         color: var(--muted);
         cursor: pointer;
         transition: all 0.2s;
-        font-weight: 600;
       }
       .em-grid a {
         border-bottom: 2px solid rgb(249, 249, 249);
@@ -439,12 +431,10 @@
         padding: 11px 14px;
         border-bottom: 1px solid var(--border);
         font-size: 0.79rem;
-        font-weight: 700;
       }
       .np-hd a {
         font-size: 0.7rem;
         color: var(--accent);
-        font-weight: 600;
       }
       .np-row {
         display: flex;
@@ -473,9 +463,7 @@
       }
       .np-t1 {
         font-size: 0.73rem;
-        font-weight: 600;
         color: var(--navy);
-        line-height: 1.3;
       }
       .np-t2 {
         font-size: 0.66rem;
@@ -545,7 +533,8 @@
       .ham-btn.active span:nth-child(3) {
         transform: translateY(-6px) rotate(-45deg);
       }
-  /* ── ROW 2 ── */
+
+      /* ── ROW 2 ── */
       .nav-r2::-webkit-scrollbar {
         display: none;
       }
@@ -575,7 +564,6 @@
       /* OPTIONAL STYLING */
       .cm-h-title {
         font-size: 13px;
-        font-weight: 600;
         margin-bottom: 6px;
       }
 
@@ -665,7 +653,7 @@
         background: #4f46e5;
         color: #fff;
       }
-  .cm-btns{
+.cm-btns{
         display: flex;
         gap: 10px;
         margin-bottom: 12px;
@@ -764,7 +752,6 @@
         width: 100%;
         height: 20px; /* bridge gap */
       }
-    
       /* Nav pills row 2 */
       .np2 {
         display: flex;
@@ -772,7 +759,6 @@
         gap: 5px;
         padding: 6px 4px;
         font-size: 0.7rem;
-        font-weight: 600;
         /* cursor: pointer; */
         color: var(--muted);
         white-space: nowrap;
@@ -788,7 +774,6 @@
         background: var(--accent2);
         border-color: #c7d9ff;
         color: var(--accent);
-        font-weight: 700;
       }
       .np2.finder-p:hover {
         background: #dce8ff;
@@ -797,7 +782,6 @@
         background: var(--exec);
         color: #fff;
         font-size: 0.58rem;
-        font-weight: 800;
         padding: 1px 4px;
         border-radius: 3px;
         text-transform: uppercase;
@@ -886,7 +870,6 @@
         cursor: pointer;
         color: var(--text, #333);
         font-size: 18px;
-        line-height: 1;
       }
       .md-auth {
         display: flex;
@@ -916,7 +899,6 @@
         display: block;
         padding: 11px 20px;
         font-size: 0.88rem;
-        font-weight: 600;
         color: var(--text, #333);
         text-decoration: none;
         border-bottom: 1px solid var(--border, #e5e7eb);
@@ -937,7 +919,6 @@
         justify-content: space-between;
         padding: 11px 20px;
         font-size: 0.88rem;
-        font-weight: 600;
         color: var(--text, #333);
         background: none;
         border: none;
@@ -967,7 +948,6 @@
         font-size: 0.82rem;
         color: var(--muted, #888);
         text-decoration: none;
-        font-weight: 500;
         border: none;
       }
       .md-acc-body a:hover {
@@ -988,7 +968,6 @@
         border: 1px solid var(--border, #e5e7eb);
         border-radius: 6px;
         font-size: 0.75rem;
-        font-weight: 600;
         color: var(--muted, #555);
         cursor: pointer;
       }
@@ -1021,8 +1000,6 @@
       }
       .md-sec-title {
         font-size: 0.64rem;
-        font-weight: 800;
-        letter-spacing: 1.5px;
         text-transform: uppercase;
         color: var(--muted);
         padding: 0.5rem 0.4rem;
@@ -1049,7 +1026,6 @@
       }
       .md-item .mt {
         font-size: 0.84rem;
-        font-weight: 600;
       }
       .md-item .mb {
         font-size: 0.68rem;
@@ -1070,10 +1046,10 @@
       .programs-card {
         position: absolute;
         cursor: pointer;
-        top: 40px;
-        left: 180px;
-        width: 100vw;
+        top:40px;
+        left: 170px;
         transform: translateX(-50%) translateY(20px);
+        width: 100vw;
 
         background: #fff;
         box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
@@ -1294,8 +1270,6 @@
       }
 
       .card-name {
-        font-family: "Sora", sans-serif;
-        font-weight: 700;
         font-size: 1.15rem;
         color: #fff;
         position: relative;
@@ -1307,14 +1281,12 @@
         background: rgba(255, 255, 255, 0.18);
         color: #fff;
         font-size: 0.78rem;
-        font-weight: 600;
         padding: 0.25rem 0.7rem;
         border-radius: 20px;
         backdrop-filter: blur(6px);
         position: relative;
         z-index: 1;
         width: fit-content;
-        letter-spacing: 0.3px;
       }
 
       .card-body {
@@ -1347,7 +1319,6 @@
         align-items: center;
         gap: 0.35rem;
         font-size: 0.85rem;
-        font-weight: 600;
         color: #b45309;
         margin-top: 0.2rem;
       }
@@ -1363,9 +1334,7 @@
         border: 1.5px solid var(--border);
         background: transparent;
         color: var(--text);
-        font-family: "DM Sans", sans-serif;
         font-size: 0.9rem;
-        font-weight: 600;
         cursor: pointer;
         transition: all 0.2s;
       }
@@ -1389,7 +1358,6 @@
         opacity: 0.3;
       }
       .empty h3 {
-        font-family: "Sora", sans-serif;
         font-size: 1.2rem;
         color: var(--text);
         margin-bottom: 0.4rem;
@@ -1422,23 +1390,22 @@
         }
       }
       /* ─────────────────────────────────────
-   FOOTER
-───────────────────────────────────── */
+     FOOTER
+  ───────────────────────────────────── */
       footer {
         background: #0f1729;
-        border-top: 1px solid rgb(12, 4, 34);
-        padding: 40px 2rem 20px;
-        margin-top: 30px;
-      }
-      .fi {
-        max-width: 1300px;
-        margin: 0 auto;
+        padding: 40px 3rem 20px;
       }
       .fg {
         display: grid;
         grid-template-columns: 220px 1fr;
         gap: 5rem;
         margin-bottom: 2rem;
+      }
+      .footer-icons-social i:hover {
+        color: rgb(132, 132, 238);
+        background-color: var(--navy);
+        border: 1px solid rgb(71, 71, 71);
       }
       .fb p {
         font-size: 0.79rem;
@@ -1449,25 +1416,24 @@
       .fl {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
+        gap: 10rem;
       }
       .fl-t {
-        font-size: 0.99rem;
-        font-weight: 800;
-        letter-spacing: 1.5px;
+        font-size: 1.1rem;
+        font-weight: 700;
         color: #ffffff;
         margin-bottom: 15px;
       }
       .fl-a {
         display: block;
-        font-size: 0.85rem;
+        font-size: 0.95rem;
         color: #c2c2c2;
         text-decoration: none;
         margin-bottom: 15px;
         transition: color 0.2s;
       }
       .fl-a:hover {
-        color: #aab4cc;
+        color: #ffffff;
       }
       .fb-bot {
         border-top: 1px solid rgba(144, 144, 144, 0.371);
@@ -1478,6 +1444,9 @@
         flex-wrap: wrap;
         gap: 0.6rem;
       }
+      .fb-bot i{
+        color: grey;
+      }
       .fb-bot p {
         font-size: 0.7rem;
         color: #3d5280;
@@ -1485,24 +1454,34 @@
       .left-footer {
         display: flex;
         gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
       }
       .left-footer p {
         color: rgb(160, 160, 160);
         font-size: 13px;
+        margin: 0;
       }
       .right-footer p {
         color: rgb(160, 160, 160);
         font-size: 13px;
+        margin: 0;
       }
       .right-footer i {
         color: rgb(160, 160, 160);
-        font-size: 13px;
+        font-size: 14px;
+        margin-top: 4px;
+        margin-left: 10px;
       }
       .footer-icons-social {
         margin-top: 20px;
         gap: 10px;
         display: flex;
         color: rgb(160, 160, 160);
+      }
+      .footer-icons-social a {
+        color: rgb(160, 160, 160);
+        text-decoration: none;
       }
       .footer-icons-social i {
         padding: 8px;
@@ -1517,6 +1496,75 @@
         font-size: 15px;
         border-radius: 4px;
       }
+
+      /* ─────────────────────────────────────
+     RESPONSIVE OVERRIDES
+  ───────────────────────────────────── */
+
+      /* Tablet: 768px – 1199px */
+      @media (max-width: 1199px) {
+        footer {
+          padding: 40px 2rem 20px;
+        }
+        .fg {
+          grid-template-columns: 200px 1fr;
+          gap: 2.5rem;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      /* Mobile landscape + tablet portrait: up to 767px */
+      @media (max-width: 767px) {
+        footer {
+          padding: 32px 1.25rem 20px;
+        }
+        .fg {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+        .fb-bot {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+        .left-footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .left-footer i {
+          display: none;
+        }
+      }
+
+      /* Mobile portrait: up to 480px */
+      @media (max-width: 480px) {
+        footer {
+          padding: 28px 1rem 16px;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+        .fl-t {
+          font-size: 0.95rem;
+        }
+        .fl-a {
+          font-size: 0.85rem;
+          margin-bottom: 10px;
+        }
+        .footer-icons-social {
+          flex-wrap: wrap;
+        }
+      }
+
       .uni-p {
         background-color: pink;
         height: 100%;
@@ -1553,7 +1601,6 @@
    CTA
 ───────────────────────────────────── */
       .cta-sec {
-        padding: 52px 2rem;
         background: var(--bg);
       }
       .cta-inner {
@@ -1584,11 +1631,8 @@
         filter: blur(60px);
       }
       .cta-box h2 {
-        font-family: "Fraunces", serif;
         font-size: 1.6rem;
-        font-weight: 900;
         color: #fff;
-        line-height: 1.2;
         position: relative;
       }
       .cta-box p {
@@ -1596,6 +1640,9 @@
         font-size: 0.85rem;
         margin-top: 5px;
         position: relative;
+      }
+      .form-inp button {
+        background-color: var(--navy2);
       }
       .cta-btns {
         display: flex;
@@ -1611,7 +1658,6 @@
         border-radius: 9px;
         color: #fff;
         font-size: 0.85rem;
-        font-weight: 700;
         cursor: pointer;
         transition:
           opacity 0.2s,
@@ -1628,14 +1674,27 @@
         border-radius: 9px;
         color: #fff;
         font-size: 0.85rem;
-        font-weight: 700;
         cursor: pointer;
         transition: background 0.2s;
       }
       .cta-g:hover {
         background: rgba(255, 255, 255, 0.14);
       }
+      .form-inp input:focus,
+      .btn-close:focus {
+        border-color: none;
+        box-shadow: none;
+        outline: none;
+      }
+      /* hero  */
+      .banner-text {
+        top: 7%;
+        left: 5%;
+      }
 
+      .banner-img img {
+        height: 300px;
+      }
       /* ════════════════════════════════════
    FILTERS SIDEBAR
 ════════════════════════════════════ */
@@ -1739,7 +1798,7 @@
         margin-top: 0.7rem;
         display: none;
       }
-      .fs-sec-body input{
+      .fs-sec-body input {
         width: 100%;
       }
       .fs-sec-body.open {
@@ -1765,7 +1824,7 @@
         border-radius: 7px;
         background: var(--bg);
         overflow: hidden;
-        position: sticky; 
+        position: sticky;
         margin-bottom: 0.6rem;
       }
       .filter-search input {
@@ -2089,7 +2148,7 @@
         min-height: 90vh;
         width: 100%;
       }
-      
+
       /* ── COLLEGE CARD ── */
       .college-card {
         background: var(--white);
@@ -2108,7 +2167,7 @@
       }
       .cc-inner {
         display: grid;
-        grid-template-columns: 400px 1fr;
+        grid-template-columns: 300px 1fr;
         gap: 0;
       }
       .cc-img-wrap {
@@ -2173,7 +2232,7 @@
       }
       .cc-name {
         font-weight: 500;
-        font-size: 1.3rem;
+        font-size: 1rem;
         color: var(--navy);
         line-height: 1.25;
         transition: color 0.2s;
@@ -2202,12 +2261,12 @@
         background: #fff3f0;
         color: #e85d3a;
       }
-   
+
       .cc-location {
         display: flex;
         align-items: center;
         gap: 4px;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         color: var(--muted);
         margin-bottom: 0.4rem;
       }
@@ -2275,20 +2334,20 @@
         gap: 1px;
       }
       #course-list-container::-webkit-scrollbar,
-#state-list-container::-webkit-scrollbar {
-  width: 6px;
-}
+      #state-list-container::-webkit-scrollbar {
+        width: 6px;
+      }
 
-#course-list-container::-webkit-scrollbar-thumb,
-#state-list-container::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
-  border-radius: 3px;
-}
+      #course-list-container::-webkit-scrollbar-thumb,
+      #state-list-container::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+        border-radius: 3px;
+      }
 
-#course-list-container::-webkit-scrollbar-track,
-#state-list-container::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
-}
+      #course-list-container::-webkit-scrollbar-track,
+      #state-list-container::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+      }
       .cfi-label {
         font-size: 0.63rem;
         color: var(--muted);
@@ -2460,273 +2519,186 @@
         padding: 0 14px;
         gap: 5px;
       }
-      /* ─────────────────────────────────────
-   RESPONSIVE — TABLET (768–1023)
-───────────────────────────────────── */
-      @media (max-width: 1023px) {
-        .nav-r1 {
-          padding: 0 1.2rem;
-          gap: 8px;
-        }
-        .nav-r2 {
-          padding: 0 1.2rem;
-        }
-        .loc-pill .ln {
-          display: none;
-        }
-        .auth-btns {
-          display: none;
-        }
-        .explore-btn span.exp-label {
-          display: none;
-        }
-        .exp-mega {
-          width: min(620px, 95vw);
-          right: -40px;
-        }
-        .hero {
-          padding: 44px 1.2rem 0;
-        }
-        .hero-inner {
-          grid-template-columns: 1fr 340px;
-          gap: 1.5rem;
-        }
-        .hero-right {
-          display: none;
-        }
-        .section {
-          padding: 44px 1.2rem;
-        }
-        .finder-sec {
-          padding: 36px 1.2rem;
-        }
-        .abroad-sec {
-          padding: 44px 1.2rem;
-        }
 
-        .cta-sec {
-          padding: 44px 1.2rem;
-        }
-        footer {
-          padding: 36px 1.2rem 18px;
-        }
-        .cat4 {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .finder-card {
-          grid-template-columns: 1fr 1fr;
-          gap: 0.8rem;
-        }
-        .fc-go {
-          grid-column: 1/-1;
-          justify-self: start;
-        }
-        .fg {
-          grid-template-columns: 1fr;
-        }
-        .fl {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .trust-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.8rem;
-        }
-        .left-footer i {
-          display: flex;
-          font-size: 20px;
-        }
-        .left-footer p {
-          font-size: 10px;
-        }
-        .left-footer i {
-          font-size: 12px;
-        }
+      .card:hover {
+        translate: calc(-1);
+      }
+      /* Career Cards Hover Effects */
+      .card {
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
       }
 
-      /* ─────────────────────────────────────
-   RESPONSIVE — MOBILE (<768)
-───────────────────────────────────── */
-      @media (max-width: 767px) {
-        :root {
-          --nav-h: 54px;
-          --nav2-h: 0px;
-        }
-        .nav-r1 {
-          padding: 0 1rem;
-          gap: 7px;
-        }
-        .loc-pill {
-          padding: 6px 9px;
-        }
-        .loc-pill .pin-txt {
-          display: none;
-        }
-        .nav-search {
-          display: none;
-        }
-        .explore-wrap {
-          display: none;
-        }
-        .notif-wrap {
-          display: none;
-        }
-        .ham-btn {
-          display: flex;
-        }
-        .nav-r2 {
-          display: none;
-        }
-        .mobile-search-bar {
-          display: block;
-        }
-        .hero {
-          padding: 36px 1rem 0;
-        }
-        .hero-inner {
-          grid-template-columns: 1fr;
-        }
-        .hero-right {
-          display: none;
-        }
-        .hero-left {
-          padding-bottom: 2rem;
-        }
-        .hero h1 {
-          font-size: 1.7rem;
-        }
-        .hero-desc {
-          font-size: 0.84rem;
-        }
-        .hs-tabs {
-          gap: 4px;
-        }
-        .hs-tab {
-          padding: 4px 9px;
-          font-size: 0.68rem;
-        }
-        .hs-row {
-          flex-direction: column;
-          gap: 6px;
-        }
-        .hs-go {
-          width: 100%;
-          padding: 11px;
-        }
-        .hero-tags {
-          gap: 5px;
-        }
-        .section {
-          padding: 36px 1rem;
-        }
-        .cat4 {
-          grid-template-columns: 1fr 1fr;
-        }
-        .c4 {
-          padding: 1.1rem;
-        }
-        .c4-title {
-          font-size: 0.95rem;
-        }
-        .c4-desc {
-          display: none;
-        }
-        .finder-sec {
-          padding: 32px 1rem;
-        }
-        .finder-card {
-          grid-template-columns: 1fr 1fr;
-          gap: 0.7rem;
-        }
-        .fc-go {
-          grid-column: 1/-1;
-        }
-        .cft-tabs {
-          overflow-x: auto;
-          flex-wrap: nowrap;
-          padding-bottom: 4px;
-        }
-        .cft-tabs::-webkit-scrollbar {
-          display: none;
-        }
-        .cft {
-          flex-shrink: 0;
-        }
-        .abroad-sec {
-          padding: 36px 1rem;
-        }
-        .ctry-grid {
-          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        }
-        .trust-strip {
-          padding: 28px 1rem;
-        }
-        .trust-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.7rem;
-        }
-        .ts-n {
-          font-size: 1.5rem;
-        }
-        .cta-sec {
-          padding: 36px 1rem 80px;
-        }
-        .cta-box {
-          padding: 1.6rem;
-        }
-        .cta-box h2 {
-          font-size: 1.25rem;
-        }
-        .cta-btns {
-          width: 100%;
-        }
-        .cta-p {
-          flex: 1;
-          text-align: center;
-        }
-        footer {
-          padding: 32px 1rem 80px;
-        }
-        .fg {
-          grid-template-columns: 1fr;
-        }
-        .fl {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .fb-bot {
-          flex-direction: column;
-          gap: 0.4rem;
-        }
-        .bottom-nav {
-          display: block;
-        }
-        .exp-mega {
-          width: 95vw;
-          right: -10px;
-        }
-        .courses-mega {
-          width: 95vw;
-          left: 0;
-        }
-        .courses-wrap:hover .courses-mega {
-          display: none;
-        } /* disable hover on mobile */
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
       }
 
-      @media (max-width: 420px) {
-        .cat4 {
-          grid-template-columns: 1fr;
+      .card:hover .card-img-top {
+        transform: scale(1.05);
+      }
+
+      .card .card-img-top {
+        transition: transform 0.5s ease;
+      }
+
+      .card .badge {
+        transition: all 0.3s ease;
+      }
+
+      .card:hover .badge.bg-success {
+        background-color: #198754 !important;
+        transform: translateY(-2px);
+      }
+
+      .card .btn {
+        transition: all 0.3s ease;
+      }
+
+      .card:hover .btn-outline-primary,
+      .card:hover .btn-outline-info,
+      .card:hover .btn-outline-warning,
+      .card:hover .btn-outline-success,
+      .card:hover .btn-outline-danger,
+      .card:hover .btn-outline-secondary {
+        transform: translateX(5px);
+      }
+
+      .card:hover .badge.bg-light {
+        background-color: #e9ecef !important;
+        transform: scale(1.02);
+      }
+
+      /* Image Overlay Effect */
+      .card-img-overlay-hover {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: white;
+        padding: 20px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover .card-img-overlay-hover {
+        transform: translateY(0);
+      }
+
+      /* Salary Badge Animation */
+      .salary-badge {
+        transition: all 0.3s ease;
+      }
+
+      .card:hover .salary-badge {
+        background-color: #198754 !important;
+        box-shadow: 0 4px 12px rgba(25, 135, 84, 0.3);
+      }
+
+      /* Role Badges Hover */
+      .badge {
+        transition: all 0.2s ease;
+      }
+
+      /* Card Border Animation */
+      .card {
+        position: relative;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #0dcaf0, #ffc107, #198754);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+        z-index: 1;
+      }
+
+      .card:hover::before {
+        transform: scaleX(1);
+      }
+      .offering-sec {
+        background-color: rgb(230, 231, 255);
+      }
+      .offering-bottom button {
+        background-color: #102a44;
+      }
+      ul li {
+        cursor: pointer;
+      }
+
+      /* active tab */
+      .offering-sec ul li.active-link {
+        border-bottom: 1px solid #0d6efd;
+      }
+      /* underline only on active */
+      ul li.active-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px; /* thickness of underline */
+        ul li.active {
+          border-bottom: 1px solid #97b3ff;
         }
-        .c4-desc {
-          display: none;
+      }
+#studentContent,
+#collegeContent {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* 🔥 mobile smooth */
+}
+.card-content {
+  width: 280px;
+  flex-shrink: 0;
+}
+      #studentContent,
+      #collegeContent {
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        display: flex;
+      }
+      #studentContent::-webkit-scrollbar,
+      #collegeContent::-webkit-scrollbar {
+        display: none;
+      }
+      .form-control:focus {
+        box-shadow: none !important;
+        outline: none !important;
+        border-color: #ccc !important;
+      }
+      .btn-close {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+      /* ---------------- Scroll Container ---------------- */
+      .bottom-scroll-rec {
+        animation: scroll-left 20s linear infinite;
+      }
+      /* ---------------- Cards ---------------- */
+      .card-rec {
+        min-width: 150px;
+        height: 100px;
+      }
+      /* ---------------- Animation ---------------- */
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
         }
-        .finder-card {
-          grid-template-columns: 1fr;
+        100% {
+          transform: translateX(-50%);
         }
-        .fl {
-          grid-template-columns: 1fr 1fr;
-        }
-        .trust-grid {
-          gap: 0.6rem;
+      }
+      @media (max-width: 768px) {
+        .card-rec {
+          min-width: 120px;
+          height: 80px;
         }
       }
     </style>
@@ -2752,18 +2724,10 @@
           We’re on your favourite socials!
         </p>
         <span class="tb-sep">|</span>
-        <a href="#" style="color: #4860ff; font-weight: 700"
-          ><i class="bi bi-facebook"></i
-        ></a>
-        <a href="#" style="color: hwb(0 37% 0%); font-weight: 700"
-          ><i class="bi bi-instagram"></i
-        ></a>
-        <a href="#" style="color: hwb(239 26% 3%); font-weight: 700"
-          ><i class="bi bi-linkedin"></i
-        ></a>
-        <a href="#" style="color: hwb(0 0% 0%); font-weight: 700"
-          ><i class="bi bi-youtube"></i
-        ></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
       </div>
     </div>
     <!-- ═══ NAVBAR ═══ -->
@@ -2898,9 +2862,11 @@
                       Transform your career with India's top-ranked executive
                       program.
                     </p>
-                    <button class="featured-link border-0 rounded-5 px-2 py-1">
-                      <a href="#">Learn More →</a>
-                    </button>
+                    <a
+                      href="#"
+                      class="featured-link border-0 rounded-5 px-2 py-1 d-inline-block"
+                      >Learn More →</a
+                    >
                   </div>
                 </div>
               </div>
@@ -2911,7 +2877,6 @@
           <a href="#" class="cn-link fw-normal">Blog</a>
           <a href="about.html" class="cn-link fw-normal">About</a>
           <a href="contact.html" class="cn-link fw-normal">Contact</a>
-          
         </div>
         <!-- SEARCH (desktop/tablet) -->
         <div></div>
@@ -3037,12 +3002,18 @@
           <!-- Auth (desktop) -->
           <div class="auth-btns">
             <button class="btn-ln py-1 px-3 rounded-3 fw-bold">Login</button>
-            <button class="btn-su p-2 rounded-3">Apply Now</button>
+            <button
+              class="btn-su p-2 rounded-3"
+              data-bs-toggle="modal"
+              data-bs-target="#connectModal"
+            >
+              Apply Now
+            </button>
           </div>
         </div>
       </div>
 
-            <!-- ROW 2 (desktop/tablet) -->
+      <!-- ROW 2 (desktop/tablet) -->
       <div class="nav-r2 d-flex w-100 align-items-center gap-2 bg-white">
         <!-- All Courses -->
         <div class="courses-wrap position-relative" id="coursesWrap">
@@ -3092,8 +3063,7 @@
 
               <!-- Right: Content -->
               <div class="cm-content">
-                <!-- Mode tabs -->
-                  <div class="cm-btns" id="cmLevelTabs">
+                 <div class="cm-btns" id="cmLevelTabs">
                   <div class="cm-btn rounded-4 py-1 px-2 " data-level="UG"><a href="ug-courses.html">UG Courses</a></div>
                   <div class="cm-btn rounded-4 py-1 px-2 " data-level="PG"><a href="pg-courses.html">PG Courses</a></div>                
                   <div class="cm-btn rounded-4 py-1 px-2 " data-level="Executive MBA"><a href="executive-course.html">Executive MBA</a></div>
@@ -3102,6 +3072,7 @@
                   <div class="cm-btn rounded-4 py-1 px-2 " data-level="Study Abroad"> <a href="study-abroad.html">Study Abroad</a></div> 
 
                 </div>
+                <!-- Mode tabs -->
                 <div class="cm-tabs" id="cmTabs">
                   <div class="cm-tab active" data-mode="all">All</div>
                   <div class="cm-tab" data-mode="online">🌐 Online</div>
@@ -3199,17 +3170,30 @@
     </div>
 
     <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
-
-       <!-- ---------------------------------university -->
-    <section class="uni-section">
-      <div class="uni-banner d-flex align-items-center">
-        <div class="container p-5">
-          <h1 class="text-white fs-1">Top Universities & Colleges</h1>
-          <h5 class="w-75">
-            Explore India's premier institutions — IIMs, IITs, and top private
-            universities offering world-class programs.
-          </h5>
-        </div>
+    <!-- -------------------------banner  -->
+    <section class="hero position-relative">
+      <div class="banner-img w-100 overflow-hidden position-relative">
+        <img src="./about-banner.jpg" alt="" class="w-100 object-fit-cover" />
+        <div
+          class="position-absolute start-0 top-0 w-100 opacity-50 bg-dark h-100"
+        ></div>
+      </div>
+      <div class="banner-text position-absolute p-2">
+        <h1 class="text-light w-50">Explore Our Postgraduate Programs</h1>
+        <p class="hero-desc text-light w-50">
+          CampusWalkin is India’s leading education marketplace, connecting
+          students and ambitious professionals with top universities and
+          career-transforming programs. Explore our wide range of undergraduate
+          courses and take the first step towards a successful and rewarding
+          career.
+        </p>
+        <button
+          class="border bg-transparent text-white py-2 px-4"
+          data-bs-toggle="modal"
+          data-bs-target="#connectModal"
+        >
+          Get free Counselling
+        </button>
       </div>
     </section>
     <!-- MAIN -->
@@ -3240,7 +3224,10 @@
             <!-- SECTIONS (reused for both sidebar & offcanvas via JS cloning) -->
             <div id="filterSections">
               <!-- 1. COURSE -->
-              <div class="filter-section" style="max-height: 300px; overflow-y: auto">
+              <div
+                class="filter-section"
+                style="max-height: 300px; overflow-y: auto"
+              >
                 <div class="fs-sec-head" onclick="toggleSection(this)">
                   <span class="fs-sec-title">Course</span>
                   <i class="bi bi-chevron-down fs-sec-toggle open"></i>
@@ -3257,11 +3244,89 @@
                   <div id="course-list">
                     <div
                       class="filter-check"
-                      onclick="toggleCheck(this, 'MBA/PGDM')"
+                      onclick="toggleCheck(this, 'MBA')"
                     >
                       <div class="fc-left">
                         <div class="fc-checkbox"></div>
-                        <span class="fc-label">MBA/PGDM</span>
+                        <span class="fc-label">MBA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'MCA')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MCA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'M.Tech')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">M.Tech</span>
+                      </div>
+                    </div>
+                    <div class="filter-check" onclick="toggleCheck(this, 'MSc')">
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MSc</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'MA')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'pgdm')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">pgdm</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'pgp')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">pgp</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'epgp')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">epgp</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check "
+                      onclick="toggleCheck(this, 'pgpx')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">pgpx</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'MBBS')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MBBS</span>
                       </div>
                     </div>
                     <div
@@ -3308,12 +3373,13 @@
                     </div>
                     <div
                       class="filter-check"
-                      onclick="toggleCheck(this, 'M.Tech')"
+                      onclick="toggleCheck(this, 'FPM')"
                     >
                       <div class="fc-left">
                         <div class="fc-checkbox"></div>
-                        <span class="fc-label">M.Tech</span>
+                        <span class="fc-label">FPM</span>
                       </div>
+                      <span class="fc-count">1260</span>
                     </div>
                     <div
                       class="filter-check"
@@ -3322,15 +3388,6 @@
                       <div class="fc-left">
                         <div class="fc-checkbox"></div>
                         <span class="fc-label">BCA</span>
-                      </div>
-                    </div>
-                    <div
-                      class="filter-check d-none"
-                      onclick="toggleCheck(this, 'MCA')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">MCA</span>
                       </div>
                     </div>
                     <div
@@ -3362,7 +3419,10 @@
               </div>
 
               <!-- 2. STATE -->
-              <div class="filter-section" style="max-height: 250px; overflow-y: auto;">
+              <div
+                class="filter-section"
+                style="max-height: 250px; overflow-y: auto"
+              >
                 <div class="fs-sec-head" onclick="toggleSection(this)">
                   <span class="fs-sec-title">State</span>
                   <i class="bi bi-chevron-down fs-sec-toggle open"></i>
@@ -3951,11 +4011,783 @@
         <!-- JS will clone filter sections here -->
       </div>
     </div>
+    <!-- Career Opportunities After UG Courses -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mb-5">
+          <span
+            class="badge text-primary px-3 py-2 rounded-pill mb-1 fs-4 fw-normal w-25 mx-auto"
+          >
+            🚀 Career Opportunities
+          </span>
+          <h2 class="display-6 mb-1 fw-normal">What After Post Graduation?</h2>
+          <p class="text-secondary mx-auto" style="max-width: 600px">
+              Explore advanced career paths, leadership roles, and high-paying opportunities after completing your postgraduate degree
 
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Career Card 1 - B.Tech -->
+          <div class="col-md-4 col-lg-3 col-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500&h=300&fit=crop"
+                  class="card-img-top"
+                  alt="Engineering Careers"
+                  style="height: 200px; object-fit: cover"
+                />
+                <div class="position-absolute top-0 end-0 m-3">
+                  <span class="badge bg-dark text-white px-3 py-2"
+                    >Avg ₹10-25 LPA</span
+                  >
+                </div>
+              </div>
+              <div class="card-body h-100 ">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span
+                    class="badge bg-primary bg-opacity-10 text-primary fw-normal p-2 rounded"
+                    >  M.Tech / ME</span
+                  >
+                </div>
+                <h5 class="card-title mb-1">Advanced Engineering & R&D</h5>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-briefcase-fill text-primary"></i>
+                    <small class="text-secondary">Top Job Roles</small>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Senior Software Engineer</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Research Engineer</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >AI Specialist</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Tech Lead</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Data Architect</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Career Card 2 - BBA/BMS -->
+          <div class="col-md-4 col-lg-3 col-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=300&fit=crop"
+                  class="card-img-top"
+                  alt="Management Careers"
+                  style="height: 200px; object-fit: cover"
+                />
+                <div class="position-absolute top-0 end-0 m-3">
+                  <span class="badge bg-dark text-white px-3 py-2"
+                    >Avg ₹12-30 LPA</span
+                  >
+                </div>
+              </div>
+              <div class="card-body h-100 ">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span
+                    class="badge bg-info bg-opacity-10 text-info fw-normal p-2 rounded"
+                  >
+                      MBA / PGDM</span
+                  >
+                </div>
+                <h5 class="card-title mb-1">Management & Leadership</h5>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-briefcase-fill text-info"></i>
+                    <small class="text-secondary">Top Job Roles</small>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Product Manager</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Consultant</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Investment Banker</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Strategy Manager</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Business Head</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Career Card 3 - BCA -->
+          <div class="col-md-4 col-lg-3 col-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=500&h=300&fit=crop"
+                  class="card-img-top"
+                  alt="Computer Applications"
+                  style="height: 200px; object-fit: cover"
+                />
+                <div class="position-absolute top-0 end-0 m-3">
+                  <span class="badge bg-dark text-white px-3 py-2"
+                    >Avg ₹8-20 LPA</span
+                  >
+                </div>
+              </div>
+              <div class="card-body h-100 ">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span
+                    class="badge bg-warning bg-opacity-10 text-warning fw-normal p-2 rounded"
+                    >  MCA / M.Sc IT</span
+                  >
+                </div>
+                <h5 class="card-title mb-1">Software & IT Careers
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-briefcase-fill text-warning"></i>
+                                        <small class="text-secondary">Top Job Roles</small>
+
+                  </div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Full Stack Developer</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >DevOps Engineer</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Cloud Engineer</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >System Architect</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Cybersecurity Expert</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Career Card 4 - B.Com -->
+          <div class="col-md-4 col-lg-3 col-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=300&fit=crop"
+                  class="card-img-top"
+                  alt="Commerce Careers"
+                  style="height: 200px; object-fit: cover"
+                />
+                <div class="position-absolute top-0 end-0 m-3">
+                  <span class="badge bg-dark text-white px-3 py-2"
+                    >Avg ₹6-18 LPA</span
+                  >
+                </div>
+              </div>
+              <div class="card-body h-100 ">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span
+                    class="badge bg-dark text-dark bg-opacity-10 text-success fw-normal p-2 rounded"
+                    >  M.Com / Finance
+</span
+                  >
+                </div>
+                <h5 class="card-title mb-1">Finance & Corporate Roles</h5>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-briefcase-fill text-success"></i>
+                    <small class="text-secondary">Top Job Roles</small>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Chartered Accountant</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Financial Analyst</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Tax Manager</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Auditor</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Risk Analyst</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Career Card 5 - BA / Humanities -->
+          <div class="col-md-4 col-lg-3 col-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&h=300&fit=crop"
+                  class="card-img-top"
+                  alt="Arts Careers"
+                  style="height: 200px; object-fit: cover"
+                />
+                <div class="position-absolute top-0 end-0 m-3">
+                  <span class="badge bg-dark text-white px-3 py-2"
+                    >Avg ₹5-15 LPA</span
+                  >
+                </div>
+              </div>
+              <div class="card-body h-100 ">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span
+                    class="badge bg-danger bg-opacity-10 text-danger fw-normal p-2 rounded"
+                    >  MA / Humanities</span
+                  >
+                </div>
+                <h5 class="card-title mb-1">Creative & Academic Careers</h5>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-briefcase-fill text-danger"></i>
+                    <small class="text-secondary">Top Job Roles</small>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Professor</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Policy Analyst</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Content Strategist</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Psychologist</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Civil Services</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Career Card 6 - B.Sc / Science -->
+          <div class="col-md-4 col-lg-3 col-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+              <div class="position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=500&h=300&fit=crop"
+                  class="card-img-top"
+                  alt="Science Careers"
+                  style="height: 200px; object-fit: cover"
+                />
+                <div class="position-absolute top-0 end-0 m-3">
+                  <span class="badge bg-dark text-white px-3 py-2"
+                    >Avg ₹8-25 LPA</span
+                  >
+                </div>
+              </div>
+              <div class="card-body h-100 ">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span
+                    class="badge bg-secondary bg-opacity-10 text-secondary fw-normal p-2 rounded"
+                    >  M.Sc / PhD</span
+                  >
+                </div>
+                <h5 class="card-title mb-1">Research & Innovation</h5>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-briefcase-fill text-secondary"></i>
+                    <small class="text-secondary">Top Job Roles</small>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+              
+<span class="badge bg-light text-dark border fw-normal">Scientist</span>
+<span class="badge bg-light text-dark border fw-normal">Research Analyst</span>
+<span class="badge bg-light text-dark border fw-normal">Biotechnologist</span>
+<span class="badge bg-light text-dark border fw-normal">Data Scientist</span>
+<span class="badge bg-light text-dark border fw-normal">Academician</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ------------------- our offering  -->
+    <section class="offering-sec text-center py-5">
+      <div class="container">
+        <h1 class="fw-bold">Our Offering</h1>
+        <ul class="list-unstyled d-flex justify-content-center gap-4">
+          <li class="position-relative active-link" id="studentTabs">
+            FOR STUDENTS
+          </li>
+          <li class="position-relative" id="collegeTabs">FOR COLLEGES</li>
+        </ul>
+        <!-- //-----------------------------for students  -->
+        <div id="studentContent" class="flex-nowrap flex-shrink-0" >
+          <!-- ----------card-1 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./banner.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">
+              Free College Selection Guide & Admission Support
+            </h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Get free guidance on choosing the right college and admission
+              support to make your higher education journey smooth and easy.
+            </p>
+          </div>
+          <!-- ------------------------------card 2 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./about-banner.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">
+              Free Information on Colleges , Exams and More
+            </h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Get quick and reliable information about colleges, entrance exams,
+              and educational resources to help you make the right academic
+              decisions.
+            </p>
+          </div>
+          <!-- --------------------------------card 3 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./bits-pilani.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">CampusWalkin Assured</h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              CampusWalkin ensures you get trusted guidance, verified
+              information, and reliable support for your college admissions and
+              career decisions.
+            </p>
+          </div>
+          <!-- -----------------------------------card 4 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./christ.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">Common Application Form</h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Fill out a single Common Application Form to apply easily to
+              multiple colleges and streamline your admission process.
+            </p>
+          </div>
+          <!-- --------------------------------------card4 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./du.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">
+              Free College Selection Guide & Admission Support
+            </h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Get free guidance on choosing the right college and admission
+              support to make your higher education journey smooth and easy.
+            </p>
+          </div>
+          <!-- ---------------------------------card5 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./girl.png"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">
+              Free Career & Course Selection Guidance
+            </h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Get expert guidance for free to choose the right career path and
+              courses that match your skills and aspirations.
+            </p>
+          </div>
+        </div>
+        <!-- //-----------------------------for colleges -->
+        <div id="collegeContent" class="flex-nowrap d-none">
+          <!-- ----------card-1 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./iim-ahmdabad.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">Increase Student Admissions</h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Connect with thousands of students actively seeking admission and
+              boost your college enrollments.
+            </p>
+          </div>
+          <!-- ------------------------------card 2 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./banner.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">College Branding & Visibility</h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Promote your college to a wider audience and increase your
+              visibility among potential students.
+            </p>
+          </div>
+          <!-- --------------------------------card 3 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./mit.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">Easy Admission Management</h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Manage applications, track student progress, and simplify your
+              admission process in one place.
+            </p>
+          </div>
+          <!-- -----------------------------------card 4 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./iit-madras.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">Insights & Analytics</h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Gain valuable insights into student preferences and improve your
+              admission strategies effectively .
+            </p>
+          </div>
+          <!-- --------------------------------------card4 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./banner.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">
+              Free College Selection Guide & Admission Support
+            </h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Get free guidance on choosing the right college and admission
+              support to make your higher education journey smooth and easy.
+            </p>
+          </div>
+          <!-- ---------------------------------card5 -->
+          <div class="card-content text-center flex-shrink-0 p-4">
+            <!-- Small rounded image on top -->
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+              <img
+                src="./banner.jpg"
+                alt="Banner"
+                class="rounded-circle"
+                style="width: 80px; height: 80px; object-fit: cover"
+              />
+            </div>
+            <!-- Heading -->
+            <h6 class="mb-2 fw-bold">
+              Free Career & Course Selection Guidance
+            </h6>
+
+            <!-- Paragraph -->
+            <p class="mb-0">
+              Get expert guidance for free to choose the right career path and
+              courses that match your skills and aspirations.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="offering-bottom">
+        <h2 class="fw-light mt-3">
+          Want to Secure Your Future with an Awesome Degree?
+        </h2>
+        <!-- BUTTON -->
+        <button
+          class="border py-2 px-4 text-white rounded-2 mt-2"
+          data-bs-toggle="modal"
+          data-bs-target="#connectModal"
+        >
+          Connect Now
+        </button>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="connectModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3 rounded-4">
+              <!-- HEADER -->
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h5 class="fw-bold mb-0">Get Free Guidance</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+
+              <!-- FORM -->
+              <form class="form-inp">
+                <input
+                  type="text"
+                  class="form-control mb-3"
+                  placeholder="Full Name..."
+                />
+
+                <input
+                  type="email"
+                  class="form-control mb-3"
+                  placeholder="Email"
+                />
+
+                <input
+                  type="text"
+                  class="form-control mb-3"
+                  placeholder="Phone Number..."
+                />
+
+                <select class="form-select mb-3">
+                  <option selected disabled>Select Program Interest</option>
+                  <option>Executive Program</option>
+                  <option>Offline Program</option>
+                  <option>Online Program</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary w-100">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ----------------------top recruters -->
+    <section class="h-auto bg-white pt-2 pb-5 px-4">
+      <div class="top-h-rec py-2 px-1">
+        <h2 class="text-danger">Top Recruiters</h2>
+        <h4 class="text-primary">Get placed where you belong</h4>
+      </div>
+      <div class="bottom-scroll-rec-wrapper overflow-hidden">
+        <div class="bottom-scroll-rec d-flex gap-3 px-5 flex-nowrap" id="recruiters ">
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./accenture-rec.svg" alt="Accenture" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./amaozon-rec.svg" alt="Amazon" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0"><img class="h-100 w-100 img-fluid object-fit-contain" src="./jp-rec.svg" alt="JP Morgan" /></div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0"><img class="h-100 w-100 img-fluid object-fit-contain" src="./kpmg-rec.svg" alt="KPMG" /></div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./google-rec.svg" alt="Google" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./american-rec.svg" alt="American Express" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./citiBank-rec.svg" alt="CitiBank" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./deloitte-rec.svg" alt="Deloitte" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./facebook-rec.svg" alt="Facebook" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./flipcart-rec.svg" alt="Flipkart" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./cognizant-rec.svg" alt="Cognizant" />
+          </div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./microsoft-rec.svg" alt="Microsoft" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ══════════════ BOTTOM CTA ══════════════ -->
+    <div class="cta-sec py-5">
+      <div class="cta-inner">
+        <div class="cta-box">
+          <div>
+            <h2>Not Sure Which Course<br />Is Right for You?</h2>
+            <p>
+              Talk to a real expert — free, no spam, just honest guidance for
+              your goals.
+            </p>
+          </div>
+          <div class="cta-btns">
+            <button
+              class="py-2 border-0 px-2 rounded-2"
+              data-bs-toggle="modal"
+              data-bs-target="#connectModal"
+            >
+              Book Free Counselling
+            </button>
+            <!-- --------------form popup  -->
+            <div class="modal fade" id="connectModal" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3 rounded-3">
+                  <!-- ----------------header  -->
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h5>Get Free Guidance</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                    ></button>
+                  </div>
+                  <!-- form ------------------ -->
+                  <form class="form-inp">
+                    <input
+                      type="text"
+                      placeholder="Enter your name..."
+                      class="form-control mb-2"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Enter your email..."
+                      class="form-control mb-2"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Enter your Number..."
+                      class="form-control mb-2"
+                    />
+                    <select class="form-select mb-2">
+                      <option selected disabled>Choose a program</option>
+                      <option>Executive Program</option>
+                      <option>Offline Program</option>
+                      <option>Online Program</option>
+                    </select>
+                    <button
+                      type="submit"
+                      class="w-100 text-white py-1 border-0"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ----------------------- course  -->
     <!-- ═══ FOOTER ═══ -->
     <footer>
       <div class="fi">
         <div class="fg">
+          <!-- Brand Block -->
           <div class="fb">
             <div style="font-size: 1.25rem; font-weight: 900; color: #fff">
               <span class="cw-logo">CW</span>
@@ -3966,17 +4798,14 @@
               universities and programs.
             </p>
             <div class="footer-icons-social">
-              <i class="fa-brands fa-facebook-f"></i>
-              <!-- Instagram -->
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
               <a href="#"><i class="fa-brands fa-instagram"></i></a>
-
-              <!-- Twitter -->
-              <a href="#"><i class="fa-brands fa-x-twitter"></i> </a>
-              <!-- LinkedIn -->
-              <!-- YouTube -->
-              <a href="#"><i class="fa-brands fa-youtube"></i> </a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </div>
           </div>
+
+          <!-- Links Block -->
           <div class="fl">
             <div>
               <div class="fl-t">Quick Links</div>
@@ -3990,7 +4819,7 @@
             <div>
               <div class="fl-t">Programs</div>
               <a href="#" class="fl-a">Executive Education</a>
-              <a href="#" class="fl-a">Online MBA </a>
+              <a href="#" class="fl-a">Online MBA</a>
               <a href="#" class="fl-a">Data Science</a>
               <a href="#" class="fl-a">Finance</a>
               <a href="#" class="fl-a">Marketing</a>
@@ -4015,20 +4844,20 @@
             </div>
           </div>
         </div>
+
+        <!-- Bottom Bar -->
         <div>
-          <div class="right-footer">
-            <div class="fb-bot">
-              <div class="left-footer">
-                <i class="fa-solid fa-envelope"></i>
-                <p>info@campuswalkin.com</p>
-                <i class="fa-solid fa-phone"></i>
-                <p>+91 98765 43210</p>
-                <i class="fa-solid fa-location-dot"></i>
-                <p>Mumbai, India</p>
-              </div>
-              <div class="right-footer">
-                <p>© 2026 CampusWalkin. All rights reserved.</p>
-              </div>
+          <div class="fb-bot">
+            <div class="left-footer">
+              <i class="fa-solid fa-envelope"></i>
+              <p>info@campuswalkin.com</p>
+              <i class="fa-solid fa-phone"></i>
+              <p>+91 98765 43210</p>
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Gurugram, India</p>
+            </div>
+            <div class="right-footer">
+              <p>© 2026 CampusWalkin. All rights reserved.</p>
             </div>
           </div>
         </div>
@@ -4478,18 +5307,18 @@
 
       /* ── Explore ── */
       function toggleExplore(e) {
-  e.stopPropagation(); // Prevent the document click from immediately closing it
-  const wrap = document.getElementById("exploreWrap");
-  wrap.classList.toggle("open");
-}
+        e.stopPropagation(); // Prevent the document click from immediately closing it
+        const wrap = document.getElementById("exploreWrap");
+        wrap.classList.toggle("open");
+      }
 
-// Close dropdown when clicking outside
-document.addEventListener("click", function (e) {
-  const explore = document.getElementById("exploreWrap");
-  if (!explore.contains(e.target)) {
-    explore.classList.remove("open");
-  }
-});
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        const explore = document.getElementById("exploreWrap");
+        if (!explore.contains(e.target)) {
+          explore.classList.remove("open");
+        }
+      });
       /* ── Mobile drawer ── */
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");
@@ -4607,52 +5436,6 @@ document.addEventListener("click", function (e) {
       });
     </script>
     <script>
-      function toggleCourses() {
-        document.getElementById("courseWrap").classList.toggle("open");
-      }
-
-      function goCourse(page) {
-        window.location.href = page;
-      }
-
-      function filterCourses(value) {
-        value = value.toLowerCase();
-
-        let categories = document.querySelectorAll(".course-cat");
-
-        categories.forEach((cat) => {
-          let items = [];
-          let next = cat.nextElementSibling;
-
-          while (next && !next.classList.contains("course-cat")) {
-            if (next.classList.contains("course-item")) {
-              items.push(next);
-            }
-            next = next.nextElementSibling;
-          }
-
-          let visibleCount = 0;
-
-          items.forEach((item) => {
-            let text = item.innerText.toLowerCase();
-
-            if (text.includes(value)) {
-              item.style.display = "block";
-              visibleCount++;
-            } else {
-              item.style.display = "none";
-            }
-          });
-
-          if (visibleCount === 0) {
-            cat.style.display = "none";
-          } else {
-            cat.style.display = "block";
-          }
-        });
-      }
-    </script>
-    <script>
       // ════════════════════════════════════════════
       // app.js — Sirf Logic, Data aata hai data.json se
       // ════════════════════════════════════════════
@@ -4672,7 +5455,43 @@ document.addEventListener("click", function (e) {
       let currentPage = 1;
       const PER_PAGE = 5;
       let currentSort = "popularity";
+           const UG_COURSES = [
+        "B.Sc",
+        "B.Com",
+        "BA",
+        "BBA/BBM",
+        "BE/B.Tech",
+        "BCA",
+        "LLB",
+        "MBBS"
+      ];
+      const PG_COURSES = [
+      "mba",
+  "pgp",
+  "pgpx",
+  "epgp",
+  "pgdm",
+  "m.tech",
+  "mca",
+  "msc",
+  "ma",
+  "phd",
+  "fpm"
+      ];
+      function setDefaultLevelFilter() {
+  const levelItems = document.querySelectorAll("#level-list .filter-check");
 
+  levelItems.forEach((el) => {
+    const name = el.querySelector(".fc-label").textContent.trim();
+
+    if (name === "Post Graduation") {
+      el.classList.add("checked"); // UI me tick
+      activeFilters[name] = "level"; // filter me add
+    } else {
+      el.classList.remove("checked");
+    }
+  });
+}
       // ════════════════════════════════════════════
       // DATA LOAD — JSON se ek baar fetch karo
       // ════════════════════════════════════════════
@@ -4687,8 +5506,11 @@ document.addEventListener("click", function (e) {
         if (document.getElementById("grid")) renderUniversities();
         if (document.getElementById("collegesList")) {
           renderFeeFilters();
-          renderColleges();
-        }
+if (Object.keys(activeFilters).length === 0) {
+  setDefaultUGFilters();
+  setDefaultLevelFilter()
+}
+renderColleges();        }
       }
 
       // ════════════════════════════════════════════
@@ -4752,7 +5574,7 @@ document.addEventListener("click", function (e) {
         <div class="card-name">${u.name}</div>
         <span class="card-category">${catLabels[u.cat]}</span>
       </div>
-      <div class="card-body">
+      <div class="card-body h-100 ">
         <div class="card-meta">
           <div class="meta-row">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -4815,139 +5637,83 @@ document.addEventListener("click", function (e) {
       // ════════════════════════════════════════════
 
       function getFilteredColleges() {
-        return colleges.filter((c) => {
-          // Course filter
-          const cf = Object.keys(activeFilters).filter(
-            (k) => activeFilters[k] === "course",
-          );
-          if (cf.length) {
-            const has = cf.some((f) =>
-              c.courses.some((co) =>
-                co.toLowerCase().includes(f.toLowerCase()),
-              ),
-            );
-            if (!has) return false;
-          }
+  const selectedCourses = Object.keys(activeFilters).filter(
+    (k) => activeFilters[k] === "course"
+  );
 
-          // State filter
-          const sf = Object.keys(activeFilters).filter(
-            (k) => activeFilters[k] === "state",
-          );
-          if (sf.length && !sf.includes(c.state)) return false;
+  return colleges
+    .map((c) => {
+      let coursesToUse = [];
 
-          // Type filter
-          const tf = Object.keys(activeFilters).filter(
-            (k) => activeFilters[k] === "type",
-          );
-          if (
-            tf.length &&
-            !tf.includes(c.type) &&
-            !tf.some((t) => c.type.includes(t))
-          )
-            return false;
-
-          // Accreditation filter
-          const af = Object.keys(activeFilters).filter(
-            (k) => activeFilters[k] === "accred",
-          );
-          if (af.length) {
-            const has = af.some((f) =>
-              c.accred.some((a) => a.includes(f.split(" ")[0])),
-            );
-            if (!has) return false;
-          }
-
-          // Executive "Offered by" filter
-          const execOrgFilters = Object.keys(activeFilters).filter((k) =>
-            k.includes("Executive"),
-          );
-          if (execOrgFilters.length) {
-            const match = execOrgFilters.some((f) => {
-              if (f.includes("IIM") && c.name.includes("IIM")) return true;
-              if (f.includes("IIT") && c.name.includes("IIT")) return true;
-              if (f.includes("ISB") && c.name.includes("ISB")) return true;
-              if (f.includes("XLRI") && c.name.includes("XLRI")) return true;
-              if (f.includes("MICA") && c.name.includes("MICA")) return true;
-              return false;
-            });
-            if (!match) return false;
-          }
-
-          // Chip filters (Duration + Specialisation)
-          const chipFilters = Object.keys(activeFilters).filter(
-            (k) => activeFilters[k] === "chip",
-          );
-          if (chipFilters.length) {
-            const match = chipFilters.some((f) => {
-              if (!c.duration && !c.courses) return false;
-              if (f === "exec-3-6m" && c.duration?.includes("3")) return true;
-              if (f === "exec-6-12m" && c.duration?.includes("6")) return true;
-              if (f === "exec-1yr" && c.duration?.includes("1")) return true;
-              if (f === "exec-2yr" && c.duration?.includes("2")) return true;
-              if (
-                f === "exec-mba" &&
-                c.courses.some((x) => x.toLowerCase().includes("mba"))
-              )
-                return true;
-              if (
-                f === "exec-pgp" &&
-                c.courses.some((x) => x.toLowerCase().includes("pgp"))
-              )
-                return true;
-              if (
-                f === "exec-pgdm" &&
-                c.courses.some((x) => x.toLowerCase().includes("pgdm"))
-              )
-                return true;
-              if (
-                f === "exec-hr" &&
-                c.courses.some((x) => x.toLowerCase().includes("hr"))
-              )
-                return true;
-              if (
-                f === "exec-mktg" &&
-                c.courses.some((x) => x.toLowerCase().includes("marketing"))
-              )
-                return true;
-              if (
-                f === "exec-fin" &&
-                c.courses.some((x) => x.toLowerCase().includes("finance"))
-              )
-                return true;
-              if (
-                f === "exec-ops" &&
-                c.courses.some((x) => x.toLowerCase().includes("operations"))
-              )
-                return true;
-              if (
-                f === "exec-it" &&
-                c.courses.some(
-                  (x) =>
-                    x.toLowerCase().includes("data") ||
-                    x.toLowerCase().includes("tech"),
-                )
-              )
-                return true;
-              return false;
-            });
-            if (!match) return false;
-          }
-
-          // Fees filter
-          const feeFilters = Object.values(activeFilters).filter(
-            (f) => typeof f === "object" && f.type === "fees",
-          );
-          if (feeFilters.length) {
-            const match = feeFilters.some(
-              (f) => c.feesNum >= f.min && c.feesNum <= f.max,
-            );
-            if (!match) return false;
-          }
-
-          return true;
-        });
+      //  CASE 1: Kuch bhi select nahi → ALL courses
+      if (selectedCourses.length === 0) {
+        coursesToUse = c.courses;
       }
 
+      //  CASE 2: Jo select kiya wahi dikhao (UG ya PG kuch bhi)
+      else {
+coursesToUse = c.courses.filter((co) =>
+  selectedCourses.some(
+    (sel) => co.toLowerCase().includes(sel.toLowerCase())
+  )
+);
+      }
+
+      return {
+        ...c,
+        filteredCourses: coursesToUse,
+      };
+    })
+    .filter((c) => c.filteredCourses.length > 0)
+    .filter((c) => {
+      return Object.keys(activeFilters).every((key) => {
+        const filter = activeFilters[key];
+
+        // Fees
+        if (typeof filter === "object" && filter.type === "fees") {
+          return c.feesNum >= filter.min && c.feesNum <= filter.max;
+        }
+
+        // Course already handled
+        if (filter === "course") return true;
+
+        // State filter
+        const selectedStates = Object.keys(activeFilters).filter(
+          (k) => activeFilters[k] === "state"
+        );
+
+        if (selectedStates.length > 0) {
+          return selectedStates.some((state) =>
+            c.location.toLowerCase().includes(state.toLowerCase())
+          );
+        }
+
+        return true;
+      });
+    });
+}
+     function setDefaultUGFilters() {
+  activeFilters = {}; //  reset pehle
+
+  const courseItems = document.querySelectorAll(
+    "#course-list .filter-check"
+  );
+
+  courseItems.forEach((el) => {
+    const name = el.querySelector(".fc-label").textContent.trim();
+
+    if (
+      PG_COURSES.some((ug) => ug.toLowerCase() === name.toLowerCase())
+    ) {
+      el.classList.add("checked");
+      activeFilters[name] = "course";
+    } else {
+      el.classList.remove("checked");
+    }
+  });
+
+  updateActiveStrip();
+}
       function sortCollegesList(list) {
         return [...list].sort((a, b) => {
           if (currentSort === "rating") return b.rating - a.rating;
@@ -5027,15 +5793,17 @@ document.addEventListener("click", function (e) {
             <span style="color:var(--border)">|</span>
             ${c.accred.filter((a) => !a.includes("NIRF") && !a.includes("QS") && !a.includes("FT") && !a.includes("Mgmt")).join(" · ")}
           </div>
-          <div class="cc-courses">
-            ${c.courses.map((co) => `<span class="cc-course-tag">${co}</span>`).join("")}
-          </div>
-          <div class="cc-fees-row">${fees}</div>
-          <div class="cc-actions">
-            <button class="cca-apply">Apply Now</button>
-            <button class="cca-brochure">Brochure</button>
-          </div>
+         <div class="cc-courses">
+  ${c.filteredCourses
+    .map((co) => `<span class="cc-course-tag">${co}</span>`)
+    .join("")}
+</div>
 
+<div class="cc-fees-row">${fees}</div>
+<div class="cc-actions">
+  <button class="cca-apply">Apply Now</button>
+  <button class="cca-brochure">Brochure</button>
+</div>
         </div>
         
       </div>
@@ -5229,6 +5997,7 @@ document.addEventListener("click", function (e) {
         const parent = el.closest("[id]");
         if (parent) {
           if (parent.id.includes("course")) cat = "course";
+          if (parent.id.includes("level")) cat = "level";
           else if (parent.id.includes("state")) cat = "state";
           else if (parent.id.includes("type")) cat = "type";
           else if (parent.id.includes("acc")) cat = "accred";
@@ -5351,6 +6120,7 @@ document.addEventListener("click", function (e) {
           ?.classList.add("selected");
         currentPage = 1;
         renderColleges();
+
         updateActiveStrip();
         const feesRange = document.getElementById("feesRange");
         if (feesRange) {
@@ -5403,18 +6173,144 @@ document.addEventListener("click", function (e) {
       loadData();
     </script>
     <script>
+      function toggleCourses() {
+        document.getElementById("courseWrap").classList.toggle("open");
+      }
+
+      function goCourse(page) {
+        window.location.href = page;
+      }
+
+      function filterCourses(value) {
+        value = value.toLowerCase();
+
+        let categories = document.querySelectorAll(".course-cat");
+
+        categories.forEach((cat) => {
+          let items = [];
+          let next = cat.nextElementSibling;
+
+          while (next && !next.classList.contains("course-cat")) {
+            if (next.classList.contains("course-item")) {
+              items.push(next);
+            }
+            next = next.nextElementSibling;
+          }
+
+          let visibleCount = 0;
+
+          items.forEach((item) => {
+            let text = item.innerText.toLowerCase();
+
+            if (text.includes(value)) {
+              item.style.display = "block";
+              visibleCount++;
+            } else {
+              item.style.display = "none";
+            }
+          });
+
+          if (visibleCount === 0) {
+            cat.style.display = "none";
+          } else {
+            cat.style.display = "block";
+          }
+        });
+      }
+    </script>
+    <script>
+      /* Mobile drawer */
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");
         document.getElementById("mOverlay").classList.add("show");
+        document.body.style.overflow = "hidden";
       }
       function closeDrawer() {
         document.getElementById("mDrawer").classList.remove("open");
         document.getElementById("mOverlay").classList.remove("show");
+        document.body.style.overflow = "";
       }
-      function toggleAcc(btn) {
-        btn.classList.toggle("open");
-        let body = btn.nextElementSibling;
-        body.classList.toggle("open");
+
+      /* Topic tabs */
+      function setTopic(el) {
+        document
+          .querySelectorAll(".ttab")
+          .forEach((t) => t.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+      /* FAQ accordion */
+      function toggleFaq(el) {
+        const item = el.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+        document
+          .querySelectorAll(".faq-item")
+          .forEach((i) => i.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      }
+
+      /* Form submit */
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const fname = document.getElementById("fname").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const message = document.getElementById("message").value.trim();
+          const consent = document.getElementById("consent").checked;
+
+          if (!fname || !email || !phone || !message || !consent) {
+            // Simple shake animation on empty required fields
+            [
+              fname && "fname",
+              email && "email",
+              phone && "phone",
+              message && "message",
+            ].forEach((id) => {
+              if (!id) return;
+              const el = document.getElementById(id);
+              if (!el || el.value.trim()) return;
+              el.style.borderColor = "#e85d3a";
+              el.style.animation = "shake .4s ease";
+              setTimeout(() => {
+                el.style.animation = "";
+              }, 400);
+            });
+            if (!consent) {
+              document
+                .getElementById("consent")
+                .closest(".fc-check").style.color = "#e85d3a";
+            }
+            return;
+          }
+
+          // Show success
+          document.getElementById("contactForm").style.display = "none";
+          document.getElementById("formSuccess").style.display = "block";
+          document
+            .getElementById("formCard")
+            .querySelector("h2").style.display = "none";
+          document
+            .getElementById("formCard")
+            .querySelector(".fc-sub").style.display = "none";
+          document
+            .getElementById("formCard")
+            .querySelector(".topic-tabs").style.display = "none";
+        });
+
+      function resetForm() {
+        document.getElementById("contactForm").reset();
+        document.getElementById("contactForm").style.display = "block";
+        document.getElementById("formSuccess").style.display = "none";
+        document.getElementById("formCard").querySelector("h2").style.display =
+          "";
+        document
+          .getElementById("formCard")
+          .querySelector(".fc-sub").style.display = "";
+        document
+          .getElementById("formCard")
+          .querySelector(".topic-tabs").style.display = "";
       }
     </script>
     <script>
@@ -5477,6 +6373,89 @@ document.addEventListener("click", function (e) {
         });
       }
     </script>
+    <script>
+      const listItems = document.querySelectorAll("ul li");
+      const studentContent = document.getElementById("studentContent");
+      const collegeContent = document.getElementById("collegeContent");
+      const studentTabs = document.getElementById("studentTabs");
+      const collegeTabs = document.getElementById("collegeTabs");
+      let currentContainer = studentContent;
+      let interval;
+      function duplicateContent(container) {
+        container.innerHTML += container.innerHTML;
+      }
+      duplicateContent(studentContent);
+      duplicateContent(collegeContent);
+
+      studentTabs.addEventListener("click", () => {
+        studentContent.classList.remove("d-none");
+        collegeContent.classList.add("d-none");
+
+        studentTabs.classList.add("active-link");
+        collegeTabs.classList.remove("active-link");
+        currentContainer = studentContent;
+      });
+      collegeTabs.addEventListener("click", () => {
+        studentContent.classList.add("d-none");
+        collegeContent.classList.remove("d-none");
+
+        studentTabs.classList.remove("active-link");
+        collegeTabs.classList.add("active-link");
+        currentContainer = collegeContent;
+      });
+      function autoScroll() {
+        if (currentContainer) {
+          currentContainer.scrollLeft += 1;
+          if (currentContainer.scrollLeft >= currentContainer.scrollWidth / 2) {
+            currentContainer.scrollLeft = 0;
+          }
+        }
+      }
+      function startScroll() {
+        interval = setInterval(autoScroll, 20);
+      }
+      function stopScroll() {
+        clearInterval(interval);
+      }
+      [studentContent, collegeContent].forEach((el) => {
+        el.addEventListener("mouseenter", stopScroll);
+        el.addEventListener("mouseleave", startScroll);
+      });
+      startScroll();
+      listItems.forEach((li) => {
+        li.addEventListener("click", () => {
+          listItems.forEach((item) => {
+            item.classList.remove("border-bottom", "border-primary", "active");
+          });
+          li.classList.add("border-bottom", "border-primary", "active");
+        });
+      });
+    </script>
+    <script>
+      const recruiters = document.getElementById("recruiters");
+      recruiters.innerHTML += recruiters.innerHTML;
+    </script>
+    <style>
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(-6px);
+        }
+        40% {
+          transform: translateX(6px);
+        }
+        60% {
+          transform: translateX(-4px);
+        }
+        80% {
+          transform: translateX(4px);
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

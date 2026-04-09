@@ -849,7 +849,23 @@
         background: #4f46e5;
         color: #fff;
       }
-
+   .cm-btns{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        cursor: pointer;
+      }
+      .cm-btn{
+        border: 1px solid #4f46e5;
+        padding: 2px 15px;
+        font-size: 0.75rem;
+        /* border-radius: 10px; */
+      }
+    .cm-btn:hover{
+        background: #4f46e5;
+        color: #fff;
+    }
       /* GRID */
       .cm-grid {
         display: grid;
@@ -3237,6 +3253,15 @@
               <!-- Right: Content -->
               <div class="cm-content">
                 <!-- Mode tabs -->
+                 <div class="cm-btns" id="cmLevelTabs">
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="UG"><a href="ug-courses.html">UG Courses</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="PG"><a href="pg-courses.html">PG Courses</a></div>                
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Executive MBA"><a href="executive-course.html">Executive MBA</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Online Programs"> <a href="online-programs.html">Online Programs</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Management (PGDM / MBA)"> <a href="pgdm-mba-management.html">Management (PGDM / MBA)</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Study Abroad"> <a href="study-abroad.html">Study Abroad</a></div> 
+
+                </div>
                 <div class="cm-tabs" id="cmTabs">
                   <div class="cm-tab active" data-mode="all">All</div>
                   <div class="cm-tab" data-mode="online">🌐 Online</div>

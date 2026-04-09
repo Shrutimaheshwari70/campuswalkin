@@ -11,7 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
       rel="stylesheet"
     />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <link
       rel="stylesheet"
@@ -337,17 +340,17 @@
         transform: rotate(180deg);
       }
       .exp-mega {
-      display: none;
-  position: absolute;
-  top: 100%;
-  left: -450px;
-  width: 600px; /* adjust */
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: var(--sh3);
-  padding: 1rem;
-  z-index: 10;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -450px;
+        width: 600px; /* adjust */
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: var(--sh3);
+        padding: 1rem;
+        z-index: 10;
       }
       .explore-wrap:hover .exp-mega,
       .explore-wrap.open .exp-mega {
@@ -765,7 +768,23 @@
         background: #4f46e5;
         color: #fff;
       }
-
+      .cm-btns{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        cursor: pointer;
+      }
+      .cm-btn{
+        border: 1px solid #4f46e5;
+        padding: 2px 15px;
+        font-size: 0.75rem;
+        /* border-radius: 10px; */
+      }
+    .cm-btn:hover{
+        background: #4f46e5;
+        color: #fff;
+    }
       /* GRID */
       .cm-grid {
         display: grid;
@@ -1110,7 +1129,6 @@
           rgba(0, 0, 82, 0.904),
           rgba(73, 3, 73, 0.619)
         );
-      
       }
       .hero h1 {
         font-family: "Lato", sans-serif;
@@ -1133,34 +1151,34 @@
         max-width: 500px;
       }
       /* 📱 Tablet */
-@media (max-width: 992px) {
-  .hero {
-    height: auto;
-  }
+      @media (max-width: 992px) {
+        .hero {
+          height: auto;
+        }
 
-  .hero-img-wrapper {
-    height: 600px;
-  }
+        .hero-img-wrapper {
+          height: 600px;
+        }
 
-  .hero-section {
-    top: 20%;
-    left: 5%;
-    right: 5%;
-  }
+        .hero-section {
+          top: 20%;
+          left: 5%;
+          right: 5%;
+        }
 
-  .search-bar {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+        .search-bar {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
 
-  .search-bar > * {
-    flex: 1 1 45%; /* 2 per row */
-  }
+        .search-bar > * {
+          flex: 1 1 45%; /* 2 per row */
+        }
 
-  .search-btn {
-    flex: 1 1 100%;
-  }
-}
+        .search-btn {
+          flex: 1 1 100%;
+        }
+      }
 
       /* ONE-LINE SEARCH BAR */
       .search-bar {
@@ -1775,7 +1793,7 @@
         font-size: 0.66rem;
         color: var(--muted);
       }
-      
+
       /* ─────────────────────────────────────
    CTA
 ───────────────────────────────────── */
@@ -1821,7 +1839,7 @@
         margin-top: 5px;
         position: relative;
       }
-      .form-inp button{
+      .form-inp button {
         background-color: var(--navy2);
       }
       .cta-btns {
@@ -1863,12 +1881,12 @@
         background: rgba(255, 255, 255, 0.14);
       }
       .form-inp input:focus,
-      .btn-close:focus{
-      border-color: none;
-      box-shadow: none;
-      outline: none;
+      .btn-close:focus {
+        border-color: none;
+        box-shadow: none;
+        outline: none;
       }
-    
+
       /* ─────────────────────────────────────
    FOOTER
 ───────────────────────────────────── */
@@ -3410,33 +3428,33 @@
         color: purple;
       }
       .card1-rev {
-  height: auto;
-  border-radius: 10px;
-  padding: 30px;
-  background: linear-gradient(to right, #6b11cb17, #2574fc0d);
-  border: 2px solid rgb(228, 228, 228);
-  text-align: center;
-  width: 100%;        /* 🔥 full width */
-  max-width: 350px;   /* 🔥 limit for desktop */
-}
+        height: auto;
+        border-radius: 10px;
+        padding: 30px;
+        background: linear-gradient(to right, #6b11cb17, #2574fc0d);
+        border: 2px solid rgb(228, 228, 228);
+        text-align: center;
+        width: 100%; /* 🔥 full width */
+        max-width: 350px; /* 🔥 limit for desktop */
+      }
       .card-box-suc {
-  display: flex;
-  gap: 30px;
-  padding: 30px 100px 0;
-  flex-wrap: wrap; /* 🔥 important */
-  justify-content: center;
-}
-@media (max-width: 768px) {
-  .card-box-suc {
-    padding: 20px;
-    flex-direction: column; /* 🔥 stack cards */
-    align-items: center;
-  }
+        display: flex;
+        gap: 30px;
+        padding: 30px 100px 0;
+        flex-wrap: wrap; /* 🔥 important */
+        justify-content: center;
+      }
+      @media (max-width: 768px) {
+        .card-box-suc {
+          padding: 20px;
+          flex-direction: column; /* 🔥 stack cards */
+          align-items: center;
+        }
 
-  .card1-rev {
-    max-width: 100%;
-  }
-}
+        .card1-rev {
+          max-width: 100%;
+        }
+      }
       .rev-img {
         background-color: purple;
         height: 80px;
@@ -3589,7 +3607,7 @@
       }
       .card-ugc {
         border: 2px solid rgb(210, 210, 210);
-        padding: 13px;
+        /* padding: 1px; */
         width: 100%;
         text-align: center;
         border-radius: 10px;
@@ -3726,7 +3744,7 @@
         overflow: visible; /* instead of hidden or auto */
         position: relative; /* optional if you use custom SVG */
       }
-  
+
       /* ------------------------------trusted student  */
     </style>
   </head>
@@ -4055,6 +4073,15 @@
               <!-- Right: Content -->
               <div class="cm-content">
                 <!-- Mode tabs -->
+                <div class="cm-btns" id="cmLevelTabs">
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="UG"><a href="ug-courses.html">UG Courses</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="PG"><a href="pg-courses.html">PG Courses</a></div>                
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Executive MBA"><a href="executive-course.html">Executive MBA</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Online Programs"> <a href="online-programs.html">Online Programs</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Management (PGDM / MBA)"> <a href="pgdm-mba-management.html">Management (PGDM / MBA)</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Study Abroad"> <a href="study-abroad.html">Study Abroad</a></div> 
+
+                </div>
                 <div class="cm-tabs" id="cmTabs">
                   <div class="cm-tab active" data-mode="all">All</div>
                   <div class="cm-tab" data-mode="online">🌐 Online</div>
@@ -4161,7 +4188,6 @@
         </div>
       </div>
     </div>
-
     <!-- Mobile Drawer Overlay -->
     <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
 
@@ -4317,8 +4343,6 @@
         </div>
       </div>
     </section>
-
-    
 
     <!-- ═══ 4 CATEGORIES ═══ -->
     <div class="section-title">
@@ -4779,146 +4803,163 @@
           <h1>What Our Students Say ?</h1>
         </div>
         <div class="container">
-          
-        <div class="card-box-suc row g-4">
-          <!-- ---------------card1 -->
-          <div class="card1-rev col-lg-4 col-md-4 col-12">
-            <div class="rev-img"> 
-              <img
-                src="https://images.pexels.com/photos/7092424/pexels-photo-7092424.jpeg"
-                alt=""
-              />
+          <div class="card-box-suc row g-4">
+            <!-- ---------------card1 -->
+            <div class="card1-rev col-lg-4 col-md-4 col-12">
+              <div class="rev-img">
+                <img
+                  src="https://images.pexels.com/photos/7092424/pexels-photo-7092424.jpeg"
+                  alt=""
+                />
+              </div>
+              <div class="stu-text2">
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: rgb(149, 149, 149)"
+                ></i>
+                <p class="fs-lg">
+                  "The platform is incredibly user-friendly. I could compare
+                  programs, read reviews, and apply — all in one place. Highly
+                  recommended!"
+                </p>
+                <h5>Ananya Patel</h5>
+                <h4>Digital Marketing, MICA</h4>
+              </div>
             </div>
-            <div class="stu-text2">
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: rgb(149, 149, 149)"></i>
-              <p class="fs-lg">
-                "The platform is incredibly user-friendly. I could compare
-                programs, read reviews, and apply — all in one place. Highly
-                recommended!"
-              </p>
-              <h5>Ananya Patel</h5>
-              <h4>Digital Marketing, MICA</h4>
+            <!-- ---------------card2-->
+            <div class="card1-rev col-lg-4 col-md-4 col-12">
+              <div class="rev-img">
+                <img
+                  src="https://images.pexels.com/photos/7092424/pexels-photo-7092424.jpeg"
+                  alt=""
+                />
+              </div>
+              <div class="stu-text2">
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: rgb(149, 149, 149)"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: rgb(149, 149, 149)"
+                ></i>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Optio amet fuga placeat natus assumenda similique aperiam
+                  unde. Corporis, natus accusamus!
+                </p>
+                <h5>Tanya</h5>
+                <h4>Digital Marketing, MICA</h4>
+              </div>
+            </div>
+            <!-- ---------------card3 -->
+            <div class="card1-rev col-lg-4 col-md-4 col-12">
+              <div class="rev-img">
+                <img
+                  src="https://images.pexels.com/photos/7092424/pexels-photo-7092424.jpeg"
+                  alt=""
+                />
+              </div>
+              <div class="stu-text2">
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i class="bi bi-star-fill" style="color: gold"></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: rgb(149, 149, 149)"
+                ></i>
+                <p>
+                  "The platform is incredibly user-friendly. I could compare
+                  programs, read reviews, and apply — all in one place. Highly
+                  recommended!"
+                </p>
+                <h5>Sakshi</h5>
+                <h4>Digital Marketing, MICA</h4>
+              </div>
             </div>
           </div>
-          <!-- ---------------card2-->
-          <div class="card1-rev col-lg-4 col-md-4 col-12">
-            <div class="rev-img">
-              <img
-                src="https://images.pexels.com/photos/7092424/pexels-photo-7092424.jpeg"
-                alt=""
-              />
-            </div>
-            <div class="stu-text2">
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: rgb(149, 149, 149)"></i>
-              <i class="bi bi-star-fill" style="color: rgb(149, 149, 149)"></i>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio amet fuga placeat natus assumenda similique aperiam unde. Corporis, natus accusamus!
-              </p>
-              <h5>Tanya</h5>
-              <h4>Digital Marketing, MICA</h4>
-            </div>
-          </div>
-          <!-- ---------------card3 -->
-          <div class="card1-rev col-lg-4 col-md-4 col-12" >
-            <div class="rev-img">
-              <img
-                src="https://images.pexels.com/photos/7092424/pexels-photo-7092424.jpeg"
-                alt=""
-              />
-            </div>
-            <div class="stu-text2">
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: gold"></i>
-              <i class="bi bi-star-fill" style="color: rgb(149, 149, 149)"></i>
-              <p>
-                "The platform is incredibly user-friendly. I could compare
-                programs, read reviews, and apply — all in one place. Highly
-                recommended!"
-              </p>
-              <h5>Sakshi</h5>
-              <h4>Digital Marketing, MICA</h4>
-            </div>
-          </div>
-        </div>
         </div>
       </div>
     </section>
-       <!-- ══════════════ BOTTOM CTA ══════════════ -->
-<div class="cta-sec py-5">
-  <div class="cta-inner">
-    <div class="cta-box">
-      <div>
-        <h2>Not Sure Which Course<br />Is Right for You?</h2>
-        <p>
-          Talk to a real expert — free, no spam, just honest guidance for
-          your goals.
-        </p>
-      </div>
-      <div class="cta-btns">
-        <button
-          class="py-2 border-0 px-2 rounded-2"
-          data-bs-toggle="modal"
-          data-bs-target="#connectModal"
-        >
-          Book Free Counselling
-        </button>
-        <!-- --------------form popup  -->
-        <div class="modal fade" id="connectModal" tabindex="-1">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3 rounded-3">
-              <!-- ----------------header  -->
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5>Get Free Guidance</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                ></button>
+    <!-- ══════════════ BOTTOM CTA ══════════════ -->
+    <div class="cta-sec py-5">
+      <div class="cta-inner">
+        <div class="cta-box">
+          <div>
+            <h2>Not Sure Which Course<br />Is Right for You?</h2>
+            <p>
+              Talk to a real expert — free, no spam, just honest guidance for
+              your goals.
+            </p>
+          </div>
+          <div class="cta-btns">
+            <button
+              class="py-2 border-0 px-2 rounded-2"
+              data-bs-toggle="modal"
+              data-bs-target="#connectModal"
+            >
+              Book Free Counselling
+            </button>
+            <!-- --------------form popup  -->
+            <div class="modal fade" id="connectModal" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3 rounded-3">
+                  <!-- ----------------header  -->
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h5>Get Free Guidance</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                    ></button>
+                  </div>
+                  <!-- form ------------------ -->
+                  <form class="form-inp">
+                    <input
+                      type="text"
+                      placeholder="Enter your name..."
+                      class="form-control mb-2"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Enter your email..."
+                      class="form-control mb-2"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Enter your Number..."
+                      class="form-control mb-2"
+                    />
+                    <select class="form-select mb-2">
+                      <option selected disabled>Choose a program</option>
+                      <option>Executive Program</option>
+                      <option>Offline Program</option>
+                      <option>Online Program</option>
+                    </select>
+                    <button
+                      type="submit"
+                      class="w-100 text-white py-1 border-0"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
               </div>
-              <!-- form ------------------ -->
-              <form class="form-inp">
-                <input
-                  type="text"
-                  placeholder="Enter your name..."
-                  class="form-control mb-2"
-                />
-                <input
-                  type="email"
-                  placeholder="Enter your email..."
-                  class="form-control mb-2"
-                />
-                <input
-                  type="text"
-                  placeholder="Enter your Number..."
-                  class="form-control mb-2"
-                />
-                <select class="form-select mb-2">
-                  <option selected disabled>Choose a program</option>
-                  <option>Executive Program</option>
-                  <option>Offline Program</option>
-                  <option>Online Program</option>
-                </select>
-                <button
-                  type="submit"
-                  class="w-100 text-white py-1 border-0"
-                >Submit</button>
-              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- ═══ FOOTER ═══ -->
     <footer>
@@ -5026,18 +5067,18 @@
 
       /* ── Explore ── */
       function toggleExplore(e) {
-  e.stopPropagation(); // Prevent the document click from immediately closing it
-  const wrap = document.getElementById("exploreWrap");
-  wrap.classList.toggle("open");
-}
+        e.stopPropagation(); // Prevent the document click from immediately closing it
+        const wrap = document.getElementById("exploreWrap");
+        wrap.classList.toggle("open");
+      }
 
-// Close dropdown when clicking outside
-document.addEventListener("click", function (e) {
-  const explore = document.getElementById("exploreWrap");
-  if (!explore.contains(e.target)) {
-    explore.classList.remove("open");
-  }
-});
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        const explore = document.getElementById("exploreWrap");
+        if (!explore.contains(e.target)) {
+          explore.classList.remove("open");
+        }
+      });
 
       /* ── Mobile drawer ── */
       function openDrawer() {
@@ -5208,12 +5249,12 @@ document.addEventListener("click", function (e) {
         management: {
           courses: {
             all: [
-              { n: "MBA", s: "800+ colleges" },
-              { n: "PGDM", s: "350+ colleges" },
-              { n: "BBA", s: "1,200+ colleges" },
-              { n: "Executive MBA", s: "120+ programs" },
-              { n: "MBA Finance", s: "500+ colleges" },
-              { n: "MBA Marketing", s: "650+ colleges" },
+              { n: "MBA", s: "800+ colleges", level: "PG" },
+              { n: "PGDM", s: "350+ colleges", level: "PG" },
+              { n: "BBA", s: "1,200+ colleges", level: "UG" },
+              { n: "Executive MBA", s: "120+ programs", level: "PG" },
+              { n: "MBA Finance", s: "500+ colleges", level: "PG" },
+              { n: "MBA Marketing", s: "650+ colleges", level: "PG" },
             ],
             online: [
               {
@@ -5227,60 +5268,80 @@ document.addEventListener("click", function (e) {
               },
             ],
             offline: [
-              { n: "MBA", s: "600+ colleges" },
-              { n: "BBA", s: "900+ colleges" },
-              { n: "PGDM", s: "260+ colleges" },
-              { n: "MBA Marketing", s: "450+ colleges" },
+              { n: "MBA", s: "600+ colleges", level: "PG" },
+              { n: "BBA", s: "900+ colleges", level: "PG" },
+              { n: "PGDM", s: "260+ colleges", level: "UG" },
+              { n: "MBA Marketing", s: "450+ colleges", level: "PG" },
             ],
             "study-abroad": [
-              { n: "MBA USA", s: "50+ universities" },
-              { n: "MBA UK", s: "30+ universities" },
-              { n: "MBA Canada", s: "20+ universities" },
-              { n: "MBA Australia", s: "15+ universities" },
+              { n: "MBA USA", s: "50+ universities", level: "PG" },
+              { n: "MBA UK", s: "30+ universities", level: "PG" },
+              { n: "MBA Canada", s: "20+ universities", level: "PG" },
+              { n: "MBA Australia", s: "15+ universities", level: "PG" },
             ],
             executive: [
-              { n: "Executive MBA", s: "120+ programs" },
-              { n: "EMBA Finance", s: "45+ programs" },
-              { n: "EMBA Leadership", s: "30+ programs" },
-              { n: "Weekend MBA", s: "60+ programs" },
+              { n: "Executive MBA", s: "120+ programs", level: "PG" },
+              { n: "EMBA Finance", s: "45+ programs", level: "PG" },
+              { n: "EMBA Leadership", s: "30+ programs", level: "PG" },
+              { n: "Weekend MBA", s: "60+ programs", level: "PG" },
             ],
             dba: [
-              { n: "DBA Management", s: "25+ programs" },
-              { n: "DBA Strategy", s: "18+ programs" },
-              { n: "DBA Leadership", s: "12+ programs" },
+              { n: "DBA Management", s: "25+ programs", level: "PG" },
+              { n: "DBA Strategy", s: "18+ programs", level: "PG" },
+              { n: "DBA Leadership", s: "12+ programs", level: "PG" },
             ],
           },
         },
         technology: {
           courses: {
             all: [
-              { n: "B.Tech", s: "1,500+ colleges" },
-              { n: "M.Tech", s: "600+ colleges" },
-              { n: "MCA", s: "800+ colleges" },
-              { n: "BCA", s: "1,100+ colleges" },
-              { n: "Data Science", s: "400+ programs" },
-              { n: "AI & ML", s: "300+ programs" },
+              { n: "B.Tech", s: "1,500+ colleges", level: "UG" },
+              { n: "M.Tech", s: "600+ colleges", level: "PG" },
+              { n: "MCA", s: "800+ colleges", level: "PG" },
+              { n: "BCA", s: "1,100+ colleges", level: "UG" },
+              { n: "Data Science", s: "400+ programs", level: "DIPLOMA" },
+              { n: "AI & ML", s: "300+ programs", level: "DIPLOMA" },
             ],
             online: [
-              { n: "Online B.Tech", s: "100+ colleges" },
-              { n: "Online MCA", s: "200+ colleges" },
-              { n: "Data Science Online", s: "300+ programs" },
-              { n: "AI & ML Online", s: "250+ programs" },
+              { n: "Online B.Tech", s: "100+ colleges", level: "UG" },
+              { n: "Online MCA", s: "200+ colleges", level: "PG" },
+              {
+                n: "Data Science Online",
+                s: "300+ programs",
+                level: "DIPLOMA",
+              },
+              { n: "AI & ML Online", s: "250+ programs", level: "DIPLOMA" },
             ],
             offline: [
-              { n: "B.Tech", s: "1,400+ colleges" },
-              { n: "M.Tech", s: "580+ colleges" },
-              { n: "MCA", s: "700+ colleges" },
+              { n: "B.Tech", s: "1,400+ colleges", level: "UG" },
+              { n: "M.Tech", s: "580+ colleges", level: "PG" },
+              { n: "MCA", s: "700+ colleges", level: "UG" },
             ],
             "study-abroad": [
-              { n: "MS Computer Science USA", s: "80+ universities" },
-              { n: "MS AI UK", s: "25+ universities" },
-              { n: "MS Data Science Canada", s: "18+ universities" },
+              {
+                n: "MS Computer Science USA",
+                s: "80+ universities",
+                level: "PG",
+              },
+              { n: "MS AI UK", s: "25+ universities", level: "PG" },
+              {
+                n: "MS Data Science Canada",
+                s: "18+ universities",
+                level: "PG",
+              },
             ],
             executive: [
-              { n: "Executive PG in AI", s: "40+ programs" },
-              { n: "Executive Data Science", s: "35+ programs" },
-              { n: "PG DevOps", s: "20+ programs" },
+              {
+                n: "Executive PG in AI",
+                s: "40+ programs",
+                level: "EXECUTIVE",
+              },
+              {
+                n: "Executive Data Science",
+                s: "35+ programs",
+                level: "DIPLOMA",
+              },
+              { n: "PG DevOps", s: "20+ programs", level: "PG" },
             ],
             dba: [
               { n: "PhD Computer Science", s: "200+ programs" },
@@ -5464,12 +5525,12 @@ document.addEventListener("click", function (e) {
         commerce: {
           courses: {
             all: [
-              { n: "B.Com", s: "2,500+ colleges" },
-              { n: "M.Com", s: "1,000+ colleges" },
-              { n: "CA Foundation", s: "500+ institutes" },
-              { n: "CMA", s: "200+ institutes" },
-              { n: "CFA", s: "150+ programs" },
-              { n: "BBA", s: "1,200+ colleges" },
+              { n: "B.Com", s: "2,500+ colleges", level: "UG" },
+              { n: "M.Com", s: "1,000+ colleges", level: "PG" },
+              { n: "CA Foundation", s: "500+ institutes", level: "DI" },
+              { n: "CMA", s: "200+ institutes", level: "PG" },
+              { n: "CFA", s: "150+ programs", level: "PG" },
+              { n: "BBA", s: "1,200+ colleges", level: "UG" },
             ],
             online: [
               { n: "B.Com Online", s: "200+ colleges" },
@@ -5500,7 +5561,7 @@ document.addEventListener("click", function (e) {
       };
       let activeCategory = "management";
       let activeMode = "all";
-
+      let activeLevel = "ALL";
       function toggleAllCourses(e) {
         e.stopPropagation();
         const wrap = e.currentTarget.closest(".courses-wrap");
@@ -5519,7 +5580,8 @@ document.addEventListener("click", function (e) {
 
       function render() {
         const cat = data[activeCategory];
-        const courses = cat.courses[activeMode] || cat.courses.all;
+        let courses = cat.courses[activeMode] || cat.courses.all;
+
         document.getElementById("cmGrid").innerHTML = courses
           .map(
             (c) => `
@@ -5647,7 +5709,7 @@ document.addEventListener("click", function (e) {
         myForm.style.display = "none";
       });
     </script>
-     <script>
+    <script>
       const courseCityMap = {
         "BE/B.Tech": ["Delhi", "Mumbai", "Banglore"],
         "Diploma in Engineering": ["Pune", "Chennai"],
@@ -5679,12 +5741,10 @@ document.addEventListener("click", function (e) {
         </div>
         `;
       }
-      
+
       function filterCourses(value) {
         value = value.toLowerCase();
-        const categories = document.querySelectorAll(
-          "#courseList .course-cat",
-        );
+        const categories = document.querySelectorAll("#courseList .course-cat");
         categories.forEach((cat) => {
           const grid = cat.nextElementSibling;
           const items = grid.querySelectorAll(".course-item");
@@ -5710,6 +5770,5 @@ document.addEventListener("click", function (e) {
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
   </body>
 </html>

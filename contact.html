@@ -84,11 +84,9 @@
         max-width: 100%;
         display: block;
       }
-      button,
-      input,
-      select {
-        font-family: inherit;
-      }
+    body,html{
+      overflow-x: hidden;
+    }
       a {
         text-decoration: none;
         color: inherit;
@@ -144,7 +142,6 @@
       }
 
       .logo-text {
-        font-weight: 900;
         font-size: 1.15rem;
         color: var(--navy);
       }
@@ -154,7 +151,6 @@
       .logo-sub {
         font-size: 0.58rem;
         color: var(--muted);
-        font-weight: 500;
         display: block;
         margin-top: -2px;
       }
@@ -310,7 +306,6 @@
       }
       .em-title {
         font-size: 0.65rem;
-        font-weight: 800;
         text-transform: uppercase;
         color: var(--muted);
         margin-bottom: 8px;
@@ -337,7 +332,6 @@
         color: var(--text);
         transition: all 0.2s;
         font-size: 0.71rem;
-        font-weight: 600;
       }
       .em-item:hover {
         border-color: var(--accent);
@@ -361,7 +355,6 @@
         color: var(--muted);
         cursor: pointer;
         transition: all 0.2s;
-        font-weight: 600;
       }
       .em-grid a {
         border-bottom: 2px solid rgb(249, 249, 249);
@@ -433,12 +426,10 @@
         padding: 11px 14px;
         border-bottom: 1px solid var(--border);
         font-size: 0.79rem;
-        font-weight: 700;
       }
       .np-hd a {
         font-size: 0.7rem;
         color: var(--accent);
-        font-weight: 600;
       }
       .np-row {
         display: flex;
@@ -467,7 +458,6 @@
       }
       .np-t1 {
         font-size: 0.73rem;
-        font-weight: 600;
         color: var(--navy);
       }
       .np-t2 {
@@ -569,7 +559,6 @@
       /* OPTIONAL STYLING */
       .cm-h-title {
         font-size: 13px;
-        font-weight: 600;
         margin-bottom: 6px;
       }
 
@@ -659,7 +648,23 @@
         background: #4f46e5;
         color: #fff;
       }
-
+.cm-btns{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        cursor: pointer;
+      }
+      .cm-btn{
+        border: 1px solid #4f46e5;
+        padding: 2px 15px;
+        font-size: 0.75rem;
+        /* border-radius: 10px; */
+      }
+    .cm-btn:hover{
+        background: #4f46e5;
+        color: #fff;
+    }
       /* GRID */
       .cm-grid {
         display: grid;
@@ -749,7 +754,6 @@
         gap: 5px;
         padding: 6px 4px;
         font-size: 0.7rem;
-        font-weight: 600;
         /* cursor: pointer; */
         color: var(--muted);
         white-space: nowrap;
@@ -765,7 +769,6 @@
         background: var(--accent2);
         border-color: #c7d9ff;
         color: var(--accent);
-        font-weight: 700;
       }
       .np2.finder-p:hover {
         background: #dce8ff;
@@ -774,7 +777,6 @@
         background: var(--exec);
         color: #fff;
         font-size: 0.58rem;
-        font-weight: 800;
         padding: 1px 4px;
         border-radius: 3px;
         text-transform: uppercase;
@@ -892,7 +894,6 @@
         display: block;
         padding: 11px 20px;
         font-size: 0.88rem;
-        font-weight: 600;
         color: var(--text, #333);
         text-decoration: none;
         border-bottom: 1px solid var(--border, #e5e7eb);
@@ -913,7 +914,6 @@
         justify-content: space-between;
         padding: 11px 20px;
         font-size: 0.88rem;
-        font-weight: 600;
         color: var(--text, #333);
         background: none;
         border: none;
@@ -943,7 +943,6 @@
         font-size: 0.82rem;
         color: var(--muted, #888);
         text-decoration: none;
-        font-weight: 500;
         border: none;
       }
       .md-acc-body a:hover {
@@ -964,7 +963,6 @@
         border: 1px solid var(--border, #e5e7eb);
         border-radius: 6px;
         font-size: 0.75rem;
-        font-weight: 600;
         color: var(--muted, #555);
         cursor: pointer;
       }
@@ -997,7 +995,6 @@
       }
       .md-sec-title {
         font-size: 0.64rem;
-        font-weight: 800;
         text-transform: uppercase;
         color: var(--muted);
         padding: 0.5rem 0.4rem;
@@ -1024,7 +1021,6 @@
       }
       .md-item .mt {
         font-size: 0.84rem;
-        font-weight: 600;
       }
       .md-item .mb {
         font-size: 0.68rem;
@@ -1269,8 +1265,6 @@
       }
 
       .card-name {
-        font-family: "Sora", sans-serif;
-        font-weight: 700;
         font-size: 1.15rem;
         color: #fff;
         position: relative;
@@ -1282,7 +1276,6 @@
         background: rgba(255, 255, 255, 0.18);
         color: #fff;
         font-size: 0.78rem;
-        font-weight: 600;
         padding: 0.25rem 0.7rem;
         border-radius: 20px;
         backdrop-filter: blur(6px);
@@ -1321,7 +1314,6 @@
         align-items: center;
         gap: 0.35rem;
         font-size: 0.85rem;
-        font-weight: 600;
         color: #b45309;
         margin-top: 0.2rem;
       }
@@ -1337,9 +1329,7 @@
         border: 1.5px solid var(--border);
         background: transparent;
         color: var(--text);
-        font-family: "DM Sans", sans-serif;
         font-size: 0.9rem;
-        font-weight: 600;
         cursor: pointer;
         transition: all 0.2s;
       }
@@ -1363,7 +1353,6 @@
         opacity: 0.3;
       }
       .empty h3 {
-        font-family: "Sora", sans-serif;
         font-size: 1.2rem;
         color: var(--text);
         margin-bottom: 0.4rem;
@@ -1405,83 +1394,24 @@
           #1a3a7a 55%,
           #0f2d6b 100%
         );
-        padding: 64px 0 56px;
-        overflow: hidden;
-      }
-
-      .contact-hero::after {
-        content: "";
-        position: absolute;
-        bottom: -80px;
-        left: -60px;
-        width: 350px;
-        height: 350px;
-        background: radial-gradient(
-          circle,
-          rgba(10, 171, 135, 0.12) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-      }
-      .hero-dots {
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(
-          rgba(255, 255, 255, 0.04) 1px,
-          transparent 1px
-        );
-        background-size: 28px 28px;
       }
 
       .contact-hero .eyebrow {
-        font-size: 0.72rem;
-        font-weight: 800;
-        text-transform: uppercase;
         color: #60a5fa;
-        margin-bottom: 10px;
       }
-      .contact-hero h1 {
-        font-weight: 900;
-        font-size: clamp(2rem, 4.5vw, 3.2rem);
-        color: #fff;
-        position: relative;
-        z-index: 1;
-      }
-      .contact-hero h1 .hl {
+       .contact-hero h1 .hl{
         background: linear-gradient(90deg, #60a5fa, #34d399);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-      }
+       }
       .contact-hero p {
         color: #94b4da;
-        font-size: 0.95rem;
-        max-width: 480px;
-        margin-top: 12px;
-        position: relative;
-        z-index: 1;
-      }
-
-      /* Quick contact pills in hero */
-      .hero-contact-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 28px;
-        position: relative;
-        z-index: 1;
       }
       .hcp {
-        display: flex;
-        align-items: center;
-        gap: 8px;
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(8px);
-        border-radius: 50px;
-        padding: 8px 16px;
-        font-size: 0.78rem;
-        font-weight: 600;
         color: #c5d9f5;
         cursor: pointer;
         transition: all 0.2s;
@@ -1492,151 +1422,57 @@
       }
       .hcp i {
         color: #60a5fa;
-        font-size: 0.85rem;
-      }
-
-      /* Floating stat cards in hero */
-      .hero-side {
-        position: relative;
-        z-index: 1;
       }
       .stat-float {
         background: rgba(255, 255, 255, 0.07);
         border: 1px solid rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(16px);
-        border-radius: 16px;
-        padding: 20px 22px;
         animation: floatCard 3.5s ease-in-out infinite alternate;
-      }
-      .stat-float.d2 {
-        animation-delay: 0.9s;
-      }
-      .stat-float.d3 {
-        animation-delay: 1.8s;
-      }
-      @keyframes floatCard {
-        from {
-          transform: translateY(0);
-        }
-        to {
-          transform: translateY(-10px);
-        }
-      }
-      .sf-val {
-        font-size: 1.8rem;
-        font-weight: 900;
-        color: #fff;
       }
       .sf-val span {
         color: #60a5fa;
       }
       .sf-lbl {
-        font-size: 0.72rem;
         color: #94b4da;
-        margin-top: 4px;
-        font-weight: 600;
-      }
-
-      /* ── CONTACT CARDS (top strip) ── */
-      .contact-cards-strip {
-        padding: 0;
-        margin-top: -36px;
-        position: relative;
-        z-index: 10;
       }
       .contact-card {
-        background: var(--white);
-        border: 1.5px solid var(--border);
-        border-radius: 18px;
-        padding: 26px 22px;
-        height: 100%;
         transition: all 0.25s;
         cursor: pointer;
-        position: relative;
-        overflow: hidden;
-      }
-      .contact-card::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: var(--cc-color, var(--accent));
-        transform: scaleX(0);
-        transition: transform 0.25s;
-        border-radius: 0 0 18px 18px;
       }
       .contact-card:hover {
         box-shadow: var(--sh3);
         transform: translateY(-4px);
       }
-      .contact-card:hover::before {
-        transform: scaleX(1);
-      }
       .cc-icon-wrap {
-        width: 52px;
-        height: 52px;
+        width: 40px;
+        height: 40px;
         border-radius: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.3rem;
-        margin-bottom: 16px;
         background: var(--cc-bg, var(--accent2));
         color: var(--cc-color, var(--accent));
       }
       .cc-card-title {
         font-size: 0.92rem;
-        font-weight: 800;
         color: var(--navy);
-        margin-bottom: 5px;
       }
       .cc-card-val {
         font-size: 0.95rem;
-        font-weight: 700;
         color: var(--cc-color, var(--accent));
-        margin-bottom: 3px;
       }
       .cc-card-sub {
         font-size: 0.74rem;
         color: var(--muted);
       }
-
-      /* ── MAIN LAYOUT ── */
-      .contact-main {
-        padding: 56px 0 60px;
-      }
-
-      /* ── FORM CARD ── */
-      .form-card {
-        background: var(--white);
-        border-radius: 20px;
-        border: 1.5px solid var(--border);
-        padding: 40px 36px;
-        box-shadow: var(--sh2);
-      }
-      .form-card h2 {
-        font-size: 1.6rem;
-        font-weight: 900;
-        color: var(--navy);
-        margin-bottom: 6px;
-      }
       .form-card .fc-sub {
         font-size: 0.85rem;
         color: var(--muted);
-        margin-bottom: 28px;
       }
-
-  
       /* Form fields */
       .fc-label {
         font-size: 0.8rem;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 6px;
-        display: block;
-      }
+        }
       .fc-input,
       .fc-select,
       .fc-textarea {
@@ -1644,7 +1480,6 @@
         border: 1.5px solid var(--border);
         border-radius: 10px;
         padding: 11px 14px;
-        font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 0.88rem;
         color: var(--text);
         background: var(--bg);
@@ -1701,9 +1536,7 @@
         border: none;
         border-radius: 12px;
         color: #fff;
-        font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 0.92rem;
-        font-weight: 800;
         cursor: pointer;
         transition:
           opacity 0.2s,
@@ -1758,7 +1591,6 @@
       }
       .fs-title {
         font-size: 1.5rem;
-        font-weight: 900;
         color: var(--navy);
         margin-bottom: 8px;
       }
@@ -1783,7 +1615,6 @@
       }
       .info-block h3 {
         font-size: 1.1rem;
-        font-weight: 900;
         color: var(--navy);
         margin-bottom: 18px;
       }
@@ -1809,14 +1640,12 @@
       }
       .ir-label {
         font-size: 0.7rem;
-        font-weight: 700;
         color: var(--muted);
         text-transform: uppercase;
         margin-bottom: 2px;
       }
       .ir-val {
         font-size: 0.88rem;
-        font-weight: 700;
         color: var(--navy);
       }
       .ir-sub {
@@ -1846,14 +1675,12 @@
       }
       .cc-eyebrow {
         font-size: 0.68rem;
-        font-weight: 800;
         text-transform: uppercase;
         color: #60a5fa;
         margin-bottom: 10px;
       }
       .cc-title {
         font-size: 1.1rem;
-        font-weight: 900;
         color: #fff;
         margin-bottom: 8px;
       }
@@ -1876,7 +1703,6 @@
         justify-content: center;
         font-size: 1rem;
         margin-left: -8px;
-        font-weight: 800;
       }
       .cc-av:first-child {
         margin-left: 0;
@@ -1886,7 +1712,6 @@
         color: #94b4da;
         align-self: center;
         margin-left: 10px;
-        font-weight: 600;
       }
       .btn-call {
         width: 100%;
@@ -1895,9 +1720,7 @@
         border: none;
         border-radius: 10px;
         color: #fff;
-        font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 0.85rem;
-        font-weight: 800;
         cursor: pointer;
         transition:
           opacity 0.2s,
@@ -1942,7 +1765,6 @@
       }
       .social-block h3 {
         font-size: 1rem;
-        font-weight: 900;
         color: var(--navy);
         margin-bottom: 14px;
       }
@@ -1960,7 +1782,6 @@
         border: 1.5px solid var(--border);
         background: var(--bg);
         font-size: 0.78rem;
-        font-weight: 700;
         color: var(--text);
         cursor: pointer;
         transition: all 0.2s;
@@ -1980,7 +1801,6 @@
       }
       .faq-sec h2 {
         font-size: 1.8rem;
-        font-weight: 900;
         color: var(--navy);
         margin-bottom: 6px;
       }
@@ -2008,7 +1828,6 @@
         padding: 18px 20px;
         cursor: pointer;
         font-size: 0.9rem;
-        font-weight: 700;
         color: var(--navy);
         user-select: none;
       }
@@ -2043,7 +1862,6 @@
       }
       .map-sec h2 {
         font-size: 1.6rem;
-        font-weight: 900;
         color: var(--navy);
         margin-bottom: 6px;
       }
@@ -2061,7 +1879,6 @@
         gap: 12px;
         color: var(--muted);
         font-size: 0.9rem;
-        font-weight: 600;
       }
       .map-placeholder-icon {
         font-size: 3rem;
@@ -2087,7 +1904,6 @@
       }
       .oc-city {
         font-size: 0.92rem;
-        font-weight: 800;
         color: var(--navy);
         display: flex;
         align-items: center;
@@ -2107,7 +1923,6 @@
         align-items: center;
         gap: 4px;
         font-size: 0.67rem;
-        font-weight: 700;
         padding: 3px 9px;
         border-radius: 50px;
         background: var(--accent2);
@@ -2144,7 +1959,6 @@
       }
       .fl-t {
         font-size: 1.1rem;
-        font-weight: 700;
         color: #ffffff;
         margin-bottom: 15px;
       }
@@ -2357,7 +2171,6 @@
         border-radius: 9px;
         color: #fff;
         font-size: 0.85rem;
-        font-weight: 700;
         cursor: pointer;
         transition:
           opacity 0.2s,
@@ -2374,7 +2187,6 @@
         border-radius: 9px;
         color: #fff;
         font-size: 0.85rem;
-        font-weight: 700;
         cursor: pointer;
         transition: background 0.2s;
       }
@@ -2410,7 +2222,7 @@
           We’re on your favourite socials!
         </p>
         <span class="tb-sep">|</span>
-        <a href="#" style="color: #4860ff; font-weight: 700"
+                <a href="#" style="color: #4860ff; font-weight: 700"
           ><i class="bi bi-facebook"></i
         ></a>
         <a href="#" style="color: hwb(0 37% 0%); font-weight: 700"
@@ -2749,6 +2561,15 @@
 
               <!-- Right: Content -->
               <div class="cm-content">
+                   <div class="cm-btns" id="cmLevelTabs">
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="UG"><a href="ug-courses.html">UG Courses</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="PG"><a href="pg-courses.html">PG Courses</a></div>                
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Executive MBA"><a href="executive-course.html">Executive MBA</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Online Programs"> <a href="online-programs.html">Online Programs</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Management (PGDM / MBA)"> <a href="pgdm-mba-management.html">Management (PGDM / MBA)</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Study Abroad"> <a href="study-abroad.html">Study Abroad</a></div> 
+
+                </div>
                 <!-- Mode tabs -->
                 <div class="cm-tabs" id="cmTabs">
                   <div class="cm-tab active" data-mode="all">All</div>
@@ -2849,58 +2670,46 @@
     <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
 
     <!-- ══════════════ CONTACT HERO ══════════════ -->
-    <section class="contact-hero">
-      <div class="hero-dots"></div>
+    <section class="contact-hero py-5">
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-lg-6">
-            <div class="eyebrow fade-up d1">Get In Touch</div>
-            <h1 class="fade-up d2">
+            <div class="eyebrow fs-5">Get In Touch</div>
+            <h1 class="text-white">
               We're Here to <span class="hl">Help You</span><br />Find Your Path
             </h1>
-            <p class="fade-up d3">
+            <p class="w-75">
               Whether you have a question about programs, admissions,
               scholarships, or anything else — our team of expert counsellors is
               ready to help.
             </p>
-            <div class="hero-contact-pills fade-up d4">
-              <a href="tel:18001234567" class="hcp"
-                ><i class="bi bi-telephone-fill"></i> Call Us Free</a
+            <div class="hero-contact-pills d-flex flex-wrap gap-2 ">
+              <a href="tel:18001234567" class="hcp py-2 px-3 rounded-5"
+                ><i class="bi bi-telephone-fill fs-6"></i> Call Us Free</a
               >
-              <a href="mailto:help@campuswalkin.com" class="hcp"
-                ><i class="bi bi-envelope-fill"></i> Email Us</a
+              <a href="mailto:help@campuswalkin.com" class="hcp py-2 px-3 rounded-5"
+                ><i class="bi bi-envelope-fill fs-6"></i> Email Us</a
               >
-              <span class="hcp"
-                ><i class="bi bi-chat-dots-fill"></i> Live Chat</span
+              <span class="hcp py-2 px-3 rounded-5"
+                ><i class="bi bi-chat-dots-fill fs-6"></i> Live Chat</span
               >
-              <span class="hcp"><i class="bi bi-whatsapp"></i> WhatsApp</span>
+              <span class="hcp py-2 px-3 rounded-5"><i class="bi bi-whatsapp fs-6"></i> WhatsApp</span>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="hero-side row g-3">
-              <div class="col-12">
-                <div class="stat-float">
-                  <div class="d-flex align-items-center gap-3">
-                    <div style="font-size: 2rem"></div>
-                    <div>
-                      <div class="sf-val">5<span>L+</span></div>
-                      <div class="sf-lbl">Students counselled successfully</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="stat-float d2">
+              <div class="col-6 mx-auto">
+                <div class="stat-float py-4 px-4 rounded-2 h-100">
                   <div style="font-size: 1.5rem; margin-bottom: 6px"></div>
-                  <div class="sf-val">2<span>min</span></div>
-                  <div class="sf-lbl">Avg. response time</div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="stat-float d3">
-                  <div style="font-size: 1.5rem; margin-bottom: 6px"></div>
-                  <div class="sf-val">4.9<span>★</span></div>
+                  <div class="sf-val text-white fs-3">4.9<span>★</span></div>
                   <div class="sf-lbl">Counsellor rating</div>
+                </div>
+              </div>
+              <div class="col-6 mx-auto">
+                <div class="stat-float py-4 px-4 rounded-2 h-100">
+                  <div style="font-size: 1.5rem; margin-bottom: 6px"></div>
+                  <div class="sf-val text-white fs-3">5<span>L+</span></div>
+                  <div class="sf-lbl">Students counselled successfully</div>
                 </div>
               </div>
             </div>
@@ -2908,21 +2717,20 @@
         </div>
       </div>
     </section>
-
     <!-- ══════════════ QUICK CONTACT CARDS ══════════════ -->
-    <section class="contact-cards-strip">
+    <section class="contact-cards-strip mt-4">
       <div class="container">
         <div class="row g-3">
           <div class="col-6 col-lg-3">
             <div
-              class="contact-card"
+              class="contact-card bg-white border  rounded-2 h-100 py-3 px-3" 
               style="--cc-color: #2563eb; --cc-bg: #eff4ff"
             >
-              <div class="cc-icon-wrap">
+              <div class="cc-icon-wrap mb-3">
                 <i class="bi bi-telephone-fill"></i>
               </div>
-              <div class="cc-card-title">Call Us</div>
-              <div class="cc-card-val">1800-XXX-XXXX</div>
+              <div class="cc-card-title ">Call Us</div>
+              <div class="cc-card-val mb-1">1800-XXX-XXXX</div>
               <div class="cc-card-sub">
                 Toll free · Mon–Sat<br />8 AM – 10 PM IST
               </div>
@@ -2930,14 +2738,14 @@
           </div>
           <div class="col-6 col-lg-3">
             <div
-              class="contact-card"
+              class="contact-card bg-white border rounded-2 h-100 py-3 px-3 "
               style="--cc-color: #0aab87; --cc-bg: #ebfaf6"
             >
-              <div class="cc-icon-wrap">
+              <div class="cc-icon-wrap mb-3">
                 <i class="bi bi-envelope-fill"></i>
               </div>
-              <div class="cc-card-title">Email Us</div>
-              <div class="cc-card-val">help@campuswalkin.com</div>
+              <div class="cc-card-title ">Email Us</div>
+              <div class="cc-card-val mb-1">help@campuswalkin.com</div>
               <div class="cc-card-sub">
                 We reply within<br />2 business hours
               </div>
@@ -2945,12 +2753,12 @@
           </div>
           <div class="col-6 col-lg-3">
             <div
-              class="contact-card"
+              class="contact-card bg-white border  rounded-2 h-100 py-3 px-3"
               style="--cc-color: #25d366; --cc-bg: #f0fff6"
             >
-              <div class="cc-icon-wrap"><i class="bi bi-whatsapp"></i></div>
-              <div class="cc-card-title">WhatsApp</div>
-              <div class="cc-card-val">+91 98765 43210</div>
+              <div class="cc-icon-wrap mb-3"><i class="bi bi-whatsapp"></i></div>
+              <div class="cc-card-title ">WhatsApp</div>
+              <div class="cc-card-val mb-1">+91 98765 43210</div>
               <div class="cc-card-sub">
                 Chat instantly with<br />our counsellors
               </div>
@@ -2958,12 +2766,12 @@
           </div>
           <div class="col-6 col-lg-3">
             <div
-              class="contact-card"
+              class="contact-card bg-white border  rounded-2 h-100 py-3 px-3"
               style="--cc-color: #e85d3a; --cc-bg: #fff3f0"
             >
-              <div class="cc-icon-wrap"><i class="bi bi-geo-alt-fill"></i></div>
-              <div class="cc-card-title">Visit Us</div>
-              <div class="cc-card-val">Mumbai HQ</div>
+              <div class="cc-icon-wrap mb-3"><i class="bi bi-geo-alt-fill"></i></div>
+              <div class="cc-card-title ">Visit Us</div>
+              <div class="cc-card-val mb-1">Mumbai HQ</div>
               <div class="cc-card-sub">
                 4 offices across India<br />Mumbai · Delhi · Bangalore · Pune
               </div>
@@ -2974,23 +2782,21 @@
     </section>
 
     <!-- ══════════════ MAIN CONTENT ══════════════ -->
-    <section class="contact-main">
+    <section class="contact-main py-5">
       <div class="container">
         <div class="row g-4 align-items-start">
           <!-- ── FORM ── -->
           <div class="col-lg-7">
-            <div class="form-card" id="formCard">
+            <div class="form-card rounded-3 border py-4 px-4 shadow" id="formCard">
               <h2>Send Us a Message</h2>
               <p class="fc-sub">
                 Fill in the form and a counsellor will get back to you within 2
                 hours.
               </p>
-
-
               <form id="contactForm" novalidate>
                 <div class="row g-3 mb-3">
                   <div class="col-sm-6">
-                    <label class="fc-label">First Name *</label>
+                    <label class="fc-label d-block mb-1">First Name *</label>
                     <input
                       type="text"
                       class="fc-input"
@@ -3000,7 +2806,7 @@
                     />
                   </div>
                   <div class="col-sm-6">
-                    <label class="fc-label">Last Name *</label>
+                    <label class="fc-label d-block mb-1">Last Name *</label>
                     <input
                       type="text"
                       class="fc-input"
@@ -3012,7 +2818,7 @@
                 </div>
                 <div class="row g-3 mb-3">
                   <div class="col-sm-6">
-                    <label class="fc-label">Email Address *</label>
+                    <label class="fc-label d-block mb-1">Email Address *</label>
                     <input
                       type="email"
                       class="fc-input"
@@ -3022,7 +2828,7 @@
                     />
                   </div>
                   <div class="col-sm-6">
-                    <label class="fc-label">Phone Number *</label>
+                    <label class="fc-label d-block mb-1">Phone Number *</label>
                     <input
                       type="tel"
                       class="fc-input"
@@ -3034,7 +2840,7 @@
                 </div>
                 <div class="row g-3 mb-3">
                   <div class="col-sm-6">
-                    <label class="fc-label">Course of Interest</label>
+                    <label class="fc-label mb-1 d-block">Course of Interest</label>
                     <select class="fc-select fc-input">
                       <option value="">Select a course...</option>
                       <option>MBA / PGDM</option>
@@ -3048,7 +2854,7 @@
                     </select>
                   </div>
                   <div class="col-sm-6">
-                    <label class="fc-label">Preferred Mode</label>
+                    <label class="fc-label mb-1 d-block">Preferred Mode</label>
                     <select class="fc-select fc-input">
                       <option value="">Any mode...</option>
                       <option>Online</option>
@@ -3059,7 +2865,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label class="fc-label">How can we help you? *</label>
+                  <label class="fc-label mb-1 d-block">How can we help you? *</label>
                   <textarea
                     class="fc-textarea"
                     placeholder="Tell us what you're looking for, your goals, or any specific questions..."
@@ -3138,7 +2944,6 @@
                         background: rgba(255, 255, 255, 0.15);
                         font-size: 0.65rem;
                         color: #fff;
-                        font-weight: 700;
                       "
                     >
                       +24
@@ -3244,7 +3049,6 @@
           class="sec-eyebrow mb-2"
           style="
             font-size: 0.72rem;
-            font-weight: 800;
             text-transform: uppercase;
             color: var(--accent);
           "
@@ -3258,7 +3062,6 @@
 
         <div class="map-wrap mb-4">
           <div class="map-placeholder-icon">🗺️</div>
-          <div style="font-weight: 700; color: var(--navy)">
             Interactive Map
           </div>
           <div style="font-size: 0.78rem">
@@ -3318,7 +3121,6 @@
           class="sec-eyebrow mb-2"
           style="
             font-size: 0.72rem;
-            font-weight: 800;
             text-transform: uppercase;
             color: var(--accent);
           "
@@ -3505,7 +3307,6 @@
         <div class="fg">
           <!-- Brand Block -->
           <div class="fb">
-            <div style="font-size: 1.25rem; font-weight: 900; color: #fff">
               <span class="cw-logo">CW</span>
               CampusWalkin
             </div>
