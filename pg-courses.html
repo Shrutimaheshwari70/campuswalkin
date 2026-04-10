@@ -653,23 +653,23 @@
         background: #4f46e5;
         color: #fff;
       }
-.cm-btns{
+      .cm-btns {
         display: flex;
         gap: 10px;
         margin-bottom: 12px;
         flex-wrap: wrap;
         cursor: pointer;
       }
-      .cm-btn{
+      .cm-btn {
         border: 1px solid #4f46e5;
         padding: 2px 15px;
         font-size: 0.75rem;
         /* border-radius: 10px; */
       }
-    .cm-btn:hover{
+      .cm-btn:hover {
         background: #4f46e5;
         color: #fff;
-    }
+      }
       /* GRID */
       .cm-grid {
         display: grid;
@@ -1046,7 +1046,7 @@
       .programs-card {
         position: absolute;
         cursor: pointer;
-        top:40px;
+        top: 40px;
         left: 170px;
         transform: translateX(-50%) translateY(20px);
         width: 100vw;
@@ -1444,7 +1444,7 @@
         flex-wrap: wrap;
         gap: 0.6rem;
       }
-      .fb-bot i{
+      .fb-bot i {
         color: grey;
       }
       .fb-bot p {
@@ -1569,6 +1569,22 @@
         background-color: pink;
         height: 100%;
         width: 100%;
+      }
+      .fs-sub-body {
+        display: none;
+        transition: all 0.9s ease;
+      }
+
+      .fs-sub-body.open {
+        display: block;
+      }
+
+      /* optional arrow rotate */
+      .fs-sec-toggle {
+        transition: 0.3s;
+      }
+      .fs-sec-toggle.open {
+        transform: rotate(180deg);
       }
       /* --------------universities */
       .uni-banner {
@@ -1775,6 +1791,14 @@
       }
       .fs-sec-title {
         font-size: 0.99rem;
+        font-weight: 500;
+        color: var(--navy);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .fs-sec-title-pg,.fs-sec-title-ug{
+        font-size: 0.85rem;
         font-weight: 500;
         color: var(--navy);
         display: flex;
@@ -2183,21 +2207,7 @@
       .college-card:hover .cc-img-wrap img {
         transform: scale(1.04);
       }
-      .cc-rank-badge {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background: rgba(11, 20, 55, 0.75);
-        backdrop-filter: blur(6px);
-        color: #fff;
-        font-size: 0.62rem;
-        font-weight: 800;
-        padding: 3px 8px;
-        border-radius: 100px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
+
       .cc-type-badge {
         position: absolute;
         top: 10px;
@@ -2648,16 +2658,16 @@
           border-bottom: 1px solid #97b3ff;
         }
       }
-#studentContent,
-#collegeContent {
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* 🔥 mobile smooth */
-}
-.card-content {
-  width: 280px;
-  flex-shrink: 0;
-}
+      #studentContent,
+      #collegeContent {
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch; /* 🔥 mobile smooth */
+      }
+      .card-content {
+        width: 280px;
+        flex-shrink: 0;
+      }
       #studentContent,
       #collegeContent {
         overflow-x: auto;
@@ -3063,14 +3073,39 @@
 
               <!-- Right: Content -->
               <div class="cm-content">
-                 <div class="cm-btns" id="cmLevelTabs">
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="UG"><a href="ug-courses.html">UG Courses</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="PG"><a href="pg-courses.html">PG Courses</a></div>                
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Executive MBA"><a href="executive-course.html">Executive MBA</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Online Programs"> <a href="online-programs.html">Online Programs</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Management (PGDM / MBA)"> <a href="pgdm-mba-management.html">Management (PGDM / MBA)</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Study Abroad"> <a href="study-abroad.html">Study Abroad</a></div> 
-
+                <div class="cm-btns" id="cmLevelTabs">
+                  <div class="cm-btn rounded-4 py-1 px-2" data-level="UG">
+                    <a href="ug-courses.html">UG Courses</a>
+                  </div>
+                  <div class="cm-btn rounded-4 py-1 px-2" data-level="PG">
+                    <a href="pg-courses.html">PG Courses</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Executive MBA"
+                  >
+                    <a href="executive-course.html">Executive MBA</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Online Programs"
+                  >
+                    <a href="online-programs.html">Online Programs</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Management (PGDM / MBA)"
+                  >
+                    <a href="pgdm-mba-management.html"
+                      >Management (PGDM / MBA)</a
+                    >
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Study Abroad"
+                  >
+                    <a href="study-abroad.html">Study Abroad</a>
+                  </div>
                 </div>
                 <!-- Mode tabs -->
                 <div class="cm-tabs" id="cmTabs">
@@ -3241,7 +3276,12 @@
                     />
                     <i class="bi bi-search"></i>
                   </div>
-                  <div id="course-list">
+                  <div class="fs-sec-head open" onclick="toggleSection(this)">
+                    <span class="fs-sec-title-pg">PostGraduate</span>
+                    <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+                  </div>
+                  <div class="fs-sub-body open" id="pg-list">
+                    <!-- <div id="course-list"> -->
                     <div
                       class="filter-check"
                       onclick="toggleCheck(this, 'MBA')"
@@ -3269,16 +3309,16 @@
                         <span class="fc-label">M.Tech</span>
                       </div>
                     </div>
-                    <div class="filter-check" onclick="toggleCheck(this, 'MSc')">
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'MSc')"
+                    >
                       <div class="fc-left">
                         <div class="fc-checkbox"></div>
                         <span class="fc-label">MSc</span>
                       </div>
                     </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'MA')"
-                    >
+                    <div class="filter-check" onclick="toggleCheck(this, 'MA')">
                       <div class="fc-left">
                         <div class="fc-checkbox"></div>
                         <span class="fc-label">MA</span>
@@ -3312,7 +3352,7 @@
                       </div>
                     </div>
                     <div
-                      class="filter-check "
+                      class="filter-check"
                       onclick="toggleCheck(this, 'pgpx')"
                     >
                       <div class="fc-left">
@@ -3320,15 +3360,17 @@
                         <span class="fc-label">pgpx</span>
                       </div>
                     </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'MBBS')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">MBBS</span>
-                      </div>
-                    </div>
+                
+                    
+                    <!-- </div> -->
+                  </div>
+
+                  <!-- ---------------------ug section  -->
+                  <div class="fs-sec-head" onclick="toggleSection(this)">
+                    <span class="fs-sec-title-ug">Undergraduate</span>
+                    <i class="bi bi-chevron-down fs-sec-toggle"></i>
+                  </div>
+                  <div class="fs-sub-body" id="ug-list">
                     <div
                       class="filter-check"
                       onclick="toggleCheck(this, 'B.Sc')"
@@ -3351,6 +3393,15 @@
                       <div class="fc-left">
                         <div class="fc-checkbox"></div>
                         <span class="fc-label">BA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'MBBS')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MBBS</span>
                       </div>
                     </div>
                     <div
@@ -3400,21 +3451,14 @@
                       </div>
                       <span class="fc-count">1260</span>
                     </div>
+                    <div
+                      id="course-list-not-found"
+                      class="d-none"
+                      style="color: var(--muted); font-size: 0.75rem"
+                    >
+                      No course found
+                    </div>
                   </div>
-                  <div
-                    id="course-list-not-found"
-                    class="d-none"
-                    style="color: var(--muted); font-size: 0.75rem"
-                  >
-                    No course found
-                  </div>
-                  <!-- <div
-                    class="filter-show-more"
-                    id="course-more"
-                    onclick="showMore('course-list', 'course-more')"
-                  >
-                    + Show 2 more
-                  </div> -->
                 </div>
               </div>
 
@@ -4023,8 +4067,8 @@
           </span>
           <h2 class="display-6 mb-1 fw-normal">What After Post Graduation?</h2>
           <p class="text-secondary mx-auto" style="max-width: 600px">
-              Explore advanced career paths, leadership roles, and high-paying opportunities after completing your postgraduate degree
-
+            Explore advanced career paths, leadership roles, and high-paying
+            opportunities after completing your postgraduate degree
           </p>
         </div>
 
@@ -4045,11 +4089,12 @@
                   >
                 </div>
               </div>
-              <div class="card-body h-100 ">
+              <div class="card-body h-100">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-primary bg-opacity-10 text-primary fw-normal p-2 rounded"
-                    >  M.Tech / ME</span
+                  >
+                    M.Tech / ME</span
                   >
                 </div>
                 <h5 class="card-title mb-1">Advanced Engineering & R&D</h5>
@@ -4096,12 +4141,12 @@
                   >
                 </div>
               </div>
-              <div class="card-body h-100 ">
+              <div class="card-body h-100">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-info bg-opacity-10 text-info fw-normal p-2 rounded"
                   >
-                      MBA / PGDM</span
+                    MBA / PGDM</span
                   >
                 </div>
                 <h5 class="card-title mb-1">Management & Leadership</h5>
@@ -4148,19 +4193,19 @@
                   >
                 </div>
               </div>
-              <div class="card-body h-100 ">
+              <div class="card-body h-100">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-warning bg-opacity-10 text-warning fw-normal p-2 rounded"
-                    >  MCA / M.Sc IT</span
+                  >
+                    MCA / M.Sc IT</span
                   >
                 </div>
-                <h5 class="card-title mb-1">Software & IT Careers
+                <h5 class="card-title mb-1">Software & IT Careers</h5>
                 <div class="mb-3">
                   <div class="d-flex align-items-center gap-2 mb-2">
                     <i class="bi bi-briefcase-fill text-warning"></i>
-                                        <small class="text-secondary">Top Job Roles</small>
-
+                    <small class="text-secondary">Top Job Roles</small>
                   </div>
                   <div class="d-flex flex-wrap gap-2 mb-3">
                     <span class="badge bg-light text-dark border fw-normal"
@@ -4200,13 +4245,13 @@
                   >
                 </div>
               </div>
-              <div class="card-body h-100 ">
+              <div class="card-body h-100">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-dark text-dark bg-opacity-10 text-success fw-normal p-2 rounded"
-                    >  M.Com / Finance
-</span
                   >
+                    M.Com / Finance
+                  </span>
                 </div>
                 <h5 class="card-title mb-1">Finance & Corporate Roles</h5>
                 <div class="mb-3">
@@ -4252,11 +4297,12 @@
                   >
                 </div>
               </div>
-              <div class="card-body h-100 ">
+              <div class="card-body h-100">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-danger bg-opacity-10 text-danger fw-normal p-2 rounded"
-                    >  MA / Humanities</span
+                  >
+                    MA / Humanities</span
                   >
                 </div>
                 <h5 class="card-title mb-1">Creative & Academic Careers</h5>
@@ -4303,11 +4349,12 @@
                   >
                 </div>
               </div>
-              <div class="card-body h-100 ">
+              <div class="card-body h-100">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-secondary bg-opacity-10 text-secondary fw-normal p-2 rounded"
-                    >  M.Sc / PhD</span
+                  >
+                    M.Sc / PhD</span
                   >
                 </div>
                 <h5 class="card-title mb-1">Research & Innovation</h5>
@@ -4317,12 +4364,21 @@
                     <small class="text-secondary">Top Job Roles</small>
                   </div>
                   <div class="d-flex flex-wrap gap-2 mb-3">
-              
-<span class="badge bg-light text-dark border fw-normal">Scientist</span>
-<span class="badge bg-light text-dark border fw-normal">Research Analyst</span>
-<span class="badge bg-light text-dark border fw-normal">Biotechnologist</span>
-<span class="badge bg-light text-dark border fw-normal">Data Scientist</span>
-<span class="badge bg-light text-dark border fw-normal">Academician</span>
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Scientist</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Research Analyst</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Biotechnologist</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Data Scientist</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Academician</span
+                    >
                   </div>
                 </div>
               </div>
@@ -4342,7 +4398,7 @@
           <li class="position-relative" id="collegeTabs">FOR COLLEGES</li>
         </ul>
         <!-- //-----------------------------for students  -->
-        <div id="studentContent" class="flex-nowrap flex-shrink-0" >
+        <div id="studentContent" class="flex-nowrap flex-shrink-0">
           <!-- ----------card-1 -->
           <div class="card-content text-center flex-shrink-0 p-4">
             <!-- Small rounded image on top -->
@@ -4674,38 +4730,117 @@
         <h4 class="text-primary">Get placed where you belong</h4>
       </div>
       <div class="bottom-scroll-rec-wrapper overflow-hidden">
-        <div class="bottom-scroll-rec d-flex gap-3 px-5 flex-nowrap" id="recruiters ">
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./accenture-rec.svg" alt="Accenture" />
+        <div
+          class="bottom-scroll-rec d-flex gap-3 px-5 flex-nowrap"
+          id="recruiters "
+        >
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./accenture-rec.svg"
+              alt="Accenture"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./amaozon-rec.svg" alt="Amazon" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./amaozon-rec.svg"
+              alt="Amazon"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0"><img class="h-100 w-100 img-fluid object-fit-contain" src="./jp-rec.svg" alt="JP Morgan" /></div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0"><img class="h-100 w-100 img-fluid object-fit-contain" src="./kpmg-rec.svg" alt="KPMG" /></div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./google-rec.svg" alt="Google" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./jp-rec.svg"
+              alt="JP Morgan"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./american-rec.svg" alt="American Express" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./kpmg-rec.svg"
+              alt="KPMG"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./citiBank-rec.svg" alt="CitiBank" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./google-rec.svg"
+              alt="Google"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./deloitte-rec.svg" alt="Deloitte" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./american-rec.svg"
+              alt="American Express"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./facebook-rec.svg" alt="Facebook" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./citiBank-rec.svg"
+              alt="CitiBank"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./flipcart-rec.svg" alt="Flipkart" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./deloitte-rec.svg"
+              alt="Deloitte"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./cognizant-rec.svg" alt="Cognizant" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./facebook-rec.svg"
+              alt="Facebook"
+            />
           </div>
-          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
-            <img class="h-100 w-100 img-fluid object-fit-contain" src="./microsoft-rec.svg" alt="Microsoft" />
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./flipcart-rec.svg"
+              alt="Flipkart"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./cognizant-rec.svg"
+              alt="Cognizant"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./microsoft-rec.svg"
+              alt="Microsoft"
+            />
           </div>
         </div>
       </div>
@@ -5455,7 +5590,7 @@
       let currentPage = 1;
       const PER_PAGE = 5;
       let currentSort = "popularity";
-           const UG_COURSES = [
+      const UG_COURSES = [
         "B.Sc",
         "B.Com",
         "BA",
@@ -5463,35 +5598,37 @@
         "BE/B.Tech",
         "BCA",
         "LLB",
-        "MBBS"
+        "MBBS",
       ];
       const PG_COURSES = [
-      "mba",
-  "pgp",
-  "pgpx",
-  "epgp",
-  "pgdm",
-  "m.tech",
-  "mca",
-  "msc",
-  "ma",
-  "phd",
-  "fpm"
+        "mba",
+        "pgp",
+        "pgpx",
+        "epgp",
+        "pgdm",
+        "m.tech",
+        "mca",
+        "msc",
+        "ma",
+        "phd",
+        "fpm",
       ];
       function setDefaultLevelFilter() {
-  const levelItems = document.querySelectorAll("#level-list .filter-check");
+        const levelItems = document.querySelectorAll(
+          "#level-list .filter-check",
+        );
 
-  levelItems.forEach((el) => {
-    const name = el.querySelector(".fc-label").textContent.trim();
+        levelItems.forEach((el) => {
+          const name = el.querySelector(".fc-label").textContent.trim();
 
-    if (name === "Post Graduation") {
-      el.classList.add("checked"); // UI me tick
-      activeFilters[name] = "level"; // filter me add
-    } else {
-      el.classList.remove("checked");
-    }
-  });
-}
+          if (name === "Post Graduation") {
+            el.classList.add("checked"); // UI me tick
+            activeFilters[name] = "level"; // filter me add
+          } else {
+            el.classList.remove("checked");
+          }
+        });
+      }
       // ════════════════════════════════════════════
       // DATA LOAD — JSON se ek baar fetch karo
       // ════════════════════════════════════════════
@@ -5506,11 +5643,12 @@
         if (document.getElementById("grid")) renderUniversities();
         if (document.getElementById("collegesList")) {
           renderFeeFilters();
-if (Object.keys(activeFilters).length === 0) {
-  setDefaultUGFilters();
-  setDefaultLevelFilter()
-}
-renderColleges();        }
+          if (Object.keys(activeFilters).length === 0) {
+            setDefaultPGFilters();
+            setDefaultLevelFilter();
+          }
+          renderColleges();
+        }
       }
 
       // ════════════════════════════════════════════
@@ -5637,83 +5775,84 @@ renderColleges();        }
       // ════════════════════════════════════════════
 
       function getFilteredColleges() {
-  const selectedCourses = Object.keys(activeFilters).filter(
-    (k) => activeFilters[k] === "course"
-  );
-
-  return colleges
-    .map((c) => {
-      let coursesToUse = [];
-
-      //  CASE 1: Kuch bhi select nahi → ALL courses
-      if (selectedCourses.length === 0) {
-        coursesToUse = c.courses;
-      }
-
-      //  CASE 2: Jo select kiya wahi dikhao (UG ya PG kuch bhi)
-      else {
-coursesToUse = c.courses.filter((co) =>
-  selectedCourses.some(
-    (sel) => co.toLowerCase().includes(sel.toLowerCase())
-  )
-);
-      }
-
-      return {
-        ...c,
-        filteredCourses: coursesToUse,
-      };
-    })
-    .filter((c) => c.filteredCourses.length > 0)
-    .filter((c) => {
-      return Object.keys(activeFilters).every((key) => {
-        const filter = activeFilters[key];
-
-        // Fees
-        if (typeof filter === "object" && filter.type === "fees") {
-          return c.feesNum >= filter.min && c.feesNum <= filter.max;
-        }
-
-        // Course already handled
-        if (filter === "course") return true;
-
-        // State filter
-        const selectedStates = Object.keys(activeFilters).filter(
-          (k) => activeFilters[k] === "state"
+        const selectedCourses = Object.keys(activeFilters).filter(
+          (k) => activeFilters[k] === "course",
         );
 
-        if (selectedStates.length > 0) {
-          return selectedStates.some((state) =>
-            c.location.toLowerCase().includes(state.toLowerCase())
-          );
-        }
+        return colleges
+          .map((c) => {
+            let coursesToUse = [];
 
-        return true;
-      });
-    });
-}
-     function setDefaultUGFilters() {
-  activeFilters = {}; //  reset pehle
+            //  CASE 1: Kuch bhi select nahi → ALL courses
+            if (selectedCourses.length === 0) {
+              coursesToUse = c.courses;
+            }
 
-  const courseItems = document.querySelectorAll(
-    "#course-list .filter-check"
-  );
+            //  CASE 2: Jo select kiya wahi dikhao (UG ya PG kuch bhi)
+            else {
+              coursesToUse = c.courses.filter((co) =>
+                selectedCourses.some(   
+                        (sel) => co.toLowerCase() === sel.toLowerCase(),
 
-  courseItems.forEach((el) => {
-    const name = el.querySelector(".fc-label").textContent.trim();
+                ),
+              );
+            }
 
-    if (
-      PG_COURSES.some((ug) => ug.toLowerCase() === name.toLowerCase())
-    ) {
-      el.classList.add("checked");
-      activeFilters[name] = "course";
-    } else {
-      el.classList.remove("checked");
-    }
-  });
+            return {
+              ...c,
+              filteredCourses: coursesToUse,
+            };
+          })
+          .filter((c) => c.filteredCourses.length > 0)
+          .filter((c) => {
+            return Object.keys(activeFilters).every((key) => {
+              const filter = activeFilters[key];
 
-  updateActiveStrip();
-}
+              // Fees
+              if (typeof filter === "object" && filter.type === "fees") {
+                return c.feesNum >= filter.min && c.feesNum <= filter.max;
+              }
+
+              // Course already handled
+              if (filter === "course") return true;
+
+              // State filter
+              const selectedStates = Object.keys(activeFilters).filter(
+                (k) => activeFilters[k] === "state",
+              );
+
+              if (selectedStates.length > 0) {
+                return selectedStates.some((state) =>
+                  c.location.toLowerCase().includes(state.toLowerCase()),
+                );
+              }
+
+              return true;
+            });
+          });
+      }
+      function setDefaultPGFilters() {
+        activeFilters = {}; //  reset pehle
+
+        const courseItems = document.querySelectorAll(
+          "#pg-list .filter-check",
+        );
+
+        courseItems.forEach((el) => {
+          const name = el.querySelector(".fc-label").textContent.trim();
+
+          if (
+            PG_COURSES.some((pg) => pg.toLowerCase() === name.toLowerCase())
+          ) {
+            el.classList.add("checked");
+            activeFilters[name] = "course";
+          } else {
+            el.classList.remove("checked");
+          }
+        });
+
+        updateActiveStrip();
+      }
       function sortCollegesList(list) {
         return [...list].sort((a, b) => {
           if (currentSort === "rating") return b.rating - a.rating;
@@ -5779,7 +5918,6 @@ coursesToUse = c.courses.filter((co) =>
       <div class="cc-inner">
         <div class="cc-img-wrap" style="background:${c.imgBg}">
           <img src="${c.img}" alt="${c.name}"/>
-          <div class="cc-rank-badge">🏆 ${c.accred.find((a) => a.includes("NIRF")) || "Ranked"}</div>
         </div>
         <div class="cc-body">
           <div class="cc-head">
@@ -5995,14 +6133,35 @@ coursesToUse = c.courses.filter((co) =>
         el.classList.toggle("checked");
         let cat = "general";
         const parent = el.closest("[id]");
-        if (parent) {
-          if (parent.id.includes("course")) cat = "course";
-          if (parent.id.includes("level")) cat = "level";
-          else if (parent.id.includes("state")) cat = "state";
-          else if (parent.id.includes("type")) cat = "type";
-          else if (parent.id.includes("acc")) cat = "accred";
-          else if (parent.id.includes("exam")) cat = "exam";
-        }
+          const grandParent = el.closest(".fs-sub-body");
+
+        // if (parent) {
+        //   if (parent.id.includes("course")) cat = "course";
+        //   if (parent.id.includes("level")) cat = "level";
+        //   else if (parent.id.includes("state")) cat = "state";
+        //   else if (parent.id.includes("type")) cat = "type";
+        //   else if (parent.id.includes("acc")) cat = "accred";
+        //   else if (parent.id.includes("exam")) cat = "exam";
+        // }
+        
+  // Better detection for course filters
+  if (grandParent && (grandParent.id === "pg-list" || grandParent.id === "ug-list")) {
+    cat = "course";
+  } else if (parent) {
+    if (parent.id.includes("course") || parent.id.includes("pg-list") || parent.id.includes("ug-list")) {
+      cat = "course";
+    } else if (parent.id.includes("level")) {
+      cat = "level";
+    } else if (parent.id.includes("state")) {
+      cat = "state";
+    } else if (parent.id.includes("type")) {
+      cat = "type";
+    } else if (parent.id.includes("acc")) {
+      cat = "accred";
+    } else if (parent.id.includes("exam")) {
+      cat = "exam";
+    }
+  }
         if (el.classList.contains("checked")) activeFilters[name] = cat;
         else delete activeFilters[name];
         currentPage = 1;
@@ -6027,7 +6186,7 @@ coursesToUse = c.courses.filter((co) =>
         updateActiveStrip();
       }
 
-      function selectRadio(el, groupId, val) {
+      function selecRadio(el, groupId, val) {
         document
           .querySelectorAll(`#${groupId} .radio-opt`)
           .forEach((r) => r.classList.remove("selected"));
@@ -6055,14 +6214,6 @@ coursesToUse = c.courses.filter((co) =>
             ? "none"
             : "block";
       }
-
-      function showMore(listId, moreId) {
-        document
-          .querySelectorAll(`#${listId} .filter-check[style*="none"]`)
-          .forEach((h) => (h.style.display = ""));
-        document.getElementById(moreId).style.display = "none";
-      }
-
       function updateActiveStrip() {
         const strip = document.getElementById("activeFiltersStrip");
         const keys = Object.keys(activeFilters);

@@ -1589,29 +1589,6 @@
       --shadow-lg:
         0 4px 24px rgba(0, 0, 0, 0.08), 0 12px 48px rgba(0, 0, 0, 0.06);
     }
-    /* ── Add Program Trigger Card ── */
-    .add-card {
-      border: 1.5px dashed var(--border-2);
-      border-radius: var(--r-lg);
-      display: flex;
-      align-items: center;
-      width: 25%;
-
-      justify-content: center;
-      cursor: pointer;
-      background: var(--surface);
-      transition:
-        border-color 0.2s,
-        background 0.2s,
-        transform 0.2s;
-    }
-
-    .add-card:hover {
-      border-color: var(--accent);
-      background: var(--accent-light);
-      transform: translateY(-2px);
-    }
-
     /* ── Stepper Panel ── */
     .stepper-panel {
       flex: 0 0 900px;
@@ -2256,6 +2233,7 @@
     #compareContainer{
       padding: 50px;
     }
+  
  .compare-table {
   width: 100%;
   border-collapse: collapse;
@@ -2318,6 +2296,116 @@
   font-weight: 500;
   transition: background 0.15s;
   text-decoration: none;
+}
+.compare-wrapper{
+  padding: 16px;
+}
+.compare-title{
+  padding: 20px;
+}
+.compare-title h5{
+  margin: 0;
+  font-weight: 600;
+}
+
+.compare-title p{
+  margin: 4px 0 12px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.compare-grid{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.compare-card{
+  width: 230px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  margin-left: 20px;
+  position: relative;
+  transition: 0.2s;
+}
+
+.compare-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* REMOVE BUTTON */
+.remove-btn{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: #f3f4f6;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* TEXT */
+.uni-name{
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.uni-city{
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* BADGE */
+.badge-row{
+  margin-top: 10px;
+}
+
+.badge{
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* ADD CARD */
+.add-card{
+  width: 300px;
+  padding: 20px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #fafafa;
+}
+
+.add-card:hover{
+  border-color: #6366f1;
+  background: #f5f7ff;
+}
+
+.plus-circle{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #6366f1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-bottom:5px;
 }
   </style>
   <body>
@@ -4218,7 +4306,7 @@ document.addEventListener("click", function (e) {
           return alert("Maximum 3 programs can be compared");
         state = { step: 0, city: null, university: null, course: null };
         document.getElementById("stepperPanel").style.display = "block";
-        document.getElementById("addCard").style.display = "none";
+        // document.getElementById("addCard").style.display = "none";
         render();
       }
       function closeStepper() {
@@ -4276,6 +4364,14 @@ document.addEventListener("click", function (e) {
 
         updateNextBtn();
       }
+      function selectUni(id) {
+  state.university = id;
+  state.course = null; // ✅ IMPORTANT FIX
+  renderUniGrid(
+    (document.getElementById("uniSearch") || { value: "" }).value
+  );
+  updateNextBtn();
+}
       // ------------- city , step 0
       function renderCityStep() {
         document.getElementById("stepBody").innerHTML = `
@@ -4316,6 +4412,7 @@ document.addEventListener("click", function (e) {
       function selectCity(id) {
         state.city = id;
         state.university = null;
+        state.course = null;
         renderCityGrid(
           (document.getElementById("citySearch") || { value: "" }).value,
         );
@@ -4364,15 +4461,15 @@ document.addEventListener("click", function (e) {
         );
         updateNextBtn();
       }
-      function selectCourse(course) {
-        state.course = course;
+      function selectCourse(course, e) {
+  state.course = course;
 
-        // UI highlight
-        document
-          .querySelectorAll(".tag")
-          .forEach((t) => t.classList.remove("active"));
-        event.target.classList.add("active");
-      }
+  document.querySelectorAll(".course-item").forEach(el => {
+    el.classList.remove("active");
+  });
+
+  if (e) e.target.closest(".course-item").classList.add("active");
+}
       function renderDetailStep() {
         const city = DATA.cities.find((c) => c.id === state.city);
         const uni = (DATA.universities[state.city] || []).find(
@@ -4525,39 +4622,92 @@ document.addEventListener("click", function (e) {
         }
       }
       // add to compare
-      function addToCompare() {
-        if (!state.course) {
-          alert("Please select a course first");
-          return;
-        }
-        const city = DATA.cities.find((c) => c.id === state.city);
-        const uni = (DATA.universities[state.city] || []).find(
-          (u) => u.id === state.university,
-        );
-        const already = addedPrograms.find((p) => p.uniId === state.university);
-        if (already) {
-          alert("This university is already in your comparison.");
-          return;
-        }
+    function addToCompare() {
+  if (!state.course) {
+    alert("Please select a course first");
+    return;
+  }
 
-        addedPrograms.push({
-          cityId: state.city,
-          uniId: state.university,
-          course: state.course,
-          city,
-          uni,
-        });
-        renderAddedCards();
-        closeStepper();
-      }
+  const city = DATA.cities.find(c => c.id === state.city);
+  const uni = (DATA.universities[state.city] || []).find(
+    u => u.id === state.university
+  );
+
+  if (!uni) return;
+
+  // correct duplicate check
+const already = addedPrograms.some(
+  p => p.uniId === uni.id && p.course === state.course
+);
+  if (already) {
+    alert("This university is already in comparison.");
+    return;
+  }
+
+  addedPrograms.push({
+    cityId: city.id,
+    uniId: uni.id,
+    course: state.course,
+    city,
+    uni,
+  });
+
+  // renderAddedCards();
+  renderAddCard();
+  renderAddedCards();
+  closeStepper();
+
+}
       function removeProgram(uniId) {
         addedPrograms = addedPrograms.filter((p) => p.uniId !== uniId);
         renderAddedCards();
+          renderAddCard(); 
         if (addedPrograms.length < 4) {
           document.getElementById("addCard").style.display = "flex";
         }
       }
- function renderAddedCards() {
+  function renderAddCard() {
+  const addCard = document.getElementById("addCard");
+
+  addCard.innerHTML = `
+    <div class="compare-wrapper">
+
+      <div class="compare-title">
+        <h5>Compare Programs</h5>
+        <p>Select up to 3 programs to compare side by side</p>
+      </div>
+
+      <div class="compare-grid">
+
+        ${addedPrograms.map(p => `
+          <div class="compare-card">
+
+            <button class="remove-btn" onclick="removeProgram('${p.uniId}')">
+              <i class="bi bi-x"></i>
+            </button>
+
+            <div class="uni-name">${p.uni.name}</div>
+            <div class="uni-city">${p.city.name}</div>
+
+            <div class="badge-row">
+              <span class="badge">${p.course}</span>
+            </div>
+
+          </div>
+        `).join("")}
+
+        ${addedPrograms.length < 3 ? `
+          <div class="add-card" onclick="openStepper()">
+            <div class="plus-circle">+</div>
+            <p>Add Program</p>
+          </div>
+        ` : ""}
+
+      </div>
+
+    </div>
+  `;
+}function renderAddedCards() {
   const container = document.getElementById("compareContainer");
 
   if (addedPrograms.length < 1) return;
@@ -4616,24 +4766,23 @@ document.addEventListener("click", function (e) {
       </tr>
 
       <tr class="action-row">
-  <th></th>
-  ${addedPrograms.map(p => `
-    <td>
-      <a class="btn-view" href="college-details.html?id=${p.uniId}">
-        View details
-      </a><br>
+        <th></th>
+        ${addedPrograms.map(p => `
+          <td>
+            <a class="btn-view" href="college-details.html?id=${p.uniId}">
+              View details
+            </a><br>
 
-      <a class="btn-apply" href="apply.html?id=${p.uniId}">
-        Apply now
-      </a>
-    </td>
-  `).join("")}
-</tr>
+            <a class="btn-apply" href="apply.html?id=${p.uniId}">
+              Apply now
+            </a>
+          </td>
+        `).join("")}
+      </tr>
 
     </table>
   `;
-}
-      function viewDetails(id) {
+}     function viewDetails(id) {
         alert("Redirect to details page of: " + id);
 
         // real use:

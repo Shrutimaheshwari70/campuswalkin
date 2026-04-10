@@ -1884,55 +1884,11 @@
         font-size: 3rem;
         opacity: 0.4;
       }
-      .map-offices {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 14px;
-        margin-top: 20px;
-      }
-      .office-card {
-        background: var(--white);
-        border: 1.5px solid var(--border);
-        border-radius: 14px;
-        padding: 18px 16px;
-        transition: all 0.2s;
-        cursor: pointer;
-      }
-      .office-card:hover {
-        border-color: var(--accent);
-        box-shadow: var(--sh2);
-      }
-      .oc-city {
-        font-size: 0.92rem;
-        color: var(--navy);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        margin-bottom: 5px;
-      }
-      .oc-city i {
-        color: var(--exec);
-        font-size: 0.85rem;
-      }
-      .oc-addr {
-        font-size: 0.76rem;
-        color: var(--muted);
-      }
-      .oc-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 0.67rem;
-        padding: 3px 9px;
-        border-radius: 50px;
-        background: var(--accent2);
-        color: var(--accent);
-        margin-top: 7px;
-      }
+     
       /* ─────────────────────────────────────
      FOOTER
   ───────────────────────────────────── */
-      footer {
+   footer {
         background: #0f1729;
         padding: 40px 3rem 20px;
       }
@@ -1951,6 +1907,7 @@
         font-size: 0.79rem;
         color: #bcbcbc;
         margin-top: 8px;
+        line-height: 1.8;
       }
       .fl {
         display: grid;
@@ -1959,6 +1916,7 @@
       }
       .fl-t {
         font-size: 1.1rem;
+        font-weight: 700;
         color: #ffffff;
         margin-bottom: 15px;
       }
@@ -2031,6 +1989,7 @@
         font-size: 15px;
         border-radius: 4px;
       }
+
       /* ─────────────────────────────────────
      RESPONSIVE OVERRIDES
   ───────────────────────────────────── */
@@ -2078,6 +2037,26 @@
         }
       }
 
+      /* Mobile portrait: up to 480px */
+      @media (max-width: 480px) {
+        footer {
+          padding: 28px 1rem 16px;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+        .fl-t {
+          font-size: 0.95rem;
+        }
+        .fl-a {
+          font-size: 0.85rem;
+          margin-bottom: 10px;
+        }
+        .footer-icons-social {
+          flex-wrap: wrap;
+        }
+      }
       .uni-p {
         background-color: pink;
         height: 100%;
@@ -3069,48 +3048,7 @@
           </div>
         </div>
 
-        <div class="map-offices">
-          <div class="office-card">
-            <div class="oc-city"><i class="bi bi-geo-alt-fill"></i> Mumbai</div>
-            <div class="oc-addr">
-              Level 12, Platina Tower, Bandra Kurla Complex, Mumbai – 400051
-            </div>
-            <span class="oc-tag"
-              ><i class="bi bi-building"></i> Headquarters</span
-            >
-          </div>
-          <div class="office-card">
-            <div class="oc-city">
-              <i class="bi bi-geo-alt-fill"></i> New Delhi
-            </div>
-            <div class="oc-addr">
-              8th Floor, Tower B, Worldmark 3, Aerocity, New Delhi – 110037
-            </div>
-            <span class="oc-tag" style="background: #ebfaf6; color: #0aab87"
-              ><i class="bi bi-star-fill"></i> North India Hub</span
-            >
-          </div>
-          <div class="office-card">
-            <div class="oc-city">
-              <i class="bi bi-geo-alt-fill"></i> Bangalore
-            </div>
-            <div class="oc-addr">
-              4th Floor, Prestige Meridian 2, MG Road, Bangalore – 560001
-            </div>
-            <span class="oc-tag" style="background: #f5f3ff; color: #7c3aed"
-              ><i class="bi bi-laptop"></i> Tech Hub</span
-            >
-          </div>
-          <div class="office-card">
-            <div class="oc-city"><i class="bi bi-geo-alt-fill"></i> Pune</div>
-            <div class="oc-addr">
-              3rd Floor, Cerebrum IT Park, Kalyani Nagar, Pune – 411014
-            </div>
-            <span class="oc-tag" style="background: #fff8eb; color: #e8a020"
-              ><i class="bi bi-mortarboard"></i> Education Hub</span
-            >
-          </div>
-        </div>
+     
       </div>
     </section>
 
@@ -3302,11 +3240,12 @@
 </div>
     <!-- ----------------------- course  -->
     <!-- ═══ FOOTER ═══ -->
-    <footer>
+       <footer>
       <div class="fi">
         <div class="fg">
           <!-- Brand Block -->
           <div class="fb">
+            <div style="font-size: 1.25rem; font-weight: 900; color: #fff">
               <span class="cw-logo">CW</span>
               CampusWalkin
             </div>
@@ -3366,7 +3305,7 @@
         <div>
           <div class="fb-bot">
             <div class="left-footer">
-              <i class="fa-solid fa-envelope"></i>
+              <i class="fa-solid fa-envelope " ></i>
               <p>info@campuswalkin.com</p>
               <i class="fa-solid fa-phone"></i>
               <p>+91 98765 43210</p>

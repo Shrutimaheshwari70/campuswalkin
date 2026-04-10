@@ -99,60 +99,20 @@
       /* ─────────────────────────────────────
    TOPBAR  (hidden on mobile)
 ───────────────────────────────────── */
-      .topbar {
+.topbar {
         background: var(--navy);
         color: #aab4cc;
-        font-size: 0.72rem;
-        padding: 5px 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        white-space: nowrap;
       }
       .topbar a {
         color: #aab4cc;
         transition: color 0.2s;
+        font-size: 13px;
       }
       .topbar a:hover {
         color: #fff;
       }
-      .tb-left,
-      .tb-right {
-        display: flex;
-        align-items: center;
-        gap: 0.9rem;
-      }
-      .tb-sep {
-        opacity: 0.3;
-        padding: 0 2px;
-      }
-      @media (max-width: 767px) {
-        .topbar {
-          display: none;
-        }
-      }
-      /* ── Tablet ≤ 1024px — hide extra links, keep essentials ── */
-      @media (max-width: 1024px) {
-        .tb-left a:nth-child(n + 4),
-        .tb-left .tb-sep:nth-child(n + 4) {
-          display: none;
-        }
-
-        .tb-right p {
-          display: none;
-        }
-
-        .tb-right .tb-sep {
-          display: none;
-        }
-      }
-
-      /* ── Mobile ≤ 768px — hide topbar entirely ── */
-      @media (max-width: 768px) {
-        .topbar {
-          display: none;
-        }
+      .topbar p {
+        font-size: 13px;
       }
       /* ─────────────────────────────────────
    NAVBAR WRAPPER
@@ -3750,18 +3710,24 @@
   </head>
   <body>
     <!-- TOP BAR (desktop only) -->
-    <div class="topbar">
-      <div class="tb-left">
+    <div
+      class="topbar d-none d-md-flex align-items-center px-2 px-lg-5 flex-nowrap"
+    >
+      <div
+        class="tb-left d-flex align-items-center gap-2 flex-nowrap overflow-auto w-100"
+      >
         <a href="#">📞 1800-XXX-XXXX (Toll Free)</a>
         <span class="tb-sep">|</span>
         <a href="#">📧 help@campuswalkin.com</a>
         <span class="tb-sep">|</span>
-        <a href="#">Compare Colleges</a>
-        <a href="#">Rank Predictor</a>
-        <a href="#">Scholarships</a>
+        <a href="#" class="d-none d-xl-inline">Compare Colleges</a>
+        <a href="#" class="d-none d-xl-inline">Rank Predictor</a>
+        <a href="#" class="d-none d-xl-inline">Scholarships</a>
       </div>
-      <div class="tb-right">
-        <p>We’re on your favourite socials!</p>
+      <div class="tb-right d-flex align-items-center gap-3 flex-nowrap ms-3">
+        <p class="mb-0 d-lg-block text-nowrap">
+          We’re on your favourite socials!
+        </p>
         <span class="tb-sep">|</span>
         <a href="#" style="color: #4860ff; font-weight: 700"
           ><i class="bi bi-facebook"></i
@@ -3777,7 +3743,6 @@
         ></a>
       </div>
     </div>
-
     <!-- ═══ NAVBAR ═══ -->
     <div class="navbar">
       <!-- ROW 1 -->

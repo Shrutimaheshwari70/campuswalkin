@@ -653,23 +653,23 @@
         background: #4f46e5;
         color: #fff;
       }
-      .cm-btns {
+.cm-btns{
         display: flex;
         gap: 10px;
         margin-bottom: 12px;
         flex-wrap: wrap;
         cursor: pointer;
       }
-      .cm-btn {
+      .cm-btn{
         border: 1px solid #4f46e5;
         padding: 2px 15px;
         font-size: 0.75rem;
         /* border-radius: 10px; */
       }
-      .cm-btn:hover {
+    .cm-btn:hover{
         background: #4f46e5;
         color: #fff;
-      }
+    }
       /* GRID */
       .cm-grid {
         display: grid;
@@ -1046,7 +1046,7 @@
       .programs-card {
         position: absolute;
         cursor: pointer;
-        top: 40px;
+        top:40px;
         left: 170px;
         transform: translateX(-50%) translateY(20px);
         width: 100vw;
@@ -1444,7 +1444,7 @@
         flex-wrap: wrap;
         gap: 0.6rem;
       }
-      .fb-bot i {
+      .fb-bot i{
         color: grey;
       }
       .fb-bot p {
@@ -1569,22 +1569,6 @@
         background-color: pink;
         height: 100%;
         width: 100%;
-      }
-      .fs-sub-body {
-        display: none;
-        transition: all 0.9s ease;
-      }
-
-      .fs-sub-body.open {
-        display: block;
-      }
-
-      /* optional arrow rotate */
-      .fs-sec-toggle {
-        transition: 0.3s;
-      }
-      .fs-sec-toggle.open {
-        transform: rotate(180deg);
       }
       /* --------------universities */
       .uni-banner {
@@ -1791,15 +1775,6 @@
       }
       .fs-sec-title {
         font-size: 0.99rem;
-        font-weight: 500;
-        color: var(--navy);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .fs-sec-title-ug,
-      .fs-sec-title-pg {
-        font-size: 0.85rem;
         font-weight: 500;
         color: var(--navy);
         display: flex;
@@ -2207,6 +2182,21 @@
       }
       .college-card:hover .cc-img-wrap img {
         transform: scale(1.04);
+      }
+      .cc-rank-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(11, 20, 55, 0.75);
+        backdrop-filter: blur(6px);
+        color: #fff;
+        font-size: 0.62rem;
+        font-weight: 800;
+        padding: 3px 8px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
       }
       .cc-type-badge {
         position: absolute;
@@ -2658,16 +2648,16 @@
           border-bottom: 1px solid #97b3ff;
         }
       }
-      #studentContent,
-      #collegeContent {
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch; /* 🔥 mobile smooth */
-      }
-      .card-content {
-        width: 280px;
-        flex-shrink: 0;
-      }
+#studentContent,
+#collegeContent {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* 🔥 mobile smooth */
+}
+.card-content {
+  width: 280px;
+  flex-shrink: 0;
+}
       #studentContent,
       #collegeContent {
         overflow-x: auto;
@@ -2711,47 +2701,6 @@
           height: 80px;
         }
       }
-
-      .compare-card {
-        height: 200px;
-        width: 350px;
-        object-fit: cover;
-      }
-      .compare-card i{
-        top: 0;
-        cursor: pointer;
-        left: 95%;
-        z-index: 99999;
-      }
-      .top-compare-heading{
-        cursor: pointer;
-      }
-      .compare-banner {
-        width: 350px;
-        height: 100px;
-      }
-      .logo-wrapper-com {
-        top: 60px; /* overlap niche */
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .logo-wrapper-com img {
-        height: 60px;
-        width: 60px;
-        border-radius: 30px;
-        border: 5px solid white;
-      }
-      #compareModal .modal-dialog {
-  max-width: 70% !important;
-  width: 100%;
-  padding: 20px;
-}
-#compareModal .modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: -400px;
-}
     </style>
   </head>
   <body>
@@ -3114,41 +3063,16 @@
 
               <!-- Right: Content -->
               <div class="cm-content">
-                <!-- Mode tabs -->
-                <div class="cm-btns" id="cmLevelTabs">
-                  <div class="cm-btn rounded-4 py-1 px-2" data-level="UG">
-                    <a href="ug-courses.html">UG Courses</a>
-                  </div>
-                  <div class="cm-btn rounded-4 py-1 px-2" data-level="PG">
-                    <a href="pg-courses.html">PG Courses</a>
-                  </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2"
-                    data-level="Executive MBA"
-                  >
-                    <a href="executive-course.html">Executive MBA</a>
-                  </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2"
-                    data-level="Online Programs"
-                  >
-                    <a href="online-programs.html">Online Programs</a>
-                  </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2"
-                    data-level="Management (PGDM / MBA)"
-                  >
-                    <a href="pgdm-mba-management.html"
-                      >Management (PGDM / MBA)</a
-                    >
-                  </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2"
-                    data-level="Study Abroad"
-                  >
-                    <a href="study-abroad.html">Study Abroad</a>
-                  </div>
+                 <div class="cm-btns" id="cmLevelTabs">
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="UG"><a href="ug-courses.html">UG Courses</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="PG"><a href="pg-courses.html">PG Courses</a></div>                
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Executive MBA"><a href="executive-course.html">Executive MBA</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Online Programs"> <a href="online-programs.html">Online Programs</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Management (PGDM / MBA)"> <a href="pgdm-mba-management.html">Management (PGDM / MBA)</a></div>
+                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Study Abroad"> <a href="study-abroad.html">Study Abroad</a></div> 
+
                 </div>
+                <!-- Mode tabs -->
                 <div class="cm-tabs" id="cmTabs">
                   <div class="cm-tab active" data-mode="all">All</div>
                   <div class="cm-tab" data-mode="online">🌐 Online</div>
@@ -3255,7 +3179,7 @@
         ></div>
       </div>
       <div class="banner-text position-absolute p-2">
-        <h1 class="text-light w-50">Explore Our Undergraduate Programs</h1>
+        <h1 class="text-light w-50">Explore Our Online Programs</h1>
         <p class="hero-desc text-light w-50">
           CampusWalkin is India’s leading education marketplace, connecting
           students and ambitious professionals with top universities and
@@ -3317,18 +3241,92 @@
                     />
                     <i class="bi bi-search"></i>
                   </div>
-                  <div class="fs-sec-head open" onclick="toggleSection(this)">
-                    <span class="fs-sec-title-ug">Undergraduate</span>
-                    <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-                  </div>
-                  <div class="fs-sub-body open" id="ug-list">
+                  <div id="course-list">
                     <div
                       class="filter-check"
-                      onclick="toggleCheck(this, 'B.Com')"
+                      onclick="toggleCheck(this, 'MBA')"
                     >
                       <div class="fc-left">
                         <div class="fc-checkbox"></div>
-                        <span class="fc-label">B.Com</span>
+                        <span class="fc-label">MBA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'MCA')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MCA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'M.Tech')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">M.Tech</span>
+                      </div>
+                    </div>
+                    <div class="filter-check" onclick="toggleCheck(this, 'MSc')">
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MSc</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'MA')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'pgdm')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">pgdm</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'pgp')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">pgp</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'epgp')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">epgp</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check "
+                      onclick="toggleCheck(this, 'pgpx')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">pgpx</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check"
+                      onclick="toggleCheck(this, 'MBBS')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">MBBS</span>
                       </div>
                     </div>
                     <div
@@ -3375,64 +3373,21 @@
                     </div>
                     <div
                       class="filter-check"
+                      onclick="toggleCheck(this, 'FPM')"
+                    >
+                      <div class="fc-left">
+                        <div class="fc-checkbox"></div>
+                        <span class="fc-label">FPM</span>
+                      </div>
+                      <span class="fc-count">1260</span>
+                    </div>
+                    <div
+                      class="filter-check"
                       onclick="toggleCheck(this, 'BCA')"
                     >
                       <div class="fc-left">
                         <div class="fc-checkbox"></div>
                         <span class="fc-label">BCA</span>
-                      </div>
-                    </div>
-                    <div
-                      id="course-list-not-found"
-                      class="d-none"
-                      style="color: var(--muted); font-size: 0.75rem"
-                    >
-                      No course found
-                    </div>
-                  </div>
-                  <!-- PG SECTION -->
-                  <div class="fs-sec-head" onclick="toggleSection(this)">
-                    <span class="fs-sec-title-pg">Postgraduate</span>
-                    <i class="bi bi-chevron-down fs-sec-toggle"></i>
-                  </div>
-                  <!-- <div id="course-list"> -->
-                  <div class="fs-sub-body" id="pg-list">
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'MBA')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">MBA</span>
-                      </div>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'MBBS')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">MBBS</span>
-                      </div>
-                    </div>
-
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'M.Tech')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">M.Tech</span>
-                      </div>
-                    </div>
-
-                    <div
-                      class="filter-check d-none"
-                      onclick="toggleCheck(this, 'MCA')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">MCA</span>
                       </div>
                     </div>
                     <div
@@ -3445,50 +3400,21 @@
                       </div>
                       <span class="fc-count">1260</span>
                     </div>
-                    <div class="filter-check" onclick="toggleCheck(this, 'MA')">
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">MA</span>
-                      </div>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'pgdm')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">pgdm</span>
-                      </div>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'pgp')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">pgp</span>
-                      </div>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'epgp')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">epgp</span>
-                      </div>
-                    </div>
-                    <div
-                      class="filter-check d-none"
-                      onclick="toggleCheck(this, 'pgpx')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">pgpx</span>
-                      </div>
-                    </div>
                   </div>
-                  <!-- </div> -->
+                  <div
+                    id="course-list-not-found"
+                    class="d-none"
+                    style="color: var(--muted); font-size: 0.75rem"
+                  >
+                    No course found
+                  </div>
+                  <!-- <div
+                    class="filter-show-more"
+                    id="course-more"
+                    onclick="showMore('course-list', 'course-more')"
+                  >
+                    + Show 2 more
+                  </div> -->
                 </div>
               </div>
 
@@ -3986,7 +3912,7 @@
                 <option value="rating">Rating (High to Low)</option>
                 <option value="fees-low">Fees (Low to High)</option>
                 <option value="fees-high">Fees (High to Low)</option>
-                <!-- <option value="ranking">NIRF Ranking</option> -->
+                <option value="ranking">NIRF Ranking</option>
                 <option value="name">Name (A–Z)</option>
               </select>
             </div>
@@ -4013,39 +3939,20 @@
           </div>
 
           <!-- Compare bar -->
-    <div class="modal fade" id="compareModal" tabindex="-1">
-      <div class=" modal-dialog modal-dialog-centered bg-white ">
-        <div class="modal-content border-0 ">
-          <div class="top-compare-heading border-bottom mb-3 d-flex align-items-center justify-content-between">
-            <h4>College Compare</h4>
-            <i class="bi bi-x-lg" data-bs-dismiss="modal"></i>
-          </div>
-          <!-- ---------------------------card 1 -->
-          <div class="row gap-4 ">
-            <!-- <div class="col-lg-4">
+          <div class="compare-bar" id="compareBar">
+            <div>
               <div
-                class="position-relative compare-card border overflow-hidden"
+                style="font-size: 0.8rem; font-weight: 700; margin-bottom: 4px"
               >
-                <img
-                  src="/bits-pilani.jpg"
-                  alt=""
-                  class="compare-banner object-fit-cover w-100"
-                />
-                <i class="bi bi-x-circle-fill position-absolute"></i>
-                <div class="logo-wrapper-com position-absolute">
-                  <img src="./amity.jpg" alt="" class="object-fit-cover" />
-                </div>
-                <div class="text-center mt-4">
-                  <p class="fw-bold mb-0">iimt</p>
-                  <small class="text-muted d-block">Kolkata, West Bengal</small>
-                  <p class="mb-0">BBA</p>
-                </div>
+                Compare Colleges (<span id="compareCount">0</span>/3)
               </div>
-            </div> -->
+              <div class="d-flex flex-wrap gap-2" id="compareItems"></div>
+            </div>
+            <button class="btn-compare-now" onclick="compareNow()">
+              Compare Now →
+            </button>
           </div>
-        </div>
-      </div>
-    </div>
+
           <!-- College cards list -->
           <div id="collegesList"></div>
 
@@ -4114,17 +4021,17 @@
           >
             🚀 Career Opportunities
           </span>
-          <h2 class="display-6 mb-1 fw-normal">What After Graduation?</h2>
+          <h2 class="display-6 mb-1 fw-normal">What After Post Graduation?</h2>
           <p class="text-secondary mx-auto" style="max-width: 600px">
-            Explore top career paths, job roles, and salary expectations after
-            completing your undergraduate degree
+              Explore advanced career paths, leadership roles, and high-paying opportunities after completing your postgraduate degree
+
           </p>
         </div>
 
         <div class="row g-4">
           <!-- Career Card 1 - B.Tech -->
           <div class="col-md-4 col-lg-3 col-6">
-            <div class="card border-0 shadow-sm h-auto overflow-hidden">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500&h=300&fit=crop"
@@ -4134,18 +4041,18 @@
                 />
                 <div class="position-absolute top-0 end-0 m-3">
                   <span class="badge bg-dark text-white px-3 py-2"
-                    >Avg ₹6-12 LPA</span
+                    >Avg ₹10-25 LPA</span
                   >
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body h-100 ">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-primary bg-opacity-10 text-primary fw-normal p-2 rounded"
-                    >B.Tech / B.E</span
+                    >  M.Tech / ME</span
                   >
                 </div>
-                <h5 class="card-title mb-1">Engineering & Technology</h5>
+                <h5 class="card-title mb-1">Advanced Engineering & R&D</h5>
                 <div class="mb-3">
                   <div class="d-flex align-items-center gap-2 mb-2">
                     <i class="bi bi-briefcase-fill text-primary"></i>
@@ -4153,19 +4060,19 @@
                   </div>
                   <div class="d-flex flex-wrap gap-2 mb-3">
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Software Engineer</span
+                      >Senior Software Engineer</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Data Scientist</span
+                      >Research Engineer</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >AI/ML Engineer</span
+                      >AI Specialist</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Cloud Architect</span
+                      >Tech Lead</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Product Manager</span
+                      >Data Architect</span
                     >
                   </div>
                 </div>
@@ -4175,7 +4082,7 @@
 
           <!-- Career Card 2 - BBA/BMS -->
           <div class="col-md-4 col-lg-3 col-6">
-            <div class="card border-0 shadow-sm h-auto overflow-hidden">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=300&fit=crop"
@@ -4185,19 +4092,19 @@
                 />
                 <div class="position-absolute top-0 end-0 m-3">
                   <span class="badge bg-dark text-white px-3 py-2"
-                    >Avg ₹5-10 LPA</span
+                    >Avg ₹12-30 LPA</span
                   >
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body h-100 ">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-info bg-opacity-10 text-info fw-normal p-2 rounded"
                   >
-                    BBA / BMS</span
+                      MBA / PGDM</span
                   >
                 </div>
-                <h5 class="card-title mb-1">Management & Business</h5>
+                <h5 class="card-title mb-1">Management & Leadership</h5>
                 <div class="mb-3">
                   <div class="d-flex align-items-center gap-2 mb-2">
                     <i class="bi bi-briefcase-fill text-info"></i>
@@ -4205,19 +4112,19 @@
                   </div>
                   <div class="d-flex flex-wrap gap-2 mb-3">
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Business Analyst</span
+                      >Product Manager</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Marketing Manager</span
+                      >Consultant</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >HR Generalist</span
+                      >Investment Banker</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Operations Manager</span
+                      >Strategy Manager</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Sales Manager</span
+                      >Business Head</span
                     >
                   </div>
                 </div>
@@ -4227,7 +4134,7 @@
 
           <!-- Career Card 3 - BCA -->
           <div class="col-md-4 col-lg-3 col-6">
-            <div class="card border-0 shadow-sm h-auto overflow-hidden">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=500&h=300&fit=crop"
@@ -4237,38 +4144,39 @@
                 />
                 <div class="position-absolute top-0 end-0 m-3">
                   <span class="badge bg-dark text-white px-3 py-2"
-                    >Avg ₹4-8 LPA</span
+                    >Avg ₹8-20 LPA</span
                   >
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body h-100 ">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-warning bg-opacity-10 text-warning fw-normal p-2 rounded"
-                    >BCA / B.Sc CS</span
+                    >  MCA / M.Sc IT</span
                   >
                 </div>
-                <h5 class="card-title mb-1">Computer Applications & IT</h5>
+                <h5 class="card-title mb-1">Software & IT Careers
                 <div class="mb-3">
                   <div class="d-flex align-items-center gap-2 mb-2">
                     <i class="bi bi-briefcase-fill text-warning"></i>
-                    <small class="text-secondary">Top Job Roles</small>
+                                        <small class="text-secondary">Top Job Roles</small>
+
                   </div>
                   <div class="d-flex flex-wrap gap-2 mb-3">
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Web Developer</span
+                      >Full Stack Developer</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >App Developer</span
+                      >DevOps Engineer</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >System Analyst</span
+                      >Cloud Engineer</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Database Admin</span
+                      >System Architect</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >IT Consultant</span
+                      >Cybersecurity Expert</span
                     >
                   </div>
                 </div>
@@ -4278,7 +4186,7 @@
 
           <!-- Career Card 4 - B.Com -->
           <div class="col-md-4 col-lg-3 col-6">
-            <div class="card border-0 shadow-sm h-auto overflow-hidden">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=300&fit=crop"
@@ -4288,18 +4196,19 @@
                 />
                 <div class="position-absolute top-0 end-0 m-3">
                   <span class="badge bg-dark text-white px-3 py-2"
-                    >Avg ₹4-7 LPA</span
+                    >Avg ₹6-18 LPA</span
                   >
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body h-100 ">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-dark text-dark bg-opacity-10 text-success fw-normal p-2 rounded"
-                    >B.Com / BBA</span
+                    >  M.Com / Finance
+</span
                   >
                 </div>
-                <h5 class="card-title mb-1">Commerce & Finance</h5>
+                <h5 class="card-title mb-1">Finance & Corporate Roles</h5>
                 <div class="mb-3">
                   <div class="d-flex align-items-center gap-2 mb-2">
                     <i class="bi bi-briefcase-fill text-success"></i>
@@ -4307,19 +4216,19 @@
                   </div>
                   <div class="d-flex flex-wrap gap-2 mb-3">
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Accountant</span
+                      >Chartered Accountant</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
                       >Financial Analyst</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Tax Consultant</span
+                      >Tax Manager</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
                       >Auditor</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Investment Banker</span
+                      >Risk Analyst</span
                     >
                   </div>
                 </div>
@@ -4329,7 +4238,7 @@
 
           <!-- Career Card 5 - BA / Humanities -->
           <div class="col-md-4 col-lg-3 col-6">
-            <div class="card border-0 shadow-sm h-auto overflow-hidden">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&h=300&fit=crop"
@@ -4339,18 +4248,18 @@
                 />
                 <div class="position-absolute top-0 end-0 m-3">
                   <span class="badge bg-dark text-white px-3 py-2"
-                    >Avg ₹3-6 LPA</span
+                    >Avg ₹5-15 LPA</span
                   >
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body h-100 ">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-danger bg-opacity-10 text-danger fw-normal p-2 rounded"
-                    >BA / Humanities</span
+                    >  MA / Humanities</span
                   >
                 </div>
-                <h5 class="card-title mb-1">Arts & Humanities</h5>
+                <h5 class="card-title mb-1">Creative & Academic Careers</h5>
                 <div class="mb-3">
                   <div class="d-flex align-items-center gap-2 mb-2">
                     <i class="bi bi-briefcase-fill text-danger"></i>
@@ -4358,19 +4267,19 @@
                   </div>
                   <div class="d-flex flex-wrap gap-2 mb-3">
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Content Writer</span
+                      >Professor</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Journalist</span
+                      >Policy Analyst</span
+                    >
+                    <span class="badge bg-light text-dark border fw-normal"
+                      >Content Strategist</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
                       >Psychologist</span
                     >
                     <span class="badge bg-light text-dark border fw-normal"
-                      >Social Worker</span
-                    >
-                    <span class="badge bg-light text-dark border fw-normal"
-                      >Teacher</span
+                      >Civil Services</span
                     >
                   </div>
                 </div>
@@ -4380,7 +4289,7 @@
 
           <!-- Career Card 6 - B.Sc / Science -->
           <div class="col-md-4 col-lg-3 col-6">
-            <div class="card border-0 shadow-sm h-auto overflow-hidden">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
               <div class="position-relative">
                 <img
                   src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=500&h=300&fit=crop"
@@ -4390,39 +4299,30 @@
                 />
                 <div class="position-absolute top-0 end-0 m-3">
                   <span class="badge bg-dark text-white px-3 py-2"
-                    >Avg ₹4-9 LPA</span
+                    >Avg ₹8-25 LPA</span
                   >
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body h-100 ">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <span
                     class="badge bg-secondary bg-opacity-10 text-secondary fw-normal p-2 rounded"
-                    >🔬 B.Sc / Life Sciences</span
+                    >  M.Sc / PhD</span
                   >
                 </div>
-                <h5 class="card-title mb-1">Pure Sciences & Research</h5>
+                <h5 class="card-title mb-1">Research & Innovation</h5>
                 <div class="mb-3">
                   <div class="d-flex align-items-center gap-2 mb-2">
                     <i class="bi bi-briefcase-fill text-secondary"></i>
                     <small class="text-secondary">Top Job Roles</small>
                   </div>
                   <div class="d-flex flex-wrap gap-2 mb-3">
-                    <span class="badge bg-light text-dark border fw-normal"
-                      >Research Scientist</span
-                    >
-                    <span class="badge bg-light text-dark border fw-normal"
-                      >Lab Technician</span
-                    >
-                    <span class="badge bg-light text-dark border fw-normal"
-                      >Quality Analyst</span
-                    >
-                    <span class="badge bg-light text-dark border fw-normal"
-                      >Environmentalist</span
-                    >
-                    <span class="badge bg-light text-dark border fw-normal"
-                      >Biotechnologist</span
-                    >
+              
+<span class="badge bg-light text-dark border fw-normal">Scientist</span>
+<span class="badge bg-light text-dark border fw-normal">Research Analyst</span>
+<span class="badge bg-light text-dark border fw-normal">Biotechnologist</span>
+<span class="badge bg-light text-dark border fw-normal">Data Scientist</span>
+<span class="badge bg-light text-dark border fw-normal">Academician</span>
                   </div>
                 </div>
               </div>
@@ -4442,7 +4342,7 @@
           <li class="position-relative" id="collegeTabs">FOR COLLEGES</li>
         </ul>
         <!-- //-----------------------------for students  -->
-        <div id="studentContent" class="flex-nowrap flex-shrink-0">
+        <div id="studentContent" class="flex-nowrap flex-shrink-0" >
           <!-- ----------card-1 -->
           <div class="card-content text-center flex-shrink-0 p-4">
             <!-- Small rounded image on top -->
@@ -4774,117 +4674,38 @@
         <h4 class="text-primary">Get placed where you belong</h4>
       </div>
       <div class="bottom-scroll-rec-wrapper overflow-hidden">
-        <div
-          class="bottom-scroll-rec d-flex gap-3 px-5 flex-nowrap"
-          id="recruiters "
-        >
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./accenture-rec.svg"
-              alt="Accenture"
-            />
+        <div class="bottom-scroll-rec d-flex gap-3 px-5 flex-nowrap" id="recruiters ">
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./accenture-rec.svg" alt="Accenture" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./amaozon-rec.svg"
-              alt="Amazon"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./amaozon-rec.svg" alt="Amazon" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./jp-rec.svg"
-              alt="JP Morgan"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0"><img class="h-100 w-100 img-fluid object-fit-contain" src="./jp-rec.svg" alt="JP Morgan" /></div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0"><img class="h-100 w-100 img-fluid object-fit-contain" src="./kpmg-rec.svg" alt="KPMG" /></div>
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./google-rec.svg" alt="Google" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./kpmg-rec.svg"
-              alt="KPMG"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./american-rec.svg" alt="American Express" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./google-rec.svg"
-              alt="Google"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./citiBank-rec.svg" alt="CitiBank" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./american-rec.svg"
-              alt="American Express"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./deloitte-rec.svg" alt="Deloitte" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./citiBank-rec.svg"
-              alt="CitiBank"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./facebook-rec.svg" alt="Facebook" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./deloitte-rec.svg"
-              alt="Deloitte"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./flipcart-rec.svg" alt="Flipkart" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./facebook-rec.svg"
-              alt="Facebook"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./cognizant-rec.svg" alt="Cognizant" />
           </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./flipcart-rec.svg"
-              alt="Flipkart"
-            />
-          </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./cognizant-rec.svg"
-              alt="Cognizant"
-            />
-          </div>
-          <div
-            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
-          >
-            <img
-              class="h-100 w-100 img-fluid object-fit-contain"
-              src="./microsoft-rec.svg"
-              alt="Microsoft"
-            />
+          <div class="card-rec p-3  border d-flex align-items-center justify-content-center flex-shrink-0">
+            <img class="h-100 w-100 img-fluid object-fit-contain" src="./microsoft-rec.svg" alt="Microsoft" />
           </div>
         </div>
       </div>
@@ -4911,7 +4732,7 @@
             <!-- --------------form popup  -->
             <div class="modal fade" id="connectModal" tabindex="-1">
               <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal-content p-3 rounded-3">
+                <div class="modal-content p-3 rounded-3">
                   <!-- ----------------header  -->
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -5634,7 +5455,7 @@
       let currentPage = 1;
       const PER_PAGE = 5;
       let currentSort = "popularity";
-      const UG_COURSES = [
+           const UG_COURSES = [
         "B.Sc",
         "B.Com",
         "BA",
@@ -5642,21 +5463,35 @@
         "BE/B.Tech",
         "BCA",
         "LLB",
-        "MBBS",
+        "MBBS"
       ];
       const PG_COURSES = [
-        "mba",
-        "pgp",
-        "pgpx",
-        "epgp",
-        "pgdm",
-        "m.tech",
-        "mca",
-        "msc",
-        "ma",
-        "phd",
-        "fpm",
+      "mba",
+  "pgp",
+  "pgpx",
+  "epgp",
+  "pgdm",
+  "m.tech",
+  "mca",
+  "msc",
+  "ma",
+  "phd",
+  "fpm"
       ];
+      function setDefaultLevelFilter() {
+  const levelItems = document.querySelectorAll("#level-list .filter-check");
+
+  levelItems.forEach((el) => {
+    const name = el.querySelector(".fc-label").textContent.trim();
+
+    if (name === "Post Graduation") {
+      el.classList.add("checked"); // UI me tick
+      activeFilters[name] = "level"; // filter me add
+    } else {
+      el.classList.remove("checked");
+    }
+  });
+}
       // ════════════════════════════════════════════
       // DATA LOAD — JSON se ek baar fetch karo
       // ════════════════════════════════════════════
@@ -5671,44 +5506,13 @@
         if (document.getElementById("grid")) renderUniversities();
         if (document.getElementById("collegesList")) {
           renderFeeFilters();
-          if (Object.keys(activeFilters).length === 0) {
-            setDefaultUGFilters();
-            setDefaultLevelFilter();
-          }
-          renderColleges();
-        }
+if (Object.keys(activeFilters).length === 0) {
+  setDefaultUGFilters();
+  setDefaultLevelFilter()
+}
+renderColleges();        }
       }
-      function setDefaultPGFilters() {
-        const pgItems = document.querySelectorAll("#pg-list .filter-check");
 
-        pgItems.forEach((el) => {
-          const name = el.querySelector(".fc-label").textContent.trim();
-          // Remove any existing PG filters first
-          if (activeFilters[name] === "course") {
-            delete activeFilters[name];
-            el.classList.remove("checked");
-          }
-        });
-
-        renderColleges();
-        updateActiveStrip();
-      }
-      function setDefaultLevelFilter() {
-        const levelItems = document.querySelectorAll(
-          "#level-list .filter-check",
-        );
-
-        levelItems.forEach((el) => {
-          const name = el.querySelector(".fc-label").textContent.trim();
-
-          if (name === "Graduation") {
-            el.classList.add("checked"); // UI me tick
-            activeFilters[name] = "level"; // filter me add
-          } else {
-            el.classList.remove("checked");
-          }
-        });
-      }
       // ════════════════════════════════════════════
       // UNIVERSITIES PAGE LOGIC
       // ════════════════════════════════════════════
@@ -5770,7 +5574,7 @@
         <div class="card-name">${u.name}</div>
         <span class="card-category">${catLabels[u.cat]}</span>
       </div>
-      <div class="card-body">
+      <div class="card-body h-100 ">
         <div class="card-meta">
           <div class="meta-row">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -5833,81 +5637,83 @@
       // ════════════════════════════════════════════
 
       function getFilteredColleges() {
-        const selectedCourses = Object.keys(activeFilters).filter(
-          (k) => activeFilters[k] === "course",
+  const selectedCourses = Object.keys(activeFilters).filter(
+    (k) => activeFilters[k] === "course"
+  );
+
+  return colleges
+    .map((c) => {
+      let coursesToUse = [];
+
+      //  CASE 1: Kuch bhi select nahi → ALL courses
+      if (selectedCourses.length === 0) {
+        coursesToUse = c.courses;
+      }
+
+      //  CASE 2: Jo select kiya wahi dikhao (UG ya PG kuch bhi)
+      else {
+coursesToUse = c.courses.filter((co) =>
+  selectedCourses.some(
+    (sel) => co.toLowerCase().includes(sel.toLowerCase())
+  )
+);
+      }
+
+      return {
+        ...c,
+        filteredCourses: coursesToUse,
+      };
+    })
+    .filter((c) => c.filteredCourses.length > 0)
+    .filter((c) => {
+      return Object.keys(activeFilters).every((key) => {
+        const filter = activeFilters[key];
+
+        // Fees
+        if (typeof filter === "object" && filter.type === "fees") {
+          return c.feesNum >= filter.min && c.feesNum <= filter.max;
+        }
+
+        // Course already handled
+        if (filter === "course") return true;
+
+        // State filter
+        const selectedStates = Object.keys(activeFilters).filter(
+          (k) => activeFilters[k] === "state"
         );
 
-        return colleges
-          .map((c) => {
-            let coursesToUse = [];
+        if (selectedStates.length > 0) {
+          return selectedStates.some((state) =>
+            c.location.toLowerCase().includes(state.toLowerCase())
+          );
+        }
 
-            //  CASE 1: Kuch bhi select nahi → ALL courses
-            if (selectedCourses.length === 0) {
-              coursesToUse = c.courses;
-            }
+        return true;
+      });
+    });
+}
+     function setDefaultUGFilters() {
+  activeFilters = {}; //  reset pehle
 
-            //  CASE 2: Jo select kiya wahi dikhao (UG ya PG kuch bhi)
-            else {
-              coursesToUse = c.courses.filter((co) =>
-                selectedCourses.some(
-                  (sel) => co.toLowerCase() === sel.toLowerCase(),
-                ),
-              );
-            }
+  const courseItems = document.querySelectorAll(
+    "#course-list .filter-check"
+  );
 
-            return {
-              ...c,
-              filteredCourses: coursesToUse,
-            };
-          })
-          .filter((c) => c.filteredCourses.length > 0)
-          .filter((c) => {
-            return Object.keys(activeFilters).every((key) => {
-              const filter = activeFilters[key];
+  courseItems.forEach((el) => {
+    const name = el.querySelector(".fc-label").textContent.trim();
 
-              // Fees
-              if (typeof filter === "object" && filter.type === "fees") {
-                return c.feesNum >= filter.min && c.feesNum <= filter.max;
-              }
+    if (
+      PG_COURSES.some((ug) => ug.toLowerCase() === name.toLowerCase())
+    ) {
+      el.classList.add("checked");
+      activeFilters[name] = "course";
+    } else {
+      el.classList.remove("checked");
+    }
+  });
 
-              // Course already handled
-              if (filter === "course") return true;
-
-              // State filter
-              const selectedStates = Object.keys(activeFilters).filter(
-                (k) => activeFilters[k] === "state",
-              );
-
-              if (selectedStates.length > 0) {
-                return selectedStates.some((state) =>
-                  c.location.toLowerCase().includes(state.toLowerCase()),
-                );
-              }
-
-              return true;
-            });
-          });
-      }
-      function setDefaultUGFilters() {
-        activeFilters = {}; //  reset pehle
-
-        const courseItems = document.querySelectorAll("#ug-list .filter-check");
-
-        courseItems.forEach((el) => {
-          const name = el.querySelector(".fc-label").textContent.trim();
-
-          if (
-            UG_COURSES.some((ug) => ug.toLowerCase() === name.toLowerCase())
-          ) {
-            el.classList.add("checked");
-            activeFilters[name] = "course";
-          } else {
-            el.classList.remove("checked");
-          }
-        });
-
-        updateActiveStrip();
-      }
+  updateActiveStrip();
+}
       function sortCollegesList(list) {
         return [...list].sort((a, b) => {
           if (currentSort === "rating") return b.rating - a.rating;
@@ -5946,31 +5752,7 @@
 
         renderPagination(total);
       }
-      function renderCompareModal(c){
-        const modalBody = document.querySelector("#compareModal .row")
-        modalBody.innerHTML =`
-        <div class="col-lg-4">
-              <div
-                class="position-relative compare-card border overflow-hidden"
-              >
-                <img
-                  src="${c.img}"
-                  alt=""
-                  class="compare-banner object-fit-cover w-100"
-                />
-                <i class="bi bi-x-circle-fill position-absolute"></i>
-                <div class="logo-wrapper-com position-absolute">
-                  <img src="${c.img}" alt="" class="object-fit-cover" />
-                </div>
-                <div class="text-center mt-4">
-                  <p class="fw-bold mb-0">${c.name}</p>
-                  <small class="text-muted d-block">${c.location}</small>
-                  <p class="mb-0">${c.filteredCourses?.[0] || ""}</p>
-                </div>
-              </div>
-            </div>
-        `
-      }
+
       function renderCollegeCard(c) {
         const fees = Object.entries(c.fees)
           .map(
@@ -5997,6 +5779,7 @@
       <div class="cc-inner">
         <div class="cc-img-wrap" style="background:${c.imgBg}">
           <img src="${c.img}" alt="${c.name}"/>
+          <div class="cc-rank-badge">🏆 ${c.accred.find((a) => a.includes("NIRF")) || "Ranked"}</div>
         </div>
         <div class="cc-body">
           <div class="cc-head">
@@ -6020,7 +5803,6 @@
 <div class="cc-actions">
   <button class="cca-apply">Apply Now</button>
   <button class="cca-brochure">Brochure</button>
-  <button class="cca-compare" data-bs-toggle="modal" data-id="${c.id}" data-bs-target="#compareModal">Compare</button>
 </div>
         </div>
         
@@ -6202,53 +5984,27 @@
         currentPage = 1;
         renderColleges();
       }
-      6;
+
+      // ── Filter UI helpers ──
       function toggleSection(head) {
-        const body = head.nextElementSibling;
-
-        body.classList.toggle("open");
-
-        const icon = head.querySelector(".fs-sec-toggle");
-        if (icon) icon.classList.toggle("open");
+        head.nextElementSibling.classList.toggle("open");
+        head.querySelector(".fs-sec-toggle").classList.toggle("open");
       }
+
       function toggleCheck(el, name) {
         el.classList.toggle("checked");
         let cat = "general";
         const parent = el.closest("[id]");
-        const grandParent = el.closest(".fs-sub-body");
-
-        // Better detection for course filters
-        if (
-          grandParent &&
-          (grandParent.id === "ug-list" || grandParent.id === "pg-list")
-        ) {
-          cat = "course";
-        } else if (parent) {
-          if (
-            parent.id.includes("course") ||
-            parent.id.includes("ug-list") ||
-            parent.id.includes("pg-list")
-          ) {
-            cat = "course";
-          } else if (parent.id.includes("level")) {
-            cat = "level";
-          } else if (parent.id.includes("state")) {
-            cat = "state";
-          } else if (parent.id.includes("type")) {
-            cat = "type";
-          } else if (parent.id.includes("acc")) {
-            cat = "accred";
-          } else if (parent.id.includes("exam")) {
-            cat = "exam";
-          }
+        if (parent) {
+          if (parent.id.includes("course")) cat = "course";
+          if (parent.id.includes("level")) cat = "level";
+          else if (parent.id.includes("state")) cat = "state";
+          else if (parent.id.includes("type")) cat = "type";
+          else if (parent.id.includes("acc")) cat = "accred";
+          else if (parent.id.includes("exam")) cat = "exam";
         }
-
-        if (el.classList.contains("checked")) {
-          activeFilters[name] = cat;
-        } else {
-          delete activeFilters[name];
-        }
-
+        if (el.classList.contains("checked")) activeFilters[name] = cat;
+        else delete activeFilters[name];
         currentPage = 1;
         renderColleges();
         updateActiveStrip();
@@ -6257,9 +6013,7 @@
       function toggleChipColor(el, key) {
         const sec = el.closest(".filter-section");
         const titleEl = sec ? sec.querySelector(".fs-sec-title") : null;
-        const titleUg = sec ? sec.querySelector(".fs-sec-title-ug") : null;
         const col = titleEl ? titleEl.style.color : "";
-
         let activeClass = "selected";
         if (col.includes("e85d3a")) activeClass = "exec-active";
         else if (col.includes("0aab87")) activeClass = "online-active";
@@ -6681,17 +6435,6 @@
       const recruiters = document.getElementById("recruiters");
       recruiters.innerHTML += recruiters.innerHTML;
     </script>
-<script>
-  let selectedCourses = null;
-  document.addEventListener("click",(e)=>{
-    if(e.target.classList.contains("cca-compare")){
-      const id = e.target.getAttribute("data-id")
-         const selectedCollege = colleges.find((c) => c.id == id);
-
-    renderCompareModal(selectedCollege);
-    }
-  })
-</script>
     <style>
       @keyframes shake {
         0%,
