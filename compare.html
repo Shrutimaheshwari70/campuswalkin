@@ -12,6 +12,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
@@ -407,17 +411,17 @@
       transform: rotate(180deg);
     }
     .exp-mega {
-        display: none;
-  position: absolute;
-  top: 100%;
-  left: -450px;
-  width: 600px; /* adjust */
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: var(--sh3);
-  padding: 1rem;
-  z-index: 10;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: -450px;
+      width: 600px; /* adjust */
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: var(--sh3);
+      padding: 1rem;
+      z-index: 10;
     }
     .explore-wrap:hover .exp-mega,
     .explore-wrap.open .exp-mega {
@@ -923,19 +927,19 @@
       background: #4f46e5;
       color: #fff;
     }
- .cm-btns{
-        display: flex;
-        gap: 10px;
-        margin-bottom: 12px;
-        flex-wrap: wrap;
-        cursor: pointer;
-      }
-      .cm-btn{
-        border: 1px solid #4f46e5;
-        padding: 2px 15px;
-        font-size: 0.75rem;
-        /* border-radius: 10px; */
-      }
+    .cm-btns {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      cursor: pointer;
+    }
+    .cm-btn {
+      border: 1px solid #4f46e5;
+      padding: 2px 15px;
+      font-size: 0.75rem;
+      /* border-radius: 10px; */
+    }
     /* GRID */
     .cm-grid {
       display: grid;
@@ -1004,6 +1008,19 @@
       position: relative;
     }
 
+    .modal-backdrop {
+      opacity: 0.5 !important;
+      background-color: transparent !important;
+    }
+    .form-inp button {
+      background-color: var(--navy2);
+    }
+    .form-inp input:focus,
+    .btn-close:focus {
+      border-color: none;
+      box-shadow: none;
+      outline: none;
+    }
     .courses-mega {
       display: none;
       pointer-events: auto;
@@ -2230,185 +2247,243 @@
       padding: 2px 0;
       cursor: pointer;
     }
-    #compareContainer{
+    #compareContainer {
       padding: 50px;
     }
-  
- .compare-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  border: 2px solid rgb(225, 225, 225);
-  background-color: rgb(254, 254, 254);
-  padding: 20px;
-}
 
-.compare-table th {
-  text-align: left;
-  background: #f3f3f3;
-  padding: 12px 14px;
-  width: 160px;
-  font-weight: 500;
-  color: #444;
-  border-bottom: 1px solid #eee;
-  white-space: nowrap;
-}
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      border: 2px solid rgb(225, 225, 225);
+      background-color: rgb(254, 254, 254);
+      padding: 20px;
+    }
 
-.compare-table td {
-  padding: 12px 14px;
-  text-align: center;
-  border-left: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  color: #333;
-  vertical-align: middle;
-}
+    .compare-table th {
+      text-align: left;
+      background: #f3f3f3;
+      padding: 12px 14px;
+      width: 160px;
+      font-weight: 500;
+      color: #444;
+      border-bottom: 1px solid #eee;
+      white-space: nowrap;
+    }
 
-.compare-table tr:hover td {
-  background: #fafafa;
-}
+    .compare-table td {
+      padding: 12px 14px;
+      text-align: center;
+      border-left: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      color: #333;
+      vertical-align: middle;
+    }
 
-.compare-table .action-row td {
-  padding: 14px 10px;
-  vertical-align: middle;
-}
+    .compare-table tr:hover td {
+      background: #fafafa;
+    }
 
-.btn-view {
-  display: inline-block;
-  margin-bottom: 8px;
-  font-size: 13px;
-  color: #9c1ae8;
-  text-decoration: none;
-  font-weight: 500;
-  border: 1px solid #9c1ae8;;
-  padding: 5px 12px;
-  border-radius: 6px;
-  transition: background 0.15s, color 0.15s;
-}
-.btn-apply {
-  display: inline-block;
-  font-size: 13px;
-  background: linear-gradient(to right, navy, purple);;
-  color: #fff;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.15s;
-  text-decoration: none;
-}
-.compare-wrapper{
-  padding: 16px;
-}
-.compare-title{
-  padding: 20px;
-}
-.compare-title h5{
-  margin: 0;
-  font-weight: 600;
-}
+    .compare-table .action-row td {
+      padding: 14px 10px;
+      vertical-align: middle;
+    }
 
-.compare-title p{
-  margin: 4px 0 12px;
-  font-size: 13px;
-  color: #6b7280;
-}
+    .btn-view {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: #9c1ae8;
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid #9c1ae8;
+      padding: 5px 12px;
+      border-radius: 6px;
+      transition:
+        background 0.15s,
+        color 0.15s;
+    }
+    .btn-apply {
+      display: inline-block;
+      font-size: 13px;
+      background: linear-gradient(to right, navy, purple);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.15s;
+      text-decoration: none;
+    }
+    .compare-wrapper {
+      padding: 16px;
+    }
+    .compare-title {
+      padding: 20px;
+    }
+    .compare-title h5 {
+      margin: 0;
+      font-weight: 600;
+    }
 
-.compare-grid{
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+    .compare-title p {
+      margin: 4px 0 12px;
+      font-size: 13px;
+      color: #6b7280;
+    }
 
-/* CARD */
-.compare-card{
-  width: 230px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 14px;
-  margin-left: 20px;
-  position: relative;
-  transition: 0.2s;
-}
+    .compare-grid {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-.compare-card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
+    /* CARD */
+    .compare-card {
+      width: 230px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 14px;
+      margin-left: 20px;
+      position: relative;
+      transition: 0.2s;
+    }
 
-/* REMOVE BUTTON */
-.remove-btn{
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  border: none;
-  background: #f3f4f6;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  cursor: pointer;
-}
+    .compare-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
 
-/* TEXT */
-.uni-name{
-  font-weight: 600;
-  font-size: 15px;
-}
+    /* REMOVE BUTTON */
+    .remove-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      border: none;
+      background: #f3f4f6;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
-.uni-city{
-  font-size: 12px;
-  color: #6b7280;
-  margin-top: 2px;
-}
+    /* TEXT */
+    .uni-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
 
-/* BADGE */
-.badge-row{
-  margin-top: 10px;
-}
+    .uni-city {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 2px;
+    }
 
-.badge{
-  background: #eef2ff;
-  color: #4f46e5;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-}
+    /* BADGE */
+    .badge-row {
+      margin-top: 10px;
+    }
 
-/* ADD CARD */
-.add-card{
-  width: 300px;
-  padding: 20px;
-  border: 2px dashed #cbd5e1;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.2s;
-  background: #fafafa;
-}
+    .badge {
+      background: #eef2ff;
+      color: #4f46e5;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
 
-.add-card:hover{
-  border-color: #6366f1;
-  background: #f5f7ff;
-}
+    /* ADD CARD */
+    .add-card {
+      width: 300px;
+      padding: 20px;
+      border: 2px dashed #cbd5e1;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #fafafa;
+    }
 
-.plus-circle{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #6366f1;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  margin-bottom:5px;
-}
+    .add-card:hover {
+      border-color: #6366f1;
+      background: #f5f7ff;
+    }
+
+    .plus-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #6366f1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+    /* Image container */
+    .img-box {
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+    }
+
+    /* Image styling */
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
   </style>
   <body>
+    <!-- MODAL -->
+    <div class="modal fade" id="connectModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 rounded-4">
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Get Free Guidance</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <!-- FORM -->
+          <form class="form-inp">
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Full Name..."
+            />
+
+            <input type="email" class="form-control mb-3" placeholder="Email" />
+
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Phone Number..."
+            />
+
+            <select class="form-select mb-3">
+              <option selected disabled>Select Program Interest</option>
+              <option>Executive Program</option>
+              <option>Offline Program</option>
+              <option>Online Program</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
     <!-- TOP BAR (desktop only) -->
     <div class="topbar">
       <div class="tb-left">
@@ -2681,7 +2756,13 @@
           <!-- Auth (desktop) -->
           <div class="auth-btns">
             <button class="btn-ln">Login</button>
-            <button class="btn-su">Apply Now</button>
+            <button
+              class="btn-su"
+              data-bs-toggle="modal"
+              data-bs-target="#connectModal"
+            >
+              Apply Now
+            </button>
           </div>
         </div>
       </div>
@@ -2731,17 +2812,42 @@
                 <div class="cm-si" data-cat="commerce">Commerce</div>
               </div>
 
-               <!-- Right: Content -->
+              <!-- Right: Content -->
               <div class="cm-content">
                 <!-- Mode tabs -->
                 <div class="cm-btns" id="cmLevelTabs">
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="UG"><a href="ug-courses.html">UG Courses</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="PG"><a href="pg-courses.html">PG Courses</a></div>                
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Executive MBA"><a href="executive-course.html">Executive MBA</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Online Programs"> <a href="online-programs.html">Online Programs</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Management (PGDM / MBA)"> <a href="pgdm-mba-management.html">Management (PGDM / MBA)</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Study Abroad"> <a href="study-abroad.html">Study Abroad</a></div> 
-
+                  <div class="cm-btn rounded-4 py-1 px-2" data-level="UG">
+                    <a href="ug-courses.html">UG Courses</a>
+                  </div>
+                  <div class="cm-btn rounded-4 py-1 px-2" data-level="PG">
+                    <a href="pg-courses.html">PG Courses</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Executive MBA"
+                  >
+                    <a href="executive-course.html">Executive MBA</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Online Programs"
+                  >
+                    <a href="online-programs.html">Online Programs</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Management (PGDM / MBA)"
+                  >
+                    <a href="pgdm-mba-management.html"
+                      >Management (PGDM / MBA)</a
+                    >
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Study Abroad"
+                  >
+                    <a href="study-abroad.html">Study Abroad</a>
+                  </div>
                 </div>
                 <div class="cm-tabs" id="cmTabs">
                   <div class="cm-tab active" data-mode="all">All</div>
@@ -2864,7 +2970,11 @@
             <p>Add Program</p>
           </div>
         </div>
-        <div id="selectionSummary" class="selection-summary" style="display:none;"></div>
+        <div
+          id="selectionSummary"
+          class="selection-summary"
+          style="display: none"
+        ></div>
         <!-- ------------------ stepper panel (hidden by default ) -->
         <div class="stepper-panel" id="stepperPanel" style="display: none">
           <!-- progress header  -->
@@ -3481,18 +3591,18 @@
       /* ── Explore ── */
       /* ── Explore ── */
       function toggleExplore(e) {
-  e.stopPropagation(); // Prevent the document click from immediately closing it
-  const wrap = document.getElementById("exploreWrap");
-  wrap.classList.toggle("open");
-}
+        e.stopPropagation(); // Prevent the document click from immediately closing it
+        const wrap = document.getElementById("exploreWrap");
+        wrap.classList.toggle("open");
+      }
 
-// Close dropdown when clicking outside
-document.addEventListener("click", function (e) {
-  const explore = document.getElementById("exploreWrap");
-  if (!explore.contains(e.target)) {
-    explore.classList.remove("open");
-  }
-});
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        const explore = document.getElementById("exploreWrap");
+        if (!explore.contains(e.target)) {
+          explore.classList.remove("open");
+        }
+      });
       /* ── Mobile drawer ── */
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");
@@ -3967,7 +4077,7 @@ document.addEventListener("click", function (e) {
               type: "IIT",
               rank: "#1",
               fee: "₹2.1L/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -3991,12 +4101,11 @@ document.addEventListener("click", function (e) {
               type: "Central",
               rank: "#8",
               fee: "₹36K/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
               },
-              
             },
             {
               id: "spj",
@@ -4004,7 +4113,7 @@ document.addEventListener("click", function (e) {
               type: "Private",
               rank: "#22",
               fee: "₹18L/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4018,7 +4127,7 @@ document.addEventListener("click", function (e) {
               type: "Central",
               rank: "#1",
               fee: "₹28K/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4031,7 +4140,7 @@ document.addEventListener("click", function (e) {
               type: "IIM",
               rank: "#1",
               fee: "₹23L/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4043,7 +4152,7 @@ document.addEventListener("click", function (e) {
               type: "State",
               rank: "#25",
               fee: "₹10K/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4055,7 +4164,7 @@ document.addEventListener("click", function (e) {
               type: "Private",
               rank: "#35",
               fee: "₹1.6L/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4068,7 +4177,7 @@ document.addEventListener("click", function (e) {
               type: "Deemed",
               rank: "#28",
               fee: "₹1.1L/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4083,7 +4192,7 @@ document.addEventListener("click", function (e) {
               type: "IIT",
               rank: "#1",
               fee: "₹2.3L/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4095,7 +4204,7 @@ document.addEventListener("click", function (e) {
               type: "State",
               rank: "#10",
               fee: "₹45K/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4107,7 +4216,7 @@ document.addEventListener("click", function (e) {
               type: "Private",
               rank: "#40",
               fee: "₹40K/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4121,7 +4230,7 @@ document.addEventListener("click", function (e) {
               type: "Central",
               rank: "#7",
               fee: "₹16K/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4133,7 +4242,7 @@ document.addEventListener("click", function (e) {
               type: "State",
               rank: "#22",
               fee: "₹12K/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4145,7 +4254,7 @@ document.addEventListener("click", function (e) {
               type: "Deemed",
               rank: "#30",
               fee: "₹3.5L/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4157,7 +4266,7 @@ document.addEventListener("click", function (e) {
               type: "State",
               rank: "#26",
               fee: "₹1L/yr",
-                  courses: {
+              courses: {
                 engineering: ["B.Tech", "M.Tech", "PhD"],
                 management: ["MBA", "Executive MBA"],
                 science: ["MSc", "PhD"],
@@ -4365,13 +4474,13 @@ document.addEventListener("click", function (e) {
         updateNextBtn();
       }
       function selectUni(id) {
-  state.university = id;
-  state.course = null; // ✅ IMPORTANT FIX
-  renderUniGrid(
-    (document.getElementById("uniSearch") || { value: "" }).value
-  );
-  updateNextBtn();
-}
+        state.university = id;
+        state.course = null; // ✅ IMPORTANT FIX
+        renderUniGrid(
+          (document.getElementById("uniSearch") || { value: "" }).value,
+        );
+        updateNextBtn();
+      }
       // ------------- city , step 0
       function renderCityStep() {
         document.getElementById("stepBody").innerHTML = `
@@ -4462,14 +4571,14 @@ document.addEventListener("click", function (e) {
         updateNextBtn();
       }
       function selectCourse(course, e) {
-  state.course = course;
+        state.course = course;
 
-  document.querySelectorAll(".course-item").forEach(el => {
-    el.classList.remove("active");
-  });
+        document.querySelectorAll(".course-item").forEach((el) => {
+          el.classList.remove("active");
+        });
 
-  if (e) e.target.closest(".course-item").classList.add("active");
-}
+        if (e) e.target.closest(".course-item").classList.add("active");
+      }
       function renderDetailStep() {
         const city = DATA.cities.find((c) => c.id === state.city);
         const uni = (DATA.universities[state.city] || []).find(
@@ -4622,54 +4731,53 @@ document.addEventListener("click", function (e) {
         }
       }
       // add to compare
-    function addToCompare() {
-  if (!state.course) {
-    alert("Please select a course first");
-    return;
-  }
+      function addToCompare() {
+        if (!state.course) {
+          alert("Please select a course first");
+          return;
+        }
 
-  const city = DATA.cities.find(c => c.id === state.city);
-  const uni = (DATA.universities[state.city] || []).find(
-    u => u.id === state.university
-  );
+        const city = DATA.cities.find((c) => c.id === state.city);
+        const uni = (DATA.universities[state.city] || []).find(
+          (u) => u.id === state.university,
+        );
 
-  if (!uni) return;
+        if (!uni) return;
 
-  // correct duplicate check
-const already = addedPrograms.some(
-  p => p.uniId === uni.id && p.course === state.course
-);
-  if (already) {
-    alert("This university is already in comparison.");
-    return;
-  }
+        // correct duplicate check
+        const already = addedPrograms.some(
+          (p) => p.uniId === uni.id && p.course === state.course,
+        );
+        if (already) {
+          alert("This university is already in comparison.");
+          return;
+        }
 
-  addedPrograms.push({
-    cityId: city.id,
-    uniId: uni.id,
-    course: state.course,
-    city,
-    uni,
-  });
+        addedPrograms.push({
+          cityId: city.id,
+          uniId: uni.id,
+          course: state.course,
+          city,
+          uni,
+        });
 
-  // renderAddedCards();
-  renderAddCard();
-  renderAddedCards();
-  closeStepper();
-
-}
+        // renderAddedCards();
+        renderAddCard();
+        renderAddedCards();
+        closeStepper();
+      }
       function removeProgram(uniId) {
         addedPrograms = addedPrograms.filter((p) => p.uniId !== uniId);
         renderAddedCards();
-          renderAddCard(); 
+        renderAddCard();
         if (addedPrograms.length < 4) {
           document.getElementById("addCard").style.display = "flex";
         }
       }
-  function renderAddCard() {
-  const addCard = document.getElementById("addCard");
+      function renderAddCard() {
+        const addCard = document.getElementById("addCard");
 
-  addCard.innerHTML = `
+        addCard.innerHTML = `
     <div class="compare-wrapper">
 
       <div class="compare-title">
@@ -4679,9 +4787,13 @@ const already = addedPrograms.some(
 
       <div class="compare-grid">
 
-        ${addedPrograms.map(p => `
+        ${addedPrograms
+          .map(
+            (p) => `
           <div class="compare-card">
-
+                <div class="img-box">
+            <img src="${p.uni.img}" alt="college">
+          </div>
             <button class="remove-btn" onclick="removeProgram('${p.uniId}')">
               <i class="bi bi-x"></i>
             </button>
@@ -4694,100 +4806,113 @@ const already = addedPrograms.some(
             </div>
 
           </div>
-        `).join("")}
+        `,
+          )
+          .join("")}
 
-        ${addedPrograms.length < 3 ? `
+        ${
+          addedPrograms.length < 3
+            ? `
           <div class="add-card" onclick="openStepper()">
             <div class="plus-circle">+</div>
             <p>Add Program</p>
           </div>
-        ` : ""}
+        `
+            : ""
+        }
 
       </div>
 
     </div>
   `;
-}function renderAddedCards() {
-  const container = document.getElementById("compareContainer");
+      }
+      function renderAddedCards() {
+        const container = document.getElementById("compareContainer");
 
-  if (addedPrograms.length < 1) return;
+        if (addedPrograms.length < 1) return;
 
-  container.innerHTML = `
+        container.innerHTML = `
     <table class="compare-table">
 
       <tr>
         <th>University</th>
-        ${addedPrograms.map(p => `<td>${p.uni.name}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.name}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Course</th>
-        ${addedPrograms.map(p => `<td>${p.course || "-"}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.course || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Duration</th>
-        ${addedPrograms.map(p => `<td>${p.uni.duration || "-"}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.duration || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Mode</th>
-        ${addedPrograms.map(p => `<td>${p.uni.mode || "-"}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.mode || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Type</th>
-        ${addedPrograms.map(p => `<td>${p.uni.type}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.type}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Fee</th>
-        ${addedPrograms.map(p => `<td>${p.uni.fee}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.fee}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Location</th>
-        ${addedPrograms.map(p => `<td>${p.uni.location || "-"}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.location || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Rank</th>
-        ${addedPrograms.map(p => `<td>${p.uni.rank}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.rank}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Placement</th>
-        ${addedPrograms.map(p => `<td>${p.uni.placement || "-"}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.placement || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Accreditation</th>
-        ${addedPrograms.map(p => `<td>${p.uni.accreditation || "-"}</td>`).join("")}
+        ${addedPrograms.map((p) => `<td>${p.uni.accreditation || "-"}</td>`).join("")}
       </tr>
 
       <tr class="action-row">
         <th></th>
-        ${addedPrograms.map(p => `
+        ${addedPrograms
+          .map(
+            (p) => `
           <td>
             <a class="btn-view" href="college-details.html?id=${p.uniId}">
               View details
             </a><br>
 
-            <a class="btn-apply" href="apply.html?id=${p.uniId}">
+            <a class="btn-apply" data-bs-toggle="modal" data-bs-target="#connectModal">
               Apply now
             </a>
           </td>
-        `).join("")}
+        `,
+          )
+          .join("")}
       </tr>
 
     </table>
   `;
-}     function viewDetails(id) {
+      }
+      function viewDetails(id) {
         alert("Redirect to details page of: " + id);
 
         // real use:
         // window.location.href = `details.html?uni=${id}`;
       }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
