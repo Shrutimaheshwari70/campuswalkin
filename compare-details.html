@@ -1608,7 +1608,7 @@
         height: 60px;
         border-radius: 50%;
         margin-top: -40px;
-        margin-left: 180px;
+        margin-left: 130px;
         border: 3px solid #fff;
       }
 
@@ -1795,7 +1795,6 @@
       }
       .compare-card-add {
         border: 1px solid #e5e5e5;
-        /* border-radius: 12px; */
         background: #fff;
         width: auto;
       }
@@ -1903,6 +1902,51 @@
         font-weight: 500;
         transition: background 0.15s;
         text-decoration: none;
+      }
+      /* //---------------------banner  */
+      .hero-compare {
+        height: 500px;
+      }
+      .hero-overlay-compare {
+        background: linear-gradient(
+          to right,
+          rgba(77, 14, 94, 0.789),
+          rgba(20, 40, 122, 0.668)
+        );
+        inset: 0;
+        z-index: 1;
+      }
+      .form-right-compare {
+        z-index: 2; /* above overlay */
+        top: 50%;
+        right: 6%;
+        transform: translateY(-50%);
+      }
+        .left-compare {
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 6%;
+  transform: translateY(-50%);
+  width: 600px;
+      }
+      
+      .top-compare{
+        background: linear-gradient(to right , rgba(255, 192, 203, 0.363) , rgba(0, 132, 255, 0.242));
+      }
+      .form-compare label {
+        font-size: 0.75rem;
+      }
+      .top-compare p {
+        font-size: 0.85rem;
+      }
+      .checkbox-compare p {
+        font-size: 0.75rem;
+      }
+      .form-compare input,select:focus{
+        outline: none;
+        border-color: none;
+        box-shadow: none;
       }
     </style>
   </head>
@@ -2399,10 +2443,63 @@
     </div>
 
     <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
-
-    <div class="container py-4">
-      <div class="d-flex">
-        <div class="compare-card-add text-center p-4">
+    <!-- //--------------------------banner compare  -->
+    <section class="hero-compare position-relative overflow-hidden w-100">
+      <div class="img-wrapper-compare overflow-hidden h-100">
+        <img
+          src="./about-banner.jpg"
+          alt=""
+          class="object-fit-cover w-100 h-100 d-block"
+        />
+      </div>
+      <div class="hero-overlay-compare position-absolute"></div>
+     <div class="center-compare d-flex positin-relative h-100 ">
+       <div class="left-compare position-absolute">
+        <h1 class="text-white">Compare Top Colleges & Make the Right Choice</h1>
+        <p class="text-white ">Choosing the right college is one of the most important decisions of your life. With so many options available, it can often feel overwhelming to decide which institution truly fits your goals. Our platform helps you compare top colleges across India based on key factors like courses offered, fees, placements, rankings, infrastructure, and student reviews — all in one place.  </p>
+       </div>
+      <div class="form-right-compare position-absolute">
+        <form class="form-compare bg-white h-auto w-auto border rounded-2 ">
+          <div class="top-compare border-bottom py-2 px-3  rounded-2 text-muted">
+            <h4 class="mb-0">Connect Our Counsellers</h4>
+            <p>Receive alerts custom made for you</p>
+          </div>
+          <h6 class="text-center mt-2 text-primary">Get Guidance By Experts</h6>
+          <div class="d-grid px-3 mb-4">
+            <label class="mb-1">Name:</label>
+            <input type="text" placeholder="Full Name" class="mb-1 rounded-2 p-1 border" />
+            <label class="mb-1">Mobile Number</label>
+            <input type="text" placeholder="Enter Mobile Number" class="mb-1 rounded-2 p-1 border" />
+            <label class="mb-1">Email:</label>
+            <input type="email" placeholder="Email Address" class="mb-2 rounded-2 p-1 border" />
+            <label class="mb-1">Courses Select</label>
+            <select class="mb-1 rounded-2 p-1 border">
+              <option selected disabled>Select Courses</option>
+              <option>MCA</option>
+              <option>M.Tech</option>
+              <option>B.Tech</option>
+              <option>BBA</option>
+              <option>MA</option>
+            </select>
+            <div class="checkbox-compare d-flex gap-2 mt-2">
+              <input type="checkbox" class="mb-1" />
+              <p class="mb-2">
+                By submitting this form , you accept and agree to our
+                <span class="text-primary">Terms of Use</span>
+              </p>
+            </div>
+            <button class="w-25 mx-auto bg-primary border-0 text-white p-1 rounded-2">
+              Apply now
+            </button>
+          </div>
+        </form>
+      </div>
+     </div>
+    </section>
+    <div class="container py-4 w-100">
+      <div class="d-flex mb-4 gap-4">
+        <div class="row g-4" id="compareRow"></div>
+        <div class="compare-card-add text-center p-4 rounded-4">
           <div class="icon-circle mb-2">
             <i class="bi bi-plus-lg"></i>
           </div>
@@ -2435,7 +2532,6 @@
           </button>
         </div>
       </div>
-      <div class="row g-4" id="compareRow"></div>
 
       <div id="compareDetails" class="mt-5"></div>
     </div>
@@ -3346,8 +3442,8 @@
         el.innerHTML = selected
           .map((c) => {
             return `
-      <div class="col-lg-4">
-        <div class="position-relative compare-card overflow-hidden"
+      <div class="col-lg-6 ">
+        <div class="position-relative compare-card overflow-hidden h-100"
              data-id="${c.id}">
 
           <img src="${c.img}" class="compare-banner object-fit-cover w-100"/>

@@ -2713,7 +2713,8 @@
       }
       .compare-card {
         height: auto;
-        width: 350px;
+        margin-top: 10px;
+        width: 100%;
         object-fit: cover;
       }
       .compare-card i {
@@ -2756,7 +2757,7 @@
         max-width: 48%;
       }
       #compareModal .modal-dialog {
-        /* max-width: 50% !important; */
+        max-width: 1300px !important;
         width: auto;
         width: 100%;
         padding: 20px;
@@ -4080,18 +4081,47 @@
                 <div
                   class="top-compare-heading border-bottom mb-3 d-flex align-items-center justify-content-between p-3"
                 >
-                  <h4 class="mb-4">College Compare</h4>
+                  <h4 class="mb-1">College Compare</h4>
                   <i
                     class="bi bi-x-lg"
                     data-bs-dismiss="modal"
                     style="cursor: pointer"
                   ></i>
                 </div>
-                <div class="modal-body">
-                  <div class="row g-4" id="compareModalRow">
+                
+                <div class="modal-body d-flex">
+                  <div class="row gap-1" id="compareModalRow">
                     <!-- Dynamic content will be inserted here -->
+                     
                   </div>
+                  <div class="compare-card-add text-center p-4 h-100 mt-2 ">
+
+      <div class="icon-circle mb-2">
+        <i class="bi bi-plus-lg"></i>
+      </div>
+
+      <p class="fw-semibold">Add College</p>
+
+      <!-- College -->
+      <div class="form-group text-start">
+        <label class="label-orange">Search College</label>
+        <select class="form-select custom-select" onchange="selectNewCollege(this)">
+          <option selected disabled>Select College</option>
+          ${options}
+        </select>
+        <small class="text-danger">Please Select a College</small>
+      </div>
+
+      <!-- Course -->
+      <div class="form-group">
+        <select class="form-select custom-select course-select">
+          <option selected disabled>Select Course</option>
+        </select>
+      </div>
+
+    </div>
                 </div>
+                
                 <button
                   onclick="goToComparePage()"
                   class="text-center border-0 p-2 bg-primary text-white w-25 mx-auto"
@@ -6007,7 +6037,7 @@
 }
           //  Tumhara original card (same as it is)
           let html = `
-      <div class="col-lg-8">
+      <div class="col-lg-8 h-100">
         <div class="position-relative compare-card  overflow-hidden">
           <img src="${c.img}" alt="" class="compare-banner object-fit-cover w-100"/>
           <i class="bi bi-x-circle-fill position-absolute"
@@ -6036,7 +6066,7 @@ if (sameState && !compareList.includes(sameState.id)) {
           // 3Agar mila → same UI ka second card add karo
           if (sameState) {
             html += `
-        <div class="col-lg-4">
+        <div class="col-lg-4 h-100">
           <div class="position-relative compare-card  overflow-hidden">
             <img src="${sameState.img}" alt="" class="compare-banner object-fit-cover w-100"/>
             <i class="bi bi-x-circle-fill position-absolute"
@@ -6099,8 +6129,14 @@ function selectNewCollege(selectEl) {
   const id = parseInt(selectEl.value);
 
   const college = colleges.find((c) => c.id === id);
-
   if (!college) return;
+
+  const card = selectEl.closest(".col-lg-4, .col-lg-8"); // 🔥 parent column
+  const allCards = document.querySelectorAll("#compareModal .col-lg-4, #compareModal .col-lg-8");
+  const index = Array.from(allCards).indexOf(card);
+
+  // 🔥 update correct position in compareList
+  compareList[index] = id;
 
   const courseSelect = selectEl
     .closest(".compare-card-add")
@@ -6111,6 +6147,8 @@ function selectNewCollege(selectEl) {
     (college.courses || [])
       .map((c) => `<option value="${c}">${c}</option>`)
       .join("");
+
+  updateCompareBar(); // UI sync
 }
         function confirmSelection(btn) {
           const select = btn.previousElementSibling;
@@ -6216,24 +6254,18 @@ function selectNewCollege(selectEl) {
 
         // ── Compare ──
         function toggleCompare(id, btn) {
-          const index = compareList.indexOf(id);
-          if (index > -1) {
-            compareList.splice(index, 1);
-            if (btn) {
-              btn.classList.remove("added");
-              btn.textContent = "⊕ Compare";
-            }
-          } else {
-            if (compareList.length >= 1) {
-              return;
-            }
+            compareList = [];
+            document.querySelectorAll(".cca-compare").forEach((b)=>{
+              b.classList.remove("added")
+              b.textContent = "⊕ Compare";
+            })
             compareList.push(id);
-            if (btn) {
-              btn.classList.add("added");
-              btn.textContent = "✓ Added";
+            if(btn){
+              btn.classList.add("added")
+                  btn.textContent = "✓ Added";
+
             }
-          }
-          updateCompareBar();
+            updateCompareBar()
         }
 
        function compareNow() {
@@ -6570,6 +6602,7 @@ function selectNewCollege(selectEl) {
         // START — Sab kuch yahan se shuru hota hai
         // ════════════════════════════════════════════
         loadData();
+        
       </script>
     <script>
       function toggleCourses() {
