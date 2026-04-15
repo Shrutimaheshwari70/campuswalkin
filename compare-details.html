@@ -1608,7 +1608,7 @@
         height: 60px;
         border-radius: 50%;
         margin-top: -40px;
-        margin-left: 130px;
+        margin-left: 170px;
         border: 3px solid #fff;
       }
 
@@ -3238,7 +3238,13 @@
           b.textContent = b.textContent === "🤍" ? "❤️" : "🤍";
         });
       });
+function fillCollegeDropdown() {
+  const select = document.querySelector(".compare-card-add select");
 
+  select.innerHTML =
+    `<option disabled selected>Select College</option>` +
+    colleges.map(c => `<option value="${c.id}">${c.name}</option>`).join("");
+}
       /* ── Bottom nav active ── */
       function bnActive(el) {
         document
@@ -3398,59 +3404,78 @@
           .querySelector(".topic-tabs").style.display = "";
       }
     </script>
-    <script>
-      let colleges = [];
-      let selectedIds = [];
+<script>
+let colleges = [];
+let compareData = [];
 
-      async function initComparePage() {
-        const res = await fetch("data.json");
-        const data = await res.json();
+async function initComparePage() {
+  const res = await fetch("data.json");
+  const data = await res.json();
 
-        colleges = data.colleges;
-        selectedIds = JSON.parse(localStorage.getItem("compareColleges")) || [];
+  colleges = data.colleges;
 
-        renderCompareCards();
-        renderDetails();
-      }
-      function selectNewCollege(selectEl) {
-        const id = parseInt(selectEl.value);
+  // 🔥 IMPORTANT — yahi actual data hai
+  compareData = JSON.parse(localStorage.getItem("compareData")) || [];
 
-        const college = colleges.find((c) => c.id === id);
-        if (!college) return;
+  renderCompareCards();
+  renderDetails();
+}
 
-        const courseSelect = selectEl
-          .closest(".compare-card-add")
-          .querySelector(".course-select");
 
-        courseSelect.innerHTML =
-          `<option disabled selected>Select Course</option>` +
-          college.courses.map((c) => `<option>${c}</option>`).join("");
-      }
-      function removeFromCompare(id) {
-        selectedIds = selectedIds.filter((x) => x !== id);
+function addToCompare() {
+  const collegeSelect = document.querySelector(".compare-card-add select");
+  const courseSelect = document.querySelector(".compare-card-add .course-select");
 
-        localStorage.setItem("compareColleges", JSON.stringify(selectedIds));
+  const collegeId = parseInt(collegeSelect.value);
+  const course = courseSelect.value;
 
-        renderCompareCards();
-        renderDetails();
-      }
-      function renderCompareCards() {
-        const el = document.getElementById("compareRow");
+  if (!collegeId || !course) {
+    alert("Please select college and course");
+    return;
+  }
 
-        const selected = colleges.filter((c) => selectedIds.includes(c.id));
+  // 🔥 already exist hai toh replace karo
+  const index = compareData.findIndex(item => item.id === collegeId);
 
-        el.innerHTML = selected
-          .map((c) => {
-            return `
-      <div class="col-lg-6 ">
-        <div class="position-relative compare-card overflow-hidden h-100"
-             data-id="${c.id}">
+  if (index > -1) {
+    compareData[index].course = course;
+  } else {
+    compareData.push({
+      id: collegeId,
+      course: course
+    });
+  }
+
+  // 🔥 IMPORTANT SAVE
+  localStorage.setItem("compareData", JSON.stringify(compareData));
+
+  // 🔥 UI refresh
+  renderCompareCards();
+  renderDetails();
+
+  console.log("Updated compareData:", compareData);
+}
+// ✅ CARD RENDER
+function renderCompareCards() {
+  const el = document.getElementById("compareRow");
+
+  const selected = compareData.map(item => {
+    const college = colleges.find(c => c.id === item.id);
+    return {
+      ...college,
+      selectedCourse: item.course
+    };
+  });
+
+  el.innerHTML = selected.map((c) => {
+    return `
+      <div class="col-lg-6">
+        <div class="position-relative compare-card overflow-hidden h-100">
 
           <img src="${c.img}" class="compare-banner object-fit-cover w-100"/>
 
-      
           <i class="bi bi-x-circle-fill compare-remove-icon"
-             onclick="enableEditFromCompare(${c.id})"></i>
+             onclick="removeFromCompare(${c.id})"></i>
 
           <div class="logo-wrapper-com position-absolute">
             <img src="${c.img}" class="object-fit-cover" />
@@ -3459,125 +3484,105 @@
           <div class="text-center mt-4">
             <p class="fw-bold mb-0">${c.name}</p>
             <small class="text-muted d-block">${c.location}</small>
-            <p class="mb-0">${c.courses?.[0] || ""}</p>
+            <p class="mb-0">${c.selectedCourse || c.courses?.[0]}</p>
           </div>
 
         </div>
       </div>
     `;
-          })
-          .join("");
-      }
-      function enableEditFromCompare(id) {
-        const college = colleges.find((c) => c.id === id);
-        if (!college) return;
+  }).join("");
+}
+function selectNewCollege(selectEl) {
+  const id = parseInt(selectEl.value);
+  const college = colleges.find(c => c.id === id);
 
-        const options = colleges
-          .map((c) => `<option value="${c.id}">${c.name}</option>`)
-          .join("");
+  if (!college) return;
 
-        document.getElementById("compareRow").innerHTML = `
-<div class="compare-card-add text-center p-4">
+  const courseSelect = document.querySelector(".course-select");
 
-      <div class="icon-circle mb-2">
-        <i class="bi bi-plus-lg"></i>
-      </div>
+  courseSelect.innerHTML =
+    `<option disabled selected>Select Course</option>` +
+    college.courses.map(c => `<option value="${c}">${c}</option>`).join("");
+}
+// ✅ REMOVE FIXED
+function removeFromCompare(id) {
+  compareData = compareData.filter(item => item.id !== id);
+  localStorage.setItem("compareData", JSON.stringify(compareData));
 
-      <p class="fw-semibold">Add College</p>
+  renderCompareCards();
+  renderDetails();
+}
 
-      <!-- College -->
-      <div class="form-group text-start">
-        <label class="label-orange">Search College</label>
-        <select class="form-select custom-select" onchange="selectNewCollege(this)">
-          <option selected disabled>Select College</option>
-          ${options}
-        </select>
-        <small class="text-danger">Please Select a College</small>
-      </div>
+// ✅ TABLE RENDER (IMPORTANT FIX)
+function renderDetails() {
+  const el = document.getElementById("compareDetails");
 
-      <!-- Course -->
-      <div class="form-group">
-        <select class="form-select custom-select course-select">
-          <option selected disabled>Select Course</option>
-        </select>
-      </div>
+  const selected = compareData.map(item => {
+    const college = colleges.find(c => c.id === item.id);
+    return {
+      ...college,
+      selectedCourse: item.course
+    };
+  });
 
-    </div>
-  `;
-      }
-      function removeFromCompare(id) {
-        selectedIds = selectedIds.filter((x) => x !== id);
-
-        localStorage.setItem("compareColleges", JSON.stringify(selectedIds));
-
-        renderCompareCards();
-        renderDetails();
-      }
-      function renderDetails() {
-        const el = document.getElementById("compareDetails");
-
-        const selected = colleges.filter((c) => selectedIds.includes(c.id));
-
-        el.innerHTML = `
+  el.innerHTML = `
     <table class="compare-table">
 
       <tr>
         <th>University</th>
-        ${selected.map((p) => `<td>${p.name}</td>`).join("")}
+        ${selected.map(p => `<td>${p.name}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Course</th>
-        ${selected.map((p) => `<td>${p.course || "-"}</td>`).join("")}
+        ${selected.map(p => `<td>${p.selectedCourse || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Duration</th>
-        ${selected.map((p) => `<td>${p.duration || "-"}</td>`).join("")}
+        ${selected.map(p => `<td>${p.duration || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Mode</th>
-        ${selected.map((p) => `<td>${p.mode || "-"}</td>`).join("")}
+        ${selected.map(p => `<td>${p.mode || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Type</th>
-        ${selected.map((p) => `<td>${p.type}</td>`).join("")}
+        ${selected.map(p => `<td>${p.type || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Fee</th>
-        ${selected.map((p) => `<td>${p.fee}</td>`).join("")}
+        ${selected.map(p => `<td>${p.fee || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Location</th>
-        ${selected.map((p) => `<td>${p.location || "-"}</td>`).join("")}
+        ${selected.map(p => `<td>${p.location || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Rank</th>
-        ${selected.map((p) => `<td>${p.rank}</td>`).join("")}
+        ${selected.map(p => `<td>${p.rank || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Placement</th>
-        ${selected.map((p) => `<td>${p.placement || "-"}</td>`).join("")}
+        ${selected.map(p => `<td>${p.placement || "-"}</td>`).join("")}
       </tr>
 
       <tr>
         <th>Accreditation</th>
-        ${selected.map((p) => `<td>${p.accreditation || "-"}</td>`).join("")}
+        ${selected.map(p => `<td>${p.accreditation || "-"}</td>`).join("")}
       </tr>
 
       <tr class="action-row">
         <th></th>
-        ${selected
-          .map(
-            (p) => `
+        ${selected.map(p => `
           <td>
-            <a class="btn-view" href="college-details.html?id=${p.Id}">
+            <a class="btn-view" href="college-details.html?id=${p.id}">
               View details
             </a><br>
 
@@ -3585,17 +3590,15 @@
               Apply now
             </a>
           </td>
-        `,
-          )
-          .join("")}
+        `).join("")}
       </tr>
 
     </table>
   `;
-      }
+}
 
-      initComparePage();
-    </script>
+initComparePage();
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

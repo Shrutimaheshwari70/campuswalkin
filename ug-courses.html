@@ -5714,10 +5714,6 @@ const courses =
       });
     </script>
     <script>
-      // ════════════════════════════════════════════
-      // app.js — Sirf Logic, Data aata hai data.json se
-      // ════════════════════════════════════════════
-
       let universities = [];
       // let colleges = [];
       let catLabels = {};
@@ -5777,6 +5773,29 @@ const courses =
           renderColleges();
         }
       }
+      function prepareCompareData() {
+  let compareIds = JSON.parse(localStorage.getItem("compareColleges")) || [];
+  let compareData = JSON.parse(localStorage.getItem("compareData")) || [];
+
+  let finalData = [];
+
+  compareIds.forEach(id => {
+    const college = colleges.find(c => c.id === id);
+
+    let existing = compareData.find(item => item.id === id);
+
+    if (existing) {
+      finalData.push(existing);
+    } else {
+      finalData.push({
+        id: id,
+        course: college.filteredCourses?.[0] || college.courses?.[0] || ""
+      });
+    }
+  });
+
+  localStorage.setItem("compareData", JSON.stringify(finalData));
+}
       function setDefaultPGFilters() {
         const pgItems = document.querySelectorAll("#pg-list .filter-check");
 
@@ -6140,32 +6159,39 @@ const courses =
     </div>
   `;
       }
-      function selectNewCollege(selectEl) {
-        const id = parseInt(selectEl.value);
+  function selectNewCollege(selectEl) {
+  const id = parseInt(selectEl.value);
+  const college = colleges.find((c) => c.id === id);
+  if (!college) return;
 
-        const college = colleges.find((c) => c.id === id);
-        if (!college) return;
-        const card = selectEl.closest(".col-lg-4, .col-lg-8"); // 🔥 parent column
-        const allCards = document.querySelectorAll(
-          "#compareModal .col-lg-4, #compareModal .col-lg-8",
-        );
-        const index = Array.from(allCards).indexOf(card);
+  const wrapper = selectEl.closest(".compare-card-add");
+  const courseSelect = wrapper.querySelector(".course-select");
 
-        // 🔥 update correct position in compareList
-        compareList[index] = id;
+  // courses fill
+  courseSelect.innerHTML =
+    `<option disabled selected>Select Course</option>` +
+    college.courses.map((c) => `<option value="${c}">${c}</option>`).join("");
 
-        const courseSelect = selectEl
-          .closest(".compare-card-add")
-          .querySelector(".course-select");
+  // 🔥 SAVE COURSE (IMPORTANT)
+  courseSelect.onchange = function () {
+    let compareData = JSON.parse(localStorage.getItem("compareData")) || [];
 
-        courseSelect.innerHTML =
-          `<option selected disabled>Select Course</option>` +
-          (college.courses || [])
-            .map((c) => `<option value="${c}">${c}</option>`)
-            .join("");
+    const index = compareData.findIndex((x) => x.id === id);
 
-        updateCompareBar(); // UI sync
-      }
+    if (index > -1) {
+      compareData[index].course = this.value;
+    } else {
+      compareData.push({
+        id: id,
+        course: this.value,
+      });
+    }
+
+    localStorage.setItem("compareData", JSON.stringify(compareData));
+
+    console.log("Saved:", compareData);
+  };
+}
       function confirmSelection(btn) {
         const select = btn.previousElementSibling;
         const id = select.value;
@@ -6263,88 +6289,94 @@ const courses =
         // Compare
         document.querySelectorAll(".cca-compare").forEach((btn) => {
           btn.addEventListener("click", function () {
-            toggleCompare(parseInt(this.dataset.cmp), this);
+            toggleCompare(parseInt(this.dataset.id), this);
           });
         });
       }
-
-      // ── Compare ──
-//       function toggleCompare(id, btn) {
-//         compareList = [];
-//         document.querySelectorAll(".cca-compare").forEach((b) => {
-//           b.classList.remove("added");
-//           b.textContent = "⊕ Compare";
-//         });
-//         // compareList.push(id);
-//         compareList.push({
-//   id: id,
-//   course: c.filteredCourses?.[0] || c.courses[0]
-// });
-//         if (btn) {
-//           btn.classList.add("added");
-//           btn.textContent = "✓ Added";
-//         }
-//         updateCompareBar();
-//       }
+const MAX_COMPARE = 3;
 
 function toggleCompare(id, btn) {
-  compareList = [];
+  let compareList = JSON.parse(localStorage.getItem("compareColleges")) || [];
 
-  document.querySelectorAll(".cca-compare").forEach((b) => {
-    b.classList.remove("added");
-    b.textContent = "⊕ Compare";
-  });
-const college = colleges.find(c => c.id === id);
+  // ❌ already selected → remove
+  if (compareList.includes(id)) {
+    compareList = compareList.filter(x => x !== id);
 
-// 🔥 jo card me dikh raha hai wahi uthao (no UI change)
-const card = btn.closest(".college-card");
-
-// ye line important hai — text directly read karegi
-const visibleCourse = card.querySelector(".cc-courses")?.innerText.trim();
-
-// fallback bhi rakha hai
-const selectedCourse = visibleCourse || college.filteredCourses?.[0] || college.courses[0];
-compareList.push(id);
-
-// course ko separately store karo
-let compareCourses = JSON.parse(localStorage.getItem("compareCourses")) || {};
-compareCourses[id] = selectedCourse;
-
-localStorage.setItem("compareCourses", JSON.stringify(compareCourses));
-  // const college = colleges.find(c => c.id === id);
-
-  // // 🔥 CARD se course uthao (jo UI me dikh raha hai)
-  // const card = btn.closest(".college-card");
-  // const courseEl = card.querySelector(".cc-course-tag");
-
-  // const selectedCourse = courseEl
-  //   ? courseEl.innerText.trim()
-  //   : (college.filteredCourses?.[0] || college.courses[0]);
-
-  // compareList.push({
-  //   id: id,
-  //   course: selectedCourse
-  // });
-
-  if (btn) {
-    btn.classList.add("added");
-    btn.textContent = "✓ Added";
+    if (btn) {
+      btn.classList.remove("added");
+      btn.textContent = "⊕ Compare";
+    }
   }
 
-  console.log(compareList); // 🔍 check karne ke liye
+  // ❌ limit check
+  else {
+    if (compareList.length >= MAX_COMPARE) {
+      alert("You can compare only 3 colleges");
+      return;
+    }
+
+    compareList.push(id);
+
+    if (btn) {
+      btn.classList.add("added");
+      btn.textContent = "✓ Added";
+    }
+  }
+
+  localStorage.setItem("compareColleges", JSON.stringify(compareList));
 
   updateCompareBar();
 }
-      function compareNow() {
-        if (compareList.length < 2) {
-          alert("Select at least 2 colleges");
-          return;
-        }
+window.addEventListener("pageshow", function () {
+  if (performance.getEntriesByType("navigation")[0]?.type === "back_forward") {
+    localStorage.removeItem("compareColleges");
+    localStorage.removeItem("compareCourses");
+  }
+});
+function compareNow() {
+  let compareIds = JSON.parse(localStorage.getItem("compareColleges")) || [];
 
-        localStorage.setItem("compareColleges", JSON.stringify(compareList));
+  if (compareIds.length < 2) {
+    alert("Select at least 2 colleges");
+    return;
+  }
 
-        window.location.href = "compare-details.html";
-      }
+  prepareCompareData(); // 🔥 YEH IMPORTANT HAI
+
+  window.location.href = "compare-details.html";
+}
+//       function compareNow() {
+//         if (compareList.length < 2) {
+//           alert("Select at least 2 colleges");
+//           return;
+//         }
+
+//         localStorage.setItem("compareColleges", JSON.stringify(compareList));
+// //         let compareData = compareList.map(id => {
+// //   return {
+// //     id: id,
+// //     course: JSON.parse(localStorage.getItem("compareCourses"))?.[id] || ""
+// //   };
+// // });
+// let compareCourses = JSON.parse(localStorage.getItem("compareCourses")) || {};
+
+// let compareData = compareList.map(id => {
+//   const college = colleges.find(c => c.id === id);
+
+//   return {
+//     id: id,
+//     // 🔥 ye line important hai
+//     course: compareCourses[id] || college.filteredCourses?.[0] || college.courses?.[0] || ""
+//   };
+// });
+
+// localStorage.setItem("compareData", JSON.stringify(compareData));
+
+// localStorage.setItem("compareData", JSON.stringify(compareData));
+
+//         window.location.href = "compare-details.html";
+//       }
+
 
       function updateCompareBar() {
         const bar = document.getElementById("compareBar");
