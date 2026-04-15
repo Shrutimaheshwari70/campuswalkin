@@ -2714,7 +2714,7 @@
       .compare-card {
         height: auto;
         margin-top: 10px;
-        width: 100%;
+        width: 350px;
         object-fit: cover;
       }
       .compare-card i {
@@ -2727,18 +2727,23 @@
         cursor: pointer;
       }
       .compare-banner {
-        width: 350px;
+        width: 100%;
         height: 100px;
+        object-fit: cover;
       }
       .logo-wrapper-com {
         top: 60px; /* overlap niche */
         left: 50%;
+             height: 60px;
+        width: 60px;
+        border-radius: 30px;
         transform: translateX(-50%);
       }
       .logo-wrapper-com img {
-        height: 60px;
-        width: 60px;
-        border-radius: 30px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+   
         border: 5px solid white;
       }
       #compareModal .row {
@@ -2813,6 +2818,7 @@
         color: #aaa;
         pointer-events: none;
       }
+  
     </style>
   </head>
   <body>
@@ -3225,6 +3231,7 @@
 
                 <!-- Dynamic grid -->
                 <div class="cm-grid" id="cmGrid"></div>
+                <div id="cmTrending"></div>
               </div>
             </div>
           </div>
@@ -4088,40 +4095,39 @@
                     style="cursor: pointer"
                   ></i>
                 </div>
-                
-                <div class="modal-body d-flex">
-                  <div class="row gap-1" id="compareModalRow">
+
+                <div class="modal-body d-flex gap-4">
+                  <div class="row " id="compareModalRow">
                     <!-- Dynamic content will be inserted here -->
-                     
                   </div>
-                  <div class="compare-card-add text-center p-4 h-100 mt-2 ">
+                  <div class="compare-card-add text-center p-4 h-100 mt-2">
+                    <div class="icon-circle mb-2">
+                      <i class="bi bi-plus-lg"></i>
+                    </div>
 
-      <div class="icon-circle mb-2">
-        <i class="bi bi-plus-lg"></i>
-      </div>
+                    <p class="fw-semibold">Add College</p>
 
-      <p class="fw-semibold">Add College</p>
+                    <!-- College -->
+                    <div class="form-group text-start">
+                      <label class="label-orange">Search College</label>
+                      <select
+                        class="form-select custom-select college-select"
+                        onchange="selectNewCollege(this)"
+                      >
+                        <option selected>Select College</option>
+                      </select>
+                      <small class="text-danger">Please Select a College</small>
+                    </div>
 
-      <!-- College -->
-      <div class="form-group text-start">
-        <label class="label-orange">Search College</label>
-        <select class="form-select custom-select" onchange="selectNewCollege(this)">
-          <option selected disabled>Select College</option>
-          ${options}
-        </select>
-        <small class="text-danger">Please Select a College</small>
-      </div>
-
-      <!-- Course -->
-      <div class="form-group">
-        <select class="form-select custom-select course-select">
-          <option selected disabled>Select Course</option>
-        </select>
-      </div>
-
-    </div>
+                    <!-- Course -->
+                    <div class="form-group">
+                      <select class="form-select custom-select course-select">
+                        <option selected>Select Course</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                
+
                 <button
                   onclick="goToComparePage()"
                   class="text-center border-0 p-2 bg-primary text-white w-25 mx-auto"
@@ -5442,8 +5448,14 @@
       });
 
       function render() {
-        const cat = data[activeCategory];
-        const courses = cat.courses[activeMode] || cat.courses.all;
+        const cat = data?.[activeCategory];
+
+if (!cat) return;
+
+const courses =
+  cat?.courses?.[activeMode] ||
+  cat?.courses?.all ||
+  [];
         document.getElementById("cmGrid").innerHTML = courses
           .map(
             (c) => `
@@ -5470,9 +5482,12 @@
 `,
           )
           .join("");
-        document.getElementById("cmTrending").innerHTML = cat.trending
-          .map((t) => `<span class="cm-ptag">${t}</span>`)
-          .join("");
+        // document.getElementById("cmTrending").innerHTML = cat.trending
+        //   .map((t) => `<span class="cm-ptag">${t}</span>`)
+        //   .join("");
+        document.getElementById("cmTrending").innerHTML = (cat.trending || [])
+  .map((t) => `<span class="cm-ptag">${t}</span>`)
+  .join("");
       }
 
       document.getElementById("cmSide").addEventListener("click", (e) => {
@@ -5698,132 +5713,132 @@
         });
       });
     </script>
-      <script>
-        // ════════════════════════════════════════════
-        // app.js — Sirf Logic, Data aata hai data.json se
-        // ════════════════════════════════════════════
+    <script>
+      // ════════════════════════════════════════════
+      // app.js — Sirf Logic, Data aata hai data.json se
+      // ════════════════════════════════════════════
 
-        let universities = [];
-        // let colleges = [];
-        let catLabels = {};
+      let universities = [];
+      // let colleges = [];
+      let catLabels = {};
 
-        // ── State (Universities page) ──
-        let uniSearch = "";
-        let activecat = "all";
-        let uniSort = "default";
+      // ── State (Universities page) ──
+      let uniSearch = "";
+      let activecat = "all";
+      let uniSort = "default";
 
-        // ── State (Colleges page) ──
-        let activeFilters = {};
-        let compareList = [];
-        let currentPage = 1;
-        const PER_PAGE = 5;
-        let currentSort = "popularity";
-        const UG_COURSES = [
-          "B.Sc",
-          "B.Com",
-          "BA",
-          "BBA/BBM",
-          "BE/B.Tech",
-          "BCA",
-          "LLB",
-          "MBBS",
-        ];
-        const PG_COURSES = [
-          "mba",
-          "pgp",
-          "pgpx",
-          "epgp",
-          "pgdm",
-          "m.tech",
-          "mca",
-          "msc",
-          "ma",
-          "phd",
-          "fpm",
-        ];
-        // ════════════════════════════════════════════
-        // DATA LOAD — JSON se ek baar fetch karo
-        // ════════════════════════════════════════════
-        async function loadData() {
-          const res = await fetch("data.json");
-          const json = await res.json();
-          universities = json.universities;
-          colleges = json.colleges;
-          catLabels = json.catLabels;
-
-          // Page detect karke render karo
-          if (document.getElementById("grid")) renderUniversities();
-          if (document.getElementById("collegesList")) {
-            renderFeeFilters();
-            if (Object.keys(activeFilters).length === 0) {
-              setDefaultUGFilters();
-              setDefaultLevelFilter();
-            }
-            renderColleges();
+      // ── State (Colleges page) ──
+      let activeFilters = {};
+      let compareList = [];
+      let currentPage = 1;
+      const PER_PAGE = 5;
+      let currentSort = "popularity";
+      const UG_COURSES = [
+        "B.Sc",
+        "B.Com",
+        "BA",
+        "BBA/BBM",
+        "BE/B.Tech",
+        "BCA",
+        "LLB",
+        "MBBS",
+      ];
+      const PG_COURSES = [
+        "mba",
+        "pgp",
+        "pgpx",
+        "epgp",
+        "pgdm",
+        "m.tech",
+        "mca",
+        "msc",
+        "ma",
+        "phd",
+        "fpm",
+      ];
+      // ════════════════════════════════════════════
+      // DATA LOAD — JSON se ek baar fetch karo
+      // ════════════════════════════════════════════
+      async function loadData() {
+        const res = await fetch("data.json");
+        const json = await res.json();
+        universities = json.universities;
+        colleges = json.colleges;
+        catLabels = json.catLabels;
+        fillCollegeDropdown()
+        // Page detect karke render karo
+        if (document.getElementById("grid")) renderUniversities();
+        if (document.getElementById("collegesList")) {
+          renderFeeFilters();
+          if (Object.keys(activeFilters).length === 0) {
+            setDefaultUGFilters();
+            setDefaultLevelFilter();
           }
-        }
-        function setDefaultPGFilters() {
-          const pgItems = document.querySelectorAll("#pg-list .filter-check");
-
-          pgItems.forEach((el) => {
-            const name = el.querySelector(".fc-label").textContent.trim();
-            // Remove any existing PG filters first
-            if (activeFilters[name] === "course") {
-              delete activeFilters[name];
-              el.classList.remove("checked");
-            }
-          });
-
           renderColleges();
-          updateActiveStrip();
         }
-        function setDefaultLevelFilter() {
-          const levelItems = document.querySelectorAll(
-            "#level-list .filter-check",
-          );
+      }
+      function setDefaultPGFilters() {
+        const pgItems = document.querySelectorAll("#pg-list .filter-check");
 
-          levelItems.forEach((el) => {
-            const name = el.querySelector(".fc-label").textContent.trim();
+        pgItems.forEach((el) => {
+          const name = el.querySelector(".fc-label").textContent.trim();
+          // Remove any existing PG filters first
+          if (activeFilters[name] === "course") {
+            delete activeFilters[name];
+            el.classList.remove("checked");
+          }
+        });
 
-            if (name === "Graduation") {
-              el.classList.add("checked"); // UI me tick
-              activeFilters[name] = "level"; // filter me add
-            } else {
-              el.classList.remove("checked");
-            }
-          });
-        }
-        // ════════════════════════════════════════════
-        // UNIVERSITIES PAGE LOGIC
-        // ════════════════════════════════════════════
-        function getFilteredUniversities() {
-          let list = universities.filter((u) => {
-            const matchCat = activecat === "all" || u.cat === activecat;
-            const q = uniSearch.toLowerCase();
-            const matchQ =
-              !q ||
-              u.name.toLowerCase().includes(q) ||
-              u.location.toLowerCase().includes(q) ||
-              u.cat.includes(q);
-            return matchCat && matchQ;
-          });
+        renderColleges();
+        updateActiveStrip();
+      }
+      function setDefaultLevelFilter() {
+        const levelItems = document.querySelectorAll(
+          "#level-list .filter-check",
+        );
 
-          if (uniSort === "name")
-            list = list.sort((a, b) => a.name.localeCompare(b.name));
-          else if (uniSort === "established")
-            list = list.sort((a, b) => a.established - b.established);
-          else if (uniSort === "programs")
-            list = list.sort((a, b) => b.programs - a.programs);
+        levelItems.forEach((el) => {
+          const name = el.querySelector(".fc-label").textContent.trim();
 
-          return list;
-        }
+          if (name === "Graduation") {
+            el.classList.add("checked"); // UI me tick
+            activeFilters[name] = "level"; // filter me add
+          } else {
+            el.classList.remove("checked");
+          }
+        });
+      }
+      // ════════════════════════════════════════════
+      // UNIVERSITIES PAGE LOGIC
+      // ════════════════════════════════════════════
+      function getFilteredUniversities() {
+        let list = universities.filter((u) => {
+          const matchCat = activecat === "all" || u.cat === activecat;
+          const q = uniSearch.toLowerCase();
+          const matchQ =
+            !q ||
+            u.name.toLowerCase().includes(q) ||
+            u.location.toLowerCase().includes(q) ||
+            u.cat.includes(q);
+          return matchCat && matchQ;
+        });
 
-        function renderUniversities() {
-          const list = getFilteredUniversities();
-          const grid = document.getElementById("grid");
+        if (uniSort === "name")
+          list = list.sort((a, b) => a.name.localeCompare(b.name));
+        else if (uniSort === "established")
+          list = list.sort((a, b) => a.established - b.established);
+        else if (uniSort === "programs")
+          list = list.sort((a, b) => b.programs - a.programs);
 
-          if (!list.length) {
-            grid.innerHTML = `
+        return list;
+      }
+
+      function renderUniversities() {
+        const list = getFilteredUniversities();
+        const grid = document.getElementById("grid");
+
+        if (!list.length) {
+          grid.innerHTML = `
         <div class="empty">
           <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
             <circle cx="11" cy="11" r="8"/>
@@ -5832,16 +5847,16 @@
           <h3>No universities found</h3>
           <p>Try adjusting your search or filters.</p>
         </div>`;
-            return;
-          }
-
-          grid.innerHTML = list
-            .map((u, i) => renderUniversityCard(u, i))
-            .join("");
+          return;
         }
 
-        function renderUniversityCard(u, i) {
-          return `
+        grid.innerHTML = list
+          .map((u, i) => renderUniversityCard(u, i))
+          .join("");
+      }
+
+      function renderUniversityCard(u, i) {
+        return `
       <div class="card cat-${u.cat}" style="animation-delay:${i * 45}ms">
         <div class="card-header">
           <div class="card-icon">
@@ -5885,160 +5900,160 @@
           </a>
         </div>
       </div>`;
-        }
+      }
 
-        // Search
-        document.getElementById("searchInput")?.addEventListener("input", (e) => {
-          uniSearch = e.target.value;
-          renderUniversities();
-        });
+      // Search
+      document.getElementById("searchInput")?.addEventListener("input", (e) => {
+        uniSearch = e.target.value;
+        renderUniversities();
+      });
 
-        // Filter pills
-        document.getElementById("filterPills")?.addEventListener("click", (e) => {
-          const pill = e.target.closest(".pill");
-          if (!pill) return;
-          document
-            .querySelectorAll(".pill")
-            .forEach((p) => p.classList.remove("active"));
-          pill.classList.add("active");
-          activecat = pill.dataset.cat;
-          renderUniversities();
-        });
+      // Filter pills
+      document.getElementById("filterPills")?.addEventListener("click", (e) => {
+        const pill = e.target.closest(".pill");
+        if (!pill) return;
+        document
+          .querySelectorAll(".pill")
+          .forEach((p) => p.classList.remove("active"));
+        pill.classList.add("active");
+        activecat = pill.dataset.cat;
+        renderUniversities();
+      });
 
-        // Sort
-        document.getElementById("sortSelect")?.addEventListener("change", (e) => {
-          uniSort = e.target.value;
-          renderUniversities();
-        });
+      // Sort
+      document.getElementById("sortSelect")?.addEventListener("change", (e) => {
+        uniSort = e.target.value;
+        renderUniversities();
+      });
 
-        // ════════════════════════════════════════════
-        // COLLEGES PAGE LOGIC
-        // ════════════════════════════════════════════
+      // ════════════════════════════════════════════
+      // COLLEGES PAGE LOGIC
+      // ════════════════════════════════════════════
 
-        function getFilteredColleges() {
-          const selectedCourses = Object.keys(activeFilters).filter(
-            (k) => activeFilters[k] === "course",
-          );
+      function getFilteredColleges() {
+        const selectedCourses = Object.keys(activeFilters).filter(
+          (k) => activeFilters[k] === "course",
+        );
 
-          return colleges
-            .map((c) => {
-              let coursesToUse = [];
+        return colleges
+          .map((c) => {
+            let coursesToUse = [];
 
-              //  CASE 1: Kuch bhi select nahi → ALL courses
-              if (selectedCourses.length === 0) {
-                coursesToUse = c.courses;
-              }
-
-              //  CASE 2: Jo select kiya wahi dikhao (UG ya PG kuch bhi)
-              else {
-                coursesToUse = c.courses.filter((co) =>
-                  selectedCourses.some(
-                    (sel) => co.toLowerCase() === sel.toLowerCase(),
-                  ),
-                );
-              }
-
-              return {
-                ...c,
-                filteredCourses: coursesToUse,
-              };
-            })
-            .filter((c) => c.filteredCourses.length > 0)
-            .filter((c) => {
-              return Object.keys(activeFilters).every((key) => {
-                const filter = activeFilters[key];
-
-                // Fees
-                if (typeof filter === "object" && filter.type === "fees") {
-                  return c.feesNum >= filter.min && c.feesNum <= filter.max;
-                }
-
-                // Course already handled
-                if (filter === "course") return true;
-
-                // State filter
-                const selectedStates = Object.keys(activeFilters).filter(
-                  (k) => activeFilters[k] === "state",
-                );
-
-                if (selectedStates.length > 0) {
-                  return selectedStates.some((state) =>
-                    c.location.toLowerCase().includes(state.toLowerCase()),
-                  );
-                }
-
-                return true;
-              });
-            });
-        }
-        function setDefaultUGFilters() {
-          activeFilters = {}; //  reset pehle
-
-          const courseItems = document.querySelectorAll("#ug-list .filter-check");
-
-          courseItems.forEach((el) => {
-            const name = el.querySelector(".fc-label").textContent.trim();
-
-            if (
-              UG_COURSES.some((ug) => ug.toLowerCase() === name.toLowerCase())
-            ) {
-              el.classList.add("checked");
-              activeFilters[name] = "course";
-            } else {
-              el.classList.remove("checked");
+            //  CASE 1: Kuch bhi select nahi → ALL courses
+            if (selectedCourses.length === 0) {
+              coursesToUse = c.courses;
             }
+
+            //  CASE 2: Jo select kiya wahi dikhao (UG ya PG kuch bhi)
+            else {
+              coursesToUse = c.courses.filter((co) =>
+                selectedCourses.some(
+                  (sel) => co.toLowerCase() === sel.toLowerCase(),
+                ),
+              );
+            }
+
+            return {
+              ...c,
+              filteredCourses: coursesToUse,
+            };
+          })
+          .filter((c) => c.filteredCourses.length > 0)
+          .filter((c) => {
+            return Object.keys(activeFilters).every((key) => {
+              const filter = activeFilters[key];
+
+              // Fees
+              if (typeof filter === "object" && filter.type === "fees") {
+                return c.feesNum >= filter.min && c.feesNum <= filter.max;
+              }
+
+              // Course already handled
+              if (filter === "course") return true;
+
+              // State filter
+              const selectedStates = Object.keys(activeFilters).filter(
+                (k) => activeFilters[k] === "state",
+              );
+
+              if (selectedStates.length > 0) {
+                return selectedStates.some((state) =>
+                  c.location.toLowerCase().includes(state.toLowerCase()),
+                );
+              }
+
+              return true;
+            });
           });
+      }
+      function setDefaultUGFilters() {
+        activeFilters = {}; //  reset pehle
 
-          updateActiveStrip();
-        }
-        function sortCollegesList(list) {
-          return [...list].sort((a, b) => {
-            if (currentSort === "rating") return b.rating - a.rating;
-            if (currentSort === "fees-low") return a.feesNum - b.feesNum;
-            if (currentSort === "fees-high") return b.feesNum - a.feesNum;
-            if (currentSort === "name") return a.name.localeCompare(b.name);
-            return a.id - b.id;
-          });
-        }
+        const courseItems = document.querySelectorAll("#ug-list .filter-check");
 
-        function renderColleges() {
-          const filtered = sortCollegesList(getFilteredColleges());
-          const total = filtered.length;
+        courseItems.forEach((el) => {
+          const name = el.querySelector(".fc-label").textContent.trim();
 
-          document.getElementById("foundCount").textContent =
-            total.toLocaleString();
-          document.getElementById("totalShow").textContent =
-            total.toLocaleString();
-
-          const start = (currentPage - 1) * PER_PAGE;
-          const page = filtered.slice(start, start + PER_PAGE);
-
-          document.getElementById("showCount").textContent = page.length;
-
-          const list = document.getElementById("collegesList");
-          const nr = document.getElementById("noResults");
-
-          if (!filtered.length) {
-            list.innerHTML = "";
-            nr.style.display = "block";
+          if (
+            UG_COURSES.some((ug) => ug.toLowerCase() === name.toLowerCase())
+          ) {
+            el.classList.add("checked");
+            activeFilters[name] = "course";
           } else {
-            nr.style.display = "none";
-            list.innerHTML = page.map((c) => renderCollegeCard(c)).join("");
-            attachCardEvents();
+            el.classList.remove("checked");
           }
+        });
 
-          renderPagination(total);
+        updateActiveStrip();
+      }
+      function sortCollegesList(list) {
+        return [...list].sort((a, b) => {
+          if (currentSort === "rating") return b.rating - a.rating;
+          if (currentSort === "fees-low") return a.feesNum - b.feesNum;
+          if (currentSort === "fees-high") return b.feesNum - a.feesNum;
+          if (currentSort === "name") return a.name.localeCompare(b.name);
+          return a.id - b.id;
+        });
+      }
+
+      function renderColleges() {
+        const filtered = sortCollegesList(getFilteredColleges());
+        const total = filtered.length;
+
+        document.getElementById("foundCount").textContent =
+          total.toLocaleString();
+        document.getElementById("totalShow").textContent =
+          total.toLocaleString();
+
+        const start = (currentPage - 1) * PER_PAGE;
+        const page = filtered.slice(start, start + PER_PAGE);
+
+        document.getElementById("showCount").textContent = page.length;
+
+        const list = document.getElementById("collegesList");
+        const nr = document.getElementById("noResults");
+
+        if (!filtered.length) {
+          list.innerHTML = "";
+          nr.style.display = "block";
+        } else {
+          nr.style.display = "none";
+          list.innerHTML = page.map((c) => renderCollegeCard(c)).join("");
+          attachCardEvents();
         }
-        function renderCompareModal(c) {
-          const modalBody = document.querySelector("#compareModal .row");
-          // compareList = [c.id];
-          if (!compareList.includes(c.id)) {
-  compareList.push(c.id);
-}
-          //  Tumhara original card (same as it is)
-          let html = `
+
+        renderPagination(total);
+      }
+      function renderCompareModal(c) {
+        const modalBody = document.querySelector("#compareModal .row");
+        // compareList = [c.id];
+        if (!compareList.includes(c.id)) {
+          compareList.push(c.id);
+        }
+        //  Tumhara original card (same as it is)
+        let html = `
       <div class="col-lg-8 h-100">
-        <div class="position-relative compare-card  overflow-hidden">
+        <div class="position-relative compare-card  overflow-hidden ">
           <img src="${c.img}" alt="" class="compare-banner object-fit-cover w-100"/>
           <i class="bi bi-x-circle-fill position-absolute"
     onclick="replaceWithSelect(this)"></i>
@@ -6056,17 +6071,17 @@
       
     `;
 
-          //  Same state college find karo
-          const sameState = colleges.find(
-            (col) => col.state === c.state && col.id !== c.id,
-          );
-if (sameState && !compareList.includes(sameState.id)) {
-  compareList.push(sameState.id);
-}
-          // 3Agar mila → same UI ka second card add karo
-          if (sameState) {
-            html += `
-        <div class="col-lg-4 h-100">
+        //  Same state college find karo
+        const sameState = colleges.find(
+          (col) => col.state === c.state && col.id !== c.id,
+        );
+        if (sameState && !compareList.includes(sameState.id)) {
+          compareList.push(sameState.id);
+        }
+        // 3Agar mila → same UI ka second card add karo
+        if (sameState) {
+          html += `
+        <div class="col-lg-8 h-100">
           <div class="position-relative compare-card  overflow-hidden">
             <img src="${sameState.img}" alt="" class="compare-banner object-fit-cover w-100"/>
             <i class="bi bi-x-circle-fill position-absolute"
@@ -6082,21 +6097,21 @@ if (sameState && !compareList.includes(sameState.id)) {
           </div>
         </div>
       `;
-          }
-
-          //  Render
-          modalBody.innerHTML = html;
         }
 
-       function replaceWithSelect(el) {
-  const card = el.closest(".compare-card");
+        //  Render
+        modalBody.innerHTML = html;
+      }
 
-  // 🔥 ALL colleges from data.json
-  const options = colleges
-    .map((c) => `<option value="${c.id}">${c.name}</option>`)
-    .join("");
+      function replaceWithSelect(el) {
+        const card = el.closest(".compare-card");
 
-  card.innerHTML = `
+        // 🔥 ALL colleges from data.json
+        const options = colleges
+          .map((c) => `<option value="${c.id}">${c.name}</option>`)
+          .join("");
+
+        card.innerHTML = `
     <div class="compare-card-add text-center p-4">
 
       <div class="icon-circle mb-2">
@@ -6124,65 +6139,66 @@ if (sameState && !compareList.includes(sameState.id)) {
 
     </div>
   `;
-}
-function selectNewCollege(selectEl) {
-  const id = parseInt(selectEl.value);
+      }
+      function selectNewCollege(selectEl) {
+        const id = parseInt(selectEl.value);
 
-  const college = colleges.find((c) => c.id === id);
-  if (!college) return;
+        const college = colleges.find((c) => c.id === id);
+        if (!college) return;
+        const card = selectEl.closest(".col-lg-4, .col-lg-8"); // 🔥 parent column
+        const allCards = document.querySelectorAll(
+          "#compareModal .col-lg-4, #compareModal .col-lg-8",
+        );
+        const index = Array.from(allCards).indexOf(card);
 
-  const card = selectEl.closest(".col-lg-4, .col-lg-8"); // 🔥 parent column
-  const allCards = document.querySelectorAll("#compareModal .col-lg-4, #compareModal .col-lg-8");
-  const index = Array.from(allCards).indexOf(card);
+        // 🔥 update correct position in compareList
+        compareList[index] = id;
 
-  // 🔥 update correct position in compareList
-  compareList[index] = id;
+        const courseSelect = selectEl
+          .closest(".compare-card-add")
+          .querySelector(".course-select");
 
-  const courseSelect = selectEl
-    .closest(".compare-card-add")
-    .querySelector(".course-select");
+        courseSelect.innerHTML =
+          `<option selected disabled>Select Course</option>` +
+          (college.courses || [])
+            .map((c) => `<option value="${c}">${c}</option>`)
+            .join("");
 
-  courseSelect.innerHTML =
-    `<option selected disabled>Select Course</option>` +
-    (college.courses || [])
-      .map((c) => `<option value="${c}">${c}</option>`)
-      .join("");
+        updateCompareBar(); // UI sync
+      }
+      function confirmSelection(btn) {
+        const select = btn.previousElementSibling;
+        const id = select.value;
 
-  updateCompareBar(); // UI sync
-}
-        function confirmSelection(btn) {
-          const select = btn.previousElementSibling;
-          const id = select.value;
+        if (!id) return;
 
-          if (!id) return;
+        const newCollege = colleges.find((c) => c.id == id);
 
-          const newCollege = colleges.find((c) => c.id == id);
-
-          // same function reuse
-          renderCompareModal(newCollege);
-        }
-        function renderCollegeCard(c) {
-          const fees = Object.entries(c.fees)
-            .map(
-              ([k, v]) => `
+        // same function reuse
+        renderCompareModal(newCollege);
+      }
+      function renderCollegeCard(c) {
+        const fees = Object.entries(c.fees)
+          .map(
+            ([k, v]) => `
         <div class="cc-fee-item">
           <span class="cfi-label">${k.toUpperCase()}</span>
           <span class="cfi-val">${v}</span>
         </div>
         <div class="cc-fees-divider"></div>`,
-            )
-            .join("")
-            .replace(/<div class="cc-fees-divider"><\/div>$/, "");
+          )
+          .join("")
+          .replace(/<div class="cc-fees-divider"><\/div>$/, "");
 
-          const inCompare = compareList.includes(c.id);
-          const typeClass =
-            c.badge === "Government"
-              ? "badge-govt"
-              : c.badge === "Private"
-                ? "badge-private"
-                : "badge-deemed";
+        const inCompare = compareList.includes(c.id);
+        const typeClass =
+          c.badge === "Government"
+            ? "badge-govt"
+            : c.badge === "Private"
+              ? "badge-private"
+              : "badge-deemed";
 
-          return `
+        return `
       <div class="college-card" data-id="${c.id}">
         <div class="cc-inner">
           <div class="cc-img-wrap" style="background:${c.imgBg}">
@@ -6216,394 +6232,444 @@ function selectNewCollege(selectEl) {
           
         </div>
       </div>`;
-      updateCompareBar();
-        }
+        updateCompareBar();
+      }
 
-        function attachCardEvents() {
-          // Card click → detail page
-          document.querySelectorAll(".college-card").forEach((card) => {
-            card.addEventListener("click", function (e) {
-              if (
-                e.target.closest(".cc-wishlist") ||
-                e.target.closest(".cca-compare") ||
-                e.target.closest(".cca-apply") ||
-                e.target.closest(".cca-brochure")
-              )
-                return;
-              const id = parseInt(this.dataset.id);
-              localStorage.setItem("selectedCollegeId", id);
-              window.location.href = "college-detail.html";
-            });
+      function attachCardEvents() {
+        // Card click → detail page
+        document.querySelectorAll(".college-card").forEach((card) => {
+          card.addEventListener("click", function (e) {
+            if (
+              e.target.closest(".cc-wishlist") ||
+              e.target.closest(".cca-compare") ||
+              e.target.closest(".cca-apply") ||
+              e.target.closest(".cca-brochure")
+            )
+              return;
+            const id = parseInt(this.dataset.id);
+            localStorage.setItem("selectedCollegeId", id);
+            window.location.href = "college-detail.html";
           });
+        });
 
-          // Wishlist toggle
-          document.querySelectorAll(".cc-wishlist").forEach((btn) => {
-            btn.addEventListener("click", function () {
-              this.classList.toggle("active");
-              this.textContent = this.classList.contains("active") ? "❤️" : "🤍";
-            });
+        // Wishlist toggle
+        document.querySelectorAll(".cc-wishlist").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            this.classList.toggle("active");
+            this.textContent = this.classList.contains("active") ? "❤️" : "🤍";
           });
+        });
 
-          // Compare
-          document.querySelectorAll(".cca-compare").forEach((btn) => {
-            btn.addEventListener("click", function () {
-              toggleCompare(parseInt(this.dataset.cmp), this);
-            });
+        // Compare
+        document.querySelectorAll(".cca-compare").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            toggleCompare(parseInt(this.dataset.cmp), this);
           });
-        }
+        });
+      }
 
-        // ── Compare ──
-        function toggleCompare(id, btn) {
-            compareList = [];
-            document.querySelectorAll(".cca-compare").forEach((b)=>{
-              b.classList.remove("added")
-              b.textContent = "⊕ Compare";
-            })
-            compareList.push(id);
-            if(btn){
-              btn.classList.add("added")
-                  btn.textContent = "✓ Added";
+      // ── Compare ──
+//       function toggleCompare(id, btn) {
+//         compareList = [];
+//         document.querySelectorAll(".cca-compare").forEach((b) => {
+//           b.classList.remove("added");
+//           b.textContent = "⊕ Compare";
+//         });
+//         // compareList.push(id);
+//         compareList.push({
+//   id: id,
+//   course: c.filteredCourses?.[0] || c.courses[0]
+// });
+//         if (btn) {
+//           btn.classList.add("added");
+//           btn.textContent = "✓ Added";
+//         }
+//         updateCompareBar();
+//       }
 
-            }
-            updateCompareBar()
-        }
+function toggleCompare(id, btn) {
+  compareList = [];
 
-       function compareNow() {
-  if (compareList.length < 2) {
-    alert("Select at least 2 colleges");
-    return;
+  document.querySelectorAll(".cca-compare").forEach((b) => {
+    b.classList.remove("added");
+    b.textContent = "⊕ Compare";
+  });
+const college = colleges.find(c => c.id === id);
+
+// 🔥 jo card me dikh raha hai wahi uthao (no UI change)
+const card = btn.closest(".college-card");
+
+// ye line important hai — text directly read karegi
+const visibleCourse = card.querySelector(".cc-courses")?.innerText.trim();
+
+// fallback bhi rakha hai
+const selectedCourse = visibleCourse || college.filteredCourses?.[0] || college.courses[0];
+compareList.push(id);
+
+// course ko separately store karo
+let compareCourses = JSON.parse(localStorage.getItem("compareCourses")) || {};
+compareCourses[id] = selectedCourse;
+
+localStorage.setItem("compareCourses", JSON.stringify(compareCourses));
+  // const college = colleges.find(c => c.id === id);
+
+  // // 🔥 CARD se course uthao (jo UI me dikh raha hai)
+  // const card = btn.closest(".college-card");
+  // const courseEl = card.querySelector(".cc-course-tag");
+
+  // const selectedCourse = courseEl
+  //   ? courseEl.innerText.trim()
+  //   : (college.filteredCourses?.[0] || college.courses[0]);
+
+  // compareList.push({
+  //   id: id,
+  //   course: selectedCourse
+  // });
+
+  if (btn) {
+    btn.classList.add("added");
+    btn.textContent = "✓ Added";
   }
 
-  localStorage.setItem("compareColleges", JSON.stringify(compareList));
+  console.log(compareList); // 🔍 check karne ke liye
 
-  window.location.href = "compare-details.html";
+  updateCompareBar();
 }
-
-        function updateCompareBar() {
-          const bar = document.getElementById("compareBar");
-          const items = document.getElementById("compareItems");
-          const cnt = document.getElementById("compareCount");
-          cnt.textContent = compareList.length;
-          if (compareList.length > 0) {
-            bar.classList.add("visible");
-            items.innerHTML = compareList
-              .map((id) => {
-                const c = colleges.find((x) => x.id === id);
-                return `<div class="compare-chip">${c.name.split("–")[0].trim()} <span onclick="toggleCompare(${id})">✕</span></div>`;
-              })
-              .join("");
-          } else {
-            bar.classList.remove("visible");
-          }
+      function compareNow() {
+        if (compareList.length < 2) {
+          alert("Select at least 2 colleges");
+          return;
         }
 
-        // ── Pagination ──
-        function renderPagination(total) {
-          const pages = Math.ceil(total / PER_PAGE);
-          const pg = document.getElementById("pagination");
-          if (pages <= 1) {
-            pg.innerHTML = "";
-            return;
-          }
+        localStorage.setItem("compareColleges", JSON.stringify(compareList));
 
-          let html = `<div class="pg-btn prev-next" onclick="changePage(${currentPage - 1})">← Prev</div>`;
-          for (let i = 1; i <= Math.min(pages, 8); i++) {
-            html += `<div class="pg-btn ${i === currentPage ? "active" : ""}" onclick="changePage(${i})">${i}</div>`;
-          }
-          if (pages > 8)
-            html += `<div class="pg-btn" style="cursor:default">…</div>`;
-          html += `<div class="pg-btn prev-next" onclick="changePage(${currentPage + 1})">Next →</div>`;
-          pg.innerHTML = html;
-        }
+        window.location.href = "compare-details.html";
+      }
 
-        function changePage(p) {
-          const total = getFilteredColleges().length;
-          const pages = Math.ceil(total / PER_PAGE);
-          if (p < 1 || p > pages) return;
-          currentPage = p;
-          renderColleges();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-
-        // ── Sort ──
-        function sortColleges(v) {
-          currentSort = v;
-          currentPage = 1;
-          renderColleges();
-        }
-
-        // ── Fee Filter ──
-        function generateFeeRanges() {
-          const max = Math.max(...colleges.map((c) => c.feesNum));
-          const step = max > 20 ? 10 : 5;
-          const ranges = [];
-          for (let i = 0; i < max; i += step) {
-            ranges.push({
-              min: i,
-              max: i + step,
-              label: `₹${i}L - ₹${i + step}L`,
-            });
-          }
-          return ranges;
-        }
-
-        function renderFeeFilters() {
-          const container = document.querySelector(".tag-chips");
-          if (!container) return;
-          container.innerHTML = generateFeeRanges()
-            .map(
-              (r) =>
-                `<div class="tag-chip" onclick="toggleFeeDynamic(this, ${r.min}, ${r.max})">${r.label}</div>`,
-            )
+      function updateCompareBar() {
+        const bar = document.getElementById("compareBar");
+        const items = document.getElementById("compareItems");
+        const cnt = document.getElementById("compareCount");
+        cnt.textContent = compareList.length;
+        if (compareList.length > 0) {
+          bar.classList.add("visible");
+          items.innerHTML = compareList
+            .map((id) => {
+              const c = colleges.find((x) => x.id === id);
+              return `<div class="compare-chip">${c.name.split("–")[0].trim()} <span onclick="toggleCompare(${id})">✕</span></div>`;
+            })
             .join("");
+        } else {
+          bar.classList.remove("visible");
+        }
+      }
+
+      // ── Pagination ──
+      function renderPagination(total) {
+        const pages = Math.ceil(total / PER_PAGE);
+        const pg = document.getElementById("pagination");
+        if (pages <= 1) {
+          pg.innerHTML = "";
+          return;
         }
 
-        function toggleFeeDynamic(el, min, max) {
-          el.classList.toggle("selected");
-          const key = `${min}-${max}`;
-          if (el.classList.contains("selected")) {
-            activeFilters[key] = { type: "fees", min, max };
-          } else {
-            delete activeFilters[key];
-          }
-          currentPage = 1;
-          renderColleges();
+        let html = `<div class="pg-btn prev-next" onclick="changePage(${currentPage - 1})">← Prev</div>`;
+        for (let i = 1; i <= Math.min(pages, 8); i++) {
+          html += `<div class="pg-btn ${i === currentPage ? "active" : ""}" onclick="changePage(${i})">${i}</div>`;
         }
+        if (pages > 8)
+          html += `<div class="pg-btn" style="cursor:default">…</div>`;
+        html += `<div class="pg-btn prev-next" onclick="changePage(${currentPage + 1})">Next →</div>`;
+        pg.innerHTML = html;
+      }
 
-        function filterByFees(value) {
-          document.getElementById("feesValue").textContent = value;
-          Object.keys(activeFilters)
-            .filter(
-              (k) =>
-                typeof activeFilters[k] === "object" &&
-                activeFilters[k].type === "fees",
-            )
-            .forEach((k) => delete activeFilters[k]);
-          activeFilters["feesRange"] = {
-            type: "fees",
-            min: 0,
-            max: value / 100000,
-          };
-          currentPage = 1;
-          renderColleges();
+      function changePage(p) {
+        const total = getFilteredColleges().length;
+        const pages = Math.ceil(total / PER_PAGE);
+        if (p < 1 || p > pages) return;
+        currentPage = p;
+        renderColleges();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // ── Sort ──
+      function sortColleges(v) {
+        currentSort = v;
+        currentPage = 1;
+        renderColleges();
+      }
+
+      // ── Fee Filter ──
+      function generateFeeRanges() {
+        const max = Math.max(...colleges.map((c) => c.feesNum));
+        const step = max > 20 ? 10 : 5;
+        const ranges = [];
+        for (let i = 0; i < max; i += step) {
+          ranges.push({
+            min: i,
+            max: i + step,
+            label: `₹${i}L - ₹${i + step}L`,
+          });
         }
-        6;
-        function toggleSection(head) {
-          const body = head.nextElementSibling;
+        return ranges;
+      }
 
-          body.classList.toggle("open");
+      function renderFeeFilters() {
+        const container = document.querySelector(".tag-chips");
+        if (!container) return;
+        container.innerHTML = generateFeeRanges()
+          .map(
+            (r) =>
+              `<div class="tag-chip" onclick="toggleFeeDynamic(this, ${r.min}, ${r.max})">${r.label}</div>`,
+          )
+          .join("");
+      }
 
-          const icon = head.querySelector(".fs-sec-toggle");
-          if (icon) icon.classList.toggle("open");
+      function toggleFeeDynamic(el, min, max) {
+        el.classList.toggle("selected");
+        const key = `${min}-${max}`;
+        if (el.classList.contains("selected")) {
+          activeFilters[key] = { type: "fees", min, max };
+        } else {
+          delete activeFilters[key];
         }
-        function toggleCheck(el, name) {
-          el.classList.toggle("checked");
-          let cat = "general";
-          const parent = el.closest("[id]");
-          const grandParent = el.closest(".fs-sub-body");
+        currentPage = 1;
+        renderColleges();
+      }
 
-          // Better detection for course filters
+      function filterByFees(value) {
+        document.getElementById("feesValue").textContent = value;
+        Object.keys(activeFilters)
+          .filter(
+            (k) =>
+              typeof activeFilters[k] === "object" &&
+              activeFilters[k].type === "fees",
+          )
+          .forEach((k) => delete activeFilters[k]);
+        activeFilters["feesRange"] = {
+          type: "fees",
+          min: 0,
+          max: value / 100000,
+        };
+        currentPage = 1;
+        renderColleges();
+      }
+      6;
+      function toggleSection(head) {
+        const body = head.nextElementSibling;
+
+        body.classList.toggle("open");
+
+        const icon = head.querySelector(".fs-sec-toggle");
+        if (icon) icon.classList.toggle("open");
+      }
+      function toggleCheck(el, name) {
+        el.classList.toggle("checked");
+        let cat = "general";
+        const parent = el.closest("[id]");
+        const grandParent = el.closest(".fs-sub-body");
+
+        // Better detection for course filters
+        if (
+          grandParent &&
+          (grandParent.id === "ug-list" || grandParent.id === "pg-list")
+        ) {
+          cat = "course";
+        } else if (parent) {
           if (
-            grandParent &&
-            (grandParent.id === "ug-list" || grandParent.id === "pg-list")
+            parent.id.includes("course") ||
+            parent.id.includes("ug-list") ||
+            parent.id.includes("pg-list")
           ) {
             cat = "course";
-          } else if (parent) {
-            if (
-              parent.id.includes("course") ||
-              parent.id.includes("ug-list") ||
-              parent.id.includes("pg-list")
-            ) {
-              cat = "course";
-            } else if (parent.id.includes("level")) {
-              cat = "level";
-            } else if (parent.id.includes("state")) {
-              cat = "state";
-            } else if (parent.id.includes("type")) {
-              cat = "type";
-            } else if (parent.id.includes("acc")) {
-              cat = "accred";
-            } else if (parent.id.includes("exam")) {
-              cat = "exam";
-            }
-          }
-
-          if (el.classList.contains("checked")) {
-            activeFilters[name] = cat;
-          } else {
-            delete activeFilters[name];
-          }
-
-          currentPage = 1;
-          renderColleges();
-          updateActiveStrip();
-        }
-
-        function toggleChipColor(el, key) {
-          const sec = el.closest(".filter-section");
-          const titleEl = sec ? sec.querySelector(".fs-sec-title") : null;
-          const titleUg = sec ? sec.querySelector(".fs-sec-title-ug") : null;
-          const col = titleEl ? titleEl.style.color : "";
-
-          let activeClass = "selected";
-          if (col.includes("e85d3a")) activeClass = "exec-active";
-          else if (col.includes("0aab87")) activeClass = "online-active";
-          else if (col.includes("5c4ee8")) activeClass = "offline-active";
-          else if (col.includes("e8a020")) activeClass = "abroad-active";
-          el.classList.toggle(activeClass);
-          if (el.classList.contains(activeClass)) activeFilters[key] = "chip";
-          else delete activeFilters[key];
-          currentPage = 1;
-          renderColleges();
-          updateActiveStrip();
-        }
-
-        function selectRadio(el, groupId, val) {
-          document
-            .querySelectorAll(`#${groupId} .radio-opt`)
-            .forEach((r) => r.classList.remove("selected"));
-          el.classList.add("selected");
-          Object.keys(activeFilters)
-            .filter((k) => activeFilters[k] === "rating")
-            .forEach((k) => delete activeFilters[k]);
-          if (val !== "Any") activeFilters["rating:" + val] = "rating";
-          currentPage = 1;
-          renderColleges();
-          updateActiveStrip();
-        }
-
-        function searchFilter(input, listId) {
-          const v = input.value.toLowerCase();
-          document.querySelectorAll(`#${listId} .filter-check`).forEach((fc) => {
-            const label = fc.querySelector(".fc-label").textContent.toLowerCase();
-            fc.style.display = label.includes(v) ? "" : "none";
-          });
-          const notFound = document.getElementById(`${listId}-not-found`);
-          if (notFound)
-            notFound.style.display = document.querySelectorAll(
-              `#${listId} .filter-check:not([style*="none"])`,
-            ).length
-              ? "none"
-              : "block";
-        }
-
-        function showMore(listId, moreId) {
-          document
-            .querySelectorAll(`#${listId} .filter-check[style*="none"]`)
-            .forEach((h) => (h.style.display = ""));
-          document.getElementById(moreId).style.display = "none";
-        }
-
-        function updateActiveStrip() {
-          const strip = document.getElementById("activeFiltersStrip");
-          const keys = Object.keys(activeFilters);
-          if (!keys.length) {
-            strip.classList.remove("has-filters");
-            strip.innerHTML = "";
-            return;
-          }
-          strip.classList.add("has-filters");
-          strip.innerHTML = keys
-            .map(
-              (k) =>
-                `<div class="af-tag">${k.replace("rating:", "")} <span onclick="removeFilter('${k}')">✕</span></div>`,
-            )
-            .join("");
-        }
-
-        function removeFilter(key) {
-          delete activeFilters[key];
-          document.querySelectorAll(".filter-check.checked").forEach((el) => {
-            if (el.querySelector(".fc-label").textContent === key)
-              el.classList.remove("checked");
-          });
-          document.querySelectorAll(".tag-chip.selected").forEach((el) => {
-            if (el.textContent.includes(key)) el.classList.remove("selected");
-          });
-          currentPage = 1;
-          renderColleges();
-          updateActiveStrip();
-        }
-
-        function resetAllFilters() {
-          activeFilters = {};
-          document
-            .querySelectorAll(".filter-check.checked")
-            .forEach((el) => el.classList.remove("checked"));
-          document
-            .querySelectorAll(
-              ".tag-chip.selected,.tag-chip.exec-active,.tag-chip.online-active,.tag-chip.offline-active,.tag-chip.abroad-active",
-            )
-            .forEach((el) =>
-              el.classList.remove(
-                "selected",
-                "exec-active",
-                "online-active",
-                "offline-active",
-                "abroad-active",
-              ),
-            );
-          document
-            .querySelectorAll(".radio-opt")
-            .forEach((el) => el.classList.remove("selected"));
-          document
-            .querySelector("#rating-group .radio-opt")
-            ?.classList.add("selected");
-          currentPage = 1;
-          renderColleges();
-
-          updateActiveStrip();
-          const feesRange = document.getElementById("feesRange");
-          if (feesRange) {
-            feesRange.value = 40;
-            document.getElementById("feesVal").textContent = "₹10 Lakhs";
+          } else if (parent.id.includes("level")) {
+            cat = "level";
+          } else if (parent.id.includes("state")) {
+            cat = "state";
+          } else if (parent.id.includes("type")) {
+            cat = "type";
+          } else if (parent.id.includes("acc")) {
+            cat = "accred";
+          } else if (parent.id.includes("exam")) {
+            cat = "exam";
           }
         }
 
-        function updateRange(el, displayId, formatter) {
-          const val = parseInt(el.value);
-          document.getElementById(displayId).textContent = formatter(val);
-          const pct = (val / el.max) * 100;
-          el.style.background = `linear-gradient(to right,var(--accent) 0%,var(--accent) ${pct}%,var(--border) ${pct}%,var(--border) 100%)`;
+        if (el.classList.contains("checked")) {
+          activeFilters[name] = cat;
+        } else {
+          delete activeFilters[name];
         }
 
-        // ── Mobile Filter ──
-        function openMobFilter() {
-          const panel = document.getElementById("mobFilterPanel");
-          const overlay = document.getElementById("mobOverlay");
-          const content = document.getElementById("mobFilterContent");
-          content.innerHTML = document.getElementById("filtersSidebar").innerHTML;
-          panel.classList.add("open");
-          overlay.classList.add("open");
-          document.body.style.overflow = "hidden";
-          content.querySelectorAll(".filter-check").forEach((fc) => {
-            fc.addEventListener("click", function () {
-              const name = this.querySelector(".fc-label").textContent;
-              toggleCheck(this, name);
-              document
-                .querySelectorAll("#filtersSidebar .filter-check")
-                .forEach((sfc) => {
-                  if (sfc.querySelector(".fc-label").textContent === name) {
-                    if (activeFilters[name]) sfc.classList.add("checked");
-                    else sfc.classList.remove("checked");
-                  }
-                });
-            });
+        currentPage = 1;
+        renderColleges();
+        updateActiveStrip();
+      }
+
+      function toggleChipColor(el, key) {
+        const sec = el.closest(".filter-section");
+        const titleEl = sec ? sec.querySelector(".fs-sec-title") : null;
+        const titleUg = sec ? sec.querySelector(".fs-sec-title-ug") : null;
+        const col = titleEl ? titleEl.style.color : "";
+
+        let activeClass = "selected";
+        if (col.includes("e85d3a")) activeClass = "exec-active";
+        else if (col.includes("0aab87")) activeClass = "online-active";
+        else if (col.includes("5c4ee8")) activeClass = "offline-active";
+        else if (col.includes("e8a020")) activeClass = "abroad-active";
+        el.classList.toggle(activeClass);
+        if (el.classList.contains(activeClass)) activeFilters[key] = "chip";
+        else delete activeFilters[key];
+        currentPage = 1;
+        renderColleges();
+        updateActiveStrip();
+      }
+
+      function selectRadio(el, groupId, val) {
+        document
+          .querySelectorAll(`#${groupId} .radio-opt`)
+          .forEach((r) => r.classList.remove("selected"));
+        el.classList.add("selected");
+        Object.keys(activeFilters)
+          .filter((k) => activeFilters[k] === "rating")
+          .forEach((k) => delete activeFilters[k]);
+        if (val !== "Any") activeFilters["rating:" + val] = "rating";
+        currentPage = 1;
+        renderColleges();
+        updateActiveStrip();
+      }
+
+      function searchFilter(input, listId) {
+        const v = input.value.toLowerCase();
+        document.querySelectorAll(`#${listId} .filter-check`).forEach((fc) => {
+          const label = fc.querySelector(".fc-label").textContent.toLowerCase();
+          fc.style.display = label.includes(v) ? "" : "none";
+        });
+        const notFound = document.getElementById(`${listId}-not-found`);
+        if (notFound)
+          notFound.style.display = document.querySelectorAll(
+            `#${listId} .filter-check:not([style*="none"])`,
+          ).length
+            ? "none"
+            : "block";
+      }
+
+      function showMore(listId, moreId) {
+        document
+          .querySelectorAll(`#${listId} .filter-check[style*="none"]`)
+          .forEach((h) => (h.style.display = ""));
+        document.getElementById(moreId).style.display = "none";
+      }
+
+      function updateActiveStrip() {
+        const strip = document.getElementById("activeFiltersStrip");
+        const keys = Object.keys(activeFilters);
+        if (!keys.length) {
+          strip.classList.remove("has-filters");
+          strip.innerHTML = "";
+          return;
+        }
+        strip.classList.add("has-filters");
+        strip.innerHTML = keys
+          .map(
+            (k) =>
+              `<div class="af-tag">${k.replace("rating:", "")} <span onclick="removeFilter('${k}')">✕</span></div>`,
+          )
+          .join("");
+      }
+
+      function removeFilter(key) {
+        delete activeFilters[key];
+        document.querySelectorAll(".filter-check.checked").forEach((el) => {
+          if (el.querySelector(".fc-label").textContent === key)
+            el.classList.remove("checked");
+        });
+        document.querySelectorAll(".tag-chip.selected").forEach((el) => {
+          if (el.textContent.includes(key)) el.classList.remove("selected");
+        });
+        currentPage = 1;
+        renderColleges();
+        updateActiveStrip();
+      }
+
+      function resetAllFilters() {
+        activeFilters = {};
+        document
+          .querySelectorAll(".filter-check.checked")
+          .forEach((el) => el.classList.remove("checked"));
+        document
+          .querySelectorAll(
+            ".tag-chip.selected,.tag-chip.exec-active,.tag-chip.online-active,.tag-chip.offline-active,.tag-chip.abroad-active",
+          )
+          .forEach((el) =>
+            el.classList.remove(
+              "selected",
+              "exec-active",
+              "online-active",
+              "offline-active",
+              "abroad-active",
+            ),
+          );
+        document
+          .querySelectorAll(".radio-opt")
+          .forEach((el) => el.classList.remove("selected"));
+        document
+          .querySelector("#rating-group .radio-opt")
+          ?.classList.add("selected");
+        currentPage = 1;
+        renderColleges();
+
+        updateActiveStrip();
+        const feesRange = document.getElementById("feesRange");
+        if (feesRange) {
+          feesRange.value = 40;
+          document.getElementById("feesVal").textContent = "₹10 Lakhs";
+        }
+      }
+
+      function updateRange(el, displayId, formatter) {
+        const val = parseInt(el.value);
+        document.getElementById(displayId).textContent = formatter(val);
+        const pct = (val / el.max) * 100;
+        el.style.background = `linear-gradient(to right,var(--accent) 0%,var(--accent) ${pct}%,var(--border) ${pct}%,var(--border) 100%)`;
+      }
+
+      // ── Mobile Filter ──
+      function openMobFilter() {
+        const panel = document.getElementById("mobFilterPanel");
+        const overlay = document.getElementById("mobOverlay");
+        const content = document.getElementById("mobFilterContent");
+        content.innerHTML = document.getElementById("filtersSidebar").innerHTML;
+        panel.classList.add("open");
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+        content.querySelectorAll(".filter-check").forEach((fc) => {
+          fc.addEventListener("click", function () {
+            const name = this.querySelector(".fc-label").textContent;
+            toggleCheck(this, name);
+            document
+              .querySelectorAll("#filtersSidebar .filter-check")
+              .forEach((sfc) => {
+                if (sfc.querySelector(".fc-label").textContent === name) {
+                  if (activeFilters[name]) sfc.classList.add("checked");
+                  else sfc.classList.remove("checked");
+                }
+              });
           });
-        }
+        });
+      }
 
-        function closeMobFilter() {
-          document.getElementById("mobFilterPanel").classList.remove("open");
-          document.getElementById("mobOverlay").classList.remove("open");
-          document.body.style.overflow = "";
-        }
+      function closeMobFilter() {
+        document.getElementById("mobFilterPanel").classList.remove("open");
+        document.getElementById("mobOverlay").classList.remove("open");
+        document.body.style.overflow = "";
+      }
 
-        // ════════════════════════════════════════════
-        // START — Sab kuch yahan se shuru hota hai
-        // ════════════════════════════════════════════
-        loadData();
-        
-      </script>
+      // ════════════════════════════════════════════
+      // START — Sab kuch yahan se shuru hota hai
+      // ════════════════════════════════════════════
+      loadData();
+    </script>
     <script>
       function toggleCourses() {
         document.getElementById("courseWrap").classList.toggle("open");
@@ -6777,26 +6843,16 @@ function selectNewCollege(selectEl) {
         </div>
         `;
       }
-// function goToComparePage() {
-//   if (compareList.length < 2) {
-//     alert("Select at least 2 colleges");
-//     return;
-//   }
+      function goToComparePage() {
+        if (compareList.length < 2) {
+          alert("Select at least 2 colleges");
+          return;
+        }
 
-//   localStorage.setItem("compareColleges", JSON.stringify(compareList));
+        localStorage.setItem("compareColleges", JSON.stringify(compareList));
 
-//   window.location.href = "compare-details.html";
-// }
-function goToComparePage() {
-  if (compareList.length < 2) {
-    alert("Select at least 2 colleges");
-    return;
-  }
-
-  localStorage.setItem("compareColleges", JSON.stringify(compareList));
-
-  window.location.href = "compare-details.html";
-}
+        window.location.href = "compare-details.html";
+      }
       function filterCourses(value) {
         value = value.toLowerCase();
         const categories = document.querySelectorAll("#courseList .course-cat");
@@ -6896,6 +6952,18 @@ function goToComparePage() {
           renderCompareModal(selectedCollege);
         }
       });
+    </script>
+    <!-- ----------------------dowpdown compare  -->
+    <script>
+      function fillCollegeDropdown(){
+          const selects = document.querySelectorAll(".college-select")
+          selects.forEach((select)=>{
+            if(select.previousElementSibling?.textContent.includes("Search College")){
+              select.innerHTML = `<option selected>Selected College</option>` +
+              colleges.map(c =>`<option value="${c.id}">${c.name}</option>`).join("")
+            }
+          })
+      }
     </script>
     <style>
       @keyframes shake {
