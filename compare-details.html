@@ -1593,23 +1593,36 @@
       .compare-card {
         border-radius: 12px;
         overflow: hidden;
+        width: 300px;
         background: #fff;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         padding-bottom: 15px;
+        flex-shrink: 0;
       }
 
       .compare-banner {
-        height: 140px;
+        height: 100px;
         object-fit: cover;
+        width: 100%;
       }
 
-      .logo-wrapper-com img {
+      .logo-wrapper-com {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        margin-top: -40px;
-        margin-left: 170px;
+        overflow: hidden;
         border: 3px solid #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .logo-wrapper-com img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .table th {
@@ -1704,106 +1717,26 @@
         box-shadow: none;
         outline: none;
       }
-      /* ─────────────────────────────────────
-   CTA
-───────────────────────────────────── */
-      .cta-sec {
-        background: var(--bg);
-      }
-      .cta-inner {
-        max-width: 1160px;
-        margin: 0 auto;
-      }
-      .cta-box {
-        background: linear-gradient(135deg, var(--navy), #1a3a7a);
-        border-radius: 20px;
-        padding: 2.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
-        flex-wrap: wrap;
-        position: relative;
-        overflow: hidden;
-      }
-      .cta-box::before {
-        content: "";
-        position: absolute;
-        top: -60px;
-        right: -60px;
-        width: 240px;
-        height: 240px;
-        background: rgba(37, 99, 235, 0.2);
-        border-radius: 50%;
-        filter: blur(60px);
-      }
-      .cta-box h2 {
-        font-size: 1.6rem;
-        color: #fff;
-        position: relative;
-      }
-      .cta-box p {
-        color: #8aa4d0;
-        font-size: 0.85rem;
-        margin-top: 5px;
-        position: relative;
-      }
-      .form-inp button {
-        background-color: var(--navy2);
-      }
-      .cta-btns {
-        display: flex;
-        gap: 9px;
-        flex-shrink: 0;
-        position: relative;
-        flex-wrap: wrap;
-      }
-      .cta-p {
-        padding: 11px 24px;
-        background: linear-gradient(135deg, #2563eb, #0aab87);
-        border: none;
-        border-radius: 9px;
-        color: #fff;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition:
-          opacity 0.2s,
-          transform 0.2s;
-      }
-      .cta-p:hover {
-        opacity: 0.9;
-        transform: translateY(-2px);
-      }
-      .cta-g {
-        padding: 11px 24px;
-        background: rgba(255, 255, 255, 0.09);
-        border: 1.5px solid rgba(255, 255, 255, 0.15);
-        border-radius: 9px;
-        color: #fff;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .cta-g:hover {
-        background: rgba(255, 255, 255, 0.14);
-      }
-      .form-inp input:focus,
-      .btn-close:focus {
-        border-color: none;
-        box-shadow: none;
-        outline: none;
-      }
+
       .compare-card-add {
-        border: 1px solid #e5e5e5;
-        background: #fff;
-        width: auto;
+        border: 2px dashed #dde3f0;
+        background: #f9faff;
+        width: 260px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        padding: 24px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
       }
 
       /* plus icon circle */
       .icon-circle {
-        width: 30px;
-        height: 30px;
-        border: 2px dashed #ddd;
+        width: 40px;
+        height: 40px;
+        border: 2px dashed #aab4cc;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -1812,31 +1745,28 @@
       }
 
       .icon-circle i {
-        font-size: 10px;
+        font-size: 14px;
         color: #666;
       }
       .compare-card-add p {
         font-size: 0.85rem;
+        margin: 0;
       }
       /* label */
       .label-orange {
         color: #ff6a00;
         font-size: 12px;
-        /* margin-bottom: 4px; */
         display: block;
+        margin-bottom: 4px;
       }
 
       /* select styling */
       .custom-select {
         border-radius: 8px;
-        padding: 4px;
-        width: 300px;
-      }
-      /* disabled look */
-      .custom-select.disabled {
-        background: #f5f5f5;
-        color: #aaa;
-        pointer-events: none;
+        padding: 6px 8px;
+        width: 100%;
+        font-size: 13px;
+        border: 1px solid #dde3f0;
       }
       .compare-table {
         width: 100%;
@@ -1922,17 +1852,21 @@
         right: 6%;
         transform: translateY(-50%);
       }
-        .left-compare {
-  position: absolute;
-  z-index: 2;
-  top: 40%;
-  left: 6%;
-  transform: translateY(-50%);
-  width: 600px;
+      .left-compare {
+        position: absolute;
+        z-index: 2;
+        top: 40%;
+        left: 6%;
+        transform: translateY(-50%);
+        width: 600px;
       }
-      
-      .top-compare{
-        background: linear-gradient(to right , rgba(255, 192, 203, 0.363) , rgba(0, 132, 255, 0.242));
+
+      .top-compare {
+        background: linear-gradient(
+          to right,
+          rgba(255, 192, 203, 0.363),
+          rgba(0, 132, 255, 0.242)
+        );
       }
       .form-compare label {
         font-size: 0.75rem;
@@ -1943,10 +1877,55 @@
       .checkbox-compare p {
         font-size: 0.75rem;
       }
-      .form-compare input,select:focus{
+      .form-compare input,
+      select:focus {
         outline: none;
         border-color: none;
         box-shadow: none;
+      }
+
+      /* Compare cards row */
+      #compareRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      /* Remove icon on compare card */
+      .compare-remove-icon {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        color: #000000;
+        background: white;
+        border-radius: 50%;
+        line-height: 1;
+      }
+
+      /* Add college card selects */
+      .compare-card-add .form-group {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      .compare-card-add .add-btn {
+        background: #0b1437;
+        color: #fff;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+        margin-top: 4px;
+        width: 100%;
+      }
+      .compare-card-add .add-btn:hover {
+        background: #2563eb;
       }
     </style>
   </head>
@@ -1969,7 +1948,7 @@
       </div>
       <div class="tb-right d-flex align-items-center gap-3 flex-nowrap ms-3">
         <p class="mb-0 d-lg-block text-nowrap">
-          We’re on your favourite socials!
+          We're on your favourite socials!
         </p>
         <span class="tb-sep">|</span>
         <a href="#"><i class="bi bi-facebook"></i></a>
@@ -2126,7 +2105,6 @@
           <a href="about.html" class="cn-link fw-normal">About</a>
           <a href="contact.html" class="cn-link fw-normal">Contact</a>
         </div>
-        <!-- SEARCH (desktop/tablet) -->
         <div></div>
         <!-- RIGHT -->
         <div class="nav-r1-right">
@@ -2263,7 +2241,6 @@
 
       <!-- ROW 2 (desktop/tablet) -->
       <div class="nav-r2 d-flex w-100 align-items-center gap-2 bg-white">
-        <!-- All Courses -->
         <div class="courses-wrap position-relative" id="coursesWrap">
           <button
             class="courses-btn bg-white mt-2 align-items-center ms-5 p-2 rounded-3"
@@ -2297,7 +2274,6 @@
 
           <div class="courses-mega">
             <div class="cm-inner">
-              <!-- Left: Categories -->
               <div class="cm-side" id="cmSide">
                 <div class="cm-si active" data-cat="management">Management</div>
                 <div class="cm-si" data-cat="technology">Technology</div>
@@ -2308,41 +2284,26 @@
                 <div class="cm-si" data-cat="engineering">Engineering</div>
                 <div class="cm-si" data-cat="commerce">Commerce</div>
               </div>
-
-              <!-- Right: Content -->
               <div class="cm-content">
-                <!-- Mode tabs -->
                 <div class="cm-btns" id="cmLevelTabs">
-                  <div class="cm-btn rounded-4 py-1 px-2" data-level="UG">
+                  <div class="cm-btn rounded-4 py-1 px-2">
                     <a href="ug-courses.html">UG Courses</a>
                   </div>
-                  <div class="cm-btn rounded-4 py-1 px-2" data-level="PG">
+                  <div class="cm-btn rounded-4 py-1 px-2">
                     <a href="pg-courses.html">PG Courses</a>
                   </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2"
-                    data-level="Executive MBA"
-                  >
+                  <div class="cm-btn rounded-4 py-1 px-2">
                     <a href="executive-course.html">Executive MBA</a>
                   </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2"
-                    data-level="Online Programs"
-                  >
+                  <div class="cm-btn rounded-4 py-1 px-2">
                     <a href="online-programs.html">Online Programs</a>
                   </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2"
-                    data-level="Management (PGDM / MBA)"
-                  >
+                  <div class="cm-btn rounded-4 py-1 px-2">
                     <a href="pgdm-mba-management.html"
                       >Management (PGDM / MBA)</a
                     >
                   </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2"
-                    data-level="Study Abroad"
-                  >
+                  <div class="cm-btn rounded-4 py-1 px-2">
                     <a href="study-abroad.html">Study Abroad</a>
                   </div>
                 </div>
@@ -2358,8 +2319,6 @@
                   </div>
                   <div class="cm-tab" data-mode="dba">🎓 DBA</div>
                 </div>
-
-                <!-- Dynamic grid -->
                 <div class="cm-grid" id="cmGrid"></div>
               </div>
             </div>
@@ -2387,25 +2346,22 @@
           >🗓️ Admission 2025 <span class="new-tag">New</span></a
         >
         <div class="r2-sep"></div>
-        <!-- <a href="./course.finder.html" class="np2 finder-p">🔍 Course Finder</a> -->
       </div>
     </div>
+
     <div class="mobile-drawer" id="mDrawer">
       <div class="md-head">
         <strong>Menu</strong>
         <button class="md-close" onclick="closeDrawer()">×</button>
       </div>
-
       <div class="md-auth">
         <button class="btn-ln">Login</button>
         <button class="btn-su">Apply</button>
       </div>
-
       <div class="md-nav">
         <a href="index.html">Home</a>
         <button class="md-acc-btn" onclick="toggleAcc(this)">
-          Programs
-          <span>⌄</span>
+          Programs <span>⌄</span>
         </button>
         <div class="md-acc-body">
           <a href="#">Executive MBA</a>
@@ -2420,8 +2376,7 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <button class="md-acc-btn" onclick="toggleAcc(this)">
-          Courses
-          <span>⌄</span>
+          Courses <span>⌄</span>
         </button>
         <div class="md-acc-body">
           <a href="btech.html">B.Tech</a>
@@ -2430,8 +2385,7 @@
           <a href="bba.html">BBA</a>
         </div>
         <button class="md-acc-btn" onclick="toggleAcc(this)">
-          Explore
-          <span>⌄</span>
+          Explore <span>⌄</span>
         </button>
         <div class="md-acc-body">
           <a href="#">Top Colleges</a>
@@ -2443,7 +2397,8 @@
     </div>
 
     <div class="mobile-overlay" id="mOverlay" onclick="closeDrawer()"></div>
-    <!-- //--------------------------banner compare  -->
+
+    <!-- Banner -->
     <section class="hero-compare position-relative overflow-hidden w-100">
       <div class="img-wrapper-compare overflow-hidden h-100">
         <img
@@ -2453,89 +2408,95 @@
         />
       </div>
       <div class="hero-overlay-compare position-absolute"></div>
-     <div class="center-compare d-flex positin-relative h-100 ">
-       <div class="left-compare position-absolute">
-        <h1 class="text-white">Compare Top Colleges & Make the Right Choice</h1>
-        <p class="text-white ">Choosing the right college is one of the most important decisions of your life. With so many options available, it can often feel overwhelming to decide which institution truly fits your goals. Our platform helps you compare top colleges across India based on key factors like courses offered, fees, placements, rankings, infrastructure, and student reviews — all in one place.  </p>
-       </div>
-      <div class="form-right-compare position-absolute">
-        <form class="form-compare bg-white h-auto w-auto border rounded-2 ">
-          <div class="top-compare border-bottom py-2 px-3  rounded-2 text-muted">
-            <h4 class="mb-0">Connect Our Counsellers</h4>
-            <p>Receive alerts custom made for you</p>
-          </div>
-          <h6 class="text-center mt-2 text-primary">Get Guidance By Experts</h6>
-          <div class="d-grid px-3 mb-4">
-            <label class="mb-1">Name:</label>
-            <input type="text" placeholder="Full Name" class="mb-1 rounded-2 p-1 border" />
-            <label class="mb-1">Mobile Number</label>
-            <input type="text" placeholder="Enter Mobile Number" class="mb-1 rounded-2 p-1 border" />
-            <label class="mb-1">Email:</label>
-            <input type="email" placeholder="Email Address" class="mb-2 rounded-2 p-1 border" />
-            <label class="mb-1">Courses Select</label>
-            <select class="mb-1 rounded-2 p-1 border">
-              <option selected disabled>Select Courses</option>
-              <option>MCA</option>
-              <option>M.Tech</option>
-              <option>B.Tech</option>
-              <option>BBA</option>
-              <option>MA</option>
-            </select>
-            <div class="checkbox-compare d-flex gap-2 mt-2">
-              <input type="checkbox" class="mb-1" />
-              <p class="mb-2">
-                By submitting this form , you accept and agree to our
-                <span class="text-primary">Terms of Use</span>
-              </p>
-            </div>
-            <button class="w-25 mx-auto bg-primary border-0 text-white p-1 rounded-2">
-              Apply now
-            </button>
-          </div>
-        </form>
-      </div>
-     </div>
-    </section>
-    <div class="container py-4 w-100">
-      <div class="d-flex mb-4 gap-4">
-        <div class="row g-4" id="compareRow"></div>
-        <div class="compare-card-add text-center p-4 rounded-4">
-          <div class="icon-circle mb-2">
-            <i class="bi bi-plus-lg"></i>
-          </div>
-
-          <p class="fw-semibold">Add College</p>
-
-          <!-- College -->
-          <div class="form-group text-start">
-            <label class="label-orange">Search College</label>
-            <select
-              class="form-select custom-select"
-              onchange="selectNewCollege(this)"
+      <div class="center-compare d-flex positin-relative h-100">
+        <div class="left-compare position-absolute">
+          <h1 class="text-white">
+            Compare Top Colleges & Make the Right Choice
+          </h1>
+          <p class="text-white">
+            Choosing the right college is one of the most important decisions of
+            your life. With so many options available, it can often feel
+            overwhelming to decide which institution truly fits your goals. Our
+            platform helps you compare top colleges across India based on key
+            factors like courses offered, fees, placements, rankings,
+            infrastructure, and student reviews — all in one place.
+          </p>
+        </div>
+        <div class="form-right-compare position-absolute">
+          <form class="form-compare bg-white h-auto w-auto border rounded-2">
+            <div
+              class="top-compare border-bottom py-2 px-3 rounded-2 text-muted"
             >
-              <option selected disabled>Select College</option>
-              
-            </select>
-            <small class="text-danger">Please Select a College</small>
-          </div>
-
-          <!-- Course -->
-          <div class="form-group">
-            <select class="form-select custom-select course-select">
-              <option selected disabled>Select Course</option>
-            </select>
-          </div>
-
-          <!-- ADD BUTTON -->
-          <button class="btn bg-primary text-white w-50 mt-3" onclick="addToCompare()">
-             Add to Compare
-          </button>
+              <h4 class="mb-0">Connect Our Counsellers</h4>
+              <p>Receive alerts custom made for you</p>
+            </div>
+            <h6 class="text-center mt-2 text-primary">
+              Get Guidance By Experts
+            </h6>
+            <div class="d-grid px-3 mb-4">
+              <label class="mb-1">Name:</label>
+              <input
+                type="text"
+                placeholder="Full Name"
+                class="mb-1 rounded-2 p-1 border"
+              />
+              <label class="mb-1">Mobile Number</label>
+              <input
+                type="text"
+                placeholder="Enter Mobile Number"
+                class="mb-1 rounded-2 p-1 border"
+              />
+              <label class="mb-1">Email:</label>
+              <input
+                type="email"
+                placeholder="Email Address"
+                class="mb-2 rounded-2 p-1 border"
+              />
+              <label class="mb-1">Courses Select</label>
+              <select class="mb-1 rounded-2 p-1 border">
+                <option selected disabled>Select Courses</option>
+                <option>MCA</option>
+                <option>M.Tech</option>
+                <option>B.Tech</option>
+                <option>BBA</option>
+                <option>MA</option>
+              </select>
+              <div class="checkbox-compare d-flex gap-2 mt-2">
+                <input type="checkbox" class="mb-1" />
+                <p class="mb-2">
+                  By submitting this form , you accept and agree to our
+                  <span class="text-primary">Terms of Use</span>
+                </p>
+              </div>
+              <button
+                class="w-25 mx-auto bg-primary border-0 text-white p-1 rounded-2"
+              >
+                Apply now
+              </button>
+            </div>
+          </form>
         </div>
       </div>
+    </section>
 
+    <!-- Main Compare Section -->
+    <div class="container py-4 w-100">
+      <div class="d-flex mb-4">
+        <!-- Compare cards row: selected colleges + add card -->
+        <div
+          id="compareRow"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+          "
+        ></div>
+      </div>
       <div id="compareDetails" class="mt-5"></div>
     </div>
-    <!-- ══════════════ BOTTOM CTA ══════════════ -->
+
+    <!-- CTA -->
     <div class="cta-sec py-5">
       <div class="cta-inner">
         <div class="cta-box">
@@ -2554,11 +2515,9 @@
             >
               Book Free Counselling
             </button>
-            <!-- --------------form popup  -->
             <div class="modal fade" id="connectModal" tabindex="-1">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content modal-content p-3 rounded-3">
-                  <!-- ----------------header  -->
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
                   >
@@ -2569,7 +2528,6 @@
                       data-bs-dismiss="modal"
                     ></button>
                   </div>
-                  <!-- form ------------------ -->
                   <form class="form-inp">
                     <input
                       type="text"
@@ -2606,14 +2564,13 @@
         </div>
       </div>
     </div>
+
     <footer>
       <div class="fi">
         <div class="fg">
-          <!-- Brand Block -->
           <div class="fb">
             <div style="font-size: 1.25rem; font-weight: 900; color: #fff">
-              <span class="cw-logo">CW</span>
-              CampusWalkin
+              <span class="cw-logo">CW</span> CampusWalkin
             </div>
             <p>
               India's leading education marketplace connecting students with top
@@ -2626,8 +2583,6 @@
               <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </div>
           </div>
-
-          <!-- Links Block -->
           <div class="fl">
             <div>
               <div class="fl-t">Quick Links</div>
@@ -2666,8 +2621,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Bottom Bar -->
         <div>
           <div class="fb-bot">
             <div class="left-footer">
@@ -2685,8 +2638,9 @@
         </div>
       </div>
     </footer>
+
     <script>
-      // ── Data ────────────────────────────────────────────────────────────────────
+      // ── Navbar mega menu data ────────────────────────────────────────────────────
       const data = {
         management: {
           courses: {
@@ -2698,40 +2652,14 @@
               { n: "MBA Finance", s: "500+ colleges" },
               { n: "MBA Marketing", s: "650+ colleges" },
             ],
-            online: [
-              {
-                n: "MBA Online",
-                s: "200+ colleges",
-                colleges: [
-                  { name: "IIM Ahmedabad", link: "https://www.iima.ac.in" },
-                  { name: "IIM Bangalore", link: "https://www.iimb.ac.in" },
-                  { name: "XLRI", link: "https://www.xlri.ac.in" },
-                ],
-              },
-            ],
+            online: [{ n: "MBA Online", s: "200+ colleges" }],
             offline: [
               { n: "MBA", s: "600+ colleges" },
               { n: "BBA", s: "900+ colleges" },
-              { n: "PGDM", s: "260+ colleges" },
-              { n: "MBA Marketing", s: "450+ colleges" },
             ],
-            "study-abroad": [
-              { n: "MBA USA", s: "50+ universities" },
-              { n: "MBA UK", s: "30+ universities" },
-              { n: "MBA Canada", s: "20+ universities" },
-              { n: "MBA Australia", s: "15+ universities" },
-            ],
-            executive: [
-              { n: "Executive MBA", s: "120+ programs" },
-              { n: "EMBA Finance", s: "45+ programs" },
-              { n: "EMBA Leadership", s: "30+ programs" },
-              { n: "Weekend MBA", s: "60+ programs" },
-            ],
-            dba: [
-              { n: "DBA Management", s: "25+ programs" },
-              { n: "DBA Strategy", s: "18+ programs" },
-              { n: "DBA Leadership", s: "12+ programs" },
-            ],
+            "study-abroad": [{ n: "MBA USA", s: "50+ universities" }],
+            executive: [{ n: "Executive MBA", s: "120+ programs" }],
+            dba: [{ n: "DBA Management", s: "25+ programs" }],
           },
         },
         technology: {
@@ -2741,34 +2669,12 @@
               { n: "M.Tech", s: "600+ colleges" },
               { n: "MCA", s: "800+ colleges" },
               { n: "BCA", s: "1,100+ colleges" },
-              { n: "Data Science", s: "400+ programs" },
-              { n: "AI & ML", s: "300+ programs" },
             ],
-            online: [
-              { n: "Online B.Tech", s: "100+ colleges" },
-              { n: "Online MCA", s: "200+ colleges" },
-              { n: "Data Science Online", s: "300+ programs" },
-              { n: "AI & ML Online", s: "250+ programs" },
-            ],
-            offline: [
-              { n: "B.Tech", s: "1,400+ colleges" },
-              { n: "M.Tech", s: "580+ colleges" },
-              { n: "MCA", s: "700+ colleges" },
-            ],
-            "study-abroad": [
-              { n: "MS Computer Science USA", s: "80+ universities" },
-              { n: "MS AI UK", s: "25+ universities" },
-              { n: "MS Data Science Canada", s: "18+ universities" },
-            ],
-            executive: [
-              { n: "Executive PG in AI", s: "40+ programs" },
-              { n: "Executive Data Science", s: "35+ programs" },
-              { n: "PG DevOps", s: "20+ programs" },
-            ],
-            dba: [
-              { n: "PhD Computer Science", s: "200+ programs" },
-              { n: "DBA Technology", s: "10+ programs" },
-            ],
+            online: [{ n: "Online B.Tech", s: "100+ colleges" }],
+            offline: [{ n: "B.Tech", s: "1,400+ colleges" }],
+            "study-abroad": [{ n: "MS CS USA", s: "80+ universities" }],
+            executive: [{ n: "Executive PG in AI", s: "40+ programs" }],
+            dba: [{ n: "PhD CS", s: "200+ programs" }],
           },
         },
         medical: {
@@ -2777,34 +2683,12 @@
               { n: "MBBS", s: "600+ colleges" },
               { n: "MD", s: "400+ colleges" },
               { n: "BDS", s: "300+ colleges" },
-              { n: "B.Pharma", s: "800+ colleges" },
-              { n: "Nursing", s: "1,000+ colleges" },
-              { n: "BAMS", s: "250+ colleges" },
             ],
-            online: [
-              { n: "MPH Online", s: "50+ programs" },
-              { n: "Online Nursing", s: "80+ programs" },
-              { n: "Online Pharmacy", s: "60+ programs" },
-            ],
-            offline: [
-              { n: "MBBS", s: "600+ colleges" },
-              { n: "BDS", s: "300+ colleges" },
-              { n: "BAMS", s: "250+ colleges" },
-              { n: "B.Pharma", s: "800+ colleges" },
-            ],
-            "study-abroad": [
-              { n: "MBBS Russia", s: "30+ universities" },
-              { n: "MBBS China", s: "25+ universities" },
-              { n: "MBBS Philippines", s: "15+ universities" },
-            ],
-            executive: [
-              { n: "Executive Healthcare Mgmt", s: "20+ programs" },
-              { n: "Hospital Administration", s: "30+ programs" },
-            ],
-            dba: [
-              { n: "PhD Medicine", s: "150+ programs" },
-              { n: "DBA Healthcare", s: "8+ programs" },
-            ],
+            online: [],
+            offline: [{ n: "MBBS", s: "600+ colleges" }],
+            "study-abroad": [{ n: "MBBS Russia", s: "30+ universities" }],
+            executive: [],
+            dba: [],
           },
         },
         law: {
@@ -2812,34 +2696,12 @@
             all: [
               { n: "LLB", s: "900+ colleges" },
               { n: "LLM", s: "400+ colleges" },
-              { n: "BA LLB", s: "500+ colleges" },
-              { n: "BBA LLB", s: "350+ colleges" },
-              { n: "Cyber Law", s: "80+ programs" },
-              { n: "Corporate Law", s: "200+ programs" },
             ],
-            online: [
-              { n: "LLM Online", s: "60+ programs" },
-              { n: "Diploma Cyber Law", s: "40+ programs" },
-              { n: "Online Paralegal", s: "25+ programs" },
-            ],
-            offline: [
-              { n: "LLB", s: "900+ colleges" },
-              { n: "BA LLB", s: "500+ colleges" },
-              { n: "LLM", s: "380+ colleges" },
-            ],
-            "study-abroad": [
-              { n: "LLM USA", s: "30+ universities" },
-              { n: "LLM UK", s: "20+ universities" },
-              { n: "LLM Singapore", s: "10+ universities" },
-            ],
-            executive: [
-              { n: "Executive LLM", s: "15+ programs" },
-              { n: "PG Corporate Law", s: "20+ programs" },
-            ],
-            dba: [
-              { n: "PhD Law", s: "100+ programs" },
-              { n: "DBA Law", s: "5+ programs" },
-            ],
+            online: [],
+            offline: [{ n: "LLB", s: "900+ colleges" }],
+            "study-abroad": [],
+            executive: [],
+            dba: [],
           },
         },
         arts: {
@@ -2847,31 +2709,12 @@
             all: [
               { n: "BFA", s: "400+ colleges" },
               { n: "MFA", s: "200+ colleges" },
-              { n: "B.Des", s: "300+ colleges" },
-              { n: "Animation", s: "250+ institutes" },
-              { n: "Fashion Design", s: "180+ institutes" },
-              { n: "UI/UX Design", s: "150+ programs" },
             ],
-            online: [
-              { n: "Online UI/UX", s: "100+ programs" },
-              { n: "Online Graphic Design", s: "80+ programs" },
-              { n: "Digital Art Online", s: "60+ programs" },
-            ],
-            offline: [
-              { n: "BFA", s: "400+ colleges" },
-              { n: "B.Des", s: "300+ colleges" },
-              { n: "Fashion Design", s: "180+ institutes" },
-            ],
-            "study-abroad": [
-              { n: "MFA USA", s: "20+ universities" },
-              { n: "Design UK", s: "15+ universities" },
-              { n: "Fashion Italy", s: "10+ institutes" },
-            ],
-            executive: [
-              { n: "Executive Design Program", s: "12+ programs" },
-              { n: "PG Animation", s: "18+ programs" },
-            ],
-            dba: [{ n: "PhD Fine Arts", s: "50+ programs" }],
+            online: [],
+            offline: [],
+            "study-abroad": [],
+            executive: [],
+            dba: [],
           },
         },
         science: {
@@ -2879,33 +2722,12 @@
             all: [
               { n: "B.Sc", s: "2,000+ colleges" },
               { n: "M.Sc", s: "1,200+ colleges" },
-              { n: "Biotechnology", s: "300+ colleges" },
-              { n: "Forensic Science", s: "100+ colleges" },
-              { n: "B.Sc IT", s: "500+ colleges" },
-              { n: "Environmental Science", s: "200+ colleges" },
             ],
-            online: [
-              { n: "M.Sc Online", s: "100+ programs" },
-              { n: "Online Biotechnology", s: "50+ programs" },
-              { n: "Data Analytics Online", s: "80+ programs" },
-            ],
-            offline: [
-              { n: "B.Sc", s: "2,000+ colleges" },
-              { n: "M.Sc", s: "1,200+ colleges" },
-              { n: "Biotechnology", s: "300+ colleges" },
-            ],
-            "study-abroad": [
-              { n: "MS Science USA", s: "60+ universities" },
-              { n: "M.Sc UK", s: "30+ universities" },
-            ],
-            executive: [
-              { n: "Executive Data Science", s: "25+ programs" },
-              { n: "PG Biotechnology", s: "15+ programs" },
-            ],
-            dba: [
-              { n: "PhD Science", s: "300+ programs" },
-              { n: "DBA Research Science", s: "6+ programs" },
-            ],
+            online: [],
+            offline: [],
+            "study-abroad": [],
+            executive: [],
+            dba: [],
           },
         },
         engineering: {
@@ -2913,35 +2735,12 @@
             all: [
               { n: "B.E / B.Tech", s: "1,800+ colleges" },
               { n: "M.E / M.Tech", s: "700+ colleges" },
-              { n: "Diploma Engg", s: "2,000+ institutes" },
-              { n: "Civil Engineering", s: "1,200+ colleges" },
-              { n: "Mechanical Engg", s: "1,100+ colleges" },
-              { n: "Electrical Engg", s: "900+ colleges" },
             ],
-            online: [
-              { n: "Online B.Tech", s: "80+ colleges" },
-              { n: "M.Tech Online", s: "100+ programs" },
-              { n: "Online Diploma", s: "200+ institutes" },
-            ],
-            offline: [
-              { n: "B.E / B.Tech", s: "1,800+ colleges" },
-              { n: "Diploma Engg", s: "2,000+ institutes" },
-              { n: "Civil Engineering", s: "1,200+ colleges" },
-            ],
-            "study-abroad": [
-              { n: "MS Engineering USA", s: "90+ universities" },
-              { n: "M.Eng UK", s: "40+ universities" },
-              { n: "MS Germany", s: "30+ universities" },
-            ],
-            executive: [
-              { n: "Executive PG Engineering", s: "20+ programs" },
-              { n: "PG Robotics", s: "15+ programs" },
-              { n: "PG Aerospace", s: "10+ programs" },
-            ],
-            dba: [
-              { n: "PhD Engineering", s: "250+ programs" },
-              { n: "DBA Engineering Mgmt", s: "8+ programs" },
-            ],
+            online: [],
+            offline: [],
+            "study-abroad": [],
+            executive: [],
+            dba: [],
           },
         },
         commerce: {
@@ -2949,35 +2748,12 @@
             all: [
               { n: "B.Com", s: "2,500+ colleges" },
               { n: "M.Com", s: "1,000+ colleges" },
-              { n: "CA Foundation", s: "500+ institutes" },
-              { n: "CMA", s: "200+ institutes" },
-              { n: "CFA", s: "150+ programs" },
-              { n: "BBA", s: "1,200+ colleges" },
             ],
-            online: [
-              { n: "B.Com Online", s: "200+ colleges" },
-              { n: "Online M.Com", s: "80+ programs" },
-              { n: "CFA Online", s: "100+ programs" },
-            ],
-            offline: [
-              { n: "B.Com", s: "2,500+ colleges" },
-              { n: "CA Foundation", s: "500+ institutes" },
-              { n: "M.Com", s: "1,000+ colleges" },
-            ],
-            "study-abroad": [
-              { n: "BCom Australia", s: "15+ universities" },
-              { n: "Finance UK", s: "20+ universities" },
-              { n: "Accounting USA", s: "25+ universities" },
-            ],
-            executive: [
-              { n: "Executive Finance", s: "30+ programs" },
-              { n: "PG Accounting", s: "20+ programs" },
-              { n: "Executive CFA Prep", s: "10+ programs" },
-            ],
-            dba: [
-              { n: "PhD Commerce", s: "150+ programs" },
-              { n: "DBA Finance", s: "10+ programs" },
-            ],
+            online: [],
+            offline: [],
+            "study-abroad": [],
+            executive: [],
+            dba: [],
           },
         },
       };
@@ -2989,159 +2765,77 @@
         const wrap = e.currentTarget.closest(".courses-wrap");
         wrap.classList.toggle("open");
       }
-
       document.addEventListener("click", () => {
-        document.querySelectorAll(".courses-wrap").forEach((w) => {
-          w.classList.remove("open");
-        });
+        document
+          .querySelectorAll(".courses-wrap")
+          .forEach((w) => w.classList.remove("open"));
       });
-
       document.querySelectorAll(".courses-mega").forEach((menu) => {
         menu.addEventListener("click", (e) => e.stopPropagation());
       });
 
-      function render() {
+      function renderNav() {
         const cat = data[activeCategory];
         const courses = cat.courses[activeMode] || cat.courses.all;
         document.getElementById("cmGrid").innerHTML = courses
           .map(
             (c) => `
-<div class="cm-item">
-
-  <div class="cm-c">
-    <div class="cm-cn">${c.n}</div>
-    <div class="cm-cs">${c.s}</div>
-  </div>
-
-  <div class="cm-drop">
-    <div class="cm-h-title">Top Colleges</div>
-
-    <div class="cm-h-list">
-      ${(c.colleges || [])
-        .map((col) => `<a href="${col.link}" target="_blank">${col.name}</a>`)
-        .join("")}
-    </div>
-
-    <a href="#" class="cm-view">View More →</a>
-  </div>
-
-</div>
-`,
+          <div class="cm-item">
+            <div class="cm-c">
+              <div class="cm-cn">${c.n}</div>
+              <div class="cm-cs">${c.s}</div>
+            </div>
+            <div class="cm-drop">
+              <div class="cm-h-title">Top Colleges</div>
+              <div class="cm-h-list">${(c.colleges || []).map((col) => `<a href="${col.link}" target="_blank">${col.name}</a>`).join("")}</div>
+              <a href="#" class="cm-view">View More →</a>
+            </div>
+          </div>`,
           )
           .join("");
-        document.getElementById("cmTrending").innerHTML = cat.trending
-          .map((t) => `<span class="cm-ptag">${t}</span>`)
-          .join("");
       }
-
       document.getElementById("cmSide").addEventListener("click", (e) => {
         const el = e.target.closest(".cm-si");
         if (!el) return;
-
         document
           .querySelectorAll(".cm-si")
           .forEach((x) => x.classList.remove("active"));
         el.classList.add("active");
-
         activeCategory = el.dataset.cat;
-        render();
+        renderNav();
       });
-
       document.getElementById("cmTabs").addEventListener("click", (e) => {
         const tab = e.target.closest(".cm-tab");
         if (!tab) return;
-
         document
           .querySelectorAll(".cm-tab")
           .forEach((x) => x.classList.remove("active"));
         tab.classList.add("active");
-
         activeMode = tab.dataset.mode;
-        render();
+        renderNav();
       });
+      renderNav();
 
-      render();
-    </script>
-    <script>
-      /* OPEN CLOSE */
-      function toggleCourses(e) {
-        let dd = document.getElementById("courseDD");
-
-        dd.style.display = dd.style.display === "block" ? "none" : "block";
-      }
-
-      /* SEARCH FILTER */
-      function filterCourses(value) {
-        value = value.toLowerCase();
-
-        let items = document.querySelectorAll(".course-item");
-
-        items.forEach((item) => {
-          let text = item.innerText.toLowerCase();
-
-          item.style.display = text.includes(value) ? "flex" : "none";
-        });
-      }
-
-      /* REDIRECT */
-      function goCourse(url) {
-        window.location.href = url;
-      }
-    </script>
-    <script>
+      // Programs menu
       const programWrap = document.getElementById("programWrap");
-      const programBtn = programWrap.querySelector(".program-btn");
-
-      /* CLICK LOCK */
-      programBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        programWrap.classList.toggle("active");
-      });
-
-      /* OUTSIDE CLICK CLOSE */
-      document.addEventListener("click", function (e) {
-        if (!programWrap.contains(e.target)) {
-          programWrap.classList.remove("active");
-        }
-      });
-    </script>
-    <script>
-      /* ── Location ── */
-      function toggleLoc(e) {
-        e.stopPropagation();
-        document.getElementById("locWrap").classList.toggle("open");
-      }
-
-      function setLoc(name) {
-        document.getElementById("locName").textContent = name;
-        document.getElementById("locWrap").classList.remove("open");
-      }
-
-      function filterLocs(v) {
-        document.querySelectorAll("#locList .loc-item").forEach((i) => {
-          i.style.display = i.textContent
-            .toLowerCase()
-            .includes(v.toLowerCase())
-            ? ""
-            : "none";
+      programWrap
+        .querySelector(".program-btn")
+        .addEventListener("click", function (e) {
+          e.stopPropagation();
+          programWrap.classList.toggle("active");
         });
-      }
+      document.addEventListener("click", function (e) {
+        if (!programWrap.contains(e.target))
+          programWrap.classList.remove("active");
+      });
 
-      /* ── Explore ── */
-      function toggleExplore(e) {
-        e.stopPropagation(); // Prevent the document click from immediately closing it
-        const wrap = document.getElementById("exploreWrap");
-        wrap.classList.toggle("open");
-      }
-
-      // Close dropdown when clicking outside
+      // Explore
       document.addEventListener("click", function (e) {
         const explore = document.getElementById("exploreWrap");
-        if (!explore.contains(e.target)) {
-          explore.classList.remove("open");
-        }
+        if (!explore.contains(e.target)) explore.classList.remove("open");
       });
-      /* ── Mobile drawer ── */
+
+      // Mobile drawer
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");
         document.getElementById("mOverlay").classList.add("open");
@@ -3154,451 +2848,377 @@
         document.getElementById("hamBtn").classList.remove("active");
         document.body.style.overflow = "";
       }
-
-      /* ── Search ── */
-      function doNavSearch() {
-        const q = document.getElementById("navQ").value.trim();
-        if (q) {
-          document.getElementById("cTitle").textContent =
-            'Results for "' + q + '"';
-          document
-            .getElementById("cGrid")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-      document.getElementById("navQ").addEventListener("keydown", (e) => {
-        if (e.key === "Enter") doNavSearch();
-      });
-
-      function fillHero(t) {
-        document.getElementById("heroQ").value = t;
-        document.getElementById("heroQ").focus();
-      }
-      function heroSearch() {
-        const q = document.getElementById("heroQ").value.trim();
-        if (q) {
-          document.getElementById("cTitle").textContent =
-            'Results for "' + q + '"';
-          document
-            .getElementById("cGrid")
-            .scrollIntoView({ behavior: "smooth" });
-        }
-      }
-      document.getElementById("heroQ").addEventListener("keydown", (e) => {
-        if (e.key === "Enter") heroSearch();
-      });
-
-      /* ── Hero tabs ── */
-      function setTab(el, type) {
-        document
-          .querySelectorAll(".hs-tab")
-          .forEach((t) => t.classList.remove("active"));
-        el.classList.add("active");
-        const ph = {
-          executive: "Search Executive MBA, PGDM programs…",
-          online: "Search online courses, certifications…",
-          offline: "Search colleges, universities, campuses…",
-          abroad: "Search universities in USA, UK, Canada…",
-        };
-        document.getElementById("heroQ").placeholder = ph[type] || "";
-      }
-
-      /* ── Course filter ── */
-      function filterCourse(type, el) {
-        if (el) {
-          document
-            .querySelectorAll(".cft")
-            .forEach((t) => t.classList.remove("active"));
-          el.classList.add("active");
-        }
-        const titles = {
-          all: "All Featured Courses",
-          exec: "Executive Programs",
-          online: "Online Courses",
-          offline: "Offline / Campus Courses",
-          abroad: "Study Abroad Programs",
-        };
-        document.getElementById("cTitle").textContent =
-          titles[type] || "All Featured Courses";
-        document.querySelectorAll(".cc").forEach((c) => {
-          const show = type === "all" || c.dataset.type === type;
-          c.style.display = show ? "" : "none";
-          if (show) c.style.animation = "fadeUp .35s ease both";
-        });
-        if (el)
-          document
-            .getElementById("cGrid")
-            .scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
-
-      /* ── Save toggle ── */
-      document.querySelectorAll(".cc-save").forEach((b) => {
-        b.addEventListener("click", (e) => {
-          e.stopPropagation();
-          b.textContent = b.textContent === "🤍" ? "❤️" : "🤍";
-        });
-      });
-function fillCollegeDropdown() {
-  const select = document.querySelector(".compare-card-add select");
-
-  select.innerHTML =
-    `<option disabled selected>Select College</option>` +
-    colleges.map(c => `<option value="${c.id}">${c.name}</option>`).join("");
-}
-      /* ── Bottom nav active ── */
-      function bnActive(el) {
-        document
-          .querySelectorAll(".bn-item")
-          .forEach((b) => b.classList.remove("active"));
-        el.classList.add("active");
-      }
-
-      /* ── Row 2 nav active ── */
-      document.querySelectorAll(".np2").forEach((n) => {
-        n.addEventListener("click", function () {
-          document
-            .querySelectorAll(".np2")
-            .forEach((x) => x.classList.remove("active"));
-          this.classList.add("active");
-        });
-      });
+      function toggleLoc() {}
+      function toggleNotif() {}
     </script>
+
     <script>
-      function toggleCourses() {
-        document.getElementById("courseWrap").classList.toggle("open");
-      }
+      // ══════════════════════════════════════════════════
+      //  COMPARE PAGE — Main Logic (Fixed)
+      // ══════════════════════════════════════════════════
 
-      function goCourse(page) {
-        window.location.href = page;
-      }
+      let colleges = [];
+      let compareData = []; // [{id, course}, ...]
 
-      function filterCourses(value) {
-        value = value.toLowerCase();
+      // ── 1. Load data.json ──
+      async function initComparePage() {
+        try {
+          const res = await fetch("data.json");
+          const json = await res.json();
+          colleges = json.colleges;
 
-        let categories = document.querySelectorAll(".course-cat");
+          // Load saved compareData from localStorage
+          const saved = JSON.parse(localStorage.getItem("compareData")) || [];
+          const savedIds =
+            JSON.parse(localStorage.getItem("compareColleges")) || [];
 
-        categories.forEach((cat) => {
-          let items = [];
-          let next = cat.nextElementSibling;
-
-          while (next && !next.classList.contains("course-cat")) {
-            if (next.classList.contains("course-item")) {
-              items.push(next);
-            }
-            next = next.nextElementSibling;
-          }
-
-          let visibleCount = 0;
-
-          items.forEach((item) => {
-            let text = item.innerText.toLowerCase();
-
-            if (text.includes(value)) {
-              item.style.display = "block";
-              visibleCount++;
-            } else {
-              item.style.display = "none";
-            }
-          });
-
-          if (visibleCount === 0) {
-            cat.style.display = "none";
-          } else {
-            cat.style.display = "block";
-          }
-        });
-      }
-    </script>
-    <script>
-      /* Mobile drawer */
-      function openDrawer() {
-        document.getElementById("mDrawer").classList.add("open");
-        document.getElementById("mOverlay").classList.add("show");
-        document.body.style.overflow = "hidden";
-      }
-      function closeDrawer() {
-        document.getElementById("mDrawer").classList.remove("open");
-        document.getElementById("mOverlay").classList.remove("show");
-        document.body.style.overflow = "";
-      }
-
-      /* Topic tabs */
-      function setTopic(el) {
-        document
-          .querySelectorAll(".ttab")
-          .forEach((t) => t.classList.remove("active"));
-        el.classList.add("active");
-      }
-
-      /* FAQ accordion */
-      function toggleFaq(el) {
-        const item = el.closest(".faq-item");
-        const isOpen = item.classList.contains("open");
-        document
-          .querySelectorAll(".faq-item")
-          .forEach((i) => i.classList.remove("open"));
-        if (!isOpen) item.classList.add("open");
-      }
-
-      /* Form submit */
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const fname = document.getElementById("fname").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const phone = document.getElementById("phone").value.trim();
-          const message = document.getElementById("message").value.trim();
-          const consent = document.getElementById("consent").checked;
-
-          if (!fname || !email || !phone || !message || !consent) {
-            // Simple shake animation on empty required fields
-            [
-              fname && "fname",
-              email && "email",
-              phone && "phone",
-              message && "message",
-            ].forEach((id) => {
-              if (!id) return;
-              const el = document.getElementById(id);
-              if (!el || el.value.trim()) return;
-              el.style.borderColor = "#e85d3a";
-              el.style.animation = "shake .4s ease";
-              setTimeout(() => {
-                el.style.animation = "";
-              }, 400);
+          // Build compareData from saved
+          if (saved.length > 0) {
+            compareData = saved;
+          } else if (savedIds.length > 0) {
+            // fallback: build from ids only
+            compareData = savedIds.map((id) => {
+              const c = colleges.find((col) => col.id === id);
+              return { id, course: c?.courses?.[0] || "" };
             });
-            if (!consent) {
-              document
-                .getElementById("consent")
-                .closest(".fc-check").style.color = "#e85d3a";
-            }
-            return;
           }
 
-          // Show success
-          document.getElementById("contactForm").style.display = "none";
-          document.getElementById("formSuccess").style.display = "block";
-          document
-            .getElementById("formCard")
-            .querySelector("h2").style.display = "none";
-          document
-            .getElementById("formCard")
-            .querySelector(".fc-sub").style.display = "none";
-          document
-            .getElementById("formCard")
-            .querySelector(".topic-tabs").style.display = "none";
-        });
+          // If compareData still has only 1 entry, try auto-add same-state college
+          if (compareData.length === 1) {
+            const firstCollege = colleges.find(
+              (c) => c.id === compareData[0].id,
+            );
+            if (firstCollege) {
+              const sameState = colleges.find(
+                (col) =>
+                  col.state === firstCollege.state &&
+                  col.id !== firstCollege.id,
+              );
+              if (sameState) {
+                compareData.push({
+                  id: sameState.id,
+                  course: sameState.courses?.[0] || "",
+                });
+                // Save back
+                localStorage.setItem(
+                  "compareData",
+                  JSON.stringify(compareData),
+                );
+                localStorage.setItem(
+                  "compareColleges",
+                  JSON.stringify(compareData.map((d) => d.id)),
+                );
+              }
+              // If no sameState found, we just keep 1 college — that's fine
+            }
+          }
 
-      function resetForm() {
-        document.getElementById("contactForm").reset();
-        document.getElementById("contactForm").style.display = "block";
-        document.getElementById("formSuccess").style.display = "none";
-        document.getElementById("formCard").querySelector("h2").style.display =
-          "";
-        document
-          .getElementById("formCard")
-          .querySelector(".fc-sub").style.display = "";
-        document
-          .getElementById("formCard")
-          .querySelector(".topic-tabs").style.display = "";
+          renderCompareCards();
+          renderDetails();
+        } catch (e) {
+          console.error("Failed to load data.json", e);
+        }
       }
-    </script>
-<script>
-let colleges = [];
-let compareData = [];
 
-async function initComparePage() {
-  const res = await fetch("data.json");
-  const data = await res.json();
+      // ── 2. Render compare cards + add card ──
+      function renderCompareCards() {
+        const row = document.getElementById("compareRow");
 
-  colleges = data.colleges;
-
-  // 🔥 IMPORTANT — yahi actual data hai
-  compareData = JSON.parse(localStorage.getItem("compareData")) || [];
-
-  renderCompareCards();
-  renderDetails();
-}
-
-
-function addToCompare() {
-  const collegeSelect = document.querySelector(".compare-card-add select");
-  const courseSelect = document.querySelector(".compare-card-add .course-select");
-
-  const collegeId = parseInt(collegeSelect.value);
-  const course = courseSelect.value;
-
-  if (!collegeId || !course) {
-    alert("Please select college and course");
-    return;
-  }
-
-  // 🔥 already exist hai toh replace karo
-  const index = compareData.findIndex(item => item.id === collegeId);
-
-  if (index > -1) {
-    compareData[index].course = course;
-  } else {
-    compareData.push({
-      id: collegeId,
-      course: course
-    });
-  }
-
-  // 🔥 IMPORTANT SAVE
-  localStorage.setItem("compareData", JSON.stringify(compareData));
-
-  // 🔥 UI refresh
-  renderCompareCards();
-  renderDetails();
-
-  console.log("Updated compareData:", compareData);
-}
-// ✅ CARD RENDER
-function renderCompareCards() {
-  const el = document.getElementById("compareRow");
-
-  const selected = compareData.map(item => {
-    const college = colleges.find(c => c.id === item.id);
-    return {
-      ...college,
-      selectedCourse: item.course
-    };
-  });
-
-  el.innerHTML = selected.map((c) => {
-    return `
-      <div class="col-lg-6">
-        <div class="position-relative compare-card overflow-hidden h-100">
-
-          <img src="${c.img}" class="compare-banner object-fit-cover w-100"/>
-
-          <i class="bi bi-x-circle-fill compare-remove-icon"
-             onclick="removeFromCompare(${c.id})"></i>
-
-          <div class="logo-wrapper-com position-absolute">
-            <img src="${c.img}" class="object-fit-cover" />
-          </div>
-
-          <div class="text-center mt-4">
-            <p class="fw-bold mb-0">${c.name}</p>
-            <small class="text-muted d-block">${c.location}</small>
-            <p class="mb-0">${c.selectedCourse || c.courses?.[0]}</p>
-          </div>
-
+        // Build selected college cards
+        let html = compareData
+          .map((item) => {
+            const c = colleges.find((col) => col.id === item.id);
+            if (!c) return "";
+            return `
+      <div class="compare-card position-relative h-100" data-id="${c.id}">
+        <img src="${c.img}" class="compare-banner" />
+        <i class="bi bi-x-circle-fill compare-remove-icon"
+           onclick="removeFromCompare(${c.id})"></i>
+        <div class="logo-wrapper-com position-absolute">
+          <img src="${c.img}" />
         </div>
-      </div>
-    `;
-  }).join("");
-}
-function selectNewCollege(selectEl) {
-  const id = parseInt(selectEl.value);
-  const college = colleges.find(c => c.id === id);
+        <div class="text-center mt-5 pt-3 px-2">
+          <p class="fw-bold mb-0">${c.name}</p>
+          <small class="text-muted d-block">${c.location}</small>
+          <p class="mb-0 text-primary" style="font-size:13px;">${item.course || c.courses?.[0] || ""}</p>
+          <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openEditCard(${c.id})">
+            <i class="bi bi-pencil"></i> Edit
+          </button>
+        </div>
+        <!-- Edit overlay (hidden by default) -->
+        <div class="edit-overlay d-none px-2 py-2" id="editOverlay_${c.id}">
+          <label class="label-orange">Change College</label>
+          <select class="custom-select mb-2" onchange="onEditCollegeChange(this, ${c.id})">
+            <option value="" disabled selected>Select College</option>
+            ${colleges
+              .filter(
+                (col) =>
+                  !compareData.find((d) => d.id === col.id) || col.id === c.id,
+              )
+              .map(
+                (col) =>
+                  `<option value="${col.id}" ${col.id === c.id ? "selected" : ""}>${col.name}</option>`,
+              )
+              .join("")}
+          </select>
+          <label class="label-orange">Change Course</label>
+          <select class="custom-select mb-2" id="editCourse_${c.id}">
+            ${(c.courses || []).map((co) => `<option value="${co}" ${co === item.course ? "selected" : ""}>${co}</option>`).join("")}
+          </select>
+          <button class="add-btn border-0 bg-primary text-white" onclick="saveEdit(${c.id})">Save</button>
+          <button class="add-btn mt-1 border-0" style="background:#aaa;" onclick="closeEditCard(${c.id})">Cancel</button>
+        </div>
+      </div>`;
+          })
+          .join("");
 
-  if (!college) return;
+        // Always show "Add College" card at the end (max 3 colleges)
+        if (compareData.length < 3) {
+          const collegeOptions = colleges
+            .filter((c) => !compareData.find((d) => d.id === c.id))
+            .map((c) => `<option value="${c.id}">${c.name}</option>`)
+            .join("");
 
-  const courseSelect = document.querySelector(".course-select");
+          html += `
+      <div class="compare-card-add h-100" id="addCollegeCard">
+        <div class="icon-circle">
+          <i class="bi bi-plus-lg"></i>
+        </div>
+        <p class="fw-semibold text-center">Add College</p>
 
-  courseSelect.innerHTML =
-    `<option disabled selected>Select Course</option>` +
-    college.courses.map(c => `<option value="${c}">${c}</option>`).join("");
-}
-// ✅ REMOVE FIXED
-function removeFromCompare(id) {
-  compareData = compareData.filter(item => item.id !== id);
-  localStorage.setItem("compareData", JSON.stringify(compareData));
+        <div class="form-group w-100">
+          <label class="label-orange">Select College</label>
+          <select class="custom-select" id="newCollegeSelect" onchange="onCollegeSelectChange(this)">
+            <option value="" disabled selected>Select College</option>
+            ${collegeOptions}
+          </select>
+        </div>
 
-  renderCompareCards();
-  renderDetails();
-}
+        <div class="form-group w-100">
+          <label class="label-orange">Select Course</label>
+          <select class="custom-select" id="newCourseSelect" disabled>
+            <option value="" disabled selected>Select Course</option>
+          </select>
+        </div>
 
-// ✅ TABLE RENDER (IMPORTANT FIX)
-function renderDetails() {
-  const el = document.getElementById("compareDetails");
+        <button class="add-btn" onclick="addToCompare()">+ Add to Compare</button>
+      </div>`;
+        }
 
-  const selected = compareData.map(item => {
-    const college = colleges.find(c => c.id === item.id);
-    return {
-      ...college,
-      selectedCourse: item.course
-    };
-  });
+        row.innerHTML = html;
+      }
 
-  el.innerHTML = `
+      // ── Edit card open/close/save ──
+      function openEditCard(id) {
+        document
+          .getElementById(`editOverlay_${id}`)
+          ?.classList.remove("d-none");
+      }
+      function closeEditCard(id) {
+        document.getElementById(`editOverlay_${id}`)?.classList.add("d-none");
+      }
+      function onEditCollegeChange(selectEl, oldId) {
+        const newId = parseInt(selectEl.value);
+        const college = colleges.find((c) => c.id === newId);
+        if (!college) return;
+        const courseSelect = document.getElementById(`editCourse_${oldId}`);
+        if (courseSelect) {
+          courseSelect.innerHTML = (college.courses || [])
+            .map((co) => `<option value="${co}">${co}</option>`)
+            .join("");
+        }
+      }
+      function saveEdit(oldId) {
+        const overlay = document.getElementById(`editOverlay_${oldId}`);
+        if (!overlay) return;
+        const colSelect = overlay.querySelector("select:nth-of-type(1)");
+        const coSelect = overlay.querySelector(`#editCourse_${oldId}`);
+        const newId = parseInt(colSelect.value);
+        const newCourse = coSelect?.value || "";
+
+        const idx = compareData.findIndex((d) => d.id === oldId);
+        if (idx > -1) {
+          compareData[idx] = { id: newId, course: newCourse };
+          localStorage.setItem("compareData", JSON.stringify(compareData));
+          localStorage.setItem(
+            "compareColleges",
+            JSON.stringify(compareData.map((d) => d.id)),
+          );
+        }
+        renderCompareCards();
+        renderDetails();
+      }
+
+      // ── 3. When college is selected in add card, populate courses ──
+      function onCollegeSelectChange(selectEl) {
+        const id = parseInt(selectEl.value);
+        const college = colleges.find((c) => c.id === id);
+        if (!college) return;
+
+        const courseSelect = document.getElementById("newCourseSelect");
+        courseSelect.innerHTML =
+          `<option value="" disabled selected>Select Course</option>` +
+          (college.courses || [])
+            .map((c) => `<option value="${c}">${c}</option>`)
+            .join("");
+        courseSelect.disabled = false;
+      }
+
+      // ── 4. Add college to compare ──
+      function addToCompare() {
+        const collegeSelect = document.getElementById("newCollegeSelect");
+        const courseSelect = document.getElementById("newCourseSelect");
+
+        if (!collegeSelect || !collegeSelect.value) {
+          alert("Please select a college");
+          return;
+        }
+        if (!courseSelect || !courseSelect.value) {
+          alert("Please select a course");
+          return;
+        }
+
+        const id = parseInt(collegeSelect.value);
+        const course = courseSelect.value;
+
+        if (compareData.find((d) => d.id === id)) {
+          alert("This college is already in compare list");
+          return;
+        }
+
+        compareData.push({ id, course });
+        localStorage.setItem("compareData", JSON.stringify(compareData));
+        localStorage.setItem(
+          "compareColleges",
+          JSON.stringify(compareData.map((d) => d.id)),
+        );
+
+        renderCompareCards();
+        renderDetails();
+      }
+
+      // ── 5. Remove college from compare ──
+      function removeFromCompare(id) {
+        compareData = compareData.filter((item) => item.id !== id);
+        localStorage.setItem("compareData", JSON.stringify(compareData));
+        localStorage.setItem(
+          "compareColleges",
+          JSON.stringify(compareData.map((d) => d.id)),
+        );
+        renderCompareCards();
+        renderDetails();
+      }
+
+      // ── 6. Render comparison table ──
+      function renderDetails() {
+        const el = document.getElementById("compareDetails");
+
+        if (compareData.length === 0) {
+          el.innerHTML = `<p class="text-muted text-center py-4">No colleges selected for comparison. Add colleges above.</p>`;
+          return;
+        }
+
+        const selected = compareData
+          .map((item) => {
+            const c = colleges.find((col) => col.id === item.id);
+            return { ...c, selectedCourse: item.course };
+          })
+          .filter(Boolean);
+
+        // ── Comparison table ──
+        const tableHtml = `
     <table class="compare-table">
-
       <tr>
         <th>University</th>
-        ${selected.map(p => `<td>${p.name}</td>`).join("")}
+        ${selected.map((p) => `<td><strong>${p.name}</strong></td>`).join("")}
       </tr>
-
       <tr>
         <th>Course</th>
-        ${selected.map(p => `<td>${p.selectedCourse || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${p.selectedCourse || "-"}</td>`).join("")}
       </tr>
-
       <tr>
         <th>Duration</th>
-        ${selected.map(p => `<td>${p.duration || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${p.duration || "-"}</td>`).join("")}
       </tr>
-
       <tr>
         <th>Mode</th>
-        ${selected.map(p => `<td>${p.mode || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${p.mode || "-"}</td>`).join("")}
       </tr>
-
       <tr>
         <th>Type</th>
-        ${selected.map(p => `<td>${p.type || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${p.type || "-"}</td>`).join("")}
       </tr>
-
       <tr>
         <th>Fee</th>
-        ${selected.map(p => `<td>${p.fee || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${p.fee || "-"}</td>`).join("")}
       </tr>
-
       <tr>
         <th>Location</th>
-        ${selected.map(p => `<td>${p.location || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${p.location || "-"}</td>`).join("")}
       </tr>
-
       <tr>
         <th>Rank</th>
-        ${selected.map(p => `<td>${p.rank || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${p.rank || "-"}</td>`).join("")}
       </tr>
-
       <tr>
         <th>Placement</th>
-        ${selected.map(p => `<td>${p.placement || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${p.placement || "-"}</td>`).join("")}
       </tr>
-
       <tr>
         <th>Accreditation</th>
-        ${selected.map(p => `<td>${p.accreditation || "-"}</td>`).join("")}
+        ${selected.map((p) => `<td>${(p.accred || []).join(", ") || "-"}</td>`).join("")}
       </tr>
-
       <tr class="action-row">
         <th></th>
-        ${selected.map(p => `
+        ${selected
+          .map(
+            (p) => `
           <td>
-            <a class="btn-view" href="college-details.html?id=${p.id}">
-              View details
-            </a><br>
-
-            <a class="btn-apply" data-bs-toggle="modal" data-bs-target="#connectModal">
-              Apply now
-            </a>
-          </td>
-        `).join("")}
+            <a class="btn-view" href="college-details.html?id=${p.id}">View details</a><br/>
+            <a class="btn-apply" data-bs-toggle="modal" data-bs-target="#connectModal">Apply now</a>
+          </td>`,
+          )
+          .join("")}
       </tr>
+    </table>`;
 
-    </table>
-  `;
-}
+        // ── Relative insights section ──
+        const insightsHtml =
+          selected.length >= 2 ? buildInsights(selected) : "";
 
-initComparePage();
-</script>
+        el.innerHTML = tableHtml + insightsHtml;
+      }
+
+      // ── 7. Build relative insights ──
+      function buildInsights(selected) {
+        const insights = [];
+
+        if (insights.length === 0) {
+          return "";
+        }
+
+        return `
+    <div class="mt-5">
+      <h5 class="fw-bold mb-3" style="color:#0b1437;">📊 Relative Insights</h5>
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">
+        ${insights
+          .map(
+            (ins) => `
+          <div style="background:#fff; border:1px solid #dde3f0; border-radius:12px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+            <div style="font-size:1.4rem; margin-bottom:6px;">${ins.icon}</div>
+            <div style="font-size:0.78rem; font-weight:700; color:#6b7a99; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">${ins.title}</div>
+            <div style="font-size:0.86rem; color:#1a2340; line-height:1.6;">${ins.text}</div>
+          </div>`,
+          )
+          .join("")}
+      </div>
+    </div>`;
+      }
+
+      // ── Start ──
+      initComparePage();
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

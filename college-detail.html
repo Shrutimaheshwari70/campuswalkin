@@ -129,7 +129,7 @@
           display: flex;
         }
       }
-            /* ══════════════════════════
+      /* ══════════════════════════
    BREAKPOINT — Tablet ≤ 1024px
 ══════════════════════════ */
       @media (max-width: 1024px) {
@@ -225,7 +225,7 @@
           width: 92vw;
         }
       }
-       @media (max-width: 992px) {
+      @media (max-width: 992px) {
         .center-nav,
         .nav-r2,
         .course-wrap {
@@ -237,7 +237,7 @@
         }
       }
       /* NAVBAR */
-      
+
       .navbar-custom {
         background: var(--white);
         border-bottom: 1px solid var(--border);
@@ -328,17 +328,17 @@
         transform: rotate(180deg);
       }
       .exp-mega {
-         display: none;
-  position: absolute;
-  top: 100%;
-  left: -450px;
-  width: 600px; /* adjust */
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: var(--sh3);
-  padding: 1rem;
-  z-index: 10;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -450px;
+        width: 600px; /* adjust */
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: var(--sh3);
+        padding: 1rem;
+        z-index: 10;
       }
       .explore-wrap:hover .exp-mega,
       .explore-wrap.open .exp-mega {
@@ -719,24 +719,24 @@
         background: #4f46e5;
         color: #fff;
       }
-          .cm-btns{
+      .cm-btns {
         display: flex;
         gap: 10px;
         margin-bottom: 12px;
         flex-wrap: wrap;
         cursor: pointer;
       }
-      .cm-btn{
+      .cm-btn {
         border: 1px solid #4f46e5;
         padding: 2px 15px;
         font-size: 0.75rem;
         /* border-radius: 10px; */
       }
-    .cm-btn:hover{
+      .cm-btn:hover {
         background: #4f46e5;
         color: #fff;
-    }
-  
+      }
+
       .cm-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1931,8 +1931,8 @@
       .btn-brochure:hover {
         background: #fff5f3;
       }
-      .cca-allCourses{
-              background: #fff;
+      .cca-allCourses {
+        background: #fff;
         color: var(--accent);
         border: 1.5px solid var(--accent);
         padding: 10px 20px;
@@ -2537,8 +2537,8 @@
         font-size: 0.83rem;
         color: #444;
         line-height: 1.65;
-        word-wrap: break-word;       /* ✅ old support */
-  overflow-wrap: break-word; 
+        word-wrap: break-word; /* ✅ old support */
+        overflow-wrap: break-word;
       }
       .rv-tags {
         display: flex;
@@ -2554,7 +2554,6 @@
         color: var(--muted);
         font-weight: 600;
       }
-
 
       /* Q&A */
       .qna-item {
@@ -3073,170 +3072,110 @@
           grid-template-columns: 1fr;
         }
       }
-   /* FORM CONTAINER */
-#reviewForm {
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  padding: 25px;
-  border: none;
-  width: 40%;
-}
+      /* FORM CONTAINER */
+      #reviewForm {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: none;
+        width: 500px;
+        height: auto;
+      }
 
-/* INPUT + TEXTAREA */
-#reviewForm input,
-#reviewForm textarea,
-#reviewForm select {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  outline: none;
-  font-size: 14px;
-  transition: 0.3s;
-  background: #f7f7f9;
-}
+      .modal-dialog {
+        max-width: 500px;
+        margin: auto;
+      }
+      /* INPUT + TEXTAREA */
+      #reviewForm input,
+      #reviewForm textarea,
+      #reviewForm select {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        outline: none;
+        font-size: 14px;
+        transition: 0.3s;
+        background: #f7f7f9;
+      }
 
-/* FOCUS EFFECT */
-#reviewForm input:focus,
-#reviewForm textarea:focus,
-#reviewForm select:focus {
-  background: #fff;
-  border-color: #7b2cbf;
-  box-shadow: 0 0 0 2px rgba(123,44,191,0.15);
-}
+      /* FOCUS EFFECT */
+      #reviewForm input:focus,
+      #reviewForm textarea:focus,
+      #reviewForm select:focus {
+        background: #fff;
+        border-color: #7b2cbf;
+        box-shadow: 0 0 0 2px rgba(123, 44, 191, 0.15);
+      }
 
-/* TEXTAREA HEIGHT */
-#reviewForm textarea {
-  min-height: 100px;
-  resize: none;
-}
+      /* TEXTAREA HEIGHT */
+      #reviewForm textarea {
+        min-height: 100px;
+        resize: none;
+      }
 
-/* SELECT ROW */
-#reviewForm .d-flex {
-  gap: 10px;
-}
+      /* SELECT ROW */
+      #reviewForm .d-flex {
+        gap: 10px;
+      }
 
-/* STAR RATING */
-#starRating i {
-  cursor: pointer;
-  transition: 0.2s;
-  font-size: 20px;
-}
+      /* STAR RATING */
+      #starRating i {
+        cursor: pointer;
+        transition: 0.2s;
+        font-size: 20px;
+      }
 
-#starRating i:hover {
-  color: #f7b500;
-  transform: scale(1.2);
-}
+      #starRating i:hover {
+        color: #f7b500;
+        transform: scale(1.2);
+      }
 
-/* SUBMIT BUTTON */
-.submit-review {
-  display: block;
-  width: 100%;
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(90deg, #2b3c8f, #7b2cbf);
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  transition: 0.3s;
-}
+      /* SUBMIT BUTTON */
+      .submit-review {
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 30px;
+        border: none;
+        background: linear-gradient(90deg, #2b3c8f, #7b2cbf);
+        color: #fff;
+        font-weight: 600;
+        font-size: 15px;
+        transition: 0.3s;
+      }
 
-.submit-review:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
+      .submit-review:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
 
-/* ADD REVIEW BUTTON */
-#reviewBtn {
-  background: linear-gradient(135deg, #2b3c8f, #7b2cbf);
-  border: none;
-  color: #fff;
-  padding: 10px 28px;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: 0.3s;
-}
+      /* ADD REVIEW BUTTON */
+      #reviewBtn {
+        background: linear-gradient(135deg, #2b3c8f, #7b2cbf);
+        border: none;
+        color: #fff;
+        padding: 10px 28px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
 
-#reviewBtn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
+      #reviewBtn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+      .review-card {
+        position: relative;
+      }
 
-/* EDIT + DELETE BUTTONS */
-.editBtn,
-.deleteBtn {
-  background: #2b3c8f;
-  color: white;
-  padding: 5px 14px;
-  font-size: 13px;
-  border-radius: 6px;
-  border: none;
-  transition: 0.2s;
-}
-
-.editBtn:hover,
-.deleteBtn:hover {
-  background: #1d2c6b;
-}
-.review-card {
-  position: relative;
-}
-
-/* top right menu */
-.review-actions {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-/* 3 dots button */
-.menu-btn {
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-/* dropdown */
-.dropdown-menu {
-  position: absolute;
-  top: 25px;
-  right: 0;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  display: none;
-  flex-direction: column;
-  min-width: 100px;
-  padding: 5px;
-  z-index: 10;
-}
-
-/* show dropdown */
-.review-actions.active .dropdown-menu {
-  display: flex;
-}
-
-/* buttons */
-.dropdown-menu button {
-  border: none;
-  background: none;
-  padding: 8px;
-  text-align: left;
-  cursor: pointer;
-}
-
-.dropdown-menu button:hover {
-  background: #f2f2f2;
-}
-
-.deleteBtn {
-  color: red;
-}
-
+      /* top right menu */
+      .review-actions {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
     </style>
   </head>
   <body>
@@ -3563,14 +3502,39 @@
                 <div class="cm-si" data-cat="commerce">Commerce</div>
               </div>
               <div class="cm-content">
-                   <div class="cm-btns" id="cmLevelTabs">
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="UG"><a href="ug-courses.html">UG Courses</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="PG"><a href="pg-courses.html">PG Courses</a></div>                
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Executive MBA"><a href="executive-course.html">Executive MBA</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Online Programs"> <a href="online-programs.html">Online Programs</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Management (PGDM / MBA)"> <a href="pgdm-mba-management.html">Management (PGDM / MBA)</a></div>
-                  <div class="cm-btn rounded-4 py-1 px-2 " data-level="Study Abroad"> <a href="study-abroad.html">Study Abroad</a></div> 
-
+                <div class="cm-btns" id="cmLevelTabs">
+                  <div class="cm-btn rounded-4 py-1 px-2" data-level="UG">
+                    <a href="ug-courses.html">UG Courses</a>
+                  </div>
+                  <div class="cm-btn rounded-4 py-1 px-2" data-level="PG">
+                    <a href="pg-courses.html">PG Courses</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Executive MBA"
+                  >
+                    <a href="executive-course.html">Executive MBA</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Online Programs"
+                  >
+                    <a href="online-programs.html">Online Programs</a>
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Management (PGDM / MBA)"
+                  >
+                    <a href="pgdm-mba-management.html"
+                      >Management (PGDM / MBA)</a
+                    >
+                  </div>
+                  <div
+                    class="cm-btn rounded-4 py-1 px-2"
+                    data-level="Study Abroad"
+                  >
+                    <a href="study-abroad.html">Study Abroad</a>
+                  </div>
                 </div>
                 <div class="cm-tabs" id="cmTabs">
                   <div class="cm-tab active" data-mode="all">All</div>
@@ -3693,7 +3657,6 @@
 
     <!-- HERO -->
     <div class="hero">
-
       <div class="hero-inner">
         <div class="hero-top">
           <div class="hero-logo">
@@ -3725,10 +3688,11 @@
             <div class="hero-actions">
               <button class="btn-apply">Apply Now</button>
               <button class="btn-brochure">📄 Download Brochure</button>
-              <a href="courses.html" type="button" class="cca-allCourses">All courses</a>
+              <a href="courses.html" type="button" class="cca-allCourses"
+                >All courses</a
+              >
             </div>
           </div>
-      
         </div>
         <div class="hero-stats" id="heroStats"></div>
       </div>
@@ -3850,60 +3814,93 @@
             </thead>
             <tbody id="resultBody"></tbody>
           </table>
-        </div>  
+        </div>
         <div class="sec-card" id="reviews">
           <div class="sec-title">Student Reviews</div>
           <div id="reviewsList"></div>
-            <div id="reviewsContainer"></div>
+          <div id="reviewsContainer"></div>
 
           <div class="d-flex justify-content-center">
-            <button id="reviewBtn" onclick="toggleForm()">Add Review</button>
+            <button
+              id="reviewBtn"
+              data-bs-toggle="modal"
+              data-bs-target="#reviewForm"
+            >
+              Add Review
+            </button>
           </div>
 
           <!-- FORM (hidden by default) -->
-          <div id="reviewForm" class="p-3  rounded-3 mt-4 mx-auto">
-            <input type="text" id="name" placeholder="Your Name" class="w-100 p-1 border-black mb-2"/>
-            <br />
-            <textarea id="review" placeholder="Write your review" class="w-100 p-1 border-black" ></textarea>
+          <div id="reviewForm" class="modal fade p-3 rounded-3" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content p-4">
+                <div
+                  class="d-flex align-items-center justify-content-between mb-2"
+                >
+                  <h4>Add Review</h4>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Your Name"
+                  class="w-100 p-2 border-black mb-2"
+                />
+                <br />
+                <textarea
+                  id="review"
+                  placeholder="Write your review"
+                  class="w-100 p-2 border-black"
+                ></textarea>
 
-            <br />
-            <div class="d-flex gap-3">
-              <select id="slct-course" >
-              <option value="" disabled selected>Select Course</option>
-              <option value="B.Tech">B.Tech</option>
-              <option value="M.Tech">M.Tech</option>
-              <option value="BBA">BBA</option>
-              <option value="BCA">BCA</option>
-            </select>
-            <br /><br />
-            <select id="slct-year">
-              <option value="" disabled selected>Select Year</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-              <option value="2000">2000</option>
-            </select>
+                <br />
+                <div class="d-flex gap-3">
+                  <select id="slct-course">
+                    <option value="" disabled selected>Select Course</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="BBA">BBA</option>
+                    <option value="BCA">BCA</option>
+                  </select>
+                  <br /><br />
+                  <select id="slct-year">
+                    <option value="" disabled selected>Select Year</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2000">2000</option>
+                  </select>
+                </div>
+                <div id="starRating" class="fs-5 mt-2">
+                  <span onclick="setRating(1)"
+                    ><i class="bi bi-star-fill text-secondary"></i
+                  ></span>
+                  <span onclick="setRating(2)"
+                    ><i class="bi bi-star-fill text-secondary"></i
+                  ></span>
+                  <span onclick="setRating(3)"
+                    ><i class="bi bi-star-fill text-secondary"></i
+                  ></span>
+                  <span onclick="setRating(4)"
+                    ><i class="bi bi-star-fill text-secondary"></i
+                  ></span>
+                  <span onclick="setRating(5)"
+                    ><i class="bi bi-star-fill text-secondary"></i
+                  ></span>
+                </div>
+                <button
+                  onclick="addOrUpdateReview()"
+                  class="submit-review   rounded-5 mt-2 mx-auto"
+                >
+                  Submit
+                </button>
+              </div>
             </div>
-            <div id="starRating" class="fs-5 mt-2">
-              <span onclick="setRating(1)"
-                ><i class="bi bi-star-fill text-secondary"></i
-              ></span>
-              <span onclick="setRating(2)"
-                ><i class="bi bi-star-fill text-secondary"></i
-              ></span>
-              <span onclick="setRating(3)"
-                ><i class="bi bi-star-fill text-secondary"></i
-              ></span>
-              <span onclick="setRating(4)"
-                ><i class="bi bi-star-fill text-secondary"></i
-              ></span>
-              <span onclick="setRating(5)"
-                ><i class="bi bi-star-fill text-secondary"></i
-              ></span>
-            </div>
-            <button onclick="addOrUpdateReview()" class="submit-review rounded-5 mt-2 mx-auto">Submit</button>
           </div>
-
         </div>
         <div class="sec-card" id="qna">
           <div class="sec-title">Questions & Answers</div>
@@ -5768,7 +5765,7 @@
               .slice(
                 0,
                 2,
-              )}</div><div><div class="rv-name">${r.name}</div><div class="rv-meta">${r.course}</div></div><div class="rv-rating">${"⭐".repeat(r.rating)}</div></div><div class="rv-text">${r.text}</div><div class="rv-tags">${r.tags.map((t) => ``).join("")}</div></div>`,
+              )}</div><div><div class="rv-name">${r.name}</div><div class="rv-meta">${r.course}</div></div><div class="rv-rating">${"<i class='bi bi-star-fill text-warning'></i>".repeat(r.rating)}</div></div><div class="rv-text">${r.text}</div><div class="rv-tags">${r.tags.map((t) => ``).join("")}</div></div>`,
         )
         .join("");
       document.getElementById("qnaList").innerHTML = ext.qna
@@ -5862,32 +5859,24 @@
       // 🔹 Show / Hide Form
       function toggleForm() {
         const form = document.getElementById("reviewForm");
-         if (form.style.display === "none" || form.style.display === "") {
-    form.style.display = "block";
-  } else {
-    form.style.display = "none";
-  }
+        if (form.style.display === "none" || form.style.display === "") {
+          form.style.display = "block";
+        } else {
+          form.style.display = "none";
+        }
       }
 
       // 🔹 Render Reviews
-     function renderReviews() {
-  const container = document.getElementById("reviewsContainer");
-  container.innerHTML = "";
+      function renderReviews() {
+        const container = document.getElementById("reviewsContainer");
+        container.innerHTML = "";
 
-  reviews.forEach((rev, index) => {
-    const initials = getInitials(rev.name);
+        reviews.forEach((rev, index) => {
+          const initials = getInitials(rev.name);
 
-container.innerHTML += `
+          container.innerHTML += `
   <div class="review-card">
 
-    <!-- 🔥 3 DOT MENU -->
-    <div class="review-actions">
-      <button class="menu-btn">⋮</button>
-      <div class="dropdown-menu">
-        <button onclick="editReview(${index})">Edit</button>
-        <button onclick="deleteReview(${index})" class="deleteBtn">Delete</button>
-      </div>
-    </div>
 
     <div class="review-header">
       <div class="rv-avatar" style="background:#0369a1">${initials}</div>
@@ -5906,17 +5895,17 @@ container.innerHTML += `
 
   </div>
     `;
-  });
-}
-document.addEventListener("click", function(e) {
-  document.querySelectorAll(".review-actions").forEach(menu => {
-    if (menu.contains(e.target)) {
-      menu.classList.toggle("active");
-    } else {
-      menu.classList.remove("active");
-    }
-  });
-});
+        });
+      }
+      document.addEventListener("click", function (e) {
+        document.querySelectorAll(".review-actions").forEach((menu) => {
+          if (menu.contains(e.target)) {
+            menu.classList.toggle("active");
+          } else {
+            menu.classList.remove("active");
+          }
+        });
+      });
       let currentRating = 0;
       function setRating(value) {
         currentRating = value;
@@ -5957,6 +5946,7 @@ document.addEventListener("click", function(e) {
         const text = document.getElementById("review").value;
         const selectCourse = document.getElementById("slct-course").value;
         const selectYear = document.getElementById("slct-year").value;
+
         if (!name || !text || !selectCourse || !selectYear) {
           alert("Fill all fields");
           return;
@@ -5983,31 +5973,16 @@ document.addEventListener("click", function(e) {
 
         localStorage.setItem("reviews", JSON.stringify(reviews));
 
+        // clear fields
         document.getElementById("name").value = "";
         document.getElementById("review").value = "";
 
-        // hide form after submit
-        document.getElementById("reviewForm").style.display = "none";
+        // ✅ PROPER CLOSE MODAL
+        const modal = bootstrap.Modal.getInstance(
+          document.getElementById("reviewForm"),
+        );
+        modal.hide();
 
-        renderReviews();
-      }
-      // 🔹 Edit
-      function editReview(index) {
-        document.getElementById("name").value = reviews[index].name;
-        document.getElementById("review").value = reviews[index].text;
-        document.getElementById("slct-course").value =
-          review[index].selectCourse;
-        document.getElementById("slct-year").value = review[index].selectYear;
-        editIndex = index;
-
-        // open form when editing
-        document.getElementById("reviewForm").style.display = "block";
-      }
-
-      // 🔹 Delete
-      function deleteReview(index) {
-        reviews.splice(index, 1);
-        localStorage.setItem("reviews", JSON.stringify(reviews));
         renderReviews();
       }
 

@@ -2662,7 +2662,7 @@
       #collegeContent {
         overflow-x: auto;
         scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch; /* 🔥 mobile smooth */
+        -webkit-overflow-scrolling: touch; /*  mobile smooth */
       }
       .card-content {
         width: 280px;
@@ -6063,69 +6063,96 @@ const courses =
 
         renderPagination(total);
       }
-      function renderCompareModal(c) {
-        const modalBody = document.querySelector("#compareModal .row");
-        // compareList = [c.id];
-        if (!compareList.includes(c.id)) {
-          compareList.push(c.id);
-        }
-        //  Tumhara original card (same as it is)
-        let html = `
-      <div class="col-lg-8 h-100">
-        <div class="position-relative compare-card  overflow-hidden ">
-          <img src="${c.img}" alt="" class="compare-banner object-fit-cover w-100"/>
-          <i class="bi bi-x-circle-fill position-absolute"
-    onclick="replaceWithSelect(this)"></i>
-          <div class="logo-wrapper-com position-absolute">
-            <img src="${c.img}" alt="" class="object-fit-cover" />
-          </div>
-          <div class="text-center mt-4">
-            <p class="fw-bold mb-0">${c.name}</p>
-            <small class="text-muted d-block">${c.location}</small>
-            <p class="mb-0">${c.filteredCourses?.[0] || ""}</p>
+function renderCompareModal(c) {
+  const modalBody = document.querySelector("#compareModal .row");
+localStorage.removeItem("compareColleges");
+localStorage.removeItem("compareData");
 
+  //  STEP 1: Fresh reset
+  compareList = [];
+
+  // Add clicked college
+  compareList.push(c.id);
+
+  //  STEP 2: Find same state college
+  const sameState = colleges.find(
+    (col) => col.state === c.state && col.id !== c.id
+  );
+
+  if (sameState) {
+    compareList.push(sameState.id);
+  }
+
+  //  STEP 3: SAVE IDS
+  localStorage.setItem("compareColleges", JSON.stringify(compareList));
+
+  //  STEP 4: SAVE DATA (VERY IMPORTANT)
+  const compareData = compareList.map(id => {
+    const college = colleges.find(col => col.id === id);
+
+    return {
+      id: id,
+      course:
+        college.filteredCourses?.[0] ||
+        college.courses?.[0] ||
+        ""
+    };
+  });
+
+  localStorage.setItem("compareData", JSON.stringify(compareData));
+
+  //  STEP 5: UI render
+  let html = `
+    <div class="col-lg-8 h-100">
+      <div class="position-relative compare-card overflow-hidden">
+        <img src="${c.img}" class="compare-banner object-fit-cover w-100"/>
+        
+        <i class="bi bi-x-circle-fill position-absolute"
+           onclick="replaceWithSelect(this)"></i>
+
+        <div class="logo-wrapper-com position-absolute">
+          <img src="${c.img}" class="object-fit-cover" />
+        </div>
+
+        <div class="text-center mt-4">
+          <p class="fw-bold mb-0">${c.name}</p>
+          <small class="text-muted">${c.location}</small>
+          <p>${c.filteredCourses?.[0] || ""}</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  //  STEP 6: Same state UI add
+  if (sameState) {
+    html += `
+      <div class="col-lg-8 h-100">
+        <div class="position-relative compare-card overflow-hidden">
+          <img src="${sameState.img}" class="compare-banner object-fit-cover w-100"/>
+          
+          <i class="bi bi-x-circle-fill position-absolute"
+             onclick="replaceWithSelect(this)"></i>
+
+          <div class="logo-wrapper-com position-absolute">
+            <img src="${sameState.img}" class="object-fit-cover" />
+          </div>
+
+          <div class="text-center mt-4">
+            <p class="fw-bold mb-0">${sameState.name}</p>
+            <small class="text-muted">${sameState.location}</small>
+            <p>${sameState.filteredCourses?.[0] || ""}</p>
           </div>
         </div>
       </div>
-      
     `;
+  }
 
-        //  Same state college find karo
-        const sameState = colleges.find(
-          (col) => col.state === c.state && col.id !== c.id,
-        );
-        if (sameState && !compareList.includes(sameState.id)) {
-          compareList.push(sameState.id);
-        }
-        // 3Agar mila → same UI ka second card add karo
-        if (sameState) {
-          html += `
-        <div class="col-lg-8 h-100">
-          <div class="position-relative compare-card  overflow-hidden">
-            <img src="${sameState.img}" alt="" class="compare-banner object-fit-cover w-100"/>
-            <i class="bi bi-x-circle-fill position-absolute"
-    onclick="replaceWithSelect(this)"></i>
-            <div class="logo-wrapper-com position-absolute">
-              <img src="${sameState.img}" alt="" class="object-fit-cover" />
-            </div>
-            <div class="text-center mt-4">
-              <p class="fw-bold mb-0">${sameState.name}</p>
-              <small class="text-muted d-block">${sameState.location}</small>
-              <p class="mb-0">${sameState.filteredCourses?.[0] || ""}</p>
-            </div>
-          </div>
-        </div>
-      `;
-        }
-
-        //  Render
-        modalBody.innerHTML = html;
-      }
-
+  modalBody.innerHTML = html;
+}
       function replaceWithSelect(el) {
         const card = el.closest(".compare-card");
 
-        // 🔥 ALL colleges from data.json
+        //  ALL colleges from data.json
         const options = colleges
           .map((c) => `<option value="${c.id}">${c.name}</option>`)
           .join("");
@@ -6172,7 +6199,7 @@ const courses =
     `<option disabled selected>Select Course</option>` +
     college.courses.map((c) => `<option value="${c}">${c}</option>`).join("");
 
-  // 🔥 SAVE COURSE (IMPORTANT)
+  //  SAVE COURSE (IMPORTANT)
   courseSelect.onchange = function () {
     let compareData = JSON.parse(localStorage.getItem("compareData")) || [];
 
@@ -6298,7 +6325,7 @@ const MAX_COMPARE = 3;
 function toggleCompare(id, btn) {
   let compareList = JSON.parse(localStorage.getItem("compareColleges")) || [];
 
-  // ❌ already selected → remove
+  //  already selected → remove
   if (compareList.includes(id)) {
     compareList = compareList.filter(x => x !== id);
 
@@ -6308,7 +6335,7 @@ function toggleCompare(id, btn) {
     }
   }
 
-  // ❌ limit check
+  //  limit check
   else {
     if (compareList.length >= MAX_COMPARE) {
       alert("You can compare only 3 colleges");
@@ -6328,9 +6355,12 @@ function toggleCompare(id, btn) {
   updateCompareBar();
 }
 window.addEventListener("pageshow", function () {
-  if (performance.getEntriesByType("navigation")[0]?.type === "back_forward") {
+  const nav = performance.getEntriesByType("navigation")[0];
+
+  if (nav && nav.type === "back_forward") {
+    //  CLEAR ALL COMPARE DATA
     localStorage.removeItem("compareColleges");
-    localStorage.removeItem("compareCourses");
+    localStorage.removeItem("compareData");
   }
 });
 function compareNow() {
@@ -6341,41 +6371,10 @@ function compareNow() {
     return;
   }
 
-  prepareCompareData(); // 🔥 YEH IMPORTANT HAI
+  prepareCompareData(); //  YEH IMPORTANT HAI
 
   window.location.href = "compare-details.html";
 }
-//       function compareNow() {
-//         if (compareList.length < 2) {
-//           alert("Select at least 2 colleges");
-//           return;
-//         }
-
-//         localStorage.setItem("compareColleges", JSON.stringify(compareList));
-// //         let compareData = compareList.map(id => {
-// //   return {
-// //     id: id,
-// //     course: JSON.parse(localStorage.getItem("compareCourses"))?.[id] || ""
-// //   };
-// // });
-// let compareCourses = JSON.parse(localStorage.getItem("compareCourses")) || {};
-
-// let compareData = compareList.map(id => {
-//   const college = colleges.find(c => c.id === id);
-
-//   return {
-//     id: id,
-//     // 🔥 ye line important hai
-//     course: compareCourses[id] || college.filteredCourses?.[0] || college.courses?.[0] || ""
-//   };
-// });
-
-// localStorage.setItem("compareData", JSON.stringify(compareData));
-
-// localStorage.setItem("compareData", JSON.stringify(compareData));
-
-//         window.location.href = "compare-details.html";
-//       }
 
 
       function updateCompareBar() {
