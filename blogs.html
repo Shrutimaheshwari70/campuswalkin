@@ -15,6 +15,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -71,15 +76,7 @@
         --nav-h: 60px;
         --nav2-h: 44px;
       }
-      
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-          html,
+      html,
       body {
         overflow-x: hidden;
       }
@@ -102,6 +99,9 @@
         font-size: 13px;
       }
       /* ─────────────────────────────────────
+   NAVBAR WRAPPER
+───────────────────────────────────── */
+           /* ─────────────────────────────────────
    NAVBAR WRAPPER
 ───────────────────────────────────── */
       .navbar {
@@ -706,8 +706,7 @@
       .cn-link {
         font-size: 14px;
       }
-
-   /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
    CTA
 ───────────────────────────────────── */
       .cta-sec {
@@ -752,281 +751,423 @@
           padding: 1.5rem !important;
         }
       }
-      .btn-view {
-        padding: 0.65rem;
-        border-radius: 10px;
-        border: 1.5px solid var(--border);
-        background: transparent;
-        color: var(--text);
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.2s;
+
+      /*----------------- hero --------------- */
+      .banner-text {
+        top: 7%;
       }
 
-      .btn-view:hover {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: #fff;
+      .banner-img img {
+        height: 300px;
       }
-      
-      .compare-card {
-        border-radius: 12px;
+      /* ──────────────────────────────
+         MAIN LAYOUT
+      ────────────────────────────── */
+      .blog-layout {
+        grid-template-columns: 1fr 300px;
+      }
+      /* ── FEATURED CARD ── */
+      .featured-card {
+        grid-template-columns: 1.1fr 1fr;
+        min-height: 300px;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .featured-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--sh3);
+      }
+      .fc-img {
+        position: relative;
+      }
+      .fc-img img {
+        transition: transform 0.4s;
+      }
+      .featured-card:hover .fc-img img {
+        transform: scale(1.04);
+      }
+      .fc-body {
+        flex-direction: column;
+      }
+      .fc-excerpt {
+        font-size: 0.875rem;
+      }
+      .fc-meta {
+        font-size: 0.75rem;
+      }
+      .fc-meta .author img {
+        width: 26px;
+        height: 26px;
+      }
+      .fc-read-btn {
+        background: var(--accent);
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        width: fit-content;
+      }
+      .fc-read-btn:hover {
+        background: #1d4fd8;
+        transform: translateY(-1px);
+      }
+      .sec-heading h2 {
+        font-size: 1.15rem;
+        color: var(--navy);
+      }
+      .sec-heading h2::before {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 20px;
+        background: var(--accent);
+        border-radius: 4px;
+      }
+      /* ── BLOG GRID ── */
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.3rem;
+        margin-bottom: 2rem;
+      }
+
+      .blog-card {
+        background: var(--white);
+        border-radius: 14px;
         overflow: hidden;
-        width: 300px;
-        background: #fff;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        padding-bottom: 15px;
+        box-shadow: var(--sh1);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        display: flex;
+        flex-direction: column;
+      }
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--sh2);
+      }
+      .bc-img {
+        position: relative;
+        overflow: hidden;
+        height: 175px;
+      }
+      .bc-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+      }
+      .blog-card:hover .bc-img img {
+        transform: scale(1.05);
+      }
+      .bc-tag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 0.22rem 0.65rem;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .tag-admissions {
+        background: var(--accent2);
+        color: var(--accent);
+      }
+      .tag-career {
+        background: var(--online-bg);
+        color: var(--online);
+      }
+      .tag-exams {
+        background: var(--abroad-bg);
+        color: var(--abroad);
+      }
+      .tag-abroad {
+        background: var(--offline-bg);
+        color: var(--offline);
+      }
+      .tag-scholarship {
+        background: #fff3f0;
+        color: var(--exec);
+      }
+      .tag-university {
+        background: #f0fff4;
+        color: #16a34a;
+      }
+      .tag-mba {
+        background: #fdf4ff;
+        color: #9333ea;
+      }
+      .tag-engineering {
+        background: #eff4ff;
+        color: #2563eb;
+      }
+
+      .bc-body {
+        padding: 1.1rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .bc-cat {
+        font-size: 0.68rem;
+        color: var(--accent);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .bc-title {
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.4;
+        flex: 1;
+      }
+      .bc-title a:hover {
+        color: var(--accent);
+      }
+      .bc-excerpt {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .bc-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.8rem 1.1rem;
+        border-top: 1px solid var(--border);
+      }
+      .bc-author {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 0.7rem;
+        color: var(--muted);
+      }
+      .bc-author img {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .bc-info {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+      .bc-info i {
+        font-size: 0.65rem;
+      }
+      .bc-read {
+        font-size: 0.72rem;
+        color: var(--accent);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+      .bc-read:hover {
+        color: #1d4fd8;
+      }
+
+      /* ── LIST STYLE POSTS ── */
+      .list-posts {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .list-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 1rem 1.2rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        box-shadow: var(--sh1);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .list-card:hover {
+        transform: translateX(4px);
+        box-shadow: var(--sh2);
+      }
+      .lc-img {
+        width: 100px;
+        height: 72px;
+        border-radius: 8px;
+        overflow: hidden;
         flex-shrink: 0;
       }
-
-      .compare-banner {
-        height: 100px;
-        object-fit: cover;
-        width: 100%;
-      }
-
-      .logo-wrapper-com {
-        position: absolute;
-        top: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 3px solid #fff;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      }
-
-      .logo-wrapper-com img {
+      .lc-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-
-      .table th {
-        background: #f5f5f5;
+      .lc-body {
+        flex: 1;
       }
-      
-      .form-inp input:focus,
-      .btn-close:focus {
-        border-color: none;
-        box-shadow: none;
-        outline: none;
+      .lc-tag {
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .lc-title {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1.38;
+        margin: 0.2rem 0 0.35rem;
+      }
+      .lc-title a:hover {
+        color: var(--accent);
+      }
+      .lc-meta {
+        font-size: 0.68rem;
+        color: var(--muted);
+        display: flex;
+        gap: 0.7rem;
+        flex-wrap: wrap;
       }
 
-      .compare-card-add {
-        border: 2px dashed #dde3f0;
-        background: #f9faff;
-        width: 260px;
-        flex-shrink: 0;
-        border-radius: 12px;
-        padding: 24px 16px;
+      /* ──────────────────────────────
+         SIDEBAR
+      ────────────────────────────── */
+      .sidebar {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 10px;
+        gap: 1.4rem;
       }
 
-      /* plus icon circle */
-      .icon-circle {
-        width: 40px;
-        height: 40px;
-        border: 2px dashed #aab4cc;
-        border-radius: 50%;
+      .sidebar-card {
+        background: var(--white);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: var(--sh1);
+      }
+      .sc-head {
+        padding: 0.9rem 1.2rem;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--navy);
         display: flex;
         align-items: center;
-        justify-content: center;
-        margin: 0 auto;
+        gap: 0.45rem;
+      }
+      .sc-head i {
+        color: var(--accent);
+      }
+      .sc-body {
+        padding: 1rem 1.2rem;
       }
 
-      .icon-circle i {
-        font-size: 14px;
-        color: #666;
-      }
-      .compare-card-add p {
-        font-size: 0.85rem;
+      /* trending */
+      .trend-list {
+        list-style: none;
+        padding: 0;
         margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
       }
-      /* label */
-      .label-orange {
-        color: #ff6a00;
-        font-size: 12px;
-        display: block;
-        margin-bottom: 4px;
+      .trend-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
       }
-
-      /* select styling */
-      .custom-select {
-        border-radius: 8px;
-        padding: 6px 8px;
-        width: 100%;
-        font-size: 13px;
-        border: 1px solid #dde3f0;
+      .trend-num {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--border);
+        line-height: 1;
+        flex-shrink: 0;
+        min-width: 20px;
       }
-      .compare-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 14px;
-        border: 2px solid rgb(225, 225, 225);
-        background-color: rgb(254, 254, 254);
-        padding: 20px;
+      .trend-title {
+        font-size: 0.8rem;
+        color: var(--text);
+        font-weight: 600;
+        line-height: 1.4;
       }
-
-      .compare-table th {
-        text-align: left;
-        background: #f3f3f3;
-        padding: 12px 14px;
-        width: 160px;
-        font-weight: 500;
-        color: #444;
-        border-bottom: 1px solid #eee;
-        white-space: nowrap;
+      .trend-title a:hover {
+        color: var(--accent);
+      }
+      .trend-meta {
+        font-size: 0.67rem;
+        color: var(--muted);
+        margin-top: 2px;
       }
 
-      .compare-table td {
-        padding: 12px 14px;
-        text-align: center;
-        border-left: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-        color: #333;
-        vertical-align: middle;
+      /* categories */
+      .cat-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
       }
-
-      .compare-table tr:hover td {
-        background: #fafafa;
-      }
-
-      .compare-table .action-row td {
-        padding: 14px 10px;
-        vertical-align: middle;
-      }
-
-      .btn-view {
-        display: inline-block;
-        margin-bottom: 8px;
-        font-size: 13px;
-        color: #9c1ae8;
-        text-decoration: none;
-        font-weight: 500;
-        border: 1px solid #9c1ae8;
-        padding: 5px 12px;
-        border-radius: 6px;
-        transition:
-          background 0.15s,
-          color 0.15s;
-      }
-      .btn-apply {
-        display: inline-block;
-        font-size: 13px;
-        background: linear-gradient(to right, navy, purple);
-        color: #fff;
-        border: none;
-        padding: 6px 14px;
-        border-radius: 6px;
+      .cat-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.82rem;
+        color: var(--text);
         cursor: pointer;
-        font-weight: 500;
-        transition: background 0.15s;
-        text-decoration: none;
+        transition: color 0.2s;
       }
-      /* //---------------------banner  */
-      .hero-compare {
-        height: 600px;
+      .cat-item:last-child {
+        border-bottom: none;
       }
-      .hero-overlay-compare {
-        background: linear-gradient(
-          to right,
-          rgba(77, 14, 94, 0.789),
-          rgba(20, 40, 122, 0.668)
-        );
-        inset: 0;
-        z-index: 1;
+      .cat-item:hover {
+        color: var(--accent);
       }
-      .form-right-compare {
-        z-index: 2; /* above overlay */
-        top: 50%;
-        right: 6%;
-        transform: translateY(-50%);
-      }
-      .left-compare {
-        position: absolute;
-        z-index: 2;
-        top: 40%;
-        left: 6%;
-        transform: translateY(-50%);
-        width: 600px;
+      .cat-item .cat-count {
+        font-size: 0.7rem;
+        background: var(--bg);
+        border-radius: 20px;
+        padding: 0.15rem 0.55rem;
+        color: var(--muted);
       }
 
-      .top-compare {
-        background: linear-gradient(
-          to right,
-          rgba(255, 192, 203, 0.363),
-          rgba(0, 132, 255, 0.242)
-        );
-      }
-      .form-compare label {
-        font-size: 0.75rem;
-      }
-      .top-compare p {
-        font-size: 0.85rem;
-      }
-      .checkbox-compare p {
-        font-size: 0.75rem;
-      }
-      .form-compare input,
-      select:focus {
-        outline: none;
-        border-color: none;
-        box-shadow: none;
-      }
-      /* Compare cards row */
-      #compareRow {
+      /* tags cloud */
+      .tags-cloud {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
-        align-items: flex-start;
+        gap: 0.45rem;
       }
-
-      /* Remove icon on compare card */
-      .compare-remove-icon {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        font-size: 20px;
+      .tag-pill {
+        padding: 0.3rem 0.8rem;
+        background: var(--bg);
+        border: 1.5px solid var(--border);
+        border-radius: 20px;
+        font-size: 0.72rem;
+        color: var(--muted);
         cursor: pointer;
-        z-index: 10;
-        color: #000000;
-        background: white;
-        border-radius: 50%;
-        line-height: 1;
+        transition: all 0.2s;
       }
-      /* Add college card selects */
-      .compare-card-add .form-group {
-        width: 100%;
-        text-align: left;
-        margin-bottom: 8px;
-      }
-
-      .compare-card-add .add-btn {
-        background: #0b1437;
-        color: #fff;
-        border: none;
-        padding: 8px 20px;
-        border-radius: 8px;
-        font-size: 13px;
-        cursor: pointer;
-        margin-top: 4px;
-        width: 100%;
-      }
-      .compare-card-add .add-btn:hover {
-        background: #2563eb;
+      .tag-pill:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent2);
       }
     </style>
   </head>
 
   <body>
-        <!--------------Login Modal -->
+    <!-- Modal -->
+
+    <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
@@ -1230,7 +1371,7 @@
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
         <!-- LOGO -->
         <a href="#" class="logo">
@@ -1239,7 +1380,9 @@
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="index.html" class="cn-link text-decoration-none text-dark"
+            >Home</a
+          >
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -1628,7 +1771,9 @@
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <!-- All Courses -->
         <div class="courses-wrap" id="coursesWrap">
           <button
@@ -1662,23 +1807,32 @@
           </button>
 
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
+            <div class="cm-inner d-flex">
               <!-- Left: Categories -->
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
 
               <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
                 <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -1725,16 +1879,42 @@
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
 
                 <!-- Dynamic grid -->
@@ -1957,105 +2137,669 @@
       onclick="closeDrawer()"
       style="backdrop-filter: blur(2px)"
     ></div>
-
-    <!-- Banner -->
-    <section class="hero-compare position-relative overflow-hidden w-100">
-      <div class="img-wrapper-compare overflow-hidden h-100">
-        <img
-          src="./about-banner.jpg"
-          alt=""
-          class="object-fit-cover w-100 h-100 d-block"
-        />
-      </div>
-      <div class="hero-overlay-compare position-absolute"></div>
-      <div class="center-compare d-flex positin-relative h-100">
-        <div class="left-compare position-absolute">
-          <h1 class="text-white">
-            Compare Top Colleges & Make the Right Choice
-          </h1>
-          <p class="text-white">
-            Choosing the right college is one of the most important decisions of
-            your life. With so many options available, it can often feel
-            overwhelming to decide which institution truly fits your goals. Our
-            platform helps you compare top colleges across India based on key
-            factors like courses offered, fees, placements, rankings,
-            infrastructure, and student reviews — all in one place.
-          </p>
-        </div>
-        <div class="form-right-compare position-absolute mt-4">
-          <form class="form-compare bg-white h-auto w-auto border rounded-2">
-            <div
-              class="top-compare border-bottom py-2 px-3 rounded-2 text-muted"
-            >
-              <h4 class="mb-0">Connect Our Counsellers</h4>
-              <p>Receive alerts custom made for you</p>
-            </div>
-            <h6 class="text-center mt-2 text-primary">
-              Get Guidance By Experts
-            </h6>
-            <div class="d-grid px-3 mb-4">
-              <label class="mb-1">Name:</label>
-              <input
-                type="text"
-                placeholder="Full Name"
-                class="mb-1 rounded-2 p-1 border"
-              />
-              <label class="mb-1">Mobile Number</label>
-              <input
-                type="text"
-                placeholder="Enter Mobile Number"
-                class="mb-1 rounded-2 p-1 border"
-              />
-              <label class="mb-1">Email:</label>
-              <input
-                type="email"
-                placeholder="Email Address"
-                class="mb-2 rounded-2 p-1 border"
-              />
-              <label class="mb-1">Courses Select</label>
-              <select class="mb-1 rounded-2 p-1 border">
-                <option selected disabled>Select Courses</option>
-                <option>MCA</option>
-                <option>M.Tech</option>
-                <option>B.Tech</option>
-                <option>BBA</option>
-                <option>MA</option>
-              </select>
-              <div class="checkbox-compare d-flex gap-2 mt-2">
-                <input type="checkbox" class="mb-1" />
-                <p class="mb-2">
-                  By submitting this form , you accept and agree to our
-                  <span class="text-primary">Terms of Use</span>
-                </p>
-              </div>
-              <button
-                class="w-25 mx-auto bg-primary border-0 text-white p-1 rounded-2"
-              >
-                Apply now
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Main Compare Section -->
-    <div class="container py-4 w-100">
-      <div class="d-flex mb-4">
-        <!-- Compare cards row: selected colleges + add card -->
+        <!-- -------------------------hero ---------------------- -->
+    <section class="hero position-relative ">
+      <div class="banner-img w-100 overflow-hidden position-relative">
+        <img src="./blog-img.jpg" alt="" class="w-100 object-fit-cover" />
         <div
-          id="compareRow"
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: flex-start;
-          "
+          class="position-absolute start-0 top-0 w-100 opacity-50 bg-dark h-100"
         ></div>
       </div>
-      <div id="compareDetails" class="mt-5"></div>
-    </div>
+      <div class="banner-text position-absolute p-2 px-5 mx-1 mt-5">
+        <h1 class="text-light w-50">Blog & Insights</h1>
+        <p class="hero-desc text-light w-50">
+          
+            Expert articles on education, career planning, admissions, and
+            industry trends to help you make informed decisions.
+       
+        </p>
+        <button
+          class="border bg-transparent text-white py-2 px-4"
+          data-bs-toggle="modal"
+          data-bs-target="#connectModal"
+        >
+          Get free Counselling
+        </button>
+      </div>
+    </section>
+    <!-- /* ────────────────────────────── MAIN LAYOUT ──────────────────────────────*/ -->
+    <div class="blog-layout py-3 px-4 d-grid gap-4">
+      <!-- LEFT: MAIN CONTENT -->
+      <div class="blog-main">
+        <!-- FEATURED POST -->
+        <div class="sec-heading ">
+          <h2>Featured Article</h2>
+        </div>
+        <div class="featured-card bg-white rounded-3 overflow-hidden shadow d-grid mb-5">
+          <div class="fc-img overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=700&q=80"
+              alt="IIM Admissions" class="w-100 h-100 object-fit-cover"
+            />
+          </div>
+          <div class="fc-body px-3 d-flex gap-2 justify-content-center ">
+            <div class="text-uppercase text-primary fw-semibold">Admissions Guide</div>
+            <div class="fc-title fw-semibold fs-5 ">
+              Complete Guide to IIM Admissions 2026: CAT Score, Cutoffs & GD-PI
+              Tips
+            </div>
+            <div class="fc-excerpt text-muted lh-4">
+              Everything you need to know about cracking the IIM admission
+              process — from understanding CAT percentile requirements to acing
+              the group discussion and personal interview rounds at India's top
+              business schools.
+            </div>
+            <div class="fc-meta d-flex align-items-center gap-3 text-muted mt-2">
+              <div class="author d-flex align-items-center gap-2">
+                <img src="https://i.pravatar.cc/40?img=12" alt="Author" class="object-fit-cover rounded-5"/>
+                <span><strong>Priya Sharma</strong> · Education Expert</span>
+              </div>
+              <span><i class="bi bi-calendar3"></i> Apr 15, 2026</span>
+              <span><i class="bi bi-clock"></i> 8 min read</span>
+            </div>
+            <button
+              class="fc-read-btn mt-2 border-0 py-2 px-4 text-white rounded-3"
+              data-bs-toggle="modal"
+              data-bs-target="#connectModal"
+            >
+              Read Full Article <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
 
+        <!-- LATEST POSTS GRID -->
+        <div class="sec-heading d-flex align-items-center justify-content-between mb-2">
+          <h2 class="d-flex align-items-center gap-1 fw-semibold">Latest Articles</h2>
+          <a href="#" class="text-decoration-none">See all →</a>
+        </div>
+        <div class="blog-grid" id="blogGrid">
+          <!-- Card 1 -->
+          <div class="blog-card" data-category="exams">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1434030216411-0b793f4b6f6e?w=500&q=80"
+                alt="JEE"
+              />
+              <span class="bc-tag tag-exams">Exams</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">Exams & Results</div>
+              <div class="bc-title">
+                <a href="#"
+                  >JEE Main 2026: Complete Syllabus, Exam Date & Best
+                  Preparation Strategy</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                A step-by-step breakdown of JEE Main 2026 syllabus with
+                topic-wise weightage and expert tips to score 99+ percentile.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=5" alt="" /> Rahul Verma
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 6 min · Apr 18, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="blog-card" data-category="mba">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=500&q=80"
+                alt="MBA"
+              />
+              <span class="bc-tag tag-mba">MBA</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">MBA / Management</div>
+              <div class="bc-title">
+                <a href="#"
+                  >Top 10 MBA Colleges in India 2026 — Rankings, Fees &
+                  Placements</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                A comprehensive look at India's best MBA programs, average
+                packages, and what sets IIM Ahmedabad apart from the rest.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=9" alt="" /> Ananya Gupta
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 7 min · Apr 17, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="blog-card" data-category="abroad">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1527269534026-c86f4009eace?w=500&q=80"
+                alt="Study Abroad"
+              />
+              <span class="bc-tag tag-abroad">Study Abroad</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">Study Abroad</div>
+              <div class="bc-title">
+                <a href="#"
+                  >MS in USA 2026: Universities, Scholarships & Visa Process
+                  Explained</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                Planning to pursue a Master's degree in the United States?
+                Here's your complete guide from GRE to F-1 visa to admission.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=7" alt="" /> Kiran Mehta
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 9 min · Apr 16, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="blog-card" data-category="scholarship">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&q=80"
+                alt="Scholarship"
+              />
+              <span class="bc-tag tag-scholarship">Scholarship</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">Scholarships</div>
+              <div class="bc-title">
+                <a href="#"
+                  >Top 20 Scholarships for Indian Students in 2026 — Worth
+                  ₹10L+</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                From government to private, national to international — find the
+                best scholarships available for UG and PG students this year.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=14" alt="" /> Sneha Iyer
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 5 min · Apr 15, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="blog-card" data-category="admissions">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1562774053-701939374585?w=500&q=80"
+                alt="University"
+              />
+              <span class="bc-tag tag-admissions">Admissions</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">Admissions</div>
+              <div class="bc-title">
+                <a href="#"
+                  >CUET UG 2026: Registration, Exam Pattern & College Cutoffs</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                CUET has become the gateway to top central universities. Here's
+                everything you need to score well and secure your dream college.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=3" alt="" /> Arjun Kapoor
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 6 min · Apr 14, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="blog-card" data-category="career">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&q=80"
+                alt="Career"
+              />
+              <span class="bc-tag tag-career">Career</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">Career Guidance</div>
+              <div class="bc-title">
+                <a href="#"
+                  >After B.Tech: Top Career Paths, Higher Studies & Job
+                  Opportunities in 2026</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                Should you go for M.Tech, MBA, MS abroad, or a job? A complete
+                breakdown for final-year engineering students.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=11" alt="" /> Deepak Nair
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 8 min · Apr 13, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="blog-card" data-category="university">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=500&q=80"
+                alt="University"
+              />
+              <span class="bc-tag tag-university">University Review</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">University Reviews</div>
+              <div class="bc-title">
+                <a href="#"
+                  >IIT Bombay Review 2026: Courses, Campus Life, Placements &
+                  Fees</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                A student's honest review of IIT Bombay — academics, hostel
+                life, internships, and why it still tops every ranking.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=2" alt="" /> Pooja Singh
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 10 min · Apr 12, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="blog-card" data-category="engineering">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80"
+                alt="Engineering"
+              />
+              <span class="bc-tag tag-engineering">Engineering</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">Engineering</div>
+              <div class="bc-title">
+                <a href="#"
+                  >Best B.Tech Specializations in 2026: AI, Robotics, or
+                  Cybersecurity?</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                Tech is evolving fast. We break down which engineering
+                specializations offer the best placements and future growth.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=8" alt="" /> Vikram Joshi
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 7 min · Apr 11, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="blog-card" data-category="abroad">
+            <div class="bc-img">
+              <img
+                src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=500&q=80"
+                alt="Canada"
+              />
+              <span class="bc-tag tag-abroad">Study Abroad</span>
+            </div>
+            <div class="bc-body">
+              <div class="bc-cat">Study Abroad</div>
+              <div class="bc-title">
+                <a href="#"
+                  >Study in Canada 2026: Top Universities, IELTS Score & PR
+                  Pathways</a
+                >
+              </div>
+              <div class="bc-excerpt">
+                Canada continues to be a top destination for Indian students.
+                Know the latest visa rules, costs, and immigration updates.
+              </div>
+            </div>
+            <div class="bc-footer">
+              <div class="bc-author">
+                <img src="https://i.pravatar.cc/40?img=16" alt="" /> Meera
+                Pillai
+              </div>
+              <div class="bc-info">
+                <i class="bi bi-clock"></i> 8 min · Apr 10, 2026
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MORE POSTS — List Style -->
+        <div class="sec-heading">
+          <h2>Quick Reads</h2>
+          <a href="#">See all →</a>
+        </div>
+        <div class="list-posts border">
+          <div class="list-card">
+            <div class="lc-img">
+              <img
+                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=300&q=80"
+                alt=""
+              />
+            </div>
+            <div class="lc-body">
+              <div class="lc-tag">Exams</div>
+              <div class="lc-title">
+                <a href="#"
+                  >GATE 2026 Notification Released: Key Dates, Eligibility &
+                  Paper-wise Syllabus</a
+                >
+              </div>
+              <div class="lc-meta">
+                <span><i class="bi bi-clock"></i> 4 min read</span
+                ><span>Apr 9, 2026</span><span>By Rohit Sharma</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-card">
+            <div class="lc-img">
+              <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&q=80"
+                alt=""
+              />
+            </div>
+            <div class="lc-body">
+              <div class="lc-tag">Career</div>
+              <div class="lc-title">
+                <a href="#"
+                  >Data Science vs Software Engineering: Which Career Pays More
+                  in 2026?</a
+                >
+              </div>
+              <div class="lc-meta">
+                <span><i class="bi bi-clock"></i> 5 min read</span
+                ><span>Apr 8, 2026</span><span>By Neha Agarwal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-card">
+            <div class="lc-img">
+              <img
+                src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=300&q=80"
+                alt=""
+              />
+            </div>
+            <div class="lc-body">
+              <div class="lc-tag">Admissions</div>
+              <div class="lc-title">
+                <a href="#"
+                  >NEET UG 2026: Preparation Strategy for Class 12 Students
+                  Starting Now</a
+                >
+              </div>
+              <div class="lc-meta">
+                <span><i class="bi bi-clock"></i> 6 min read</span
+                ><span>Apr 7, 2026</span><span>By Dr. Anjali Rao</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-card">
+            <div class="lc-img">
+              <img
+                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&q=80"
+                alt=""
+              />
+            </div>
+            <div class="lc-body">
+              <div class="lc-tag">Scholarship</div>
+              <div class="lc-title">
+                <a href="#"
+                  >PM Scholarship Scheme 2026: Eligibility, Amount & How to
+                  Apply Online</a
+                >
+              </div>
+              <div class="lc-meta">
+                <span><i class="bi bi-clock"></i> 3 min read</span
+                ><span>Apr 6, 2026</span><span>By Sanjay Kulkarni</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-card">
+            <div class="lc-img">
+              <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=300&q=80"
+                alt=""
+              />
+            </div>
+            <div class="lc-body">
+              <div class="lc-tag">University Review</div>
+              <div class="lc-title">
+                <a href="#"
+                  >Delhi University Colleges 2026: Cut-offs, Best Courses &
+                  Hostel Facilities</a
+                >
+              </div>
+              <div class="lc-meta">
+                <span><i class="bi bi-clock"></i> 7 min read</span
+                ><span>Apr 5, 2026</span><span>By Tanya Bahl</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.blog-main -->
+
+      <!-- RIGHT: SIDEBAR -->
+      <aside class="sidebar">
+        <!-- Trending -->
+        <div class="sidebar-card">
+          <div class="sc-head">
+            <i class="bi bi-fire"></i> Trending This Week
+          </div>
+          <div class="sc-body">
+            <ul class="trend-list">
+              <li class="trend-item">
+                <div class="trend-num">01</div>
+                <div>
+                  <div class="trend-title">
+                    <a href="#"
+                      >IIM Ahmedabad Placement Report 2026: Average ₹34 LPA</a
+                    >
+                  </div>
+                  <div class="trend-meta">12.4K reads · Apr 18</div>
+                </div>
+              </li>
+              <li class="trend-item">
+                <div class="trend-num">02</div>
+                <div>
+                  <div class="trend-title">
+                    <a href="#"
+                      >NEET 2026 Answer Key Released – Check Your Score Now</a
+                    >
+                  </div>
+                  <div class="trend-meta">9.1K reads · Apr 17</div>
+                </div>
+              </li>
+              <li class="trend-item">
+                <div class="trend-num">03</div>
+                <div>
+                  <div class="trend-title">
+                    <a href="#"
+                      >Top Engineering Colleges in India with 100% Placement
+                      Record</a
+                    >
+                  </div>
+                  <div class="trend-meta">7.8K reads · Apr 16</div>
+                </div>
+              </li>
+              <li class="trend-item">
+                <div class="trend-num">04</div>
+                <div>
+                  <div class="trend-title">
+                    <a href="#"
+                      >UK vs Canada: Which is Better for Indian Students in
+                      2026?</a
+                    >
+                  </div>
+                  <div class="trend-meta">6.5K reads · Apr 15</div>
+                </div>
+              </li>
+              <li class="trend-item">
+                <div class="trend-num">05</div>
+                <div>
+                  <div class="trend-title">
+                    <a href="#"
+                      >Online MBA vs Regular MBA: Is It Worth It for Working
+                      Professionals?</a
+                    >
+                  </div>
+                  <div class="trend-meta">5.2K reads · Apr 14</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="sidebar-card">
+          <div class="sc-head">
+            <i class="bi bi-grid-3x3-gap"></i> Browse Categories
+          </div>
+          <div class="sc-body" style="padding-top: 0.4rem">
+            <ul class="cat-list">
+              <li class="cat-item" onclick="filterPosts('admissions', null)">
+                <span>📋 Admissions</span><span class="cat-count">84</span>
+              </li>
+              <li class="cat-item" onclick="filterPosts('exams', null)">
+                <span>📝 Exams & Results</span
+                ><span class="cat-count">112</span>
+              </li>
+              <li class="cat-item" onclick="filterPosts('career', null)">
+                <span>💼 Career Guidance</span><span class="cat-count">67</span>
+              </li>
+              <li class="cat-item" onclick="filterPosts('abroad', null)">
+                <span>✈️ Study Abroad</span><span class="cat-count">55</span>
+              </li>
+              <li class="cat-item" onclick="filterPosts('scholarship', null)">
+                <span>💰 Scholarships</span><span class="cat-count">43</span>
+              </li>
+              <li class="cat-item" onclick="filterPosts('university', null)">
+                <span>🏛️ University Reviews</span
+                ><span class="cat-count">78</span>
+              </li>
+              <li class="cat-item" onclick="filterPosts('mba', null)">
+                <span>🎓 MBA / Management</span
+                ><span class="cat-count">91</span>
+              </li>
+              <li class="cat-item" onclick="filterPosts('engineering', null)">
+                <span>⚙️ Engineering</span><span class="cat-count">63</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Popular Tags -->
+        <div class="sidebar-card">
+          <div class="sc-head"><i class="bi bi-tags"></i> Popular Tags</div>
+          <div class="sc-body">
+            <div class="tags-cloud">
+              <span class="tag-pill">JEE Main</span>
+              <span class="tag-pill">NEET 2026</span>
+              <span class="tag-pill">CAT Prep</span>
+              <span class="tag-pill">IIM</span>
+              <span class="tag-pill">GATE</span>
+              <span class="tag-pill">Study Abroad</span>
+              <span class="tag-pill">Scholarship</span>
+              <span class="tag-pill">MBA</span>
+              <span class="tag-pill">B.Tech</span>
+              <span class="tag-pill">Online MBA</span>
+              <span class="tag-pill">UPSC</span>
+              <span class="tag-pill">IIT</span>
+              <span class="tag-pill">CLAT</span>
+              <span class="tag-pill">IELTS</span>
+              <span class="tag-pill">GRE</span>
+              <span class="tag-pill">CUET</span>
+              <span class="tag-pill">NIT</span>
+              <span class="tag-pill">BBA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Counselling CTA -->
+        <div
+          style="
+            background: linear-gradient(135deg, #0a1fab, #7d76b7);
+            border-radius: 14px;
+            padding: 1.5rem;
+            text-align: center;
+          "
+        >
+          <h5 style="color: #fff; font-size: 0.95rem; margin-bottom: 0.4rem">
+            Free Career Counselling
+          </h5>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.75);
+              font-size: 0.75rem;
+              line-height: 1.55;
+              margin-bottom: 1rem;
+            "
+          >
+            Talk to our experts and find the right college & course for you.
+          </p>
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#connectModal"
+            style="
+              width: 100%;
+              background: #fff;
+              border: none;
+              border-radius: 8px;
+              padding: 0.6rem;
+              color: #111683;
+              font-size: 0.82rem;
+              font-weight: 700;
+              cursor: pointer;
+            "
+            data-bs-toggle="modal"
+            data-bs-target="#connectModal"
+          >
+            Book Free Session →
+          </button>
+        </div>
+      </aside>
+    </div>
     <!-- ══════════════ BOTTOM CTA ══════════════ -->
     <div class="cta-sec py-5 px-4 w-auto mx-auto">
       <div class="cta-inner">
@@ -2131,6 +2875,7 @@
         </div>
       </div>
     </div>
+
     <footer>
       <div class="fi">
         <div class="fg d-grid gap-5 mb-3">
@@ -2268,6 +3013,7 @@
         </div>
       </div>
     </footer>
+
     <script>
       // ── Data for courses mega menu ────────────────────────────────────────────────
       const data = {
@@ -4709,342 +5455,8 @@
 
       render();
     </script>
+
     <script>
-      // ══════════════════════════════════════════════════
-      //  COMPARE PAGE — Main Logic (Fixed)
-      // ══════════════════════════════════════════════════
-
-      let colleges = [];
-      let compareData = []; // [{id, course}, ...]
-
-      // ── 1. Load data.json ──
-      async function initComparePage() {
-        try {
-          const res = await fetch("data.json");
-          const json = await res.json();
-          colleges = json.colleges;
-
-          // Load saved compareData from localStorage
-          const saved = JSON.parse(localStorage.getItem("compareData")) || [];
-          const savedIds =
-            JSON.parse(localStorage.getItem("compareColleges")) || [];
-
-          // Build compareData from saved
-          if (saved.length > 0) {
-            compareData = saved;
-          } else if (savedIds.length > 0) {
-            // fallback: build from ids only
-            compareData = savedIds.map((id) => {
-              const c = colleges.find((col) => col.id === id);
-              return { id, course: c?.courses?.[0] || "" };
-            });
-          }
-          renderCompareCards();
-          renderDetails();
-        } catch (e) {
-          console.error("Failed to load data.json", e);
-        }
-      }
-
-      // ── 2. Render compare cards + add card ──
-      function renderCompareCards() {
-        const row = document.getElementById("compareRow");
-
-        // Build selected college cards
-        let html = compareData
-          .map((item) => {
-            const c = colleges.find((col) => col.id === item.id);
-            if (!c) return "";
-            return `
-      <div class="compare-card position-relative h-100" data-id="${c.id}">
-        <img src="${c.img}" class="compare-banner" />
-        <i class="bi bi-x-circle-fill compare-remove-icon"
-           onclick="removeFromCompare(${c.id})"></i>
-        <div class="logo-wrapper-com position-absolute">
-          <img src="${c.img}" />
-        </div>
-        <div class="text-center mt-5 pt-3 px-2">
-          <p class="fw-bold mb-0">${c.name}</p>
-          <small class="text-muted d-block">${c.location}</small>
-          <p class="mb-0 text-primary" style="font-size:13px;">${item.course || c.courses?.[0] || ""}</p>
-          <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openEditCard(${c.id})">
-            <i class="bi bi-pencil"></i> Edit
-          </button>
-        </div>
-        <!-- Edit overlay (hidden by default) -->
-        <div class="edit-overlay d-none px-2 py-2" id="editOverlay_${c.id}">
-          <label class="label-orange">Change College</label>
-          <select class="custom-select mb-2" onchange="onEditCollegeChange(this, ${c.id})">
-            <option value="" disabled selected>Select College</option>
-            ${colleges
-              .filter(
-                (col) =>
-                  !compareData.find((d) => d.id === col.id) || col.id === c.id,
-              )
-              .map(
-                (col) =>
-                  `<option value="${col.id}" ${col.id === c.id ? "selected" : ""}>${col.name}</option>`,
-              )
-              .join("")}
-          </select>
-          <label class="label-orange">Change Course</label>
-          <select class="custom-select mb-2" id="editCourse_${c.id}">
-            ${(c.courses || []).map((co) => `<option value="${co}" ${co === item.course ? "selected" : ""}>${co}</option>`).join("")}
-          </select>
-          <button class="add-btn border-0 bg-primary text-white" onclick="saveEdit(${c.id})">Save</button>
-          <button class="add-btn mt-1 border-0" style="background:#aaa;" onclick="closeEditCard(${c.id})">Cancel</button>
-        </div>
-      </div>`;
-          })
-          .join("");
-
-        // Always show "Add College" card at the end (max 3 colleges)
-        if (compareData.length < 3) {
-          const collegeOptions = colleges
-            .filter((c) => !compareData.find((d) => d.id === c.id))
-            .map((c) => `<option value="${c.id}">${c.name}</option>`)
-            .join("");
-
-          html += `
-      <div class="compare-card-add h-100" id="addCollegeCard">
-        <div class="icon-circle">
-          <i class="bi bi-plus-lg"></i>
-        </div>
-        <p class="fw-semibold text-center">Add College</p>
-
-        <div class="form-group w-100">
-          <label class="label-orange">Select College</label>
-          <select class="custom-select" id="newCollegeSelect" onchange="onCollegeSelectChange(this)">
-            <option value="" disabled selected>Select College</option>
-            ${collegeOptions}
-          </select>
-        </div>
-
-        <div class="form-group w-100">
-          <label class="label-orange">Select Course</label>
-          <select class="custom-select" id="newCourseSelect" disabled>
-            <option value="" disabled selected>Select Course</option>
-          </select>
-        </div>
-
-        <button class="add-btn" onclick="addToCompare()">+ Add to Compare</button>
-      </div>`;
-        }
-
-        row.innerHTML = html;
-      }
-
-      // ── Edit card open/close/save ──
-      function openEditCard(id) {
-        document
-          .getElementById(`editOverlay_${id}`)
-          ?.classList.remove("d-none");
-      }
-      function closeEditCard(id) {
-        document.getElementById(`editOverlay_${id}`)?.classList.add("d-none");
-      }
-      function onEditCollegeChange(selectEl, oldId) {
-        const newId = parseInt(selectEl.value);
-        const college = colleges.find((c) => c.id === newId);
-        if (!college) return;
-        const courseSelect = document.getElementById(`editCourse_${oldId}`);
-        if (courseSelect) {
-          courseSelect.innerHTML = (college.courses || [])
-            .map((co) => `<option value="${co}">${co}</option>`)
-            .join("");
-        }
-      }
-      function saveEdit(oldId) {
-        const overlay = document.getElementById(`editOverlay_${oldId}`);
-        if (!overlay) return;
-        const colSelect = overlay.querySelector("select:nth-of-type(1)");
-        const coSelect = overlay.querySelector(`#editCourse_${oldId}`);
-        const newId = parseInt(colSelect.value);
-        const newCourse = coSelect?.value || "";
-
-        const idx = compareData.findIndex((d) => d.id === oldId);
-        if (idx > -1) {
-          compareData[idx] = { id: newId, course: newCourse };
-          localStorage.setItem("compareData", JSON.stringify(compareData));
-          localStorage.setItem(
-            "compareColleges",
-            JSON.stringify(compareData.map((d) => d.id)),
-          );
-        }
-        renderCompareCards();
-        renderDetails();
-      }
-
-      // ── 3. When college is selected in add card, populate courses ──
-      function onCollegeSelectChange(selectEl) {
-        const id = parseInt(selectEl.value);
-        const college = colleges.find((c) => c.id === id);
-        if (!college) return;
-
-        const courseSelect = document.getElementById("newCourseSelect");
-        courseSelect.innerHTML =
-          `<option value="" disabled selected>Select Course</option>` +
-          (college.courses || [])
-            .map((c) => `<option value="${c}">${c}</option>`)
-            .join("");
-        courseSelect.disabled = false;
-      }
-
-      // ── 4. Add college to compare ──
-      function addToCompare() {
-        const collegeSelect = document.getElementById("newCollegeSelect");
-        const courseSelect = document.getElementById("newCourseSelect");
-
-        if (!collegeSelect || !collegeSelect.value) {
-          alert("Please select a college");
-          return;
-        }
-        if (!courseSelect || !courseSelect.value) {
-          alert("Please select a course");
-          return;
-        }
-
-        const id = parseInt(collegeSelect.value);
-        const course = courseSelect.value;
-
-        if (compareData.find((d) => d.id === id)) {
-          alert("This college is already in compare list");
-          return;
-        }
-
-        compareData.push({ id, course });
-        localStorage.setItem("compareData", JSON.stringify(compareData));
-        localStorage.setItem(
-          "compareColleges",
-          JSON.stringify(compareData.map((d) => d.id)),
-        );
-
-        renderCompareCards();
-        renderDetails();
-      }
-
-      // ── 5. Remove college from compare ──
-      function removeFromCompare(id) {
-        compareData = compareData.filter((item) => item.id !== id);
-        localStorage.setItem("compareData", JSON.stringify(compareData));
-        localStorage.setItem(
-          "compareColleges",
-          JSON.stringify(compareData.map((d) => d.id)),
-        );
-        renderCompareCards();
-        renderDetails();
-      }
-
-      // ── 6. Render comparison table ──
-      function renderDetails() {
-        const el = document.getElementById("compareDetails");
-
-        if (compareData.length === 0) {
-          el.innerHTML = `<p class="text-muted text-center py-4">No colleges selected for comparison. Add colleges above.</p>`;
-          return;
-        }
-
-        const selected = compareData
-          .map((item) => {
-            const c = colleges.find((col) => col.id === item.id);
-            return { ...c, selectedCourse: item.course };
-          })
-          .filter(Boolean);
-
-        // ── Comparison table ──
-        const tableHtml = `
-    <table class="compare-table">
-      <tr>
-        <th>University</th>
-        ${selected.map((p) => `<td><strong>${p.name}</strong></td>`).join("")}
-      </tr>
-      <tr>
-        <th>Course</th>
-        ${selected.map((p) => `<td>${p.selectedCourse || "-"}</td>`).join("")}
-      </tr>
-      <tr>
-        <th>Duration</th>
-        ${selected.map((p) => `<td>${p.duration || "-"}</td>`).join("")}
-      </tr>
-      <tr>
-        <th>Mode</th>
-        ${selected.map((p) => `<td>${p.mode || "-"}</td>`).join("")}
-      </tr>
-      <tr>
-        <th>Type</th>
-        ${selected.map((p) => `<td>${p.type || "-"}</td>`).join("")}
-      </tr>
-      <tr>
-        <th>Fee</th>
-        ${selected.map((p) => `<td>${p.fee || "-"}</td>`).join("")}
-      </tr>
-      <tr>
-        <th>Location</th>
-        ${selected.map((p) => `<td>${p.location || "-"}</td>`).join("")}
-      </tr>
-      <tr>
-        <th>Rank</th>
-        ${selected.map((p) => `<td>${p.rank || "-"}</td>`).join("")}
-      </tr>
-      <tr>
-        <th>Placement</th>
-        ${selected.map((p) => `<td>${p.placement || "-"}</td>`).join("")}
-      </tr>
-      <tr>
-        <th>Accreditation</th>
-        ${selected.map((p) => `<td>${(p.accred || []).join(", ") || "-"}</td>`).join("")}
-      </tr>
-      <tr class="action-row">
-        <th></th>
-        ${selected
-          .map(
-            (p) => `
-          <td>
-            <a class="btn-view" href="college-details.html?id=${p.id}">View details</a><br/>
-            <a class="btn-apply" data-bs-toggle="modal" data-bs-target="#connectModal">Apply now</a>
-          </td>`,
-          )
-          .join("")}
-      </tr>
-    </table>`;
-
-        // ── Relative insights section ──
-        const insightsHtml =
-          selected.length >= 2 ? buildInsights(selected) : "";
-
-        el.innerHTML = tableHtml + insightsHtml;
-      }
-
-      // ── 7. Build relative insights ──
-      function buildInsights(selected) {
-        const insights = [];
-
-        if (insights.length === 0) {
-          return "";
-        }
-
-        return `
-    <div class="mt-5">
-      <h5 class="fw-bold mb-3" style="color:#0b1437;">📊 Relative Insights</h5>
-      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">
-        ${insights
-          .map(
-            (ins) => `
-          <div style="background:#fff; border:1px solid #dde3f0; border-radius:12px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
-            <div style="font-size:1.4rem; margin-bottom:6px;">${ins.icon}</div>
-            <div style="font-size:0.78rem; font-weight:700; color:#6b7a99; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">${ins.title}</div>
-            <div style="font-size:0.86rem; color:#1a2340; line-height:1.6;">${ins.text}</div>
-          </div>`,
-          )
-          .join("")}
-      </div>
-    </div>`;
-      }
-
-      // ── Start ──
-      initComparePage();
-    </script>
-        <script>
       const navbar = document.querySelector(".navbar");
       const stickyOffset = navbar.offsetTop;
 
