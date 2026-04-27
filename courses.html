@@ -34,7 +34,7 @@
       rel="stylesheet"
     />
     <style>
-           :root {
+      :root {
         --bg: #f4f6fb;
         --white: #fff;
         --navy: #0b1437;
@@ -59,7 +59,7 @@
         --nav-h: 60px;
         --nav2-h: 44px;
       }
-        
+
       *,
       *::before,
       *::after {
@@ -67,7 +67,7 @@
         margin: 0;
         padding: 0;
       }
-          html,
+      html,
       body {
         overflow-x: hidden;
       }
@@ -90,11 +90,13 @@
         font-size: 13px;
       }
       /* ─────────────────────────────────────
-   NAVBAR WRAPPER
-───────────────────────────────────── */
+    NAVBAR WRAPPER
+  ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
+        border-bottom: 1px solid var(--border);
+
         background-color: white;
         z-index: 300;
         height: 58px;
@@ -103,6 +105,12 @@
       /* ── ROW 1 ── */
       .nav-r1 {
         height: 50px;
+        position: relative;
+      }
+      .center-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .navbar.sticky {
         position: fixed;
@@ -111,8 +119,8 @@
         width: 130px;
       }
       /* ══════════════════════════
-   BREAKPOINT — Mobile ≤ 768px
-══════════════════════════ */
+    BREAKPOINT — Mobile ≤ 768px
+  ══════════════════════════ */
       @media (max-width: 768px) {
         /* Show hamburger, hide desktop auth + desktop nav */
         .ham-btn {
@@ -355,9 +363,15 @@
         height: 2px;
         transition: all 0.3s;
       }
+      /* Active Cross */
       .ham-btn.active span:nth-child(1) {
         transform: translateY(6px) rotate(45deg);
       }
+
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
       .ham-btn.active span:nth-child(3) {
         transform: translateY(-6px) rotate(-45deg);
       }
@@ -379,13 +393,7 @@
       }
       .nav-r1 {
         border-bottom: 1px solid rgba(199, 199, 199, 0.407);
-        position: relative;
       }
-           .center-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
       /* ─── Topbar ─────────────────────────────────────────────────── */
       @media (max-width: 991px) {
         .topbar {
@@ -396,15 +404,39 @@
         }
         .navbar {
           height: 60px;
+          border-bottom: 1px solid var(--border);
         }
       }
-
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
       @media (max-width: 1199px) {
+        .topbar {
+          padding: 0 25px !important;
+        }
         .nav-r1 {
-          padding: 0 16px !important;
+          padding: 0 20px !important;
+        }
+        .explore-btn span {
+          font-size: 10px;
         }
 
+        .icon-btn svg {
+          font-size: 10px;
+        }
+        .center-nav a {
+          font-size: 13px;
+        }
+        .program-btn {
+          font-size: 13px;
+        }
+        .logo-mark {
+          width: 110px;
+        }
+        .btn-ln {
+          font-size: 10px;
+        }
+        .btn-su {
+          font-size: 10px;
+        }
         .center-nav {
           gap: 12px !important;
         }
@@ -578,9 +610,9 @@
         width: 100%;
         height: 20px;
       }
-       /* ─────────────────────────────────────
-     FOOTER
-  ───────────────────────────────────── */
+      /* ─────────────────────────────────────
+      FOOTER
+    ───────────────────────────────────── */
       footer {
         background: #0f1729;
         padding: 40px 3rem 20px;
@@ -627,8 +659,8 @@
         background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
       }
       /* ─────────────────────────────────────
-     RESPONSIVE OVERRIDES
-  ───────────────────────────────────── */
+      RESPONSIVE OVERRIDES
+    ───────────────────────────────────── */
 
       /* Tablet: 768px – 1199px */
       @media (max-width: 1199px) {
@@ -694,10 +726,9 @@
       .cn-link {
         font-size: 14px;
       }
-
-   /* ─────────────────────────────────────
-   CTA
-───────────────────────────────────── */
+      /* ─────────────────────────────────────
+    CTA
+  ───────────────────────────────────── */
       .cta-sec {
         background: var(--bg);
       }
@@ -727,7 +758,6 @@
           align-items: flex-start;
           gap: 1.5rem;
         }
-
         .cta-btns {
           width: 100%;
         }
@@ -740,630 +770,487 @@
           padding: 1.5rem !important;
         }
       }
- 
-      .uni-p {
-        background-color: pink;
-        height: 100%;
-        width: 100%;
-      }
-      /* --------------universities */
-      .uni-banner {
-        /* position: relative; */
-        width: 100%;
-        height: 250px;
-        background:
-          linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
-          url("https://future-explorer-app.lovable.app/assets/universities-hero-AoGjEXCB.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      .uni-banner h5 {
-        color: rgb(179, 179, 179);
-      }
-      /* ── LAYOUT ── */
-      .layout {
-        display: grid;
-        grid-template-columns: 280px 1fr;
-        gap: 0;
-        max-width: 100%;
-        padding: 30px;
-        margin: 0 auto;
-        align-items: start;
-        margin-top: 10px;
-      }
-
     
-      /* main container */
-      .container {
-        max-width: 1400px;
-        margin: 40px auto 40px;
-      }
-
-      /* header & college name */
-      .hero-section {
-        text-align: center;
-        margin-bottom: 2.5rem;
-      }
-      .hero {
-        position: relative;
-        height: 300px;
-        overflow: hidden;
-      }
-
-      /* IMAGE */
-      .hero-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      /* DARK OVERLAY */
-      .overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-      }
-
-      /* TEXT CONTENT */
-      .hero-content {
-        position: absolute;
-        top:50%;
-        object-fit: contain;
-        left: 6%; /* 👉 left se start hoga */
-        transform: translateY(-50%);
-      }
-
-      .hero-content h1 {
-        font-size: 40px;
-        margin-bottom: 10px;
-      }
-
-      .hero-content p {
-        font-size: 18px;
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 768px) {
-        .hero {
-          height: 250px;
-        }
-
-        .hero-content {
-          left: 5%;
-        }
-
-        .hero-content h1 {
-          font-size: 26px;
-        }
-      }
-      #title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #1a2a3f, #0f2b3d);
-        margin-top: 20px;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        letter-spacing: -0.3px;
-      }
-
-      .subhead {
-        color: #2c3e50;
-        margin-top: 0.75rem;
-        font-weight: 500;
-        opacity: 0.8;
-        font-size: 1rem;
-      }
-
-      /* filter bar - modern glassmorphism */
-      .filters {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
-        margin: 2rem 0 2.5rem 0;
-      }
-
-      .filters button {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(4px);
-        border: 1px solid rgba(44, 125, 160, 0.2);
-        padding: 0.7rem 1.6rem;
-        font-size: 0.95rem;
-        font-weight: 600;
-        border-radius: 60px;
-        cursor: pointer;
-        transition: all 0.25s ease;
-        color: #1e4663;
-        letter-spacing: 0.3px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
-      }
-
-      .filters button:hover {
-        background: #2c7da0;
-        color: white;
-        border-color: #2c7da0;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 18px -8px rgba(44, 125, 160, 0.4);
-      }
-
-      .filters button.active {
-        background: #1f5068;
-        color: white;
-        border-color: #1f5068;
-        box-shadow: 0 8px 14px -6px rgba(31, 80, 104, 0.4);
-      }
-
-      /* grid layout - responsive cards */
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 2rem;
-        margin-top: 0.5rem;
-      }
-
-      /* card styling - premium & clean */
-      .card {
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.3s ease;
-        box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.08);
-        border: 1px solid rgba(0, 0, 0, 0.04);
-        display: flex;
-        flex-direction: column;
-        position: relative;
-      }
-      .top-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 1.5rem 0;
-      }
-
-      .badge {
-        font-size: 0.7rem;
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-weight: 700;
-      }
-
-      .trending {
-        background: #6f42c1;
-        color: white;
-      }
-
-      .mode {
-        background: #eee;
-      }
-
-      .college {
-        color: #6f42c1;
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-
-      .desc {
-        font-size: 0.9rem;
-        color: #555;
-        margin: 10px 0;
-      }
-
-      .details {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.9rem;
-        margin: 10px 0;
-      }
-
-      .tags {
-        display: flex;
-        gap: 8px;
-      }
-
-      .tag {
-        background: #f1e8ff;
-        color: #6f42c1;
-        padding: 4px 10px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-      }
-
-      .card-footer {
-        display: flex;
-        gap: 10px;
-        padding: 1rem;
-      }
-
-      .btn {
-        flex: 1;
-        padding: 8px;
-        border-radius: 30px;
-        font-weight: 500;
-        font-size: 14px;
-        border: none;
-      }
-
-      .view-btn {
-        background: #eee;
-      }
-
-      .apply-btn {
-        background: linear-gradient(90deg, #2c3e91, #6f42c1);
-        color: white;
-      }
-      .apply-btn:hover{
-        color: white;
-        background-color: rgba(255, 255, 255, 0.366);
-      }
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 24px 38px -14px rgba(0, 32, 64, 0.18);
-        border-color: rgba(44, 125, 160, 0.2);
-      }
-
-      .card-content {
-        padding: 1.5rem 1.5rem 1.2rem;
-        flex: 1;
-      }
-
-      .card h3 {
-        font-size: 1.55rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        color: #0b2b38;
-        letter-spacing: -0.2px;
-        line-height: 1.3;
-      }
-
-      .meta-badge {
-        display: inline-block;
-        background: #eef2fa;
-        padding: 0.2rem 0.9rem;
-        border-radius: 40px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #2c7da0;
-        margin-bottom: 1rem;
-      }
-
-      .detail-row {
-        display: flex;
-        align-items: baseline;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        margin: 0.6rem 0;
-        font-size: 0.95rem;
-        color: #2c3e4e;
-      }
-
-      .detail-label {
-        font-weight: 700;
-        min-width: 65px;
-        color: #1f5068;
-      }
-
-      .fees-amount {
-        font-weight: 800;
-        color: #1e6f5c;
-        background: #e0f2ef;
-        padding: 0.2rem 0.7rem;
-        border-radius: 30px;
-        font-size: 0.9rem;
-      }
-
-      .card-footer {
-        padding: 0.8rem 1.5rem 1.5rem;
-        border-top: 1px solid #edf2f7;
-        margin-top: 0.2rem;
-      }
-
-      .view-more-btn {
-        background: transparent;
-        border: 1.5px solid #14144d;
-        color: #271e73;
-        padding: 0.6rem 1rem;
-        width: 100%;
-        border-radius: 60px;
-        font-weight: 700;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition: all 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        background: rgba(44, 125, 160, 0.02);
-      }
-
-      .view-more-btn:hover {
-        background: #271e73;
-        color: white;
-        box-shadow: 0 6px 12px -8px #1f5068;
-        border-color: #2c7da0;
-      }
-
-      /* MODAL STYLES - elegant & modern */
-      .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(10, 25, 35, 0.75);
-        backdrop-filter: blur(6px);
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        visibility: hidden;
-        transition:
-          opacity 0.25s ease,
-          visibility 0.25s;
-      }
-
-      .modal-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .modal-container {
-        background: white;
-        width: 90%;
-        max-width: 550px;
-        border-radius: 40px;
-        box-shadow: 0 40px 60px -20px rgba(0, 0, 0, 0.4);
-        transform: scale(0.96);
-        transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        overflow: hidden;
-      }
-
-      .modal-overlay.active .modal-container {
-        transform: scale(1);
-      }
-
-      .modal-header {
-        background: linear-gradient(120deg, #1f5068, #153e52);
-        padding: 1.6rem 2rem;
-        color: white;
-      }
-
-      .modal-header h2 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin-bottom: 0.25rem;
-      }
-
-      .modal-header .modal-cat {
-        opacity: 0.85;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .modal-body {
-        padding: 2rem;
-      }
-
-      .detail-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        border-bottom: 1px solid #eef2f8;
-        padding: 1rem 0;
-      }
-
-      .detail-item:last-child {
-        border-bottom: none;
-      }
-
-      .detail-label-modal {
-        font-weight: 700;
-        color: #1f3b4a;
-        font-size: 1rem;
-      }
-
-      .detail-value {
-        font-weight: 600;
-        color: #1f5068;
-        background: #eef3fa;
-        padding: 0.3rem 1rem;
-        border-radius: 60px;
-        font-size: 0.9rem;
-      }
-
-      .special-note {
-        background: #fef6e0;
-        border-radius: 24px;
-        padding: 1rem;
-        margin-top: 1.5rem;
-        font-size: 0.85rem;
-        color: #9e6d0b;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .close-modal {
-        background: #eef2f5;
-        border: none;
-        padding: 0.7rem 1.8rem;
-        border-radius: 60px;
-        font-weight: 700;
-        margin-top: 0.8rem;
-        cursor: pointer;
-        width: 100%;
-        font-size: 0.9rem;
-        transition: 0.2s;
-      }
-
-      .close-modal:hover {
-        background: #dce5ec;
-      }
-
-      /* empty state */
-      .empty-state {
-        text-align: center;
-        padding: 4rem 2rem;
-        background: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgb(233, 233, 233);
-
-        font-size: 1.2rem;
-        color: #2c5a6e;
-      }
-
-      /* responsive */
-      @media (max-width: 700px) {
-        body {
-          padding: 1rem;
-        }
-        #title {
-          font-size: 1.8rem;
-        }
-        .grid {
-          gap: 1.2rem;
-        }
-        .card h3 {
-          font-size: 1.3rem;
-        }
-      }
-      /* HEADER BAR */
-      .filter-header {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-      }
-      .search-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: rgb(243, 243, 243);
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 0 12px;
-        width: 100%;
-      }
-      .search-wrapper input {
-        background-color: rgb(243, 243, 243);
-      }
-      .search-wrapper i {
-        color: #999;
-        font-size: 18px;
-      }
-
-      .search-wrapper .search-input {
-        flex: 1;
-        border: none;
-        padding: 10px 0;
-        outline: none;
-        font-size: 14px;
-      }
-
-      .search-wrapper .search-input:focus {
-        outline: none;
-      }
-      /* FILTER BUTTON */
-      .filter-toggle-btn {
-        padding: 10px 18px;
-        border-radius: 30px;
-        border: 1px solid #000;
-        background: #fff;
-        cursor: pointer;
-      }
-
-      .filter-title {
-        font-size: 14px;
-        margin-bottom: 10px;
-        color: #555;
-      }
-
-      /* TAGS / PILLS */
-      .tag-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .tag-item {
-        padding: 4px 10px;
-        background: #eee;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 13px;
-        transition: 0.2s;
-      }
-
-      .tag-item.active {
-        background: #4b2aad;
-        color: #fff;
-      }
-
-      /* ROW (MODE + SORT) */
-      .filter-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-
-      /* SORT DROPDOWN */
-      .sort-wrapper select {
-        padding: 8px 14px;
-        border-radius: 20px;
-        border: 1px solid #ccc;
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 768px) {
-        .filter-row {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-      .filter-content {
-        display: none; /* 🔥 default OFF */
-        margin-top: 10px;
-      }
-
-      .filter-content.active {
-        display: block; /* ON when click */
-      }
-      #coursesList {
+/* ========== CONTAINER & GRID ========== */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+#coursesList, .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* ========== HERO SECTION (FULLY RESPONSIVE) ========== */
+.hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  transform: translateY(-50%);
+  max-width: 60%;
+  width: auto;
+}
+
+.hero-content h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: white !important;
+  background: linear-gradient(135deg, #fff, #e0e7ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  margin-bottom: 0.5rem;
+  width: auto !important; /* overrides broken w-50 */
+}
+
+.hero-content p {
+  color: white;
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
+}
+
+/* ========== FILTER BAR ========== */
+.bg-white.py-3.px-5 {
+  padding: 1rem 1.5rem !important;
+}
+
+.filter-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  padding: 0 16px;
+}
+
+.search-wrapper input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 0;
+  font-size: 14px;
+  outline: none;
+}
+
+.filter-toggle-btn {
+  padding: 10px 24px;
+  border-radius: 40px;
+  border: 1px solid #000;
+  background: white;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.filter-content {
+  display: none;
+  margin-top: 20px;
+}
+
+.filter-content.active {
+  display: block;
+}
+
+.filter-block {
+  margin-bottom: 20px;
+}
+
+.filter-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-item {
+  padding: 6px 16px;
+  background: #eee;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.tag-item.active {
+  background: #4b2aad;
+  color: white;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
+  margin-top: 10px;
+}
+
+.sort-wrapper {
+  min-width: 180px;
+}
+
+.sort-wrapper select {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 40px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+/* ========== CARDS ========== */
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.25s ease;
+  box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem 0;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-weight: 700;
+}
+
+.trending {
+  background: #6f42c1;
+  color: white;
+}
+
+.mode {
+  background: #eee;
+}
+
+.card-content {
+  padding: 1rem 1.5rem 1.2rem;
+  flex: 1;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #0b2b38;
+}
+
+.college {
+  color: #6f42c1;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+.detail-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.detail-label {
+  font-weight: 700;
+  color: #1f5068;
+}
+
+.fees-amount {
+  font-weight: 800;
+  color: #1e6f5c;
+  background: #e0f2ef;
+  padding: 2px 10px;
+  border-radius: 40px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.tag {
+  background: #f1e8ff;
+  color: #6f42c1;
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-size: 0.75rem;
+}
+
+.card-footer {
+  padding: 0.8rem 1.5rem 1.5rem;
+  border-top: 1px solid #edf2f7;
+}
+
+.view-btn {
+  background: transparent;
+  border: 1.5px solid #14144d;
+  color: #271e73;
+  padding: 10px 16px;
+  border-radius: 60px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.view-btn:hover {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background: #f9f9f9;
+  border-radius: 20px;
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+/* Tablet */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 20px;
+  }
+  #coursesList, .grid {
+    gap: 1.5rem;
+  }
+  .hero {
+    height: 250px;
+  }
+  .hero-content {
+    left: 5%;
+  }
+}
+
+/* Mobile landscape & large phones */
+@media (max-width: 768px) {
+  .container {
+    margin: 30px auto;
+    padding: 0 16px;
+  }
+  .hero {
+    height: 220px;
+  }
+  .hero-content {
+    left: 4%;
+    max-width: 92%;
+  }
+  .filter-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-toggle-btn {
+    text-align: center;
+  }
+  .filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sort-wrapper {
+    width: 100%;
+  }
+  #coursesList, .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .card h3 {
+    font-size: 1.35rem;
+  }
+  .top-row {
+    padding: 0.8rem 1.2rem 0;
+  }
+  .card-content {
+    padding: 1rem 1.2rem;
+  }
+  .detail-row {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero {
+    height: 180px;
+  }
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+  .search-wrapper {
+    padding: 0 12px;
+  }
+  .search-wrapper input {
+    padding: 10px 0;
+  }
+  .tag-item {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+  .card-footer {
+    padding: 0.8rem 1rem 1.2rem;
+  }
+  .view-more-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Fix for very small devices (<=360px) */
+@media (max-width: 360px) {
+  .hero {
+    height: 160px;
+  }
+  .hero-content h1 {
+    font-size: 1.4rem;
+  }
+  .badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
+  .college {
+    font-size: 0.8rem;
+  }
+}
+.apply-btn {
+
+  background: transparent;
+  border: 1.5px solid #14144d;
+  color: #ffffff;
+  background-color: #271e73;
+  padding: 10px 16px;
+  border-radius: 60px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s; 
+  text-align: center;
+}
+
+.apply-btn:hover {
+  background-color: #1f2b6e;   /* lighter navy */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    color: white;
 }
     </style>
   </head>
   <body>
-                   <!--------------Login Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="connectModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 rounded-4">
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Get Free Guidance</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <!-- FORM -->
+          <form class="form-inp">
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Full Name..."
+            />
+
+            <input type="email" class="form-control mb-3" placeholder="Email" />
+
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Phone Number..."
+            />
+
+            <select class="form-select mb-3">
+              <option selected disabled>Select Program Interest</option>
+              <option>Executive Program</option>
+              <option>Offline Program</option>
+              <option>Online Program</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-          <!-- Top accent bar -->
           <div
             style="
               height: 4px;
               background: linear-gradient(90deg, #0d6efd, #20c997);
             "
           ></div>
-
-          <!-- Header -->
           <div
-            class=" border-bottom px-4 pt-4 pb-2 flex-column align-items-start"
+            class="modal-header border-0 px-4 pt-4 pb-2 flex-column align-items-start"
           >
             <h5 class="fw-bold mb-1">Welcome</h5>
             <p class="text-muted small mb-0">Login or create your account</p>
           </div>
-
-          <!-- Tabs -->
           <div class="px-4">
             <ul
               class="nav nav-pills nav-fill gap-2 p-1 bg-light rounded-3 mb-3"
@@ -1389,24 +1276,21 @@
               </li>
             </ul>
           </div>
-
           <div class="modal-body px-4 pt-0 pb-3">
             <div class="tab-content">
-              <!-- LOGIN -->
               <div class="tab-pane fade show active" id="loginTab">
                 <div class="mb-3">
-                  <label class="form-label small text-muted">Email</label>
-                  <input
+                  <label class="form-label small text-muted">Email</label
+                  ><input
                     type="email"
                     class="form-control rounded-3"
                     placeholder="name@example.com"
                   />
                 </div>
-
                 <div class="mb-2">
                   <div class="d-flex justify-content-between">
-                    <label class="form-label small text-muted">Password</label>
-                    <a href="#" class="small text-primary text-decoration-none"
+                    <label class="form-label small text-muted">Password</label
+                    ><a href="#" class="small text-primary text-decoration-none"
                       >Forgot?</a
                     >
                   </div>
@@ -1416,22 +1300,17 @@
                     placeholder="••••••••"
                   />
                 </div>
-
                 <div class="form-check mb-3">
                   <input
                     class="form-check-input"
                     type="checkbox"
                     id="rememberMe"
-                  />
-                  <label class="form-check-label small text-muted">
-                    Remember me
-                  </label>
+                  /><label class="form-check-label small text-muted"
+                    >Remember me</label
+                  >
                 </div>
-
                 <button class="btn btn-primary w-100 rounded-3">Sign in</button>
               </div>
-
-              <!-- SIGNUP -->
               <div class="tab-pane fade" id="signupTab">
                 <div class="row g-2 mb-3">
                   <div class="col">
@@ -1449,7 +1328,6 @@
                     />
                   </div>
                 </div>
-
                 <div class="mb-3">
                   <select class="form-select rounded-3">
                     <option>Select department</option>
@@ -1458,7 +1336,6 @@
                     <option>Science</option>
                   </select>
                 </div>
-
                 <div class="mb-3">
                   <input
                     type="password"
@@ -1466,7 +1343,6 @@
                     placeholder="Password"
                   />
                 </div>
-
                 <div class="mb-3">
                   <input
                     type="password"
@@ -1474,33 +1350,33 @@
                     placeholder="Confirm password"
                   />
                 </div>
-
                 <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" id="terms" />
-                  <label class="form-check-label small text-muted">
-                    I agree to Terms & Privacy Policy
-                  </label>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="terms"
+                  /><label class="form-check-label small text-muted"
+                    >I agree to Terms & Privacy Policy</label
+                  >
                 </div>
-
                 <button class="btn btn-success w-100 rounded-3 fw-semibold">
                   Create account
                 </button>
               </div>
             </div>
           </div>
-
-          <!-- Footer -->
           <div class="modal-footer border-0 bg-light text-center d-block py-3">
-            <small class="text-muted">
-              Need help?
+            <small class="text-muted"
+              >Need help?
               <a href="mailto:campusWalkin@gmail.com" class="text-primary"
                 >Contact support</a
-              >
-            </small>
+              ></small
+            >
           </div>
         </div>
       </div>
     </div>
+
     <!-- TOP BAR (desktop only) -->
     <div
       class="topbar d-none d-md-flex align-items-center px-2 px-lg-5 flex-nowrap"
@@ -1526,7 +1402,7 @@
       </div>
       <div class="tb-right d-flex align-items-center gap-3 flex-nowrap ms-3">
         <p class="mb-0 d-lg-block text-nowrap">
-          We’re on your favourite socials!
+          We're on your favourite socials!
         </p>
         <span class="tb-sep">|</span>
         <a href="#" style="color: #4860ff; font-weight: 700"
@@ -1543,20 +1419,22 @@
         ></a>
       </div>
     </div>
+
     <!-- ═══ NAVBAR ═══ -->
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
-        <!-- LOGO -->
         <a href="#" class="logo">
           <div class="logo-mark">
             <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="index.html" class="cn-link text-decoration-none text-dark"
+            >Home</a
+          >
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -1713,7 +1591,6 @@
         </nav>
         <!-- RIGHT -->
         <div class="nav-r1-right d-flex align-items-center gap-2">
-          <!-- Explore -->
           <div class="explore-wrap" id="exploreWrap">
             <button
               class="explore-btn border-0 py-2 px-3 d-flex align-items-center gap-2 rounded-2"
@@ -1817,8 +1694,8 @@
               <div class="em-tags d-flex flex-wrap gap-2">
                 <span class="em-tag py-1 px-2 rounded-2 mt-2">JEE Main</span
                 ><span class="em-tag py-1 px-2 rounded-2 mt-2">NEET</span>
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">CAT</span>
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">GATE</span>
+                <span class="em-tag py-1 px-2 rounded-2 mt-2">CAT</span
+                ><span class="em-tag py-1 px-2 rounded-2 mt-2">GATE</span>
                 <span class="em-tag py-1 px-2 rounded-2 mt-2">CLAT</span
                 ><span class="em-tag py-1 px-2 rounded-2 mt-2">CUET</span>
                 <span class="em-tag py-1 px-2 rounded-2 mt-2">GRE</span
@@ -1852,8 +1729,9 @@
               <div
                 class="np-hd border-bottom d-flex align-items-center justify-content-between p-2 fw-bold"
               >
-                Notifications
-                <a href="#" class="text-decoration-none">Mark all read</a>
+                Notifications<a href="#" class="text-decoration-none"
+                  >Mark all read</a
+                >
               </div>
               <div
                 class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"
@@ -1920,11 +1798,9 @@
             onclick="openDrawer()"
             aria-label="Menu"
           >
-            <span class="bg-dark"></span>
-            <span class="bg-dark"></span>
-            <span class="bg-dark"></span>
+            <span class="bg-dark"></span><span class="bg-dark"></span
+            ><span class="bg-dark"></span>
           </div>
-
           <!-- Auth (desktop) -->
           <div class="auth-btns">
             <button
@@ -1945,8 +1821,9 @@
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
-        <!-- All Courses -->
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <div class="courses-wrap" id="coursesWrap">
           <button
             class="courses-btn d-flex align-items-center gap-2 border py-1 px-2 rounded-2 bg-white fw-semibold"
@@ -1977,25 +1854,29 @@
               <polyline points="1 1 6 7 11 1" />
             </svg>
           </button>
-
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
-              <!-- Left: Categories -->
+            <div class="cm-inner d-flex">
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
-
-              <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
-                <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -2042,25 +1923,48 @@
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
-
-                <!-- Dynamic grid -->
                 <div class="cm-grid pe-4 d-grid gap-2" id="cmGrid"></div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="r2-sep d-flex align-items-center"></div>
         <a href="#" class="np2 text-muted px-1 text-decoration-none active"
           >B.Tech</a
@@ -2090,11 +1994,14 @@
         >
       </div>
     </div>
+
+    <!-- Mobile Drawer -->
+
+    <!-- Mobile Drawer -->
     <div
       class="mobile-drawer bg-white overflow-y-auto d-flex flex-column shadow"
       id="mDrawer"
     >
-      <!-- HEADER -->
       <div
         class="md-head d-flex align-items-center justify-content-between px-3 py-3 border-bottom sticky-top bg-white"
       >
@@ -2108,8 +2015,6 @@
           <i class="bi bi-x fs-5"></i>
         </button>
       </div>
-
-      <!-- LOGIN -->
       <div class="md-auth d-flex gap-2 px-3 py-3 border-bottom">
         <button
           class="btn-ln btn btn-outline-primary flex-fill"
@@ -2126,23 +2031,17 @@
           Apply
         </button>
       </div>
-
-      <!-- NAV LINKS -->
       <nav class="md-nav d-flex flex-column">
         <a
           href="#"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom link-hover"
+          >Home</a
         >
-          Home
-        </a>
-
-        <!-- PROGRAMS ACCORDION -->
         <button
           class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
           onclick="toggleAcc(this)"
         >
-          Programs
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
+          Programs<i class="bi bi-chevron-down acc-chevron ms-auto"></i>
         </button>
         <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
           <a
@@ -2171,45 +2070,36 @@
             >Finance</a
           >
         </div>
-
         <a
           href="universities.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >Universities</a
         >
-          Universities
-        </a>
         <a
           href="compare.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >Compare</a
         >
-          Compare
-        </a>
         <a
           href="#"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >Blog</a
         >
-          Blog
-        </a>
         <a
           href="about.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >About</a
         >
-          About
-        </a>
         <a
           href="contact.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >Contact</a
         >
-          Contact
-        </a>
-
-        <!-- COURSES ACCORDION -->
         <button
           class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
           onclick="toggleAcc(this)"
         >
-          Courses
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
+          Courses<i class="bi bi-chevron-down acc-chevron ms-auto"></i>
         </button>
         <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
           <a
@@ -2233,14 +2123,11 @@
             >BBA</a
           >
         </div>
-
-        <!-- EXPLORE ACCORDION -->
         <button
           class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
           onclick="toggleAcc(this)"
         >
-          Explore
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
+          Explore<i class="bi bi-chevron-down acc-chevron ms-auto"></i>
         </button>
         <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
           <a
@@ -2266,15 +2153,13 @@
         </div>
       </nav>
     </div>
-
-    <!-- Mobile Drawer Overlay -->
     <div
       class="mobile-overlay position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-none"
       id="mOverlay"
       onclick="closeDrawer()"
       style="backdrop-filter: blur(2px)"
     ></div>
-       <section class="hero">
+    <section class="hero">
       <!-- IMAGE -->
       <img src="banner.jpg" class="hero-img" />
 
@@ -2348,7 +2233,8 @@
     <div class="container">
       <div class="grid" id="coursesList"></div>
     </div>
-        <!-- ══════════════ BOTTOM CTA ══════════════ -->
+
+    <!-- ══════════════ BOTTOM CTA ══════════════ -->
     <div class="cta-sec py-5 px-4 w-auto mx-auto">
       <div class="cta-inner">
         <div
@@ -2371,60 +2257,12 @@
             >
               Book Free Counselling
             </button>
-            <!-- --------------form popup  -->
-            <div class="modal fade" id="connectModal" tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-3 rounded-3">
-                  <!-- ----------------header  -->
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3 flex-wrap"
-                  >
-                    <h5>Get Free Guidance</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
-                  <!-- form ------------------ -->
-                  <form class="form-inp">
-                    <input
-                      type="text"
-                      placeholder="Enter your name..."
-                      class="form-control mb-2"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Enter your email..."
-                      class="form-control mb-2"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Enter your Number..."
-                      class="form-control mb-2"
-                    />
-                    <select class="form-select mb-2">
-                      <option selected disabled>Choose a program</option>
-                      <option>Executive Program</option>
-                      <option>Offline Program</option>
-                      <option>Online Program</option>
-                    </select>
-                    <button
-                      type="submit"
-                      class="w-100 text-white py-1 border-0"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
     <!-- ═══ FOOTER ═══ -->
-     
+
     <footer>
       <div class="fi">
         <div class="fg d-grid gap-5 mb-3">
@@ -5071,18 +4909,18 @@
 
       /* ── Explore ── */
       function toggleExplore(e) {
-  e.stopPropagation(); // Prevent the document click from immediately closing it
-  const wrap = document.getElementById("exploreWrap");
-  wrap.classList.toggle("open");
-}
+        e.stopPropagation(); // Prevent the document click from immediately closing it
+        const wrap = document.getElementById("exploreWrap");
+        wrap.classList.toggle("open");
+      }
 
-// Close dropdown when clicking outside
-document.addEventListener("click", function (e) {
-  const explore = document.getElementById("exploreWrap");
-  if (!explore.contains(e.target)) {
-    explore.classList.remove("open");
-  }
-});
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        const explore = document.getElementById("exploreWrap");
+        if (!explore.contains(e.target)) {
+          explore.classList.remove("open");
+        }
+      });
       /* ── Mobile drawer ── */
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");
@@ -5674,7 +5512,7 @@ document.addEventListener("click", function (e) {
       View Details
     </button>
 
-    <button class="btn apply-btn">
+    <button class="btn apply-btn ">
       Apply Now
     </button>
   </div>
@@ -5684,15 +5522,15 @@ document.addEventListener("click", function (e) {
           })
           .join("");
       }
-window.viewDetails = function(index) {
-  const course = allCourses[index];
+      window.viewDetails = function (index) {
+        const course = allCourses[index];
 
-  // 👉 Full course data save ho raha hai
-  localStorage.setItem("courseDetails", JSON.stringify(course));
+        // 👉 Full course data save ho raha hai
+        localStorage.setItem("courseDetails", JSON.stringify(course));
 
-  // 👉 New page open
-  window.location.href = "course-details.html";
-};
+        // 👉 New page open
+        window.location.href = "course-details.html";
+      };
       // helper to prevent XSS
       function escapeHtml(str) {
         if (!str) return "";
@@ -5819,7 +5657,9 @@ window.viewDetails = function(index) {
         }
         renderCourses();
       }
-    </script>        <script>
+    </script>
+    <!-- -----------navbar fixed  -->
+    <script>
       const navbar = document.querySelector(".navbar");
       const stickyOffset = navbar.offsetTop;
 
@@ -5831,8 +5671,82 @@ window.viewDetails = function(index) {
         }
       });
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="script.js"></script>
+    <script>
+      (function () {
+        // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
+        // Close drawer when any modal is triggered via data-bs-toggle
+        const modalTriggers = document.querySelectorAll(
+          '[data-bs-toggle="modal"]',
+        );
+        modalTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", function (e) {
+            // If we are in responsive mode (drawer is open), close it
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            if (drawer && drawer.classList.contains("open")) {
+              // Small delay to allow modal to open, then close drawer
+              setTimeout(() => {
+                closeDrawer();
+              }, 10);
+            }
+          });
+        });
+
+        // Also listen to Bootstrap modal show event (backup)
+        document.addEventListener("show.bs.modal", function () {
+          if (window.innerWidth <= 991) {
+            closeDrawer();
+          }
+        });
+
+        // ========== FIX: MOBILE DRAWER ACCORDION (Programs, Courses, Explore) ==========
+        // Ensure toggleAcc function works consistently
+        window.toggleAcc = function (btn) {
+          btn.classList.toggle("open");
+          const body = btn.nextElementSibling;
+          if (body) {
+            body.classList.toggle("show");
+            body.classList.toggle("open");
+          }
+        };
+
+        // Re-attach event listeners to all drawer accordion buttons
+        document.querySelectorAll(".md-acc-btn").forEach((btn) => {
+          // Remove any existing inline onclick to avoid conflicts
+          btn.removeAttribute("onclick");
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.toggleAcc(this);
+          });
+        });
+
+        // Ensure closeDrawer and openDrawer are globally available
+        window.closeDrawer =
+          window.closeDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.remove("open");
+            if (overlay) overlay.classList.remove("open", "show");
+            if (ham) ham.classList.remove("active");
+            document.body.style.overflow = "";
+          };
+
+        window.openDrawer =
+          window.openDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.add("open");
+            if (overlay) overlay.classList.add("open", "show");
+            if (ham) ham.classList.add("active");
+            document.body.style.overflow = "hidden";
+          };
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

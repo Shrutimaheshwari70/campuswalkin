@@ -104,12 +104,14 @@
       .topbar p {
         font-size: 13px;
       }
-      /* ─────────────────────────────────────
-   NAVBAR WRAPPER
-───────────────────────────────────── */
+        /* ─────────────────────────────────────
+    NAVBAR WRAPPER
+  ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
+          border-bottom: 1px solid var(--border);
+
         background-color: white;
         z-index: 300;
         height: 58px;
@@ -118,6 +120,12 @@
       /* ── ROW 1 ── */
       .nav-r1 {
         height: 50px;
+        position: relative;
+      }
+      .center-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .navbar.sticky {
         position: fixed;
@@ -126,8 +134,8 @@
         width: 130px;
       }
       /* ══════════════════════════
-   BREAKPOINT — Mobile ≤ 768px
-══════════════════════════ */
+    BREAKPOINT — Mobile ≤ 768px
+  ══════════════════════════ */
       @media (max-width: 768px) {
         /* Show hamburger, hide desktop auth + desktop nav */
         .ham-btn {
@@ -370,12 +378,18 @@
         height: 2px;
         transition: all 0.3s;
       }
-      .ham-btn.active span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-      .ham-btn.active span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
+           /* Active Cross */
+.ham-btn.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.ham-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-btn.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
       /* --------------mobile menu  */
       #mDrawer {
         position: fixed;
@@ -394,13 +408,7 @@
       }
       .nav-r1 {
         border-bottom: 1px solid rgba(199, 199, 199, 0.407);
-        position: relative;
       }
-           .center-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
       /* ─── Topbar ─────────────────────────────────────────────────── */
       @media (max-width: 991px) {
         .topbar {
@@ -411,15 +419,39 @@
         }
         .navbar {
           height: 60px;
+    border-bottom: 1px solid var(--border);
         }
       }
-
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
       @media (max-width: 1199px) {
+        .topbar {
+          padding: 0 25px !important;
+        }
         .nav-r1 {
-          padding: 0 16px !important;
+          padding: 0 20px !important;
+        }
+        .explore-btn span {
+          font-size: 10px;
         }
 
+        .icon-btn svg {
+          font-size: 10px;
+        }
+        .center-nav a {
+          font-size: 13px;
+        }
+        .program-btn {
+          font-size: 13px;
+        }
+        .logo-mark {
+          width: 110px;
+        }
+        .btn-ln {
+          font-size: 10px;
+        }
+        .btn-su {
+          font-size: 10px;
+        }
         .center-nav {
           gap: 12px !important;
         }
@@ -593,9 +625,9 @@
         width: 100%;
         height: 20px;
       }
-       /* ─────────────────────────────────────
-     FOOTER
-  ───────────────────────────────────── */
+      /* ─────────────────────────────────────
+      FOOTER
+    ───────────────────────────────────── */
       footer {
         background: #0f1729;
         padding: 40px 3rem 20px;
@@ -642,8 +674,8 @@
         background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
       }
       /* ─────────────────────────────────────
-     RESPONSIVE OVERRIDES
-  ───────────────────────────────────── */
+      RESPONSIVE OVERRIDES
+    ───────────────────────────────────── */
 
       /* Tablet: 768px – 1199px */
       @media (max-width: 1199px) {
@@ -705,12 +737,7 @@
         .footer-icons-social {
           flex-wrap: wrap;
         }
-      }
-      .cn-link {
-        font-size: 14px;
-      }
-
-   /* ─────────────────────────────────────
+      } /* ─────────────────────────────────────
    CTA
 ───────────────────────────────────── */
       .cta-sec {
@@ -755,7 +782,10 @@
           padding: 1.5rem !important;
         }
       }
-    
+     
+      .cn-link {
+        font-size: 14px;
+      }
       .uni-p {
         background-color: pink;
         height: 100%;
@@ -1104,7 +1134,54 @@
     </style>
   </head>
   <body>
-    
+      <!-- --------------form popup  -->
+            <div class="modal fade" id="connectModal" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3 rounded-3">
+                  <!-- ----------------header  -->
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3 flex-wrap"
+                  >
+                    <h5>Get Free Guidance</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                    ></button>
+                  </div>
+                  <!-- form ------------------ -->
+                  <form class="form-inp">
+                    <input
+                      type="text"
+                      placeholder="Enter your name..."
+                      class="form-control mb-2"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Enter your email..."
+                      class="form-control mb-2"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Enter your Number..."
+                      class="form-control mb-2"
+                    />
+                    <select class="form-select mb-2">
+                      <option selected disabled>Choose a program</option>
+                      <option>Executive Program</option>
+                      <option>Offline Program</option>
+                      <option>Online Program</option>
+                    </select>
+                    <button
+                      type="submit"
+                      class="w-100 text-white py-1 border-0"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
         <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
@@ -4871,22 +4948,41 @@
         window.location.href = url;
       }
     </script>
+
     <script>
-      const programWrap = document.getElementById("programWrap");
-      const programBtn = programWrap.querySelector(".program-btn");
+      (function () {
+        // Fix for Programs dropdown hover: prevent closing when moving from button to menu
+        const programWrap = document.getElementById("programWrap");
+        if (!programWrap) return;
 
-      /* CLICK LOCK */
-      programBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        programWrap.classList.toggle("active");
-      });
+        const programBtn = programWrap.querySelector(".program-btn");
+        const programCard = programWrap.querySelector(".programs-card");
+        if (!programBtn || !programCard) return;
 
-      /* OUTSIDE CLICK CLOSE */
-      document.addEventListener("click", function (e) {
-        if (!programWrap.contains(e.target)) {
-          programWrap.classList.remove("active");
+        let hoverTimeout;
+
+        function openDropdown() {
+          clearTimeout(hoverTimeout);
+          programWrap.classList.add("active");
         }
-      });
+
+        function closeDropdown() {
+          hoverTimeout = setTimeout(() => {
+            programWrap.classList.remove("active");
+          }, 100);
+        }
+
+        programBtn.addEventListener("mouseenter", openDropdown);
+        programCard.addEventListener("mouseenter", openDropdown);
+
+        programWrap.addEventListener("mouseleave", closeDropdown);
+
+        programBtn.addEventListener("mouseleave", (e) => {
+          if (!programCard.contains(e.relatedTarget)) {
+            closeDropdown();
+          }
+        });
+      })();
     </script>
     <script>
       /* ── Location ── */
@@ -5052,7 +5148,6 @@ document.addEventListener("click", function (e) {
         value = value.toLowerCase();
 
         let categories = document.querySelectorAll(".course-cat");
-
         categories.forEach((cat) => {
           let items = [];
           let next = cat.nextElementSibling;
@@ -5687,6 +5782,81 @@ if (dataa) {
           navbar.classList.remove("sticky");
         }
       });
+    </script>
+      <script>
+      (function () {
+        // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
+        // Close drawer when any modal is triggered via data-bs-toggle
+        const modalTriggers = document.querySelectorAll(
+          '[data-bs-toggle="modal"]',
+        );
+        modalTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", function (e) {
+            // If we are in responsive mode (drawer is open), close it
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            if (drawer && drawer.classList.contains("open")) {
+              // Small delay to allow modal to open, then close drawer
+              setTimeout(() => {
+                closeDrawer();
+              }, 10);
+            }
+          });
+        });
+
+        // Also listen to Bootstrap modal show event (backup)
+        document.addEventListener("show.bs.modal", function () {
+          if (window.innerWidth <= 991) {
+            closeDrawer();
+          }
+        });
+
+        // ========== FIX: MOBILE DRAWER ACCORDION (Programs, Courses, Explore) ==========
+        // Ensure toggleAcc function works consistently
+        window.toggleAcc = function (btn) {
+          btn.classList.toggle("open");
+          const body = btn.nextElementSibling;
+          if (body) {
+            body.classList.toggle("show");
+            body.classList.toggle("open");
+          }
+        };
+
+        // Re-attach event listeners to all drawer accordion buttons
+        document.querySelectorAll(".md-acc-btn").forEach((btn) => {
+          // Remove any existing inline onclick to avoid conflicts
+          btn.removeAttribute("onclick");
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.toggleAcc(this);
+          });
+        });
+
+        // Ensure closeDrawer and openDrawer are globally available
+        window.closeDrawer =
+          window.closeDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.remove("open");
+            if (overlay) overlay.classList.remove("open", "show");
+            if (ham) ham.classList.remove("active");
+            document.body.style.overflow = "";
+          };
+
+        window.openDrawer =
+          window.openDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.add("open");
+            if (overlay) overlay.classList.add("open", "show");
+            if (ham) ham.classList.add("active");
+            document.body.style.overflow = "hidden";
+          };
+      })();
     </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

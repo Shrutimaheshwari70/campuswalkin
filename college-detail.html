@@ -97,22 +97,28 @@
       .topbar p {
         font-size: 13px;
       }
-      /* ─────────────────────────────────────
-   NAVBAR WRAPPER
-───────────────────────────────────── */
+          /* ─────────────────────────────────────
+    NAVBAR WRAPPER
+  ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
+          border-bottom: 1px solid var(--border);
+
         background-color: white;
         z-index: 300;
         height: 58px;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-
         width: 100%;
       }
       /* ── ROW 1 ── */
       .nav-r1 {
         height: 50px;
+        position: relative;
+      }
+      .center-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .navbar.sticky {
         position: fixed;
@@ -121,8 +127,8 @@
         width: 130px;
       }
       /* ══════════════════════════
-   BREAKPOINT — Mobile ≤ 768px
-══════════════════════════ */
+    BREAKPOINT — Mobile ≤ 768px
+  ══════════════════════════ */
       @media (max-width: 768px) {
         /* Show hamburger, hide desktop auth + desktop nav */
         .ham-btn {
@@ -365,12 +371,18 @@
         height: 2px;
         transition: all 0.3s;
       }
-      .ham-btn.active span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-      .ham-btn.active span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
+            /* Active Cross */
+.ham-btn.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.ham-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-btn.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
       /* --------------mobile menu  */
       #mDrawer {
         position: fixed;
@@ -389,13 +401,7 @@
       }
       .nav-r1 {
         border-bottom: 1px solid rgba(199, 199, 199, 0.407);
-        position: relative;
       }
-           .center-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
       /* ─── Topbar ─────────────────────────────────────────────────── */
       @media (max-width: 991px) {
         .topbar {
@@ -406,15 +412,39 @@
         }
         .navbar {
           height: 60px;
+    border-bottom: 1px solid var(--border);
         }
       }
-
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
       @media (max-width: 1199px) {
+        .topbar {
+          padding: 0 25px !important;
+        }
         .nav-r1 {
-          padding: 0 16px !important;
+          padding: 0 20px !important;
+        }
+        .explore-btn span {
+          font-size: 10px;
         }
 
+        .icon-btn svg {
+          font-size: 10px;
+        }
+        .center-nav a {
+          font-size: 13px;
+        }
+        .program-btn {
+          font-size: 13px;
+        }
+        .logo-mark {
+          width: 110px;
+        }
+        .btn-ln {
+          font-size: 10px;
+        }
+        .btn-su {
+          font-size: 10px;
+        }
         .center-nav {
           gap: 12px !important;
         }
@@ -589,8 +619,8 @@
         height: 20px;
       }
       /* ─────────────────────────────────────
-     FOOTER
-  ───────────────────────────────────── */
+      FOOTER
+    ───────────────────────────────────── */
       footer {
         background: #0f1729;
         padding: 40px 3rem 20px;
@@ -636,74 +666,114 @@
       .cw-logo {
         background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
       }
-      /* ─────────────────────────────────────
-     RESPONSIVE OVERRIDES
+        /* ─────────────────────────────────────
+      RESPONSIVE OVERRIDES
+    ───────────────────────────────────── */
+        @media (max-width: 1199px) {
+          footer {
+            padding: 40px 2rem 20px;
+          }
+          .fg {
+            grid-template-columns: 200px 1fr;
+            gap: 2.5rem;
+          }
+          .fl {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+          }
+        }
+        @media (max-width: 767px) {
+          footer {
+            padding: 32px 1.25rem 20px;
+          }
+          .fg {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          .fl {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+          }
+          .fb-bot {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+          }
+          .left-footer {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+          }
+          .left-footer i {
+            display: none;
+          }
+        }
+        @media (max-width: 480px) {
+          footer {
+            padding: 28px 1rem 16px;
+          }
+          .fl {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+          }
+          .fl-t {
+            font-size: 0.95rem;
+          }
+          .fl-a {
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+          }
+          .footer-icons-social {
+            flex-wrap: wrap;
+          }
+        }
+        .cn-link {
+          font-size: 14px;
+        }
+        /* ─────────────────────────────────────
+    CTA
   ───────────────────────────────────── */
-
-      /* Tablet: 768px – 1199px */
-      @media (max-width: 1199px) {
-        footer {
-          padding: 40px 2rem 20px;
+        .cta-sec {
+          background: var(--bg);
         }
-        .fg {
-          grid-template-columns: 200px 1fr;
-          gap: 2.5rem;
+        .cta-box {
+          background: linear-gradient(135deg, var(--navy), #1a3a7a);
         }
-        .fl {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
-        }
-      }
-      /* Mobile landscape + tablet portrait: up to 767px */
-      @media (max-width: 767px) {
-        footer {
-          padding: 32px 1.25rem 20px;
-        }
-        .fg {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        .fl {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
-        }
-        .fb-bot {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.75rem;
-        }
-        .left-footer {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 6px;
-        }
-        .left-footer i {
-          display: none;
-        }
-      }
-      /* Mobile portrait: up to 480px */
-      @media (max-width: 480px) {
-        footer {
-          padding: 28px 1rem 16px;
-        }
-        .fl {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
-        }
-        .fl-t {
-          font-size: 0.95rem;
-        }
-        .fl-a {
+        .cta-box p {
+          color: #8aa4d0;
           font-size: 0.85rem;
-          margin-bottom: 10px;
         }
-        .footer-icons-social {
-          flex-wrap: wrap;
+        .form-inp button {
+          background-color: var(--navy2);
         }
-      }
-      .cn-link {
-        font-size: 14px;
-      }
+        .form-inp input:focus,
+        .btn-close:focus {
+          border-color: none;
+          box-shadow: none;
+          outline: none;
+        }
+        .cta-inner {
+          max-width: 900px;
+          margin: auto;
+        }
+        @media (max-width: 768px) {
+          .cta-box {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+          }
+          .cta-btns {
+            width: 100%;
+          }
+          .cta-btns button {
+            width: 100%;
+          }
+        }
+        @media (max-width: 768px) {
+          .cta-box {
+            padding: 1.5rem !important;
+          }
+        }
       .hero-badge {
         animation-delay: 0.05s;
       }
@@ -880,7 +950,7 @@
       .nav-tab:hover:not(.active) {
         color: var(--text);
       }
-
+.hero,.nav-tabs-custom{  width:100%;  overflow:hidden;}/* HERO BASE SAFE */.hero-inner{  max-width:100%;}.hero-top{  align-items:flex-start;  flex-wrap:nowrap;}.hero-info{  min-width:0;}.hero-name,#heroName{  word-break:break-word;}.hero-logo{  flex-shrink:0;}.hero-actions{  row-gap:10px;}.hero-actions button,.hero-actions a{  text-align:center;  white-space:nowrap;}/* STATS */.hero-stats{  width:100%;}.hs-item{  min-width:0;  padding:16px 12px;}.hs-val,.hs-lbl{  word-break:break-word;}/* NAV SAFE */.nav-tabs-custom{  width:100%;}.nav-tabs-inner{  overflow-x:auto;  overflow-y:hidden;  -webkit-overflow-scrolling:touch;  scroll-behavior:smooth;}.nav-tab{  flex:0 0 auto;}/* ================= DESKTOP ================= */@media (min-width:1200px){  .hero-logo{    width:700px;    height:250px;  }  .hero-stats{    grid-template-columns:repeat(5,1fr);  }}/* ================= LAPTOP ================= */@media (max-width:1199px){  .hero-logo{    width:520px;    height:220px;  }  .hero-stats{    grid-template-columns:repeat(5,1fr);  }}/* ================= TABLET ================= */@media (max-width:991px){  .hero-inner{    padding:28px 20px !important;  }  .hero-top{    flex-direction:column;    gap:18px !important;  }  .hero-logo{    width:100%;    max-width:100%;    height:260px;  }  .hero-info{    width:100%;  }  .hero-name,  #heroName{    font-size:2rem !important;    line-height:1.25;  }  .hero-actions{    flex-wrap:wrap;  }  .hero-actions button,  .hero-actions a{    flex:1 1 calc(50% - 8px);    min-width:180px;  }  .hero-stats{    grid-template-columns:repeat(3,1fr);    margin-top:28px !important;  }  .btn-back-uni{    display:none;  }  .btn-back-mobi-uni{    display:inline-flex;    margin-left:0;  }}/* ================= MOBILE ================= */@media (max-width:768px){  .hero-inner{    padding:20px 14px !important;  }  .hero-top{    flex-direction:column;    gap:14px !important;  }  .hero-logo{    width:100%;    height:210px;    border-radius:14px;  }  .hero-name,  #heroName{    font-size:1.45rem !important;    line-height:1.3;  }  .hero-loc{    font-size:.78rem;    flex-wrap:wrap;  }  .rb-score{    font-size:1.2rem;  }  .rb-count{    font-size:.74rem;  }  .hero-actions{    flex-direction:column;    gap:10px !important;  }  .hero-actions button,  .hero-actions a{    width:100%;    min-width:100%;    padding:11px 14px !important;  }  .btn-apply,  .btn-brochure,  .cca-allCourses{    font-size:.82rem;  }  .hero-stats{    grid-template-columns:repeat(2,1fr);    margin-top:22px !important;  }  .hs-item{    padding:14px 10px;  }  .hs-val{    font-size:.95rem;  }  .hs-lbl{    font-size:.62rem;  }  .nav-tabs-fixed{    top:0;  }  .nav-tabs-inner{    padding:0 10px;  }  .nav-tab{    padding:12px 14px;    font-size:.78rem;  }}/* ================= SMALL MOBILE ================= */@media (max-width:576px){  .hero-inner{    padding:16px 12px !important;  }  .hero-logo{    height:180px;  }  .hero-name,  #heroName{    font-size:1.25rem !important;  }  .hero-badges{    gap:6px !important;    flex-wrap:wrap;  }  .hb{    font-size:.62rem;    padding:4px 8px;  }  .hero-stats{    grid-template-columns:1fr 1fr;  }  .nav-tab{    padding:11px 12px;    font-size:.75rem;  }}/* ================= EXTRA SMALL ================= */@media (max-width:420px){  .hero-logo{    height:155px;  }  .hero-name,  #heroName{    font-size:1.12rem !important;  }  .hero-stats{    grid-template-columns:1fr;  }  .hs-item{    border-right:none;    border-bottom:1px solid var(--border);  }  .hs-item:last-child{    border-bottom:none;  }  .nav-tabs-inner{    padding:0 8px;  }  .nav-tab{    padding:10px 11px;    font-size:.72rem;  }  .btn-apply,  .btn-brochure,  .cca-allCourses{    font-size:.78rem;  }}/* ================= DESKTOP ONLY ================= */@media (min-width:769px){  .btn-back-mobi-uni{    display:none;  }}
       /* DETAIL BODY */
       .detail-body {
         max-width: 100%;
@@ -1884,9 +1954,359 @@
         top: 10px;
         right: 10px;
       }
+
+img,
+table{
+  max-width:100%;
+}
+
+.detail-body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+.main-col,
+.side-col{
+  min-width:0;
+}
+
+/* table scroll */
+#courses,
+#cutoff,
+#results{
+  overflow-x:auto;
+}
+
+.courses-table,
+.cutoff-table,
+.result-table{
+  min-width:720px;
+}
+
+/* cards safe width */
+.sec-card,
+.sw-card,
+.vt-card{
+  width:100%;
+  max-width:100%;
+}
+
+/* long text break */
+.overview-text,
+.rv-text,
+.news-desc,
+.as-desc,
+.sch-desc,
+.qna-a{
+  word-break:break-word;
+  overflow-wrap:break-word;
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width:1200px){
+
+  .detail-body{
+    grid-template-columns:minmax(0,1fr) 300px;
+    gap:20px;
+  }
+
+}
+
+/* ================= LAPTOP ================= */
+@media (max-width:1199px){
+
+  .detail-body{
+    grid-template-columns:minmax(0,1fr) 280px;
+    gap:18px;
+    padding:18px;
+  }
+
+  .highlights-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+/* ================= TABLET ================= */
+@media (max-width:991px){
+
+  .detail-body{
+    grid-template-columns:1fr;
+    padding:16px;
+    gap:16px;
+  }
+
+  .side-col{
+    position:static;
+    top:auto;
+    order:2;
+  }
+
+  .main-col{
+    order:1;
+  }
+
+  .highlights-grid,
+  .placement-stats,
+  .ranking-grid,
+  .sch-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .btn-back-uni{
+    display:none;
+  }
+
+  .btn-back-mobi-uni{
+    display:inline-flex;
+    margin-left:0;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width:768px){
+
+  .detail-body{
+    padding:14px;
+    gap:14px;
+    grid-template-columns:1fr;
+  }
+
+  .main-col{
+    gap:14px;
+    min-height:auto;
+  }
+
+  .sec-card,
+  .sw-card,
+  .vt-card{
+    width:100% !important;
+    padding:16px;
+  }
+
+  .sec-title{
+    font-size:1rem;
+    margin-bottom:14px;
+  }
+
+  .highlights-grid,
+  .placement-stats,
+  .ranking-grid,
+  .sch-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .courses-filter,
+  .cutoff-tabs,
+  .result-year-tabs{
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .pc-label{
+    width:78px;
+    font-size:.72rem;
+  }
+
+  .news-card{
+    gap:10px;
+  }
+
+  .news-left{
+    width:48px;
+  }
+
+  .hero-inner{
+    padding:8px 14px 0;
+  }
+
+  .btn-back-mobi-uni{
+    display:inline-flex;
+    margin-left:0;
+  }
+
+  /* review modal */
+  #reviewForm{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    border-radius:18px;
+    height:auto;
+  }
+
+  .modal-dialog{
+    max-width:95%;
+    margin:1rem auto;
+  }
+
+  #reviewForm .d-flex{
+    flex-direction:column;
+  }
+
+  #reviewBtn,
+  .submit-review{
+    width:100%;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width:576px){
+
+  .detail-body{
+    padding:12px;
+  }
+
+  .sec-card,
+  .sw-card,
+  .vt-card{
+    padding:14px;
+    border-radius:14px;
+  }
+
+  .sec-title{
+    font-size:.95rem;
+  }
+
+  .courses-table,
+  .cutoff-table,
+  .result-table{
+    min-width:620px;
+  }
+
+  .courses-table th,
+  .courses-table td,
+  .cutoff-table th,
+  .cutoff-table td,
+  .result-table th,
+  .result-table td{
+    padding:9px 8px;
+    font-size:.78rem;
+  }
+
+  .review-header{
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+
+  .rv-rating{
+    margin-left:0;
+  }
+
+  .qna-q{
+    font-size:.8rem;
+    padding:12px;
+  }
+
+  .news-title{
+    font-size:.82rem;
+  }
+
+  .news-desc{
+    font-size:.75rem;
+  }
+}
+
+/* ================= EXTRA SMALL ================= */
+@media (max-width:420px){
+
+  .detail-body{
+    padding:10px;
+    gap:12px;
+  }
+
+  .sec-card,
+  .sw-card,
+  .vt-card{
+    padding:12px;
+  }
+
+  .courses-table,
+  .cutoff-table,
+  .result-table{
+    min-width:560px;
+  }
+
+  .pc-bar-row{
+    gap:6px;
+  }
+
+  .pc-label{
+    width:65px;
+    font-size:.68rem;
+  }
+
+  #starRating i{
+    font-size:18px;
+  }
+
+  .submit-review,
+  #reviewBtn{
+    padding:10px 18px;
+    font-size:14px;
+  }
+}
+
+/* ================= DESKTOP ONLY ================= */
+@media (min-width:769px){
+
+  .btn-back-mobi-uni{
+    display:none;
+  }
+
+}
     </style>
   </head>
   <body>
+      <!-- MODAL -->
+        <div class="modal fade" id="connectModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3 rounded-4">
+              <!-- HEADER -->
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h5 class="fw-bold mb-0">Get Free Guidance</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+
+              <!-- FORM -->
+              <form class="form-inp">
+                <input
+                  type="text"
+                  class="form-control mb-3"
+                  placeholder="Full Name..."
+                />
+
+                <input
+                  type="email"
+                  class="form-control mb-3"
+                  placeholder="Email"
+                />
+
+                <input
+                  type="text"
+                  class="form-control mb-3"
+                  placeholder="Phone Number..."
+                />
+
+                <select class="form-select mb-3">
+                  <option selected disabled>Select Program Interest</option>
+                  <option>Executive Program</option>
+                  <option>Offline Program</option>
+                  <option>Online Program</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary w-100">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
         <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
@@ -2669,12 +3089,13 @@
         >
           Apply
         </button>
+          
       </div>
 
       <!-- NAV LINKS -->
       <nav class="md-nav d-flex flex-column">
         <a
-          href="#"
+          href="index.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom link-hover"
         >
           Home
@@ -2729,7 +3150,7 @@
           Compare
         </a>
         <a
-          href="#"
+          href="blogs.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
         >
           Blog
@@ -2849,7 +3270,8 @@
               </div>
             </div>
             <div class="hero-actions d-flex gap-2 flex-wrap mt-2">
-              <button class="btn-apply border-0 py-2 px-4 rounded-3 text-white fw-semibold">Apply Now</button>
+              <button class="btn-apply border-0 py-2 px-4 rounded-3 text-white fw-semibold"    data-bs-toggle="modal"
+              data-bs-target="#connectModal">Apply Now</button>
               <button class="btn-brochure py-2 px-4 rounded-3 fw-semibold text-decoration-none">📄 Download Brochure</button>
               <a href="courses.html" type="button" class="cca-allCourses py-2 px-4 rounded-3 fw-semibold text-decoration-none"
                 >All courses</a
@@ -3144,22 +3566,22 @@
           <div class="fl d-grid">
             <div>
               <div class="fl-t fw-bold mb-2">Quick Links</div>
-              <a href="#" class="fl-a d-block text-decoration-none mb-3"
+              <a href="index.html" class="fl-a d-block text-decoration-none mb-3"
                 >Home</a
               >
-              <a href="#" class="fl-a d-block text-decoration-none mb-3"
+              <a href="about.html" class="fl-a d-block text-decoration-none mb-3"
                 >About Us</a
               >
               <a href="#" class="fl-a d-block text-decoration-none mb-3"
                 >Programs</a
               >
-              <a href="#" class="fl-a d-block text-decoration-none mb-3"
+              <a href="blogs.html" class="fl-a d-block text-decoration-none mb-3"
                 >Blog</a
               >
-              <a href="#" class="fl-a d-block text-decoration-none mb-3"
+              <a href="contact.html" class="fl-a d-block text-decoration-none mb-3"
                 >Contact</a
               >
-              <a href="#" class="fl-a d-block text-decoration-none mb-3"
+              <a href="compare.html" class="fl-a d-block text-decoration-none mb-3"
                 >Compare</a
               >
             </div>
@@ -3253,6 +3675,42 @@
       document.addEventListener("click", () => {
         document.getElementById("coursesWrap").classList.remove("open");
       });
+    </script>
+    
+    <script>
+      (function () {
+        // Fix for Programs dropdown hover: prevent closing when moving from button to menu
+        const programWrap = document.getElementById("programWrap");
+        if (!programWrap) return;
+
+        const programBtn = programWrap.querySelector(".program-btn");
+        const programCard = programWrap.querySelector(".programs-card");
+        if (!programBtn || !programCard) return;
+
+        let hoverTimeout;
+
+        function openDropdown() {
+          clearTimeout(hoverTimeout);
+          programWrap.classList.add("active");
+        }
+
+        function closeDropdown() {
+          hoverTimeout = setTimeout(() => {
+            programWrap.classList.remove("active");
+          }, 100);
+        }
+
+        programBtn.addEventListener("mouseenter", openDropdown);
+        programCard.addEventListener("mouseenter", openDropdown);
+
+        programWrap.addEventListener("mouseleave", closeDropdown);
+
+        programBtn.addEventListener("mouseleave", (e) => {
+          if (!programCard.contains(e.relatedTarget)) {
+            closeDropdown();
+          }
+        });
+      })();
     </script>
         <script>
       // ── Data for courses mega menu ────────────────────────────────────────────────
@@ -7154,21 +7612,6 @@
       });
     </script>
     <script>
-      function openDrawer() {
-        document.getElementById("mDrawer").classList.add("open");
-        document.getElementById("mOverlay").classList.add("show");
-      }
-      function closeDrawer() {
-        document.getElementById("mDrawer").classList.remove("open");
-        document.getElementById("mOverlay").classList.remove("show");
-      }
-      function toggleAcc(btn) {
-        btn.classList.toggle("open");
-        let body = btn.nextElementSibling;
-        body.classList.toggle("open");
-      }
-    </script>
-    <script>
       let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
       let editIndex = -1;
 
@@ -7345,5 +7788,80 @@
     }
   });
 </script>
+  <script>
+      (function () {
+        // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
+        // Close drawer when any modal is triggered via data-bs-toggle
+        const modalTriggers = document.querySelectorAll(
+          '[data-bs-toggle="modal"]',
+        );
+        modalTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", function (e) {
+            // If we are in responsive mode (drawer is open), close it
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            if (drawer && drawer.classList.contains("open")) {
+              // Small delay to allow modal to open, then close drawer
+              setTimeout(() => {
+                closeDrawer();
+              }, 10);
+            }
+          });
+        });
+
+        // Also listen to Bootstrap modal show event (backup)
+        document.addEventListener("show.bs.modal", function () {
+          if (window.innerWidth <= 991) {
+            closeDrawer();
+          }
+        });
+
+        // ========== FIX: MOBILE DRAWER ACCORDION (Programs, Courses, Explore) ==========
+        // Ensure toggleAcc function works consistently
+        window.toggleAcc = function (btn) {
+          btn.classList.toggle("open");
+          const body = btn.nextElementSibling;
+          if (body) {
+            body.classList.toggle("show");
+            body.classList.toggle("open");
+          }
+        };
+
+        // Re-attach event listeners to all drawer accordion buttons
+        document.querySelectorAll(".md-acc-btn").forEach((btn) => {
+          // Remove any existing inline onclick to avoid conflicts
+          btn.removeAttribute("onclick");
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.toggleAcc(this);
+          });
+        });
+
+        // Ensure closeDrawer and openDrawer are globally available
+        window.closeDrawer =
+          window.closeDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.remove("open");
+            if (overlay) overlay.classList.remove("open", "show");
+            if (ham) ham.classList.remove("active");
+            document.body.style.overflow = "";
+          };
+
+        window.openDrawer =
+          window.openDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.add("open");
+            if (overlay) overlay.classList.add("open", "show");
+            if (ham) ham.classList.add("active");
+            document.body.style.overflow = "hidden";
+          };
+      })();
+    </script>
   </body>
 </html>

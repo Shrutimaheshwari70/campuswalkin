@@ -96,8 +96,8 @@
         overflow-x: hidden;
       }
       /* ─────────────────────────────────────
-   TOPBAR  (hidden on mobile)
-───────────────────────────────────── */
+    TOPBAR  (hidden on mobile)
+  ───────────────────────────────────── */
       .topbar {
         background: var(--navy);
         color: #aab4cc;
@@ -114,11 +114,13 @@
         font-size: 13px;
       }
       /* ─────────────────────────────────────
-   NAVBAR WRAPPER
-───────────────────────────────────── */
+    NAVBAR WRAPPER
+  ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
+          border-bottom: 1px solid var(--border);
+
         background-color: white;
         z-index: 300;
         height: 58px;
@@ -129,11 +131,11 @@
         height: 50px;
         position: relative;
       }
-           .center-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
+      .center-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
       .navbar.sticky {
         position: fixed;
       }
@@ -141,8 +143,8 @@
         width: 130px;
       }
       /* ══════════════════════════
-   BREAKPOINT — Mobile ≤ 768px
-══════════════════════════ */
+    BREAKPOINT — Mobile ≤ 768px
+  ══════════════════════════ */
       @media (max-width: 768px) {
         /* Show hamburger, hide desktop auth + desktop nav */
         .ham-btn {
@@ -385,12 +387,18 @@
         height: 2px;
         transition: all 0.3s;
       }
-      .ham-btn.active span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-      .ham-btn.active span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
+           /* Active Cross */
+.ham-btn.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.ham-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-btn.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
       /* --------------mobile menu  */
       #mDrawer {
         position: fixed;
@@ -420,15 +428,39 @@
         }
         .navbar {
           height: 60px;
+    border-bottom: 1px solid var(--border);
         }
       }
-
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
       @media (max-width: 1199px) {
+        .topbar {
+          padding: 0 25px !important;
+        }
         .nav-r1 {
-          padding: 0 16px !important;
+          padding: 0 20px !important;
+        }
+        .explore-btn span {
+          font-size: 10px;
         }
 
+        .icon-btn svg {
+          font-size: 10px;
+        }
+        .center-nav a {
+          font-size: 13px;
+        }
+        .program-btn {
+          font-size: 13px;
+        }
+        .logo-mark {
+          width: 110px;
+        }
+        .btn-ln {
+          font-size: 10px;
+        }
+        .btn-su {
+          font-size: 10px;
+        }
         .center-nav {
           gap: 12px !important;
         }
@@ -603,8 +635,8 @@
         height: 20px;
       }
       /* ─────────────────────────────────────
-     FOOTER
-  ───────────────────────────────────── */
+      FOOTER
+    ───────────────────────────────────── */
       footer {
         background: #0f1729;
         padding: 40px 3rem 20px;
@@ -651,8 +683,8 @@
         background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
       }
       /* ─────────────────────────────────────
-     RESPONSIVE OVERRIDES
-  ───────────────────────────────────── */
+      RESPONSIVE OVERRIDES
+    ───────────────────────────────────── */
 
       /* Tablet: 768px – 1199px */
       @media (max-width: 1199px) {
@@ -718,30 +750,138 @@
       .cn-link {
         font-size: 14px;
       }
-      /* -------------------- hero ------------- */
-      .banner-text {
-        top: 16%;
-        left: 2%;
-      }
+      /* ─── HERO SECTION ─── */
       .hero {
+        position: relative;
         width: 100%;
         min-height: 65vh;
+        overflow: hidden;
+      }
+      .banner-img {
+        width: 100%;
+        position: relative;
       }
       .banner-img img {
-        height: 400px;
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        display: block;
       }
-      .testimonal-section {
-        background-color: rgb(7, 17, 59);
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.52);
       }
-      .testi-bottom input:focus {
-        border: none;
-        box-shadow: none;
+      .banner-text {
+        position: absolute;
+        top: 15%;
+        left: 4%;
+        z-index: 2;
+        max-width: 600px;
+      }
+      .banner-text h1 {
+        color: #fff;
+        font-size: clamp(22px, 4vw, 42px);
+        line-height: 1.25;
+        margin-bottom: 14px;
+      }
+      .banner-text p {
+        color: rgba(255, 255, 255, 0.88);
+        font-size: clamp(13px, 1.6vw, 17px);
+        line-height: 1.65;
+        max-width: 520px;
+      }
+      .hero-stats {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 900px;
+        padding: 0 16px;
+        z-index: 2;
+      }
+      .stat-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 20px 24px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+      }
+      .stat-card h2 {
+        font-size: clamp(22px, 3vw, 32px);
+        color: var(--accent);
+        margin: 0 0 4px;
+      }
+      .stat-card p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      @media (max-width: 767px) {
+        .banner-img img {
+          height: 290px;
+        }
+        .banner-text {
+          top: 10%;
+          left: 16px;
+          right: 16px;
+        }
+        .hero-stats {
+          position: relative;
+          transform: none;
+          left: 0;
+          padding: 12px;
+        }
+        .hero {
+          min-height: auto;
+          padding-bottom: 0;
+        }
+      }
+      @media (max-width: 480px) {
+        .banner-img img {
+          height: 270px;
+        }
+        .banner-text h1 {
+          font-size: 20px;
+        }
+        .banner-text p {
+          font-size: 13px;
+        }
+        .stat-card {
+          padding: 14px 12px;
+        }
+        .stat-card h2 {
+          font-size: 18px;
+        }
+        .stat-card p {
+          font-size: 10px;
+        }
+      }
+      .testimonal-section input::placeholder,
+      .testimonal-section select {
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 400;
+      }
+      .testimonal-section input:focus,
+      .testimonal-section select:focus {
         outline: none;
+        box-shadow: 0 0 0 2px rgba(233, 93, 58, 0.5);
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
       }
-      .testi-bottom select:focus {
-        border: none;
-        box-shadow: none;
-        outline: none;
+      .testimonal-section .form-control,
+      .testimonal-section .form-select {
+        transition: all 0.2s ease;
+      }
+      .testimonal-section .form-control:hover,
+      .testimonal-section .form-select:hover {
+        background-color: rgba(255, 255, 255, 0.15);
       }
       /* For tablets (usually 768px to 1024px) */
       @media (max-width: 1024px) and (min-width: 768px) {
@@ -792,6 +932,24 @@
       }
       .lead-sec {
         border-top: 2px solid rgb(208, 208, 208);
+      }
+      .transition-all {
+        transition: all 0.3s ease;
+      }
+      .lead-sec .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15) !important;
+      }
+      .lead-sec .card:hover img {
+        transform: scale(1.05);
+      }
+      .lead-sec .card:hover .position-absolute {
+        opacity: 1 !important;
+      }
+      /* optional: remove default card border radius for inner image */
+      .lead-sec .card-img-top {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
       }
       .offering-sec {
         background-color: rgb(230, 231, 255);
@@ -861,1115 +1019,732 @@
           height: 80px;
         }
       }
+      /* ─── ABOUT SECTION ─── */
+      .about-section {
+        padding: 72px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .about-content {
+        padding: 0 40px;
+      }
+      .section-badge {
+        display: inline-block;
+        padding: 6px 18px;
+        background: rgba(220, 53, 69, 0.08);
+        color: var(--danger);
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .about-section h2 {
+        font-size: clamp(24px, 3vw, 38px);
+        line-height: 1.2;
+        margin-bottom: 10px;
+      }
+      .about-section h5 {
+        color: var(--muted);
+        font-weight: 500;
+        font-size: 17px;
+        margin-bottom: 20px;
+      }
+      .about-section p {
+        color: #3d4b6b;
+        line-height: 1.8;
+        font-size: 15px;
+      }
+      .about-section .right-about img {
+        width: 100%;
+        max-width: 480px;
+        border-radius: 20px;
+        box-shadow: var(--sh3);
+      }
+      @media (max-width: 991px) {
+        .about-section {
+          padding: 48px 0;
+        }
+        .right-about {
+          margin-top: 32px;
+          text-align: center;
+        }
+        .right-about img {
+          max-width: 360px;
+        }
+      }
+      @media (max-width: 576px) {
+        .about-section {
+          padding: 20px 0;
+        }
+        .right-about img {
+          max-width: 100%;
+        }
+        .about-content {
+          padding: 0 25px;
+        }
+      }
     </style>
   </head>
   <body>
-        <!--------------Login Modal -->
-    <div class="modal fade" id="authModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered modal-md">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-          <!-- Top accent bar -->
-          <div
-            style="
-              height: 4px;
-              background: linear-gradient(90deg, #0d6efd, #20c997);
-            "
-          ></div>
-
-          <!-- Header -->
-          <div
-            class="modal-header border-0 px-4 pt-4 pb-2 flex-column align-items-start"
-          >
-            <h5 class="fw-bold mb-1">Welcome</h5>
-            <p class="text-muted small mb-0">Login or create your account</p>
-          </div>
-
-          <!-- Tabs -->
-          <div class="px-4">
-            <ul
-              class="nav nav-pills nav-fill gap-2 p-1 bg-light rounded-3 mb-3"
-              id="authTab"
-            >
-              <li class="nav-item">
-                <button
-                  class="nav-link active rounded-3 fw-semibold"
-                  data-bs-toggle="tab"
-                  data-bs-target="#loginTab"
-                >
-                  Sign in
-                </button>
-              </li>
-              <li class="nav-item">
-                <button
-                  class="nav-link rounded-3"
-                  data-bs-toggle="tab"
-                  data-bs-target="#signupTab"
-                >
-                  Sign up
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div class="modal-body px-4 pt-0 pb-3">
-            <div class="tab-content">
-              <!-- LOGIN -->
-              <div class="tab-pane fade show active" id="loginTab">
-                <div class="mb-3">
-                  <label class="form-label small text-muted">Email</label>
-                  <input
-                    type="email"
-                    class="form-control rounded-3"
-                    placeholder="name@example.com"
-                  />
-                </div>
-
-                <div class="mb-2">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label small text-muted">Password</label>
-                    <a href="#" class="small text-primary text-decoration-none"
-                      >Forgot?</a
-                    >
+      <!-- Modal -->
+      <!--------------Login Modal -->
+      <div class="modal fade" id="authModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+          <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+            <div style="height: 4px; background: linear-gradient(90deg, #0d6efd, #20c997);"></div>
+            <div class="modal-header border-0 px-4 pt-4 pb-2 flex-column align-items-start">
+              <h5 class="fw-bold mb-1">Welcome</h5>
+              <p class="text-muted small mb-0">Login or create your account</p>
+            </div>
+            <div class="px-4">
+              <ul class="nav nav-pills nav-fill gap-2 p-1 bg-light rounded-3 mb-3" id="authTab">
+                <li class="nav-item">
+                  <button class="nav-link active rounded-3 fw-semibold" data-bs-toggle="tab" data-bs-target="#loginTab">Sign in</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link rounded-3" data-bs-toggle="tab" data-bs-target="#signupTab">Sign up</button>
+                </li>
+              </ul>
+            </div>
+            <div class="modal-body px-4 pt-0 pb-3">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="loginTab">
+                  <div class="mb-3"><label class="form-label small text-muted">Email</label><input type="email" class="form-control rounded-3" placeholder="name@example.com" /></div>
+                  <div class="mb-2">
+                    <div class="d-flex justify-content-between"><label class="form-label small text-muted">Password</label><a href="#" class="small text-primary text-decoration-none">Forgot?</a></div>
+                    <input type="password" class="form-control rounded-3" placeholder="••••••••" />
                   </div>
-                  <input
-                    type="password"
-                    class="form-control rounded-3"
-                    placeholder="••••••••"
-                  />
+                  <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="rememberMe" /><label class="form-check-label small text-muted">Remember me</label></div>
+                  <button class="btn btn-primary w-100 rounded-3">Sign in</button>
                 </div>
-
-                <div class="form-check mb-3">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="rememberMe"
-                  />
-                  <label class="form-check-label small text-muted">
-                    Remember me
-                  </label>
+                <div class="tab-pane fade" id="signupTab">
+                  <div class="row g-2 mb-3"><div class="col"><input type="text" class="form-control rounded-3" placeholder="First name" /></div><div class="col"><input type="text" class="form-control rounded-3" placeholder="Last name" /></div></div>
+                  <div class="mb-3"><select class="form-select rounded-3"><option>Select department</option><option>Computer Science</option><option>Business</option><option>Science</option></select></div>
+                  <div class="mb-3"><input type="password" class="form-control rounded-3" placeholder="Password" /></div>
+                  <div class="mb-3"><input type="password" class="form-control rounded-3" placeholder="Confirm password" /></div>
+                  <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="terms" /><label class="form-check-label small text-muted">I agree to Terms & Privacy Policy</label></div>
+                  <button class="btn btn-success w-100 rounded-3 fw-semibold">Create account</button>
                 </div>
-
-                <button class="btn btn-primary w-100 rounded-3">Sign in</button>
-              </div>
-
-              <!-- SIGNUP -->
-              <div class="tab-pane fade" id="signupTab">
-                <div class="row g-2 mb-3">
-                  <div class="col">
-                    <input
-                      type="text"
-                      class="form-control rounded-3"
-                      placeholder="First name"
-                    />
-                  </div>
-                  <div class="col">
-                    <input
-                      type="text"
-                      class="form-control rounded-3"
-                      placeholder="Last name"
-                    />
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <select class="form-select rounded-3">
-                    <option>Select department</option>
-                    <option>Computer Science</option>
-                    <option>Business</option>
-                    <option>Science</option>
-                  </select>
-                </div>
-
-                <div class="mb-3">
-                  <input
-                    type="password"
-                    class="form-control rounded-3"
-                    placeholder="Password"
-                  />
-                </div>
-
-                <div class="mb-3">
-                  <input
-                    type="password"
-                    class="form-control rounded-3"
-                    placeholder="Confirm password"
-                  />
-                </div>
-
-                <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" id="terms" />
-                  <label class="form-check-label small text-muted">
-                    I agree to Terms & Privacy Policy
-                  </label>
-                </div>
-
-                <button class="btn btn-success w-100 rounded-3 fw-semibold">
-                  Create account
-                </button>
               </div>
             </div>
-          </div>
-
-          <!-- Footer -->
-          <div class="modal-footer border-0 bg-light text-center d-block py-3">
-            <small class="text-muted">
-              Need help?
-              <a href="mailto:campusWalkin@gmail.com" class="text-primary"
-                >Contact support</a
-              >
-            </small>
+            <div class="modal-footer border-0 bg-light text-center d-block py-3">
+              <small class="text-muted">Need help? <a href="mailto:campusWalkin@gmail.com" class="text-primary">Contact support</a></small>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- TOP BAR (desktop only) -->
-    <div
-      class="topbar d-none d-md-flex align-items-center px-2 px-lg-5 flex-nowrap"
-    >
-      <div
-        class="tb-left d-flex align-items-center gap-2 flex-nowrap overflow-auto w-100"
-      >
-        <a href="#" class="text-decoration-none"
-          >📞 1800-XXX-XXXX (Toll Free)</a
-        >
-        <span class="tb-sep">|</span>
-        <a href="#" class="text-decoration-none">📧 help@campuswalkin.com</a>
-        <span class="tb-sep">|</span>
-        <a href="#" class="d-none d-xl-inline text-decoration-none"
-          >Compare Colleges</a
-        >
-        <a href="#" class="d-none d-xl-inline text-decoration-none"
-          >Rank Predictor</a
-        >
-        <a href="#" class="d-none d-xl-inline text-decoration-none"
-          >Scholarships</a
-        >
+
+      <!-- TOP BAR (desktop only) -->
+      <div class="topbar d-none d-md-flex align-items-center px-2 px-lg-5 flex-nowrap">
+        <div class="tb-left d-flex align-items-center gap-2 flex-nowrap overflow-auto w-100">
+          <a href="#" class="text-decoration-none">📞 1800-XXX-XXXX (Toll Free)</a>
+          <span class="tb-sep">|</span>
+          <a href="#" class="text-decoration-none">📧 help@campuswalkin.com</a>
+          <span class="tb-sep">|</span>
+          <a href="#" class="d-none d-xl-inline text-decoration-none">Compare Colleges</a>
+          <a href="#" class="d-none d-xl-inline text-decoration-none">Rank Predictor</a>
+          <a href="#" class="d-none d-xl-inline text-decoration-none">Scholarships</a>
+        </div>
+        <div class="tb-right d-flex align-items-center gap-3 flex-nowrap ms-3">
+          <p class="mb-0 d-lg-block text-nowrap">We're on your favourite socials!</p>
+          <span class="tb-sep">|</span>
+          <a href="#" style="color: #4860ff; font-weight: 700"><i class="bi bi-facebook"></i></a>
+          <a href="#" style="color: hwb(0 37% 0%); font-weight: 700"><i class="bi bi-instagram"></i></a>
+          <a href="#" style="color: hwb(239 26% 3%); font-weight: 700"><i class="bi bi-linkedin"></i></a>
+          <a href="#" style="color: hwb(0 0% 0%); font-weight: 700"><i class="bi bi-youtube"></i></a>
+        </div>
       </div>
-      <div class="tb-right d-flex align-items-center gap-3 flex-nowrap ms-3">
-        <p class="mb-0 d-lg-block text-nowrap">
-          We’re on your favourite socials!
-        </p>
-        <span class="tb-sep">|</span>
-        <a href="#" style="color: #4860ff; font-weight: 700"
-          ><i class="bi bi-facebook"></i
-        ></a>
-        <a href="#" style="color: hwb(0 37% 0%); font-weight: 700"
-          ><i class="bi bi-instagram"></i
-        ></a>
-        <a href="#" style="color: hwb(239 26% 3%); font-weight: 700"
-          ><i class="bi bi-linkedin"></i
-        ></a>
-        <a href="#" style="color: hwb(0 0% 0%); font-weight: 700"
-          ><i class="bi bi-youtube"></i
-        ></a>
-      </div>
-    </div>
-    <!-- ═══ NAVBAR ═══ -->
-    <div class="navbar bg-white">
-      <!-- ROW 1 -->
-      <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
-      >
-        <!-- LOGO -->
-        <a href="#" class="logo">
-          <div class="logo-mark">
-            <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
-          </div>
-        </a>
-        <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
-          <div class="program-wrap" id="programWrap">
-            <button
-              class="program-btn border-0 d-flex align-items-center gap-1"
-              onclick="toggleProgram()"
-            >
-              Programs
-              <svg
-                width="11"
-                height="7"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 12 8"
-              >
-                <polyline points="1 1 6 7 11 1"></polyline>
-              </svg>
-            </button>
-            <div class="programs-card bg-white py-4 px-4 border">
-              <div class="program-grid d-grid gap-4">
-                <div class="category">
-                  <h6>
-                    <i class="bi bi-mortarboard py-1 px-2 rounded-2"></i>
-                    Executive Education
-                  </h6>
-                  <ul class="program-list list-unstyled p-0 m-0">
-                    <li class="py-1">Executive MBA</li>
-                    <li class="py-1">Senior Management Programme</li>
-                    <li class="py-1">Leadership Development</li>
-                  </ul>
-                  <div class="institution-row mt-1 text-muted">
-                    IIM Ahmedabad, ISB, XLRI
+
+      <!-- ═══ NAVBAR ═══ -->
+      <div class="navbar bg-white">
+        <!-- ROW 1 -->
+        <div class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4">
+          <a href="#" class="logo">
+            <div class="logo-mark">
+              <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
+            </div>
+          </a>
+          <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
+            <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+            <div class="program-wrap" id="programWrap">
+              <button class="program-btn border-0 d-flex align-items-center gap-1" onclick="toggleProgram()">
+                Programs
+                <svg width="11" height="7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 12 8"><polyline points="1 1 6 7 11 1"></polyline></svg>
+              </button>
+              <div class="programs-card bg-white py-4 px-4 border">
+                <div class="program-grid d-grid gap-4">
+                  <div class="category">
+                    <h6><i class="bi bi-mortarboard py-1 px-2 rounded-2"></i> Executive Education</h6>
+                    <ul class="program-list list-unstyled p-0 m-0"><li class="py-1">Executive MBA</li><li class="py-1">Senior Management Programme</li><li class="py-1">Leadership Development</li></ul>
+                    <div class="institution-row mt-1 text-muted">IIM Ahmedabad, ISB, XLRI</div>
                   </div>
-                </div>
-                <div class="category">
-                  <h6>
-                    <i class="bi bi-graph-up-arrow py-1 px-2 rounded-2"></i> MBA
-                    / Management
-                  </h6>
-                  <ul class="program-list list-unstyled p-0 m-0">
-                    <li class="py-1">Full-time MBA</li>
-                    <li class="py-1">Part-time MBA</li>
-                    <li class="py-1">Online MBA</li>
-                  </ul>
-                  <div class="institution-row mt-1 text-muted">
-                    IIM Bangalore, IIM Kozhikode
+                  <div class="category">
+                    <h6><i class="bi bi-graph-up-arrow py-1 px-2 rounded-2"></i> MBA / Management</h6>
+                    <ul class="program-list list-unstyled p-0 m-0"><li class="py-1">Full-time MBA</li><li class="py-1">Part-time MBA</li><li class="py-1">Online MBA</li></ul>
+                    <div class="institution-row mt-1 text-muted">IIM Bangalore, IIM Kozhikode</div>
                   </div>
-                </div>
-                <div class="category">
-                  <h6>
-                    <i class="fa-solid fa-brain py-2 px-2 rounded-2"></i> Data
-                    Science & AI
-                  </h6>
-                  <ul class="program-list list-unstyled p-0 m-0">
-                    <li class="py-1">PG in Data Science</li>
-                    <li class="py-1">AI & ML Certificate</li>
-                    <li class="py-1">Deep Learning</li>
-                  </ul>
-                  <div class="institution-row mt-1 text-muted">
-                    IIT Delhi, IIT Madras
+                  <div class="category">
+                    <h6><i class="fa-solid fa-brain py-2 px-2 rounded-2"></i> Data Science & AI</h6>
+                    <ul class="program-list list-unstyled p-0 m-0"><li class="py-1">PG in Data Science</li><li class="py-1">AI & ML Certificate</li><li class="py-1">Deep Learning</li></ul>
+                    <div class="institution-row mt-1 text-muted">IIT Delhi, IIT Madras</div>
                   </div>
-                </div>
-                <div class="category">
-                  <h6>
-                    <i class="bi bi-bar-chart py-1 px-2 rounded-2"></i>
-                    Marketing Programs
-                  </h6>
-                  <ul class="program-list list-unstyled p-0 m-0">
-                    <li class="py-1">Digital Marketing</li>
-                    <li class="py-1">Brand Management</li>
-                    <li class="py-1">Growth Hacking</li>
-                  </ul>
-                  <div class="institution-row mt-1 text-muted">
-                    IIM Indore, MICA, NMIMS
+                  <div class="category">
+                    <h6><i class="bi bi-bar-chart py-1 px-2 rounded-2"></i> Marketing Programs</h6>
+                    <ul class="program-list list-unstyled p-0 m-0"><li class="py-1">Digital Marketing</li><li class="py-1">Brand Management</li><li class="py-1">Growth Hacking</li></ul>
+                    <div class="institution-row mt-1 text-muted">IIM Indore, MICA, NMIMS</div>
                   </div>
-                </div>
-                <div class="category">
-                  <h6>
-                    <i class="bi bi-currency-dollar py-1 px-2 rounded-2"></i>
-                    Finance Programs
-                  </h6>
-                  <ul class="program-list list-unstyled p-0 m-0">
-                    <li class="py-1">CFA Prep</li>
-                    <li class="py-1">Financial Analytics</li>
-                    <li class="py-1">Risk Management</li>
-                  </ul>
-                  <div class="institution-row mt-1 text-muted">
-                    IIM Calcutta, NISM, BSE Institute
+                  <div class="category">
+                    <h6><i class="bi bi-currency-dollar py-1 px-2 rounded-2"></i> Finance Programs</h6>
+                    <ul class="program-list list-unstyled p-0 m-0"><li class="py-1">CFA Prep</li><li class="py-1">Financial Analytics</li><li class="py-1">Risk Management</li></ul>
+                    <div class="institution-row mt-1 text-muted">IIM Calcutta, NISM, BSE Institute</div>
                   </div>
-                </div>
-                <div class="category">
-                  <h6>
-                    <i class="bi bi-laptop py-1 px-2 rounded-2s"></i> Technology
-                    Programs
-                  </h6>
-                  <ul class="program-list list-unstyled p-0 m-0">
-                    <li class="py-1">Cloud Computing</li>
-                    <li class="py-1">Cybersecurity</li>
-                    <li class="py-1">Full Stack Development</li>
-                  </ul>
-                  <div class="institution-row mt-1 text-muted">
-                    IIT Bombay, BITS Pilani
+                  <div class="category">
+                    <h6><i class="bi bi-laptop py-1 px-2 rounded-2s"></i> Technology Programs</h6>
+                    <ul class="program-list list-unstyled p-0 m-0"><li class="py-1">Cloud Computing</li><li class="py-1">Cybersecurity</li><li class="py-1">Full Stack Development</li></ul>
+                    <div class="institution-row mt-1 text-muted">IIT Bombay, BITS Pilani</div>
                   </div>
-                </div>
-                <div class="category">
-                  <h6>
-                    <i class="bi bi-heart-pulse py-1 px-2 rounded-2"></i>
-                    Healthcare & Analytics
-                  </h6>
-                  <ul class="program-list list-unstyled p-0 m-0">
-                    <li class="py-1">Healthcare Management</li>
-                    <li class="py-1">Pharma Analytics</li>
-                    <li class="py-1">Clinical Research</li>
-                  </ul>
-                  <div class="institution-row mt-1 text-muted">
-                    IIHMR, Symbiosis, Manipal
+                  <div class="category">
+                    <h6><i class="bi bi-heart-pulse py-1 px-2 rounded-2"></i> Healthcare & Analytics</h6>
+                    <ul class="program-list list-unstyled p-0 m-0"><li class="py-1">Healthcare Management</li><li class="py-1">Pharma Analytics</li><li class="py-1">Clinical Research</li></ul>
+                    <div class="institution-row mt-1 text-muted">IIHMR, Symbiosis, Manipal</div>
                   </div>
-                </div>
-                <div class="featured-section py-4 px-4 rounded-2">
-                  <div class="featured-text">
-                    <h4 class="text-white">Executive MBA from IIM</h4>
-                    <p>
-                      Transform your career with India's top-ranked executive
-                      program.
-                    </p>
-                    <button class="featured-link py-2 px-2 border-0 rounded-2">
-                      <a
-                        href="#"
-                        class="text-decoration-none border-0 text-black"
-                        >Learn More →</a
-                      >
-                    </button>
+                  <div class="featured-section py-4 px-4 rounded-2">
+                    <div class="featured-text">
+                      <h4 class="text-white">Executive MBA from IIM</h4>
+                      <p>Transform your career with India's top-ranked executive program.</p>
+                      <button class="featured-link py-2 px-2 border-0 rounded-2"><a href="#" class="text-decoration-none border-0 text-black">Learn More →</a></button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <a href="universities.html" class="cn-link text-decoration-none text-dark">Universities</a>
+            <a href="compare.html" class="cn-link text-decoration-none text-dark">Compare</a>
+            <a href="blogs.html" class="cn-link text-decoration-none text-dark">Blog</a>
+            <a href="about.html" class="cn-link text-decoration-none text-dark">About</a>
+            <a href="contact.html" class="cn-link text-decoration-none text-dark">Contact</a>
+          </nav>
+          <!-- RIGHT -->
+          <div class="nav-r1-right d-flex align-items-center gap-2">
+            <div class="explore-wrap" id="exploreWrap">
+              <button class="explore-btn border-0 py-2 px-3 d-flex align-items-center gap-2 rounded-2" onclick="toggleLoc()">
+                <span class="exp-label">Explore</span>
+                <svg width="11" height="7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 12 8"><polyline points="1 1 6 7 11 1" /></svg>
+              </button>
+              <div class="exp-mega bg-white border rounded-2 top-100 py-3 px-3">
+                <div class="em-title fw-bold border-bottom pb-2">Explore More</div>
+                <div class="em-grid d-flex align-items-center justify-content-between mb-2 gap-4">
+                  <div class="w-100">
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>🏛️ Top Colleges</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>📝 Exams</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>✈️ Study Abroad</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>🏆 Executive</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>💻 Online</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>🎓 UG Degrees</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>Exams</span></a>
+                  </div>
+                  <div class="w-100">
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>Admission alert 2026</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>✈️ Study Abroad</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>Abroad Exam</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>Ask a Question</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>Course finder</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>💰 Scholarships</span></a>
+                    <a href="#" class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"><span>📊 Rank Predictor</span></a>
+                  </div>
+                </div>
+                <div class="em-title">Popular Exams</div>
+                <div class="em-tags d-flex flex-wrap gap-2">
+                  <span class="em-tag py-1 px-2 rounded-2 mt-2">JEE Main</span><span class="em-tag py-1 px-2 rounded-2 mt-2">NEET</span>
+                  <span class="em-tag py-1 px-2 rounded-2 mt-2">CAT</span><span class="em-tag py-1 px-2 rounded-2 mt-2">GATE</span>
+                  <span class="em-tag py-1 px-2 rounded-2 mt-2">CLAT</span><span class="em-tag py-1 px-2 rounded-2 mt-2">CUET</span>
+                  <span class="em-tag py-1 px-2 rounded-2 mt-2">GRE</span><span class="em-tag py-1 px-2 rounded-2 mt-2">GMAT</span><span class="em-tag py-1 px-2 rounded-2 mt-2">IELTS</span>
+                </div>
+              </div>
+            </div>
+            <!-- Notification -->
+            <div class="notif-wrap" id="notifWrap">
+              <div class="icon-btn d-flex align-items-center justify-content-center py-2 px-2 rounded-2" onclick="toggleNotif()">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
+                <div class="n-dot rounded-2 h-25 w-25"></div>
+              </div>
+              <div class="notif-panel bg-white border rounded-3 top-100 py-1 px-2 end-0">
+                <div class="np-hd border-bottom d-flex align-items-center justify-content-between p-2 fw-bold">Notifications<a href="#" class="text-decoration-none">Mark all read</a></div>
+                <div class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"><div class="np-ic rounded-2 py-1 px-1 d-flex align-items-center justify-content-center" style="background: #eff4ff">📣</div><div><div class="np-t1">JEE Main 2025 results declared!</div><div class="np-t2 text-muted">2 hours ago</div></div></div>
+                <div class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"><div class="np-ic rounded-2 py-1 px-1 d-flex align-items-center justify-content-center" style="background: #ebfaf6">🎓</div><div><div class="np-t1">New MBA scholarship ₹50,000</div><div class="np-t2 text-muted">5 hours ago</div></div></div>
+                <div class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"><div class="np-ic rounded-2 py-1 px-1 d-flex align-items-center justify-content-center" style="background: #fff8eb">✈️</div><div><div class="np-t1">IELTS prep batch starting Mon</div><div class="np-t2 text-muted">Yesterday</div></div></div>
+                <div class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"><div class="np-ic rounded-2 py-1 px-1 d-flex align-items-center justify-content-center" style="background: #fff3f0">📋</div><div><div class="np-t1">CAT 2025 registration open</div><div class="np-t2 text-muted">2 days ago</div></div></div>
+              </div>
+            </div>
+            <!-- Hamburger (mobile) -->
+            <div class="ham-btn gap-1 py-2 px-2 border rounded-2" id="hamBtn" onclick="openDrawer()" aria-label="Menu">
+              <span class="bg-dark"></span><span class="bg-dark"></span><span class="bg-dark"></span>
+            </div>
+            <!-- Auth (desktop) -->
+            <div class="auth-btns">
+              <button class="btn-ln py-2 px-3 rounded-3 fw-bold border" data-bs-toggle="modal" data-bs-target="#authModal">Login</button>
+              <button class="btn-su py-2 px-3 rounded-3 fw-bold border text-white" data-bs-toggle="modal" data-bs-target="#connectModal">Apply Now</button>
+            </div>
           </div>
-          <a
-            href="universities.html"
-            class="cn-link text-decoration-none text-dark"
-            >Universities</a
-          >
-          <a href="compare.html" class="cn-link text-decoration-none text-dark"
-            >Compare</a
-          >
-          <a href="blogs.html" class="cn-link text-decoration-none text-dark"
-            >Blog</a
-          >
-          <a href="about.html" class="cn-link text-decoration-none text-dark"
-            >About</a
-          >
-          <a href="contact.html" class="cn-link text-decoration-none text-dark"
-            >Contact</a
-          >
+        </div>
+        <!-- ROW 2 (desktop/tablet) -->
+        <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
+          <div class="courses-wrap" id="coursesWrap">
+            <button class="courses-btn d-flex align-items-center gap-2 border py-1 px-2 rounded-2 bg-white fw-semibold" onclick="toggleAllCourses(event)">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="16" y2="12" /><line x1="3" y1="18" x2="11" y2="18" /></svg>
+              All Courses
+              <svg class="chevron" width="10" height="6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 12 8"><polyline points="1 1 6 7 11 1" /></svg>
+            </button>
+            <div class="courses-mega bg-white py-2">
+              <div class="cm-inner d-flex">
+                <div class="cm-side ps-3" id="cmSide">
+                  <div class="cm-si rounded-3 active" data-cat="management">Management</div>
+                  <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                  <div class="cm-si rounded-3" data-cat="medical">Medical</div>
+                  <div class="cm-si rounded-3" data-cat="law">Law</div>
+                  <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
+                  <div class="cm-si rounded-3" data-cat="science">Science</div>
+                  <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                  <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
+                </div>
+                <div class="cm-content py-2 px-3">
+                  <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                    <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG"><a href="ug-courses.html" class="text-decoration-none">UG Courses</a></div>
+                    <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="PG"><a href="pg-courses.html" class="text-decoration-none">PG Courses</a></div>
+                    <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="Executive MBA"><a href="executive-course.html" class="text-decoration-none">Executive MBA</a></div>
+                    <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="Online Programs"><a href="online-programs.html" class="text-decoration-none">Online Programs</a></div>
+                    <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="Management (PGDM / MBA)"><a href="pgdm-mba-management.html" class="text-decoration-none">Management (PGDM / MBA)</a></div>
+                    <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="Study Abroad"><a href="study-abroad.html" class="text-decoration-none">Study Abroad</a></div>
+                  </div>
+                  <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
+                    <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
+                    <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
+                    <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
+                    <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">✈️ Study Abroad</div>
+                    <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">💼 Executive Program</div>
+                    <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  </div>
+                  <div class="cm-grid pe-4 d-grid gap-2" id="cmGrid"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="r2-sep d-flex align-items-center"></div>
+          <a href="#" class="np2 text-muted px-1 text-decoration-none active">B.Tech</a>
+          <a href="#" class="np2 text-muted px-1 text-decoration-none">BCA</a>
+          <a href="#" class="np2 text-muted px-1 text-decoration-none">BA</a>
+          <div class="r2-sep"></div>
+          <a href="#" class="np2 text-muted px-1 text-decoration-none abroad-p">MBA</a>
+          <a href="#" class="np2 text-muted px-1 text-decoration-none">BBA</a>
+          <a href="#" class="np2 text-muted px-1 text-decoration-none">B.Sc (Nursing)</a>
+          <a href="#" class="np2 text-decoration-none text-white py-1 px-2 rounded-2" style="background-color: rgb(12, 21, 64)">Top University</a>
+          <a href="#" class="np2 text-muted px-1 text-decoration-none">🗓️ Admission 2025 <span class="new-tag fw-bold bg-danger py-1 rounded-1 px-1 text-white text-uppercase">New</span></a>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div class="mobile-drawer bg-white overflow-y-auto d-flex flex-column shadow" id="mDrawer">
+        <div class="md-head d-flex align-items-center justify-content-between px-3 py-3 border-bottom sticky-top bg-white">
+          <strong class="fs-6">Menu</strong>
+          <button class="md-close btn btn-sm btn-outline-secondary d-flex align-items-center justify-content-center p-0" style="width: 32px; height: 32px" onclick="closeDrawer()" aria-label="Close menu"><i class="bi bi-x fs-5"></i></button>
+        </div>
+        <div class="md-auth d-flex gap-2 px-3 py-3 border-bottom">
+          <button class="btn-ln btn btn-outline-primary flex-fill" data-bs-target="#authModal" data-bs-toggle="modal">Login</button>
+          <button class="btn-su btn btn-primary flex-fill" data-bs-toggle="modal" data-bs-target="#connectModal">Apply</button>
+        </div>
+        <nav class="md-nav d-flex flex-column">
+          <a href="#" class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom link-hover">Home</a>
+          <button class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0" onclick="toggleAcc(this)">Programs<i class="bi bi-chevron-down acc-chevron ms-auto"></i></button>
+          <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Executive MBA</a>
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Full-time MBA</a>
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Data Science</a>
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Marketing</a>
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Finance</a>
+          </div>
+          <a href="universities.html" class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom">Universities</a>
+          <a href="compare.html" class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom">Compare</a>
+          <a href="blogs.html" class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom">Blog</a>
+          <a href="about.html" class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom">About</a>
+          <a href="contact.html" class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom">Contact</a>
+          <button class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0" onclick="toggleAcc(this)">Courses<i class="bi bi-chevron-down acc-chevron ms-auto"></i></button>
+          <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
+            <a href="btech.html" class="d-block py-2 small text-secondary text-decoration-none fw-medium">B.Tech</a>
+            <a href="bca.html" class="d-block py-2 small text-secondary text-decoration-none fw-medium">BCA</a>
+            <a href="mba.html" class="d-block py-2 small text-secondary text-decoration-none fw-medium">MBA</a>
+            <a href="bba.html" class="d-block py-2 small text-secondary text-decoration-none fw-medium">BBA</a>
+          </div>
+          <button class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0" onclick="toggleAcc(this)">Explore<i class="bi bi-chevron-down acc-chevron ms-auto"></i></button>
+          <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Top Colleges</a>
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Exams</a>
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Study Abroad</a>
+            <a href="#" class="d-block py-2 small text-secondary text-decoration-none fw-medium">Scholarships</a>
+          </div>
         </nav>
-        <!-- RIGHT -->
-        <div class="nav-r1-right d-flex align-items-center gap-2">
-          <!-- Explore -->
-          <div class="explore-wrap" id="exploreWrap">
-            <button
-              class="explore-btn border-0 py-2 px-3 d-flex align-items-center gap-2 rounded-2"
-              onclick="toggleLoc()"
-            >
-              <span class="exp-label">Explore</span>
-              <svg
-                width="11"
-                height="7"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 12 8"
-              >
-                <polyline points="1 1 6 7 11 1" />
-              </svg>
-            </button>
-            <div class="exp-mega bg-white border rounded-2 top-100 py-3 px-3">
-              <div class="em-title fw-bold border-bottom pb-2">
-                Explore More
-              </div>
-              <div
-                class="em-grid d-flex align-items-center justify-content-between mb-2 gap-4"
-              >
-                <div class="w-100">
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>🏛️ Top Colleges</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>📝 Exams</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>✈️ Study Abroad</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>🏆 Executive</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>💻 Online</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>🎓 UG Degrees</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>Exams</span></a
-                  >
-                </div>
-                <div class="w-100">
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>Admission alert 2026</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>✈️ Study Abroad</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>Abroad Exam</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>Ask a Question</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>Course finder</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>💰 Scholarships</span></a
-                  >
-                  <a
-                    href="#"
-                    class="em-item text-decoration-none d-flex p-2 text-dark border-bottom border-muted"
-                    ><span>📊 Rank Predictor</span></a
-                  >
-                </div>
-              </div>
-              <div class="em-title">Popular Exams</div>
-              <div class="em-tags d-flex flex-wrap gap-2">
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">JEE Main</span
-                ><span class="em-tag py-1 px-2 rounded-2 mt-2">NEET</span>
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">CAT</span>
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">GATE</span>
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">CLAT</span
-                ><span class="em-tag py-1 px-2 rounded-2 mt-2">CUET</span>
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">GRE</span
-                ><span class="em-tag py-1 px-2 rounded-2 mt-2">GMAT</span
-                ><span class="em-tag py-1 px-2 rounded-2 mt-2">IELTS</span>
-              </div>
-            </div>
-          </div>
-          <!-- Notification -->
-          <div class="notif-wrap" id="notifWrap">
-            <div
-              class="icon-btn d-flex align-items-center justify-content-center py-2 px-2 rounded-2"
-              onclick="toggleNotif()"
-            >
-              <svg
-                width="15"
-                height="15"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-              </svg>
-              <div class="n-dot rounded-2 h-25 w-25"></div>
-            </div>
-            <div
-              class="notif-panel bg-white border rounded-3 top-100 py-1 px-2 end-0"
-            >
-              <div
-                class="np-hd border-bottom d-flex align-items-center justify-content-between p-2 fw-bold"
-              >
-                Notifications
-                <a href="#" class="text-decoration-none">Mark all read</a>
-              </div>
-              <div
-                class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"
-              >
-                <div
-                  class="np-ic rounded-2 py-1 px-1 d-flex align-items-center justify-content-center"
-                  style="background: #eff4ff"
-                >
-                  📣
-                </div>
-                <div>
-                  <div class="np-t1">JEE Main 2025 results declared!</div>
-                  <div class="np-t2 text-muted">2 hours ago</div>
-                </div>
-              </div>
-              <div
-                class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"
-              >
-                <div
-                  class="np-ic rounded-2 py-1 px-1 d-flex align-items-center justify-content-center"
-                  style="background: #ebfaf6"
-                >
-                  🎓
-                </div>
-                <div>
-                  <div class="np-t1">New MBA scholarship ₹50,000</div>
-                  <div class="np-t2 text-muted">5 hours ago</div>
-                </div>
-              </div>
-              <div
-                class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"
-              >
-                <div
-                  class="np-ic rounded-2 py-1 px-1 d-flex align-items-center justify-content-center"
-                  style="background: #fff8eb"
-                >
-                  ✈️
-                </div>
-                <div>
-                  <div class="np-t1">IELTS prep batch starting Mon</div>
-                  <div class="np-t2 text-muted">Yesterday</div>
-                </div>
-              </div>
-              <div
-                class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"
-              >
-                <div
-                  class="np-ic rounded-2 py-1 px-1 d-flex align-items-center justify-content-center"
-                  style="background: #fff3f0"
-                >
-                  📋
-                </div>
-                <div>
-                  <div class="np-t1">CAT 2025 registration open</div>
-                  <div class="np-t2 text-muted">2 days ago</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Hamburger (mobile) -->
-          <div
-            class="ham-btn gap-1 py-2 px-2 border rounded-2"
-            id="hamBtn"
-            onclick="openDrawer()"
-            aria-label="Menu"
-          >
-            <span class="bg-dark"></span>
-            <span class="bg-dark"></span>
-            <span class="bg-dark"></span>
-          </div>
-
-          <!-- Auth (desktop) -->
-          <div class="auth-btns">
-            <button
-              class="btn-ln py-2 px-3 rounded-3 fw-bold border"
-              data-bs-toggle="modal"
-              data-bs-target="#authModal"
-            >
-              Login
-            </button>
-            <button
-              class="btn-su py-2 px-3 rounded-3 fw-bold border text-white"
-              data-bs-toggle="modal"
-              data-bs-target="#connectModal"
-            >
-              Apply Now
-            </button>
-          </div>
-        </div>
       </div>
-      <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
-        <!-- All Courses -->
-        <div class="courses-wrap" id="coursesWrap">
-          <button
-            class="courses-btn d-flex align-items-center gap-2 border py-1 px-2 rounded-2 bg-white fw-semibold"
-            onclick="toggleAllCourses(event)"
-          >
-            <svg
-              width="12"
-              height="12"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="16" y2="12" />
-              <line x1="3" y1="18" x2="11" y2="18" />
-            </svg>
-            All Courses
-            <svg
-              class="chevron"
-              width="10"
-              height="6"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              viewBox="0 0 12 8"
-            >
-              <polyline points="1 1 6 7 11 1" />
-            </svg>
-          </button>
+      <div class="mobile-overlay position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-none" id="mOverlay" onclick="closeDrawer()" style="backdrop-filter: blur(2px)"></div>
+     
 
-          <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
-              <!-- Left: Categories -->
-              <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
-                <div class="cm-si rounded-3" data-cat="medical">Medical</div>
-                <div class="cm-si rounded-3" data-cat="law">Law</div>
-                <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
-                <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
-                <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
-              </div>
-
-              <!-- Right: Content -->
-              <div class="cm-content py-2 px-3">
-                <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
-                  <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
-                    <a href="ug-courses.html" class="text-decoration-none"
-                      >UG Courses</a
-                    >
-                  </div>
-                  <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="PG">
-                    <a href="pg-courses.html" class="text-decoration-none"
-                      >PG Courses</a
-                    >
-                  </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2 mt-2"
-                    data-level="Executive MBA"
-                  >
-                    <a href="executive-course.html" class="text-decoration-none"
-                      >Executive MBA</a
-                    >
-                  </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2 mt-2"
-                    data-level="Online Programs"
-                  >
-                    <a href="online-programs.html" class="text-decoration-none"
-                      >Online Programs</a
-                    >
-                  </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2 mt-2"
-                    data-level="Management (PGDM / MBA)"
-                  >
-                    <a
-                      href="pgdm-mba-management.html"
-                      class="text-decoration-none"
-                      >Management (PGDM / MBA)</a
-                    >
-                  </div>
-                  <div
-                    class="cm-btn rounded-4 py-1 px-2 mt-2"
-                    data-level="Study Abroad"
-                  >
-                    <a href="study-abroad.html" class="text-decoration-none"
-                      >Study Abroad</a
-                    >
-                  </div>
-                </div>
-                <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
-                    ✈️ Study Abroad
-                  </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
-                    💼 Executive Program
-                  </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
-                </div>
-
-                <!-- Dynamic grid -->
-                <div class="cm-grid pe-4 d-grid gap-2" id="cmGrid"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="r2-sep d-flex align-items-center"></div>
-        <a href="#" class="np2 text-muted px-1 text-decoration-none active"
-          >B.Tech</a
-        >
-        <a href="#" class="np2 text-muted px-1 text-decoration-none">BCA</a>
-        <a href="#" class="np2 text-muted px-1 text-decoration-none">BA</a>
-        <div class="r2-sep"></div>
-        <a href="#" class="np2 text-muted px-1 text-decoration-none abroad-p"
-          >MBA</a
-        >
-        <a href="#" class="np2 text-muted px-1 text-decoration-none">BBA</a>
-        <a href="#" class="np2 text-muted px-1 text-decoration-none"
-          >B.Sc (Nursing)</a
-        >
-        <a
-          href="#"
-          class="np2 text-decoration-none text-white py-1 px-2 rounded-2"
-          style="background-color: rgb(12, 21, 64)"
-          >Top University</a
-        >
-        <a href="#" class="np2 text-muted px-1 text-decoration-none"
-          >🗓️ Admission 2025
-          <span
-            class="new-tag fw-bold bg-danger py-1 rounded-1 px-1 text-white text-uppercase"
-            >New</span
-          ></a
-        >
+    <!-- ----------- section  -->
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+      <div class="banner-img">
+        <img src="./about-banner.jpg" alt="About CampusWalkin" />
+        <div class="hero-overlay"></div>
       </div>
-    </div>
-    <div
-      class="mobile-drawer bg-white overflow-y-auto d-flex flex-column shadow"
-      id="mDrawer"
-    >
-      <!-- HEADER -->
-      <div
-        class="md-head d-flex align-items-center justify-content-between px-3 py-3 border-bottom sticky-top bg-white"
-      >
-        <strong class="fs-6">Menu</strong>
-        <button
-          class="md-close btn btn-sm btn-outline-secondary d-flex align-items-center justify-content-center p-0"
-          style="width: 32px; height: 32px"
-          onclick="closeDrawer()"
-          aria-label="Close menu"
-        >
-          <i class="bi bi-x fs-5"></i>
-        </button>
-      </div>
-
-      <!-- LOGIN -->
-      <div class="md-auth d-flex gap-2 px-3 py-3 border-bottom">
-        <button
-          class="btn-ln btn btn-outline-primary flex-fill"
-          data-bs-target="#authModal"
-          data-bs-toggle="modal"
-        >
-          Login
-        </button>
-        <button
-          class="btn-su btn btn-primary flex-fill"
-          data-bs-toggle="modal"
-          data-bs-target="#connectModal"
-        >
-          Apply
-        </button>
-      </div>
-
-      <!-- NAV LINKS -->
-      <nav class="md-nav d-flex flex-column">
-        <a
-          href="#"
-          class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom link-hover"
-        >
-          Home
-        </a>
-
-        <!-- PROGRAMS ACCORDION -->
-        <button
-          class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
-          onclick="toggleAcc(this)"
-        >
-          Programs
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
-        </button>
-        <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Executive MBA</a
-          >
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Full-time MBA</a
-          >
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Data Science</a
-          >
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Marketing</a
-          >
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Finance</a
-          >
-        </div>
-
-        <a
-          href="universities.html"
-          class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
-        >
-          Universities
-        </a>
-        <a
-          href="compare.html"
-          class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
-        >
-          Compare
-        </a>
-        <a
-          href="#"
-          class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
-        >
-          Blog
-        </a>
-        <a
-          href="about.html"
-          class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
-        >
-          About
-        </a>
-        <a
-          href="contact.html"
-          class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
-        >
-          Contact
-        </a>
-
-        <!-- COURSES ACCORDION -->
-        <button
-          class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
-          onclick="toggleAcc(this)"
-        >
-          Courses
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
-        </button>
-        <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
-          <a
-            href="btech.html"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >B.Tech</a
-          >
-          <a
-            href="bca.html"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >BCA</a
-          >
-          <a
-            href="mba.html"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >MBA</a
-          >
-          <a
-            href="bba.html"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >BBA</a
-          >
-        </div>
-
-        <!-- EXPLORE ACCORDION -->
-        <button
-          class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
-          onclick="toggleAcc(this)"
-        >
-          Explore
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
-        </button>
-        <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Top Colleges</a
-          >
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Exams</a
-          >
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Study Abroad</a
-          >
-          <a
-            href="#"
-            class="d-block py-2 small text-secondary text-decoration-none fw-medium"
-            >Scholarships</a
-          >
-        </div>
-      </nav>
-    </div>
-
-    <!-- Mobile Drawer Overlay -->
-    <div
-      class="mobile-overlay position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-none"
-      id="mOverlay"
-      onclick="closeDrawer()"
-      style="backdrop-filter: blur(2px)"
-    ></div>
-
-     <!-- ----------- section  -->
-    <section class="hero position-relative overflow-hidden ">
-      <div class="banner-img w-100 overflow-hidden position-relative">
-        <img src="./about-banner.jpg" alt="" class="w-100 object-fit-cover" />
-        <div
-          class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"
-        ></div>
-      </div>
-      <div class="banner-text position-absolute p-2">
-        <h1 class="text-light w-50">
-          Empowering Careers Through the Right Education
-        </h1>
-        <p class="hero-desc text-light w-75">
+      <div class="banner-text">
+        <h1>Empowering Careers Through the Right Education</h1>
+        <p>
           CampusWalkin is India's leading education marketplace, connecting
           ambitious professionals and students with top universities and
           career-transforming programs.
         </p>
       </div>
-      <div
-        class="position-absolute bottom-25 translate-middle-x translate-middle-y w-100"
-      >
+      <div class="hero-stats">
         <div class="container">
-          <div class="row gap-2 justify-content-center">
-            <div class="cards-banner col-lg-3 col-md-6 col-12">
-              <div class="bg-white p-4 text-center rounded-4 border">
-                <h2 class="text-primary">50,000+</h2>
-                <p class="text-muted">Students Guided</p>
+          <div class="row g-3 justify-content-center pb-4">
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="stat-card h-100">
+                <h2>50,000+</h2>
+                <p>Students Guided</p>
               </div>
             </div>
-            <div class="cards-banner col-lg-3 col-md-6 col-12 ">
-              <div class="bg-white p-4 text-center rounded-4 border">
-                <h2 class="text-primary">200+</h2>
-                <p class="text-muted">University Partners</p>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="stat-card h-100">
+                <h2>200+</h2>
+                <p>University Partners</p>
               </div>
             </div>
-
-            <div class="cards-banner col-lg-3 col-md-6 col-12">
-              <div class="bg-white p-4 text-center rounded-4 border">
-                <h2 class="text-primary">500+</h2>
-                <p class="text-muted">Programs Listed</p>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="stat-card h-100">
+                <h2>500+</h2>
+                <p>Programs Listed</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- -------------------------------------About us  -->
-    <section class="py-5 px-3 px-md-4 border-bottom">
-      <div class="container">
-        <div class="text-center mb-5">
-          <h2 class="fw-bold-inline-block border-bottom border-3 border-danger pb-2 mx-auto" style="width:170px" >ABOUT US</h2>
-        </div>
-        <div class="row align-items-center gx-5">
-          <div class="left-about col-12 col-lg-6">
-            <h2 class="text-danger">Empowering Futures, One Click at a Time</h2>
-            <h5 class="mb-3 text-muted">
-              India’s Trusted Route to 100% College Admissions
-            </h5>
-            <p>
-              At <span class="text-primary">CampusWalkin.com</span> we are
-              revolutionizing the way students and working professionals explore
-              their academic and career pathways. As India’s first integrated
-              platform for campus guidance and career counseling, our mission is
-              to simplify decision-making in education through digital
-              innovation, expert-led advisory, and real-time access to verified
-              opportunities.<br /><br />
 
+    <!-- ─── ABOUT US ─── -->
+    <section class="about-section">
+      <div class="container-fluid about-content">
+        <div class="row align-items-center gx-2 gy-4">
+          <div class="col-12 col-lg-6">
+            <span class="section-badge">About Us</span>
+            <h2 class="text-danger">Empowering Futures, One Click at a Time</h2>
+            <h5>India's Trusted Route to 100% College Admissions</h5>
+            <p>
+              At
+              <strong style="color: var(--accent)">CampusWalkin.com</strong> we
+              are revolutionizing the way students and working professionals
+              explore their academic and career pathways. As India's first
+              integrated platform for campus guidance and career counseling, our
+              mission is to simplify decision-making in education through
+              digital innovation, expert-led advisory, and real-time access to
+              verified opportunities.<br /><br />
               We understand that choosing the right course, career, or
-              institution is one of the most defining choices in a person’s
+              institution is one of the most defining choices in a person's
               life. With thousands of colleges, coaching institutes,
               certification options, and global universities to choose from,
-              it’s easy to feel overwhelmed. That’s where we step in.
+              it's easy to feel overwhelmed. That's where we step in.
               CampusWalkin bridges the gap between aspiration and opportunity.
-              Whether you’re a high school student looking for the perfect
-              undergraduate program, a graduate preparing for competitive exams,
-              or a professional considering upskilling—our platform is your
-              personalized launchpad to success.
             </p>
           </div>
-          <div class="col-12 col-lg-6 text-center right-about ">
-            <img src="./aboutUs-banner.png" class="img-fluid" alt="" />
+          <div class="col-12 col-lg-6 right-about text-center">
+            <img
+              src="./aboutUs-banner.png"
+              alt="About CampusWalkin"
+              class="img-fluid"
+              style="
+                border-radius: 20px;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+              "
+            />
           </div>
         </div>
       </div>
     </section>
     <!-- ------------- our mission -->
-    <section class="py-5 px-3  text-center">
+    <!-- ------------- our mission (modern & attractive) ------------- -->
+    <section
+      class="py-5 px-3 position-relative overflow-hidden"
+      style="background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%)"
+    >
+      <!-- decorative abstract shapes -->
+      <div
+        class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden"
+        style="pointer-events: none; z-index: 0"
+      >
+        <div
+          class="position-absolute rounded-circle"
+          style="
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(
+              circle,
+              rgba(37, 99, 235, 0.08) 0%,
+              rgba(37, 99, 235, 0) 70%
+            );
+            top: -100px;
+            left: -100px;
+          "
+        ></div>
+        <div
+          class="position-absolute rounded-circle"
+          style="
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(
+              circle,
+              rgba(37, 99, 235, 0.05) 0%,
+              rgba(37, 99, 235, 0) 70%
+            );
+            bottom: -150px;
+            right: -80px;
+          "
+        ></div>
+      </div>
+
+      <div class="container position-relative" style="z-index: 2">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <!-- mission badge with icon -->
+            <div
+              class="d-inline-flex align-items-center gap-2 bg-white px-4 py-2 rounded-pill shadow-sm mb-4"
+              style="border: 1px solid rgba(37, 99, 235, 0.2)"
+            >
+              <i class="bi bi-flag-fill text-primary"></i>
+              <span
+                class="text-primary fw-semibold text-uppercase small tracking-wide"
+                >Our Mission</span
+              >
+            </div>
+
+            <!-- main heading with gradient accent -->
+            <h2
+              class="display-5 fw-semibold mb-4"
+              style="
+                line-height: 1.2;
+                background: linear-gradient(135deg, #0b1437 0%, #1e3a8a 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+              "
+            >
+              Making Quality Education Accessible to Every Ambitious Learner
+            </h2>
+
+            <!-- description with better readability -->
+            <p
+              class="lead text-muted mb-4 px-md-4"
+              style="font-size: 1.1rem; font-weight: 400"
+            >
+              We believe the right education can transform lives. Our platform
+              eliminates the confusion of choosing between hundreds of programs
+              by providing expert guidance, transparent comparisons, and
+              personalized recommendations —
+              <span class="fw-semibold text-primary"
+                >all completely free for students</span
+              >.
+            </p>
+
+            <!-- optional: small stats or trust markers -->
+            <div
+              class="d-flex flex-wrap justify-content-center gap-4 mt-5 pt-2"
+            >
+              <div class="d-flex align-items-center gap-2">
+                <div class="bg-primary bg-opacity-10 rounded-circle p-2">
+                  <i class="bi bi-people-fill text-primary"></i>
+                </div>
+                <span class="small text-secondary">10k+ Students Guided</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <div class="bg-primary bg-opacity-10 rounded-circle p-2">
+                  <i class="bi bi-building text-primary"></i>
+                </div>
+                <span class="small text-secondary"
+                  >500+ Partner Institutes</span
+                >
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <div class="bg-primary bg-opacity-10 rounded-circle p-2">
+                  <i class="bi bi-star-fill text-primary"></i>
+                </div>
+                <span class="small text-secondary">98% Satisfaction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- --------------------meet our leadership  -->
+    <section
+      class="lead-sec py-5 px-3"
+      style="background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)"
+    >
       <div class="container">
-        <div class="top-mission text-center">
-          <h4 class="text-primary text-uppercase fs-5 mb-3">Our Mission</h4>
-          <h2 class="fw-bold w-50 mx-auto mb-4">
-            Making Quality Education Accessible to Every Ambitious Learner
-          </h2>
-          <p class="text-muted w-75 mx-auto">
-            We believe the right education can transform lives. Our platform
-            eliminates the confusion of choosing between hundreds of programs by
-            providing expert guidance, transparent comparisons, and personalized
-            recommendations — all completely free for students.
+        <!-- heading area with elegant underline -->
+        <div class="top-lead text-center mb-5">
+          <h1 class="display-5 fw-bold mb-3" style="color: #0b1437">
+            Meet Our <span style="color: #e85d3a">Leadership</span>
+          </h1>
+          <div
+            class="mx-auto"
+            style="
+              width: 80px;
+              height: 4px;
+              background: linear-gradient(90deg, #e85d3a, #f9a26c);
+              border-radius: 2px;
+            "
+          ></div>
+          <p class="fs-5 text-muted mt-4 mx-auto" style="max-width: 680px">
+            Our team combines deep expertise in education, technology, and
+            career counseling.
           </p>
         </div>
-      </div>
-    </section>
 
-    <!-- --------------------meet our leadership  -->
-    <section class="lead-sec py-5 px-3 ">
-      <div class="top-lead text-center">
-        <h1 class="text-danger">Meet Our Leadership</h1>
-        <p class="fs-5">
-          Our team combines deep expertise in education, technology, and career
-          counseling.
-        </p>
-      </div>
-   <div class="bottom-lead">
-  <div class="container">
-    <div class="row g-4 justify-content-center">
-      <!-- Card 1 -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100">
-          <img src="./image2.jpg" class="card-img-top" alt="..." />
-          <div class="card-body py-3 px-2">
-            <h5 class="mb-0 fs-5">Priya Sharma</h5>
-            <h6 class="text-primary mb-2">Founder & CEO</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title.
-            </p>
+        <div class="bottom-lead">
+          <div class="row g-4 justify-content-center">
+            <!-- Card 1 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center transition-all"
+                style="
+                  transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+                "
+              >
+                <div
+                  class="position-relative overflow-hidden"
+                  style="background: #f1f5f9"
+                >
+                  <img
+                    src="./image1.jpg"
+                    class="card-img-top"
+                    alt="Priya Sharma"
+                    style="
+                      transition: transform 0.5s ease;
+                      object-fit: cover;
+                      height: 260px;
+                      width: 100%;
+                    "
+                  />
+                </div>
+                <div class="card-body py-4 px-3">
+                  <h5 class="mb-1 fw-bold">Priya Sharma</h5>
+                  <h6 class="text-primary mb-2 fw-semibold">Founder & CEO</h6>
+                  <p class="card-text small text-secondary">
+                    15+ years in EdTech, ex-McKinsey, passionate about
+                    democratizing education.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center transition-all"
+              >
+                <div
+                  class="position-relative overflow-hidden"
+                  style="background: #f1f5f9"
+                >
+                  <img
+                    src="./image2.jpg"
+                    class="card-img-top"
+                    alt="Arjun Mehta"
+                    style="
+                      transition: transform 0.5s ease;
+                      object-fit: cover;
+                      height: 260px;
+                      width: 100%;
+                    "
+                  />
+                </div>
+                <div class="card-body py-4 px-3">
+                  <h5 class="mb-1 fw-bold">Arjun Mehta</h5>
+                  <h6 class="text-primary mb-2 fw-semibold">CTO</h6>
+                  <p class="card-text small text-secondary">
+                    Former Google engineer, leading product innovation &
+                    AI-driven matchmaking.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center transition-all"
+              >
+                <div
+                  class="position-relative overflow-hidden"
+                  style="background: #f1f5f9"
+                >
+                  <img
+                    src="./image3.jpg"
+                    class="card-img-top"
+                    alt="Deepa Krishnan"
+                    style="
+                      transition: transform 0.5s ease;
+                      object-fit: cover;
+                      height: 260px;
+                      width: 100%;
+                    "
+                  />
+                </div>
+                <div class="card-body py-4 px-3">
+                  <h5 class="mb-1 fw-bold">Deepa Krishnan</h5>
+                  <h6 class="text-primary mb-2 fw-semibold">
+                    Head of Counseling
+                  </h6>
+                  <p class="card-text small text-secondary">
+                    ICF-certified coach, helped 5k+ students get into top
+                    universities.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+              <div
+                class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center transition-all"
+              >
+                <div
+                  class="position-relative overflow-hidden"
+                  style="background: #f1f5f9"
+                >
+                  <img
+                    src="./image1.jpg"
+                    class="card-img-top"
+                    alt="Rajesh Iyer"
+                    style="
+                      transition: transform 0.5s ease;
+                      object-fit: cover;
+                      height: 260px;
+                      width: 100%;
+                    "
+                  />
+                </div>
+                <div class="card-body py-4 px-3">
+                  <h5 class="mb-1 fw-bold">Rajesh Iyer</h5>
+                  <h6 class="text-primary mb-2 fw-semibold">VP Partnerships</h6>
+                  <p class="card-text small text-secondary">
+                    Built alliances with 200+ institutions, driving global
+                    reach.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Card 2 -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100">
-          <img src="./image1.jpg" class="card-img-top" alt="..." />
-          <div class="card-body py-3 px-2">
-            <h5 class="mb-0 fs-5">Arjun Mehta</h5>
-            <h6 class="text-primary mb-2">CTO</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title.
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100">
-          <img src="./image2.jpg" class="card-img-top" alt="..." />
-          <div class="card-body py-3 px-2">
-            <h5 class="mb-0 fs-5">Deepa Krishnan</h5>
-            <h6 class="text-primary mb-2">Head of Counseling</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title.
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100">
-          <img src="./image1.jpg" class="card-img-top" alt="..." />
-          <div class="card-body py-3 px-2">
-            <h5 class="mb-0 fs-5">Rajesh Iyer</h5>
-            <h6 class="text-primary mb-2">VP Partnerships</h6>
-            <p class="card-text">
-              Some quick example text to build on the card title.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
     </section>
     <!-- ------------------- our offering  -->
-    <section class="offering-sec text-center py-5 px-3 ">
+    <section class="offering-sec text-center py-5 px-3">
       <div class="container">
         <h1 class="fw-bold">Our Offering</h1>
         <ul class="list-unstyled d-flex justify-content-center gap-4">
@@ -2305,7 +2080,7 @@
       </div>
     </section>
     <!-- ----------------------top recruters -->
-    <section class="h-auto bg-white py-5 px-3 ">
+    <section class="h-auto bg-white py-5 px-3">
       <div class="top-h-rec py-2 px-1">
         <h2 class="text-danger">Top Recruiters</h2>
         <h4 class="text-primary">Get placed where you belong</h4>
@@ -2426,74 +2201,131 @@
         </div>
       </div>
     </section>
-    <!-- testimonals  -->
-    <section class="testimonal-section py-5 px-3 ">
+    <!-- testimonials / expert guidance section - modern & professional -->
+    <section
+      class="testimonal-section py-4 px-3"
+      style="background: linear-gradient(135deg, #0a0f2a 0%, #0b1437 100%)"
+    >
       <div class="container">
-        <!-- Top Text -->
-        <div class="testi-top text-light text-center mb-4">
-          <h1 class="fw-light">Personalised Guidance.</h1>
-          <h2>Trusted Experts.</h2>
-          <h6>Get in touch with our expert counsellors</h6>
+        <!-- Top Text with refined typography -->
+        <div class="testi-top text-center">
+          <h3 class="fw-light text-white" style="letter-spacing: -0.5px">
+            Personalised Guidance.
+          </h3>
+          <h2
+            class="fw-bold"
+            style="
+              font-size: clamp(2rem, 6vw, 3rem);
+              background: linear-gradient(90deg, #fff, #90cdf4);
+              background-clip: text;
+              -webkit-background-clip: text;
+              color: transparent;
+            "
+          >
+            Trusted Experts.
+          </h2>
+          <div
+            class="mx-auto my-3"
+            style="
+              width: 70px;
+              height: 3px;
+              background: linear-gradient(90deg, #e85d3a, #f9a26c);
+              border-radius: 3px;
+            "
+          ></div>
+          <h6
+            class="text-white-50 mt-2"
+            style="font-weight: 400; font-size: 1.1rem"
+          >
+            Get in touch with our expert counsellors
+          </h6>
         </div>
 
-        <!-- Inputs: stacked on mobile, row on md+ -->
-        <div class="testi-bottom row g-3 justify-content-center">
+        <!-- Inputs: modern glassmorphic card style -->
+        <div class="testi-bottom row g-4 justify-content-center">
           <div class="col-12 col-md-6 col-lg-3">
             <input
               type="text"
-              placeholder="Enter your name..."
-              class="p-1 px-3 border-0 w-100"
+              placeholder="Full name"
+              class="form-control bg-white bg-opacity-10 border-0 text-white py-2 px-3 rounded-3"
+              style="backdrop-filter: blur(4px)"
             />
           </div>
           <div class="col-12 col-md-6 col-lg-3">
             <input
               type="email"
-              placeholder="Enter your email..."
-              class="p-1 px-3 border-0 w-100"
+              placeholder="Email address"
+              class="form-control bg-white bg-opacity-10 border-0 text-white py-2 px-3 rounded-3"
             />
           </div>
           <div class="col-12 col-md-6 col-lg-3">
             <input
-              type="text"
-              placeholder="Enter your mobile no..."
-              class="p-1 px-3 border-0 w-100"
+              type="tel"
+              placeholder="Mobile number"
+              class="form-control bg-white bg-opacity-10 border-0 text-white py-2 px-3 rounded-3"
             />
           </div>
           <div class="col-12 col-md-6 col-lg-3">
-            <select class="p-1 px-3 border-0 text-muted w-100">
+            <select
+              class="form-select bg-white bg-opacity-10 border-0 text-white-50 py-2 px-3 rounded-3"
+            >
               <option value="" disabled selected>Your Stream</option>
-              <option value="">Management</option>
-              <option value="">Science</option>
-              <option value="">Law</option>
-              <option value="">Agriculture</option>
-              <option value="">Pharmacy</option>
-              <option value="">Nursing</option>
-              <option value="">Other</option>
+              <option>Management</option>
+              <option>Science</option>
+              <option>Law</option>
+              <option>Agriculture</option>
+              <option>Pharmacy</option>
+              <option>Nursing</option>
+              <option>Other</option>
             </select>
           </div>
         </div>
 
-        <!-- Button -->
-        <div class="btn-testi d-flex align-items-center justify-content-center">
+        <!-- Modern CTA Button -->
+        <div class="btn-testi d-flex justify-content-center mt-4">
           <button
-            class="px-3 py-2 mt-3 border-0"
+            class="px-4 py-2 rounded-pill border-0 fw-semibold"
+            style="
+              background: linear-gradient(95deg, #e85d3a, #f97316);
+              color: white;
+              transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+            "
             data-bs-toggle="modal"
             data-bs-target="#connectModal"
+            onmouseover="
+              this.style.transform = 'scale(1.02)';
+              this.style.boxShadow = '0 8px 20px rgba(233,93,58,0.3)';
+            "
+            onmouseout="
+              this.style.transform = 'scale(1)';
+              this.style.boxShadow = 'none';
+            "
           >
-            Connect our Counsellors
+            Connect with Counsellors →
           </button>
         </div>
 
-        <!-- Terms -->
-        <div class="d-flex align-items-center justify-content-center mt-3">
-          <p class="text-light w-75 w-md-50 text-center">
+        <!-- Terms (clean & minimal) -->
+        <div class="d-flex justify-content-center mt-4">
+          <p
+            class="text-white-50 small text-center"
+            style="max-width: 500px; font-size: 0.75rem"
+          >
             By proceeding ahead you expressly agree to the campusWalkin
-            <span class="text-primary">terms of use</span> and
-            <span class="text-primary">privacy policy</span>.
+            <a href="#" class="text-decoration-none" style="color: #f9a26c"
+              >terms of use</a
+            >
+            and
+            <a href="#" class="text-decoration-none" style="color: #f9a26c"
+              >privacy policy</a
+            >.
           </p>
         </div>
       </div>
     </section>
+
     <!-- ═══ FOOTER ═══ -->
     <footer>
       <div class="fi">
@@ -5018,26 +4850,26 @@
           cmGrid.innerHTML = courses
             .map(
               (c) => `
-        <div class="cm-item border rounded-2 overflow-hidden">
-          <div class="cm-c p-3 rounded-2  d-block text-decoration-none bg-white">
-            <div class="cm-cn">${c.n}</div>
-            <div class="cm-cs">${c.s}</div>
-          </div>
-          <div class="cm-drop px-3 overflow-hidden">
-            <div class="cm-h-title fw-semibold">Top Colleges</div>
-            <div class="cm-h-list">
-              ${(c.colleges || [])
-                .slice(0, 5) // sirf first 5 colleges
-                .map(
-                  (col) =>
-                    `<a href="${col.link}" target="_blank" class="d-block">${col.name}</a>`,
-                )
-                .join("")}
+          <div class="cm-item border rounded-2 overflow-hidden">
+            <div class="cm-c p-3 rounded-2  d-block text-decoration-none bg-white">
+              <div class="cm-cn">${c.n}</div>
+              <div class="cm-cs">${c.s}</div>
             </div>
-            <a href="#" class="cm-view text-decoration-none mt-2 d-inline-block fw-semibold">View More →</a>
+            <div class="cm-drop px-3 overflow-hidden">
+              <div class="cm-h-title fw-semibold">Top Colleges</div>
+              <div class="cm-h-list">
+                ${(c.colleges || [])
+                  .slice(0, 5) // sirf first 5 colleges
+                  .map(
+                    (col) =>
+                      `<a href="${col.link}" target="_blank" class="d-block">${col.name}</a>`,
+                  )
+                  .join("")}
+              </div>
+              <a href="#" class="cm-view text-decoration-none mt-2 d-inline-block fw-semibold">View More →</a>
+            </div>
           </div>
-        </div>
-      `,
+        `,
             )
             .join("");
         }
@@ -5101,29 +4933,59 @@
       }
     </script>
     <script>
-      const programWrap = document.getElementById("programWrap");
-      const programBtn = programWrap.querySelector(".program-btn");
+      (function () {
+        // Fix for Programs dropdown hover: prevent closing when moving from button to menu
+        const programWrap = document.getElementById("programWrap");
+        if (!programWrap) return;
 
-      /* CLICK LOCK */
-      programBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        programWrap.classList.toggle("active");
-      });
+        const programBtn = programWrap.querySelector(".program-btn");
+        const programCard = programWrap.querySelector(".programs-card");
+        if (!programBtn || !programCard) return;
 
-      /* OUTSIDE CLICK CLOSE */
-      document.addEventListener("click", function (e) {
-        if (!programWrap.contains(e.target)) {
-          programWrap.classList.remove("active");
+        let hoverTimeout;
+
+        function openDropdown() {
+          clearTimeout(hoverTimeout);
+          programWrap.classList.add("active");
         }
-      });
+
+        function closeDropdown() {
+          hoverTimeout = setTimeout(() => {
+            programWrap.classList.remove("active");
+          }, 100);
+        }
+
+        programBtn.addEventListener("mouseenter", openDropdown);
+        programCard.addEventListener("mouseenter", openDropdown);
+
+        programWrap.addEventListener("mouseleave", closeDropdown);
+
+        programBtn.addEventListener("mouseleave", (e) => {
+          if (!programCard.contains(e.relatedTarget)) {
+            closeDropdown();
+          }
+        });
+      })();
     </script>
     <script>
       /* ── Location ── */
-      function toggleLoc(e) {
-        e.stopPropagation();
-        document.getElementById("locWrap").classList.toggle("open");
+      function toggleAcc(btn) {
+        btn.classList.toggle("open");
+        const body = btn.nextElementSibling;
+        if (body) {
+          body.classList.toggle("show");
+          body.classList.toggle("open");
+        }
       }
 
+      // Ensure all md-acc-btn buttons have this behaviour
+      document.querySelectorAll(".md-acc-btn").forEach((btn) => {
+        // Remove any existing inline onclick to avoid duplicates, but keep our function
+        btn.onclick = function (e) {
+          e.preventDefault();
+          toggleAcc(this);
+        };
+      });
       function setLoc(name) {
         document.getElementById("locName").textContent = name;
         document.getElementById("locWrap").classList.remove("open");
@@ -5377,7 +5239,7 @@
       const recruiters = document.getElementById("recruiters");
       recruiters.innerHTML += recruiters.innerHTML;
     </script>
-        <script>
+    <script>
       const navbar = document.querySelector(".navbar");
       const stickyOffset = navbar.offsetTop;
 
@@ -5388,6 +5250,81 @@
           navbar.classList.remove("sticky");
         }
       });
+    </script>
+    <script>
+      (function () {
+        // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
+        // Close drawer when any modal is triggered via data-bs-toggle
+        const modalTriggers = document.querySelectorAll(
+          '[data-bs-toggle="modal"]',
+        );
+        modalTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", function (e) {
+            // If we are in responsive mode (drawer is open), close it
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            if (drawer && drawer.classList.contains("open")) {
+              // Small delay to allow modal to open, then close drawer
+              setTimeout(() => {
+                closeDrawer();
+              }, 10);
+            }
+          });
+        });
+
+        // Also listen to Bootstrap modal show event (backup)
+        document.addEventListener("show.bs.modal", function () {
+          if (window.innerWidth <= 991) {
+            closeDrawer();
+          }
+        });
+
+        // ========== FIX: MOBILE DRAWER ACCORDION (Programs, Courses, Explore) ==========
+        // Ensure toggleAcc function works consistently
+        window.toggleAcc = function (btn) {
+          btn.classList.toggle("open");
+          const body = btn.nextElementSibling;
+          if (body) {
+            body.classList.toggle("show");
+            body.classList.toggle("open");
+          }
+        };
+
+        // Re-attach event listeners to all drawer accordion buttons
+        document.querySelectorAll(".md-acc-btn").forEach((btn) => {
+          // Remove any existing inline onclick to avoid conflicts
+          btn.removeAttribute("onclick");
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.toggleAcc(this);
+          });
+        });
+
+        // Ensure closeDrawer and openDrawer are globally available
+        window.closeDrawer =
+          window.closeDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.remove("open");
+            if (overlay) overlay.classList.remove("open", "show");
+            if (ham) ham.classList.remove("active");
+            document.body.style.overflow = "";
+          };
+
+        window.openDrawer =
+          window.openDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.add("open");
+            if (overlay) overlay.classList.add("open", "show");
+            if (ham) ham.classList.add("active");
+            document.body.style.overflow = "hidden";
+          };
+      })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

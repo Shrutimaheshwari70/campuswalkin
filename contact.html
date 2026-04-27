@@ -95,12 +95,14 @@
       .topbar p {
         font-size: 13px;
       }
-      /* ─────────────────────────────────────
-   NAVBAR WRAPPER
-───────────────────────────────────── */
+  /* ─────────────────────────────────────
+    NAVBAR WRAPPER
+  ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
+          border-bottom: 1px solid var(--border);
+
         background-color: white;
         z-index: 300;
         height: 58px;
@@ -109,6 +111,12 @@
       /* ── ROW 1 ── */
       .nav-r1 {
         height: 50px;
+        position: relative;
+      }
+      .center-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .navbar.sticky {
         position: fixed;
@@ -117,8 +125,8 @@
         width: 130px;
       }
       /* ══════════════════════════
-   BREAKPOINT — Mobile ≤ 768px
-══════════════════════════ */
+    BREAKPOINT — Mobile ≤ 768px
+  ══════════════════════════ */
       @media (max-width: 768px) {
         /* Show hamburger, hide desktop auth + desktop nav */
         .ham-btn {
@@ -361,12 +369,18 @@
         height: 2px;
         transition: all 0.3s;
       }
-      .ham-btn.active span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-      .ham-btn.active span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
+           /* Active Cross */
+.ham-btn.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.ham-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-btn.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
       /* --------------mobile menu  */
       #mDrawer {
         position: fixed;
@@ -385,13 +399,7 @@
       }
       .nav-r1 {
         border-bottom: 1px solid rgba(199, 199, 199, 0.407);
-        position: relative;
       }
-           .center-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
       /* ─── Topbar ─────────────────────────────────────────────────── */
       @media (max-width: 991px) {
         .topbar {
@@ -402,15 +410,39 @@
         }
         .navbar {
           height: 60px;
+    border-bottom: 1px solid var(--border);
         }
       }
-
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
       @media (max-width: 1199px) {
+        .topbar {
+          padding: 0 25px !important;
+        }
         .nav-r1 {
-          padding: 0 16px !important;
+          padding: 0 20px !important;
+        }
+        .explore-btn span {
+          font-size: 10px;
         }
 
+        .icon-btn svg {
+          font-size: 10px;
+        }
+        .center-nav a {
+          font-size: 13px;
+        }
+        .program-btn {
+          font-size: 13px;
+        }
+        .logo-mark {
+          width: 110px;
+        }
+        .btn-ln {
+          font-size: 10px;
+        }
+        .btn-su {
+          font-size: 10px;
+        }
         .center-nav {
           gap: 12px !important;
         }
@@ -584,9 +616,9 @@
         width: 100%;
         height: 20px;
       }
-       /* ─────────────────────────────────────
-     FOOTER
-  ───────────────────────────────────── */
+      /* ─────────────────────────────────────
+      FOOTER
+    ───────────────────────────────────── */
       footer {
         background: #0f1729;
         padding: 40px 3rem 20px;
@@ -633,8 +665,8 @@
         background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
       }
       /* ─────────────────────────────────────
-     RESPONSIVE OVERRIDES
-  ───────────────────────────────────── */
+      RESPONSIVE OVERRIDES
+    ───────────────────────────────────── */
 
       /* Tablet: 768px – 1199px */
       @media (max-width: 1199px) {
@@ -697,55 +729,6 @@
           flex-wrap: wrap;
         }
       }
-      .cn-link {
-        font-size: 14px;
-      }
-
-   /* ─────────────────────────────────────
-   CTA
-───────────────────────────────────── */
-      .cta-sec {
-        background: var(--bg);
-      }
-      .cta-box {
-        background: linear-gradient(135deg, var(--navy), #1a3a7a);
-      }
-      .cta-box p {
-        color: #8aa4d0;
-        font-size: 0.85rem;
-      }
-      .form-inp button {
-        background-color: var(--navy2);
-      }
-      .form-inp input:focus,
-      .btn-close:focus {
-        border-color: none;
-        box-shadow: none;
-        outline: none;
-      }
-      .cta-inner {
-        max-width: 900px;
-        margin: auto;
-      }
-      @media (max-width: 768px) {
-        .cta-box {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 1.5rem;
-        }
-
-        .cta-btns {
-          width: 100%;
-        }
-        .cta-btns button {
-          width: 100%;
-        }
-      }
-      @media (max-width: 768px) {
-        .cta-box {
-          padding: 1.5rem !important;
-        }
-      }
       /* ═══════════════════ CONTACT PAGE ═══════════════════ */
 
       /* HERO */
@@ -755,6 +738,9 @@
           #0b1437 0%,
           #200f6b 100%
         );
+        min-height: 400px;
+        padding-top: 100px;
+        /* margin-top: 60px;   */
       }
 
       .contact-hero .eyebrow {
@@ -964,7 +950,7 @@
       .sidebar-inner {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
       }
 
       /* Info block */
@@ -972,18 +958,17 @@
         background: var(--white);
         border: 1.5px solid var(--border);
         border-radius: 18px;
-        padding: 26px 24px;
+        padding: 16px 24px;
       }
       .info-block h3 {
         font-size: 1.1rem;
         color: var(--navy);
-        margin-bottom: 18px;
       }
       .info-row {
         display: flex;
         align-items: flex-start;
         gap: 14px;
-        padding: 12px 0;
+        padding: 10px 0;
         border-bottom: 1px solid var(--border);
       }
       .info-row:last-child {
@@ -1009,24 +994,20 @@
         font-size: 0.88rem;
         color: var(--navy);
       }
-      .ir-sub {
-        font-size: 0.72rem;
-        color: var(--muted);
-        margin-top: 1px;
-      }
 
       /* Counsellor card */
       .counsellor-card {
         background: linear-gradient(135deg, var(--navy), #1a3a7a);
         border-radius: 18px;
         padding: 26px 24px;
+        height: 200px;
         position: relative;
         overflow: hidden;
       }
       .counsellor-card::before {
         content: "";
         position: absolute;
-        top: -50px;
+        top: -30px;
         right: -50px;
         width: 180px;
         height: 180px;
@@ -1038,42 +1019,17 @@
         font-size: 0.68rem;
         text-transform: uppercase;
         color: #60a5fa;
-        margin-bottom: 10px;
       }
       .cc-title {
         font-size: 1.1rem;
         color: #fff;
-        margin-bottom: 8px;
       }
       .cc-desc {
         font-size: 0.78rem;
         color: #94b4da;
         margin-bottom: 18px;
       }
-      .cc-team {
-        display: flex;
-        margin-bottom: 16px;
-      }
-      .cc-av {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        margin-left: -8px;
-      }
-      .cc-av:first-child {
-        margin-left: 0;
-      }
-      .cc-team-lbl {
-        font-size: 0.72rem;
-        color: #94b4da;
-        align-self: center;
-        margin-left: 10px;
-      }
+     
       .btn-call {
         width: 100%;
         padding: 11px;
@@ -1127,7 +1083,6 @@
       .social-block h3 {
         font-size: 1rem;
         color: var(--navy);
-        margin-bottom: 14px;
       }
       .social-grid {
         display: grid;
@@ -1245,177 +1200,268 @@
         font-size: 3rem;
         opacity: 0.4;
       }
-     
+     /* ═══════════════════ CONTACT PAGE RESPONSIVE FIX ═══════════════════ */
+
+/* Desktop Large */
+@media (max-width: 1400px) {
+  .contact-hero h1 {
+    font-size: 2.6rem;
+  }
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .contact-hero h1 {
+    font-size: 2.3rem;
+    line-height: 1.3;
+  }
+
+  .counsellor-card {
+    height: auto;
+  }
+
+  .map-wrap {
+    height: 340px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .contact-hero {
+    padding: 70px 0 50px;
+    text-align: center;
+  }
+
+  .contact-hero h1 {
+    font-size: 2rem;
+  }
+
+  .contact-hero p {
+    width: 100% !important;
+    margin: auto;
+  }
+
+  .hero-side {
+    margin-top: 25px;
+  }
+
+  .stat-float {
+    padding: 20px !important;
+  }
+
+  .sidebar-inner {
+    margin-top: 20px;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .map-wrap {
+    height: 320px;
+  }
+
+  .faq-sec h2,
+  .map-sec h2,
+  .form-card h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 60px 0 40px;
+    /* min-height: auto; */
+  }
+
+  .contact-hero h1 {
+    font-size: 1.7rem;
+    line-height: 1.35;
+  }
+
+  .contact-hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero-side .col-6 {
+    width: 100%;
+  }
+
+  .stat-float {
+    margin-bottom: 10px;
+  }
+
+  .contact-card {
+    padding: 16px !important;
+  }
+
+  .cc-card-title,
+  .cc-card-val {
+    font-size: 0.85rem;
+  }
+
+  .cc-card-sub {
+    font-size: 0.72rem;
+  }
+
+  .form-card {
+    padding: 22px 18px !important;
+  }
+
+  .fc-input,
+  .fc-select,
+  .fc-textarea {
+    font-size: 0.84rem;
+    padding: 10px 12px;
+  }
+
+  .btn-submit,
+  .btn-call {
+    font-size: 0.85rem;
+    padding: 12px;
+  }
+
+  .info-block,
+  .social-block,
+  .counsellor-card {
+    padding: 18px !important;
+  }
+
+  .faq-q {
+    font-size: 0.84rem;
+    padding: 15px 16px;
+  }
+
+  .faq-a {
+    font-size: 0.78rem;
+    padding: 12px 16px 16px;
+  }
+
+  .map-wrap {
+    height: 280px;
+    border-radius: 14px;
+  }
+
+  .map-sec h2,
+  .faq-sec h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .contact-hero h1 {
+    font-size: 1.45rem;
+  }
+
+  .contact-hero .eyebrow {
+    font-size: 0.9rem !important;
+  }
+
+  .contact-card {
+    text-align: center;
+  }
+
+  .cc-icon-wrap {
+    margin: auto auto 12px;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-row {
+    gap: 10px;
+  }
+
+  .ir-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+
+  .ir-val {
+    font-size: 0.8rem;
+  }
+
+  .form-card h2,
+  .faq-sec h2,
+  .map-sec h2 {
+    font-size: 1.25rem;
+  }
+
+  .map-wrap {
+    height: 240px;
+  }
+
+  .sec-eyebrow {
+    font-size: 0.68rem !important;
+  }
+}
+
+/* Extra Small */
+@media (max-width: 400px) {
+  .contact-hero h1 {
+    font-size: 1.28rem;
+  }
+
+  .btn-submit,
+  .btn-call {
+    font-size: 0.8rem;
+  }
+
+  .faq-q {
+    font-size: 0.78rem;
+  }
+
+  .map-wrap {
+    height: 220px;
+  }
+}
       /* ─────────────────────────────────────
-     FOOTER
-  ───────────────────────────────────── */
-   footer {
-        background: #0f1729;
-        padding: 40px 3rem 20px;
+   CTA
+───────────────────────────────────── */
+      .cta-sec {
+        background: var(--bg);
       }
-      .fg {
-        display: grid;
-        grid-template-columns: 220px 1fr;
-        gap: 5rem;
-        margin-bottom: 2rem;
+      .cta-box {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
       }
-      .footer-icons-social i:hover {
-        color: rgb(132, 132, 238);
-        background-color: var(--navy);
-        border: 1px solid rgb(71, 71, 71);
+      .cta-box p {
+        color: #8aa4d0;
+        font-size: 0.85rem;
       }
-      .fb p {
-        font-size: 0.79rem;
-        color: #bcbcbc;
-        margin-top: 8px;
-        line-height: 1.8;
+      .form-inp button {
+        background-color: var(--navy2);
       }
-      .fl {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10rem;
+      .form-inp input:focus,
+      .btn-close:focus {
+        border-color: none;
+        box-shadow: none;
+        outline: none;
       }
-      .fl-t {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #ffffff;
-        margin-bottom: 15px;
+      .cta-inner {
+        max-width: 900px;
+        margin: auto;
       }
-      .fl-a {
-        display: block;
-        font-size: 0.95rem;
-        color: #c2c2c2;
-        text-decoration: none;
-        margin-bottom: 15px;
-        transition: color 0.2s;
-      }
-      .fl-a:hover {
-        color: #ffffff;
-      }
-      .fb-bot {
-        border-top: 1px solid rgba(144, 144, 144, 0.371);
-        padding-top: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-      }
-      .fb-bot p {
-        font-size: 0.7rem;
-        color: #3d5280;
-      }
-      .left-footer {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      .left-footer p {
-        color: rgb(160, 160, 160);
-        font-size: 13px;
-        margin: 0;
-      }
-      .right-footer p {
-        color: rgb(160, 160, 160);
-        font-size: 13px;
-        margin: 0;
-      }
-      .right-footer i {
-        color: rgb(160, 160, 160);
-        font-size: 14px;
-        margin-top: 4px;
-        margin-left: 10px;
-      }
-      .footer-icons-social {
-        margin-top: 20px;
-        gap: 10px;
-        display: flex;
-        color: rgb(160, 160, 160);
-      }
-      .footer-icons-social a {
-        color: rgb(160, 160, 160);
-        text-decoration: none;
-      }
-      .footer-icons-social i {
-        padding: 8px;
-        background-color: rgba(219, 219, 219, 0.138);
-        border: 1px solid rgb(5, 5, 54);
-        border-radius: 5px;
-      }
-      .cw-logo {
-        padding: 6px;
-        color: white;
-        background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
-        font-size: 15px;
-        border-radius: 4px;
-      }
-
-      /* ─────────────────────────────────────
-     RESPONSIVE OVERRIDES
-  ───────────────────────────────────── */
-
-      /* Tablet: 768px – 1199px */
-      @media (max-width: 1199px) {
-        footer {
-          padding: 40px 2rem 20px;
-        }
-        .fg {
-          grid-template-columns: 200px 1fr;
-          gap: 2.5rem;
-        }
-        .fl {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
-        }
-      }
-
-      /* Mobile landscape + tablet portrait: up to 767px */
-      @media (max-width: 767px) {
-        footer {
-          padding: 32px 1.25rem 20px;
-        }
-        .fg {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        .fl {
-          grid-template-columns: repeat(2, 1fr);
+      @media (max-width: 768px) {
+        .cta-box {
+          flex-direction: column;
+          align-items: flex-start;
           gap: 1.5rem;
         }
-        .fb-bot {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.75rem;
+
+        .cta-btns {
+          width: 100%;
         }
-        .left-footer {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 6px;
-        }
-        .left-footer i {
-          display: none;
+        .cta-btns button {
+          width: 100%;
         }
       }
-
-      /* Mobile portrait: up to 480px */
-      @media (max-width: 480px) {
-        footer {
-          padding: 28px 1rem 16px;
-        }
-        .fl {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
-        }
-        .fl-t {
-          font-size: 0.95rem;
-        }
-        .fl-a {
-          font-size: 0.85rem;
-          margin-bottom: 10px;
-        }
-        .footer-icons-social {
-          flex-wrap: wrap;
+      @media (max-width: 768px) {
+        .cta-box {
+          padding: 1.5rem !important;
         }
       }
       .uni-p {
@@ -1453,6 +1499,54 @@
     </style>
   </head>
   <body>
+        <!-- --------------form popup  -->
+            <div class="modal fade" id="connectModal" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3 rounded-3">
+                  <!-- ----------------header  -->
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3 flex-wrap"
+                  >
+                    <h5>Get Free Guidance</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                    ></button>
+                  </div>
+                  <!-- form ------------------ -->
+                  <form class="form-inp">
+                    <input
+                      type="text"
+                      placeholder="Enter your name..."
+                      class="form-control mb-2"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Enter your email..."
+                      class="form-control mb-2"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Enter your Number..."
+                      class="form-control mb-2"
+                    />
+                    <select class="form-select mb-2">
+                      <option selected disabled>Choose a program</option>
+                      <option>Executive Program</option>
+                      <option>Offline Program</option>
+                      <option>Online Program</option>
+                    </select>
+                    <button
+                      type="submit"
+                      class="w-100 text-white py-1 border-0"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
         <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
@@ -1657,7 +1751,7 @@
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
         <!-- LOGO -->
         <a href="#" class="logo">
@@ -1666,7 +1760,7 @@
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="#" class="cn-link text-decoration-none text-dark">Home</a>
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -2055,7 +2149,9 @@
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <!-- All Courses -->
         <div class="courses-wrap" id="coursesWrap">
           <button
@@ -2089,23 +2185,32 @@
           </button>
 
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
+            <div class="cm-inner d-flex">
               <!-- Left: Categories -->
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
 
               <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
                 <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -2152,16 +2257,42 @@
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
 
                 <!-- Dynamic grid -->
@@ -2385,10 +2516,10 @@
       style="backdrop-filter: blur(2px)"
     ></div>
     <!-- ══════════════ CONTACT HERO ══════════════ -->
-    <section class="contact-hero py-5">
-      <div class="container">
+    <section class="contact-hero">
+      <div class="px-4">
         <div class="row align-items-center g-5">
-          <div class="col-lg-6">
+          <div class="col-lg-6 ">
             <div class="eyebrow fs-5">Get In Touch</div>
             <h1 class="text-white">
               We're Here to <span class="hl">Help You</span><br />Find Your Path
@@ -2557,6 +2688,105 @@
                       <option>Other</option>
                     </select>
                   </div>
+                  
+<div class="col-sm-6">
+  <label class="fc-label mb-1 d-block">Select City</label>
+  <select class="fc-select fc-input">
+    <option value="">Select City...</option>
+    <option>Mumbai</option>
+    <option>Delhi</option>
+    <option>Bangalore</option>
+    <option>Hyderabad</option>
+    <option>Chennai</option>
+    <option>Kolkata</option>
+    <option>Pune</option>
+    <option>Ahmedabad</option>
+    <option>Jaipur</option>
+    <option>Lucknow</option>
+    <option>Kanpur</option>
+    <option>Nagpur</option>
+    <option>Indore</option>
+    <option>Bhopal</option>
+    <option>Patna</option>
+    <option>Surat</option>
+    <option>Vadodara</option>
+    <option>Nashik</option>
+    <option>Visakhapatnam</option>
+    <option>Vijayawada</option>
+    <option>Coimbatore</option>
+    <option>Madurai</option>
+    <option>Kochi</option>
+    <option>Thiruvananthapuram</option>
+    <option>Mysore</option>
+    <option>Mangalore</option>
+    <option>Raipur</option>
+    <option>Ranchi</option>
+    <option>Bhubaneswar</option>
+    <option>Guwahati</option>
+    <option>Chandigarh</option>
+    <option>Amritsar</option>
+    <option>Ludhiana</option>
+    <option>Jalandhar</option>
+    <option>Dehradun</option>
+    <option>Noida</option>
+    <option>Ghaziabad</option>
+    <option>Faridabad</option>
+    <option>Gurgaon</option>
+    <option>Agra</option>
+    <option>Meerut</option>
+    <option>Varanasi</option>
+    <option>Prayagraj</option>
+    <option>Srinagar</option>
+    <option>Jammu</option>
+    <option>Shimla</option>
+    <option>Jodhpur</option>
+    <option>Udaipur</option>
+    <option>Kota</option>
+    <option>Other</option>
+  </select>
+</div><div class="col-sm-6">
+  <label class="fc-label mb-1 d-block">Select State</label>
+  <select class="fc-select fc-input">
+    <option value="">Select State...</option>
+    <option>Andhra Pradesh</option>
+    <option>Arunachal Pradesh</option>
+    <option>Assam</option>
+    <option>Bihar</option>
+    <option>Chhattisgarh</option>
+    <option>Goa</option>
+    <option>Gujarat</option>
+    <option>Haryana</option>
+    <option>Himachal Pradesh</option>
+    <option>Jharkhand</option>
+    <option>Karnataka</option>
+    <option>Kerala</option>
+    <option>Madhya Pradesh</option>
+    <option>Maharashtra</option>
+    <option>Manipur</option>
+    <option>Meghalaya</option>
+    <option>Mizoram</option>
+    <option>Nagaland</option>
+    <option>Odisha</option>
+    <option>Punjab</option>
+    <option>Rajasthan</option>
+    <option>Sikkim</option>
+    <option>Tamil Nadu</option>
+    <option>Telangana</option>
+    <option>Tripura</option>
+    <option>Uttar Pradesh</option>
+    <option>Uttarakhand</option>
+    <option>West Bengal</option>
+    <option>Delhi</option>
+    <option>Jammu & Kashmir</option>
+    <option>Ladakh</option>
+    <option>Chandigarh</option>
+    <option>Puducherry</option>
+    <option>Andaman & Nicobar</option>
+    <option>Dadra & Nagar Haveli and Daman & Diu</option>
+    <option>Lakshadweep</option>
+  </select>
+</div>
+
                   <div class="col-sm-6">
                     <label class="fc-label mb-1 d-block">Preferred Mode</label>
                     <select class="fc-select fc-input">
@@ -2616,46 +2846,8 @@
                   Get personalised guidance on courses, colleges, and admissions
                   — completely free, no pressure.
                 </div>
-                <div class="d-flex align-items-center mb-4">
-                  <div class="cc-team">
-                    <div
-                      class="cc-av"
-                      style="
-                        background: linear-gradient(135deg, #2563eb, #7c3aed);
-                      "
-                    >
-                      S
-                    </div>
-                    <div
-                      class="cc-av"
-                      style="
-                        background: linear-gradient(135deg, #0aab87, #2563eb);
-                      "
-                    >
-                      A
-                    </div>
-                    <div
-                      class="cc-av"
-                      style="
-                        background: linear-gradient(135deg, #e85d3a, #e8a020);
-                      "
-                    >
-                      P
-                    </div>
-                    <div
-                      class="cc-av"
-                      style="
-                        background: rgba(255, 255, 255, 0.15);
-                        font-size: 0.65rem;
-                        color: #fff;
-                      "
-                    >
-                      +24
-                    </div>
-                  </div>
-                  <span class="cc-team-lbl">Expert counsellors online now</span>
-                </div>
-                <button class="btn-call">
+              
+                <button class="btn-call border">
                   <i class="bi bi-telephone-fill"></i> Schedule a Free Call
                 </button>
               </div>
@@ -2673,7 +2865,6 @@
                   <div>
                     <div class="ir-label">Phone</div>
                     <div class="ir-val">1800-XXX-XXXX</div>
-                    <div class="ir-sub">Toll free · All India</div>
                   </div>
                 </div>
                 <div class="info-row">
@@ -2686,7 +2877,6 @@
                   <div>
                     <div class="ir-label">Email</div>
                     <div class="ir-val">help@campuswalkin.com</div>
-                    <div class="ir-sub">Response within 2 hours</div>
                   </div>
                 </div>
                 <div class="info-row">
@@ -2699,7 +2889,6 @@
                   <div>
                     <div class="ir-label">Headquarters</div>
                     <div class="ir-val">Level 12, Bandra Kurla Complex</div>
-                    <div class="ir-sub">Mumbai, Maharashtra – 400051</div>
                   </div>
                 </div>
                 <div class="info-row">
@@ -2712,7 +2901,6 @@
                   <div>
                     <div class="ir-label">WhatsApp</div>
                     <div class="ir-val">+91 98765 43210</div>
-                    <div class="ir-sub">Instant chat support</div>
                   </div>
                 </div>
               </div>
@@ -2747,35 +2935,39 @@
     </section>
 
     <!-- ══════════════ OUR OFFICES ══════════════ -->
-    <section class="map-sec">
-      <div class="container">
-        <div
-          class="sec-eyebrow mb-2"
-          style="
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            color: var(--accent);
-          "
-        >
-          Our Locations
-        </div>
-        <h2>Visit an Office Near You</h2>
-        <p class="text-muted mb-4" style="font-size: 0.88rem">
-          Walk in anytime during office hours. No appointment needed.
-        </p>
+<section class="map-sec">
+  <div class="container">
+    <div
+      class="sec-eyebrow mb-2"
+      style="
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        color: var(--accent);
+      "
+    >
+      Our Locations
+    </div>
 
-        <div class="map-wrap mb-4">
-          <div class="map-placeholder-icon">🗺️</div>
-            Interactive Map
-          </div>
-          <div style="font-size: 0.78rem">
-            Embed your Google Maps iframe here
-          </div>
-        </div>
+    <h2>Visit an Office Near You</h2>
 
-     
-      </div>
-    </section>
+    <p class="text-muted mb-4" style="font-size: 0.88rem">
+      Walk in anytime during office hours. No appointment needed.
+    </p>
+
+    <div class="map-wrap mb-4">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.122176505934!2d77.04020037528178!3d28.445733175767298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19347ce7f823%3A0xfa551b6c7b3b4d27!2sCampusWalkin!5e0!3m2!1sen!2sin!4v1777016436369!5m2!1sen!2sin"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
 
     <!-- ══════════════ FAQ ══════════════ -->
     <section class="faq-sec">
@@ -2918,54 +3110,7 @@
             >
               Book Free Counselling
             </button>
-            <!-- --------------form popup  -->
-            <div class="modal fade" id="connectModal" tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-3 rounded-3">
-                  <!-- ----------------header  -->
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3 flex-wrap"
-                  >
-                    <h5>Get Free Guidance</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
-                  <!-- form ------------------ -->
-                  <form class="form-inp">
-                    <input
-                      type="text"
-                      placeholder="Enter your name..."
-                      class="form-control mb-2"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Enter your email..."
-                      class="form-control mb-2"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Enter your Number..."
-                      class="form-control mb-2"
-                    />
-                    <select class="form-select mb-2">
-                      <option selected disabled>Choose a program</option>
-                      <option>Executive Program</option>
-                      <option>Offline Program</option>
-                      <option>Online Program</option>
-                    </select>
-                    <button
-                      type="submit"
-                      class="w-100 text-white py-1 border-0"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -5899,6 +6044,82 @@ document.addEventListener("click", function (e) {
           }
         });
       </script>
+      
+    <script>
+      (function () {
+        // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
+        // Close drawer when any modal is triggered via data-bs-toggle
+        const modalTriggers = document.querySelectorAll(
+          '[data-bs-toggle="modal"]',
+        );
+        modalTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", function (e) {
+            // If we are in responsive mode (drawer is open), close it
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            if (drawer && drawer.classList.contains("open")) {
+              // Small delay to allow modal to open, then close drawer
+              setTimeout(() => {
+                closeDrawer();
+              }, 10);
+            }
+          });
+        });
+
+        // Also listen to Bootstrap modal show event (backup)
+        document.addEventListener("show.bs.modal", function () {
+          if (window.innerWidth <= 991) {
+            closeDrawer();
+          }
+        });
+
+        // ========== FIX: MOBILE DRAWER ACCORDION (Programs, Courses, Explore) ==========
+        // Ensure toggleAcc function works consistently
+        window.toggleAcc = function (btn) {
+          btn.classList.toggle("open");
+          const body = btn.nextElementSibling;
+          if (body) {
+            body.classList.toggle("show");
+            body.classList.toggle("open");
+          }
+        };
+
+        // Re-attach event listeners to all drawer accordion buttons
+        document.querySelectorAll(".md-acc-btn").forEach((btn) => {
+          // Remove any existing inline onclick to avoid conflicts
+          btn.removeAttribute("onclick");
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.toggleAcc(this);
+          });
+        });
+
+        // Ensure closeDrawer and openDrawer are globally available
+        window.closeDrawer =
+          window.closeDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.remove("open");
+            if (overlay) overlay.classList.remove("open", "show");
+            if (ham) ham.classList.remove("active");
+            document.body.style.overflow = "";
+          };
+
+        window.openDrawer =
+          window.openDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.add("open");
+            if (overlay) overlay.classList.add("open", "show");
+            if (ham) ham.classList.add("active");
+            document.body.style.overflow = "hidden";
+          };
+      })();
+    </script>
     <style>
       @keyframes shake {
         0%,

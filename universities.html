@@ -72,6 +72,7 @@
         --row-hover: #f0faf8;
         --shadow: 0 4px 24px rgba(26, 122, 110, 0.1);
       }
+      
       *,
       *::before,
       *::after {
@@ -84,7 +85,7 @@
         max-width: 100%;
         display: block;
       }
-           html,
+      html,
       body {
         overflow-x: hidden;
       }
@@ -106,12 +107,14 @@
       .topbar p {
         font-size: 13px;
       }
-      /* ─────────────────────────────────────
-   NAVBAR WRAPPER
-───────────────────────────────────── */
+         /* ─────────────────────────────────────
+    NAVBAR WRAPPER
+  ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
+        border-bottom: 1px solid var(--border);
+
         background-color: white;
         z-index: 300;
         height: 58px;
@@ -120,6 +123,12 @@
       /* ── ROW 1 ── */
       .nav-r1 {
         height: 50px;
+        position: relative;
+      }
+      .center-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .navbar.sticky {
         position: fixed;
@@ -128,8 +137,8 @@
         width: 130px;
       }
       /* ══════════════════════════
-   BREAKPOINT — Mobile ≤ 768px
-══════════════════════════ */
+    BREAKPOINT — Mobile ≤ 768px
+  ══════════════════════════ */
       @media (max-width: 768px) {
         /* Show hamburger, hide desktop auth + desktop nav */
         .ham-btn {
@@ -372,9 +381,15 @@
         height: 2px;
         transition: all 0.3s;
       }
+         /* Active Cross */
       .ham-btn.active span:nth-child(1) {
         transform: translateY(6px) rotate(45deg);
       }
+
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
       .ham-btn.active span:nth-child(3) {
         transform: translateY(-6px) rotate(-45deg);
       }
@@ -396,13 +411,7 @@
       }
       .nav-r1 {
         border-bottom: 1px solid rgba(199, 199, 199, 0.407);
-        position: relative;
       }
-           .center-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
       /* ─── Topbar ─────────────────────────────────────────────────── */
       @media (max-width: 991px) {
         .topbar {
@@ -413,15 +422,39 @@
         }
         .navbar {
           height: 60px;
+          border-bottom: 1px solid var(--border);
         }
       }
-
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
       @media (max-width: 1199px) {
+        .topbar {
+          padding: 0 25px !important;
+        }
         .nav-r1 {
-          padding: 0 16px !important;
+          padding: 0 20px !important;
+        }
+        .explore-btn span {
+          font-size: 10px;
         }
 
+        .icon-btn svg {
+          font-size: 10px;
+        }
+        .center-nav a {
+          font-size: 13px;
+        }
+        .program-btn {
+          font-size: 13px;
+        }
+        .logo-mark {
+          width: 110px;
+        }
+        .btn-ln {
+          font-size: 10px;
+        }
+        .btn-su {
+          font-size: 10px;
+        }
         .center-nav {
           gap: 12px !important;
         }
@@ -595,54 +628,9 @@
         width: 100%;
         height: 20px;
       }
-       /* ─────────────────────────────────────
-   CTA
-───────────────────────────────────── */
-      .cta-sec {
-        background: var(--bg);
-      }
-      .cta-box {
-        background: linear-gradient(135deg, var(--navy), #1a3a7a);
-      }
-      .cta-box p {
-        color: #8aa4d0;
-        font-size: 0.85rem;
-      }
-      .form-inp button {
-        background-color: var(--navy2);
-      }
-      .form-inp input:focus,
-      .btn-close:focus {
-        border-color: none;
-        box-shadow: none;
-        outline: none;
-      }
-      .cta-inner {
-        max-width: 900px;
-        margin: auto;
-      }
-      @media (max-width: 768px) {
-        .cta-box {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 1.5rem;
-        }
-
-        .cta-btns {
-          width: 100%;
-        }
-        .cta-btns button {
-          width: 100%;
-        }
-      }
-      @media (max-width: 768px) {
-        .cta-box {
-          padding: 1.5rem !important;
-        }
-      }
       /* ─────────────────────────────────────
-     FOOTER
-  ───────────────────────────────────── */
+      FOOTER
+    ───────────────────────────────────── */
       footer {
         background: #0f1729;
         padding: 40px 3rem 20px;
@@ -689,8 +677,8 @@
         background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
       }
       /* ─────────────────────────────────────
-     RESPONSIVE OVERRIDES
-  ───────────────────────────────────── */
+      RESPONSIVE OVERRIDES
+    ───────────────────────────────────── */
 
       /* Tablet: 768px – 1199px */
       @media (max-width: 1199px) {
@@ -756,6 +744,51 @@
       .cn-link {
         font-size: 14px;
       }
+      /* ─────────────────────────────────────
+    CTA
+  ───────────────────────────────────── */
+      .cta-sec {
+        background: var(--bg);
+      }
+      .cta-box {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+      }
+      .cta-box p {
+        color: #8aa4d0;
+        font-size: 0.85rem;
+      }
+      .form-inp button {
+        background-color: var(--navy2);
+      }
+      .form-inp input:focus,
+      .btn-close:focus {
+        border-color: none;
+        box-shadow: none;
+        outline: none;
+      }
+      .cta-inner {
+        max-width: 900px;
+        margin: auto;
+      }
+      @media (max-width: 768px) {
+        .cta-box {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.5rem;
+        }
+        .cta-btns {
+          width: 100%;
+        }
+        .cta-btns button {
+          width: 100%;
+        }
+      }
+      @media (max-width: 768px) {
+        .cta-box {
+          padding: 1.5rem !important;
+        }
+      }
+
       .btn-view {
         width: 100%;
         padding: 0.65rem;
@@ -798,7 +831,7 @@
       .uni-banner {
         /* position: relative; */
         width: 100%;
-        height: 250px;
+        height: 300px;
         background:
           linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
           url("https://future-explorer-app.lovable.app/assets/universities-hero-AoGjEXCB.jpg");
@@ -806,7 +839,7 @@
         background-position: center;
         background-repeat: no-repeat;
       }
-      .uni-banner h5 {
+      .uni-banner h6 {
         color: rgb(179, 179, 179);
       }
       /* ── LAYOUT ── */
@@ -924,7 +957,7 @@
         margin-top: 0.7rem;
         display: none;
       }
-      .fs-sec-body input{
+      .fs-sec-body input {
         width: 100%;
       }
       .fs-sec-body.open {
@@ -950,7 +983,7 @@
         border-radius: 7px;
         background: var(--bg);
         overflow: hidden;
-        position: sticky; 
+        position: sticky;
         margin-bottom: 0.6rem;
       }
       .filter-search input {
@@ -1147,6 +1180,12 @@
       .sort-select:focus {
         border-color: var(--accent);
       }
+      @media (max-width: 768px) {
+        .sort-select {
+          width: 140px;
+          max-width: 170px;
+        }
+      }
       .view-toggle {
         display: flex;
         border: 1.5px solid var(--border);
@@ -1229,7 +1268,7 @@
         min-height: 90vh;
         width: 100%;
       }
-      
+
       /* ── COLLEGE CARD ── */
       .college-card {
         background: var(--white);
@@ -1333,7 +1372,7 @@
         background: #fff3f0;
         color: #e85d3a;
       }
-   
+
       .cc-location {
         display: flex;
         align-items: center;
@@ -1355,20 +1394,20 @@
         gap: 1px;
       }
       #course-list-container::-webkit-scrollbar,
-#state-list-container::-webkit-scrollbar {
-  width: 6px;
-}
+      #state-list-container::-webkit-scrollbar {
+        width: 6px;
+      }
 
-#course-list-container::-webkit-scrollbar-thumb,
-#state-list-container::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
-  border-radius: 3px;
-}
+      #course-list-container::-webkit-scrollbar-thumb,
+      #state-list-container::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+        border-radius: 3px;
+      }
 
-#course-list-container::-webkit-scrollbar-track,
-#state-list-container::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
-}
+      #course-list-container::-webkit-scrollbar-track,
+      #state-list-container::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+      }
       .cfi-label {
         font-size: 0.63rem;
         color: var(--muted);
@@ -1502,68 +1541,325 @@
         font-weight: 600;
         color: var(--muted);
       }
-      /* ── PAGINATION ── */
-      .pagination {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 2rem;
-        flex-wrap: wrap;
+ #pagination{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.pg-btn{
+  min-width:38px;
+  height:38px;
+  border:1px solid #dcdfe6;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  background:#fff;
+  font-size:14px;
+  transition:.2s;
+  padding:0 12px;
+}
+
+.pg-btn:hover{
+  border-color:#2563eb;
+  color:#2563eb;
+}
+
+.pg-btn.active{
+  background:#2563eb;
+  color:#fff;
+  border-color:#2563eb;
+}
+
+.pg-btn.disabled{
+  opacity:.45;
+  pointer-events:none;
+}
+
+@media(max-width:576px){
+  .pg-btn{
+    min-width:34px;
+    height:34px;
+    font-size:13px;
+    padding:0 10px;
+  }
+
+  .nav-btn{
+    min-width:42px;
+  }
+}     /* ----------------Top recruiter Scroll Container ---------------- */
+      .bottom-scroll-rec {
+        animation: scroll-left 20s linear infinite;
       }
-      .pg-btn {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        border: 1.5px solid var(--border);
+      .card-rec {
+        min-width: 150px;
+        height: 100px;
+      }
+      /* ---------------- Animation ---------------- */
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @media (max-width: 768px) {
+        .card-rec {
+          min-width: 120px;
+          height: 80px;
+        }
+      }
+      /* ── College card: desktop layout fixed ── */
+      .cc-inner {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 0;
+      }
+      .cc-img-wrap {
+        min-height: 200px;
+        position: relative;
+        overflow: hidden;
+      }
+      .cc-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s;
+      }
+      .college-card:hover .cc-img-wrap img {
+        transform: scale(1.04);
+      }
+
+      /* ── Mobile filter toggle button ── */
+      .btn-filter-toggle {
+        padding: 8px 16px;
         background: var(--white);
-        font-size: 0.8rem;
+        border: 1.5px solid var(--border) !important;
+        border-radius: 8px;
+        font-size: 0.82rem;
         font-weight: 600;
+        color: var(--text);
         cursor: pointer;
-        color: var(--muted);
         transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
       }
-      .pg-btn:hover {
-        border-color: var(--accent);
+      .btn-filter-toggle:hover {
+        border-color: var(--accent) !important;
         color: var(--accent);
       }
-      .pg-btn.active {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: #fff;
+
+      /* ── Offcanvas filter width ── */
+      .offcanvas-filter {
+        width: 300px !important;
+        max-width: 90vw !important;
       }
-      .pg-btn.prev-next {
-        width: auto;
-        padding: 0 14px;
-        gap: 5px;
+      .offcanvas-filter .offcanvas-body {
+        overflow-y: auto;
+        padding: 0 !important;
+      }
+
+      /* ── Sub-label inside filter ── */
+      .sub-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+      /* ════ TABLET: 768px – 991px ════ */
+      @media (max-width: 991px) {
+        /* Sidebar hide on tablet/mobile */
+        .filters-sidebar {
+          display: none;
+        }
+
+        /* Card image stacks on top */
+        .cc-inner {
+          grid-template-columns: 1fr !important;
+        }
+        .cc-img-wrap {
+          height: 220px;
+          min-height: unset;
+        }
+        .cc-img-wrap img {
+          height: 220px;
+        }
+
+        /* Layout padding */
+        .layout {
+          padding: 16px !important;
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Sort bar wrap on small screens */
+        .sort-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+      }
+
+      /* ════ MOBILE: up to 576px ════ */
+      @media (max-width: 576px) {
+        .cc-img-wrap {
+          height: 170px;
+        }
+        .cc-img-wrap img {
+          height: 170px;
+        }
+        .cc-body {
+          padding: 0.75rem;
+        }
+        .cc-name {
+          font-size: 1rem !important;
+        }
+        .cc-location {
+          font-size: 0.78rem;
+        }
+        .cca-apply,
+        .cca-brochure {
+          padding: 8px 14px !important;
+          font-size: 0.74rem !important;
+        }
+        .cca-compare {
+          padding: 7px 10px !important;
+          font-size: 0.7rem !important;
+        }
+        .cc-fees-row {
+          gap: 0.5rem;
+        }
+        .cc-actions {
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+
+        /* Compare bar stacks on mobile */
+        .compare-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .btn-compare-now {
+          width: 100%;
+          text-align: center;
+        }
+
+        /* Pagination smaller */
+        .pg-btn {
+          width: 30px !important;
+          height: 30px !important;
+          font-size: 0.72rem !important;
+        }
+        .pg-btn.prev-next {
+          padding: 0 10px !important;
+          font-size: 0.72rem !important;
+        }
+
+        /* Uni banner */
+        .uni-banner {
+          min-height: 220px !important;
+        }
+        .uni-banner h1 {
+          font-size: 1.5rem !important;
+        }
+        .uni-banner h6 {
+          width: 100% !important;
+          font-size: 0.82rem;
+        }
+        .uni-banner .p-5 {
+          padding: 1.5rem !important;
+        }
+
+        /* Recruiters scroll */
+        .card-rec {
+          min-width: 110px !important;
+          height: 70px !important;
+        }
+
+        /* CTA box */
+        .cta-box {
+          flex-direction: column !important;
+          gap: 1.2rem !important;
+          padding: 1.25rem !important;
+        }
+        .cta-btns {
+          width: 100%;
+        }
+        .cta-btns button {
+          width: 100%;
+        }
       }
     </style>
   </head>
   <body>
+
+    <!-- Modal -->
+    <!-- MODAL -->
+    <div class="modal fade" id="connectModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 rounded-4">
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Get Free Guidance</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <!-- FORM -->
+          <form class="form-inp">
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Full Name..."
+            />
+
+            <input type="email" class="form-control mb-3" placeholder="Email" />
+
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Phone Number..."
+            />
+
+            <select class="form-select mb-3">
+              <option selected disabled>Select Program Interest</option>
+              <option>Executive Program</option>
+              <option>Offline Program</option>
+              <option>Online Program</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-          <!-- Top accent bar -->
           <div
             style="
               height: 4px;
               background: linear-gradient(90deg, #0d6efd, #20c997);
             "
           ></div>
-
-          <!-- Header -->
           <div
             class="modal-header border-0 px-4 pt-4 pb-2 flex-column align-items-start"
           >
             <h5 class="fw-bold mb-1">Welcome</h5>
             <p class="text-muted small mb-0">Login or create your account</p>
           </div>
-
-          <!-- Tabs -->
           <div class="px-4">
             <ul
               class="nav nav-pills nav-fill gap-2 p-1 bg-light rounded-3 mb-3"
@@ -1589,24 +1885,21 @@
               </li>
             </ul>
           </div>
-
           <div class="modal-body px-4 pt-0 pb-3">
             <div class="tab-content">
-              <!-- LOGIN -->
               <div class="tab-pane fade show active" id="loginTab">
                 <div class="mb-3">
-                  <label class="form-label small text-muted">Email</label>
-                  <input
+                  <label class="form-label small text-muted">Email</label
+                  ><input
                     type="email"
                     class="form-control rounded-3"
                     placeholder="name@example.com"
                   />
                 </div>
-
                 <div class="mb-2">
                   <div class="d-flex justify-content-between">
-                    <label class="form-label small text-muted">Password</label>
-                    <a href="#" class="small text-primary text-decoration-none"
+                    <label class="form-label small text-muted">Password</label
+                    ><a href="#" class="small text-primary text-decoration-none"
                       >Forgot?</a
                     >
                   </div>
@@ -1616,22 +1909,17 @@
                     placeholder="••••••••"
                   />
                 </div>
-
                 <div class="form-check mb-3">
                   <input
                     class="form-check-input"
                     type="checkbox"
                     id="rememberMe"
-                  />
-                  <label class="form-check-label small text-muted">
-                    Remember me
-                  </label>
+                  /><label class="form-check-label small text-muted"
+                    >Remember me</label
+                  >
                 </div>
-
                 <button class="btn btn-primary w-100 rounded-3">Sign in</button>
               </div>
-
-              <!-- SIGNUP -->
               <div class="tab-pane fade" id="signupTab">
                 <div class="row g-2 mb-3">
                   <div class="col">
@@ -1649,7 +1937,6 @@
                     />
                   </div>
                 </div>
-
                 <div class="mb-3">
                   <select class="form-select rounded-3">
                     <option>Select department</option>
@@ -1658,7 +1945,6 @@
                     <option>Science</option>
                   </select>
                 </div>
-
                 <div class="mb-3">
                   <input
                     type="password"
@@ -1666,7 +1952,6 @@
                     placeholder="Password"
                   />
                 </div>
-
                 <div class="mb-3">
                   <input
                     type="password"
@@ -1674,33 +1959,33 @@
                     placeholder="Confirm password"
                   />
                 </div>
-
                 <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" id="terms" />
-                  <label class="form-check-label small text-muted">
-                    I agree to Terms & Privacy Policy
-                  </label>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="terms"
+                  /><label class="form-check-label small text-muted"
+                    >I agree to Terms & Privacy Policy</label
+                  >
                 </div>
-
                 <button class="btn btn-success w-100 rounded-3 fw-semibold">
                   Create account
                 </button>
               </div>
             </div>
           </div>
-
-          <!-- Footer -->
           <div class="modal-footer border-0 bg-light text-center d-block py-3">
-            <small class="text-muted">
-              Need help?
+            <small class="text-muted"
+              >Need help?
               <a href="mailto:campusWalkin@gmail.com" class="text-primary"
                 >Contact support</a
-              >
-            </small>
+              ></small
+            >
           </div>
         </div>
       </div>
     </div>
+
     <!-- TOP BAR (desktop only) -->
     <div
       class="topbar d-none d-md-flex align-items-center px-2 px-lg-5 flex-nowrap"
@@ -1726,7 +2011,7 @@
       </div>
       <div class="tb-right d-flex align-items-center gap-3 flex-nowrap ms-3">
         <p class="mb-0 d-lg-block text-nowrap">
-          We’re on your favourite socials!
+          We're on your favourite socials!
         </p>
         <span class="tb-sep">|</span>
         <a href="#" style="color: #4860ff; font-weight: 700"
@@ -1743,20 +2028,22 @@
         ></a>
       </div>
     </div>
+
     <!-- ═══ NAVBAR ═══ -->
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
-        <!-- LOGO -->
         <a href="#" class="logo">
           <div class="logo-mark">
             <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="index.html" class="cn-link text-decoration-none text-dark"
+            >Home</a
+          >
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -1913,7 +2200,6 @@
         </nav>
         <!-- RIGHT -->
         <div class="nav-r1-right d-flex align-items-center gap-2">
-          <!-- Explore -->
           <div class="explore-wrap" id="exploreWrap">
             <button
               class="explore-btn border-0 py-2 px-3 d-flex align-items-center gap-2 rounded-2"
@@ -2017,8 +2303,8 @@
               <div class="em-tags d-flex flex-wrap gap-2">
                 <span class="em-tag py-1 px-2 rounded-2 mt-2">JEE Main</span
                 ><span class="em-tag py-1 px-2 rounded-2 mt-2">NEET</span>
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">CAT</span>
-                <span class="em-tag py-1 px-2 rounded-2 mt-2">GATE</span>
+                <span class="em-tag py-1 px-2 rounded-2 mt-2">CAT</span
+                ><span class="em-tag py-1 px-2 rounded-2 mt-2">GATE</span>
                 <span class="em-tag py-1 px-2 rounded-2 mt-2">CLAT</span
                 ><span class="em-tag py-1 px-2 rounded-2 mt-2">CUET</span>
                 <span class="em-tag py-1 px-2 rounded-2 mt-2">GRE</span
@@ -2052,8 +2338,9 @@
               <div
                 class="np-hd border-bottom d-flex align-items-center justify-content-between p-2 fw-bold"
               >
-                Notifications
-                <a href="#" class="text-decoration-none">Mark all read</a>
+                Notifications<a href="#" class="text-decoration-none"
+                  >Mark all read</a
+                >
               </div>
               <div
                 class="np-row d-flex align-items-start gap-2 py-2 px-2 border-bottom"
@@ -2120,11 +2407,9 @@
             onclick="openDrawer()"
             aria-label="Menu"
           >
-            <span class="bg-dark"></span>
-            <span class="bg-dark"></span>
-            <span class="bg-dark"></span>
+            <span class="bg-dark"></span><span class="bg-dark"></span
+            ><span class="bg-dark"></span>
           </div>
-
           <!-- Auth (desktop) -->
           <div class="auth-btns">
             <button
@@ -2145,8 +2430,9 @@
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
-        <!-- All Courses -->
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <div class="courses-wrap" id="coursesWrap">
           <button
             class="courses-btn d-flex align-items-center gap-2 border py-1 px-2 rounded-2 bg-white fw-semibold"
@@ -2177,25 +2463,29 @@
               <polyline points="1 1 6 7 11 1" />
             </svg>
           </button>
-
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
-              <!-- Left: Categories -->
+            <div class="cm-inner d-flex">
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
-
-              <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
-                <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -2242,25 +2532,48 @@
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
-
-                <!-- Dynamic grid -->
                 <div class="cm-grid pe-4 d-grid gap-2" id="cmGrid"></div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="r2-sep d-flex align-items-center"></div>
         <a href="#" class="np2 text-muted px-1 text-decoration-none active"
           >B.Tech</a
@@ -2290,11 +2603,14 @@
         >
       </div>
     </div>
+
+    <!-- Mobile Drawer -->
+
+    <!-- Mobile Drawer -->
     <div
       class="mobile-drawer bg-white overflow-y-auto d-flex flex-column shadow"
       id="mDrawer"
     >
-      <!-- HEADER -->
       <div
         class="md-head d-flex align-items-center justify-content-between px-3 py-3 border-bottom sticky-top bg-white"
       >
@@ -2308,8 +2624,6 @@
           <i class="bi bi-x fs-5"></i>
         </button>
       </div>
-
-      <!-- LOGIN -->
       <div class="md-auth d-flex gap-2 px-3 py-3 border-bottom">
         <button
           class="btn-ln btn btn-outline-primary flex-fill"
@@ -2326,23 +2640,17 @@
           Apply
         </button>
       </div>
-
-      <!-- NAV LINKS -->
       <nav class="md-nav d-flex flex-column">
         <a
           href="#"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom link-hover"
+          >Home</a
         >
-          Home
-        </a>
-
-        <!-- PROGRAMS ACCORDION -->
         <button
           class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
           onclick="toggleAcc(this)"
         >
-          Programs
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
+          Programs<i class="bi bi-chevron-down acc-chevron ms-auto"></i>
         </button>
         <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
           <a
@@ -2371,45 +2679,36 @@
             >Finance</a
           >
         </div>
-
         <a
           href="universities.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >Universities</a
         >
-          Universities
-        </a>
         <a
           href="compare.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >Compare</a
         >
-          Compare
-        </a>
         <a
           href="#"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >Blog</a
         >
-          Blog
-        </a>
         <a
           href="about.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >About</a
         >
-          About
-        </a>
         <a
           href="contact.html"
           class="px-4 py-2 text-decoration-none fw-semibold small text-dark border-bottom"
+          >Contact</a
         >
-          Contact
-        </a>
-
-        <!-- COURSES ACCORDION -->
         <button
           class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
           onclick="toggleAcc(this)"
         >
-          Courses
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
+          Courses<i class="bi bi-chevron-down acc-chevron ms-auto"></i>
         </button>
         <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
           <a
@@ -2433,14 +2732,11 @@
             >BBA</a
           >
         </div>
-
-        <!-- EXPLORE ACCORDION -->
         <button
           class="md-acc-btn btn btn-link d-flex align-items-center justify-content-between px-4 py-2 text-start fw-semibold small text-dark text-decoration-none border-bottom rounded-0"
           onclick="toggleAcc(this)"
         >
-          Explore
-          <i class="bi bi-chevron-down acc-chevron ms-auto"></i>
+          Explore<i class="bi bi-chevron-down acc-chevron ms-auto"></i>
         </button>
         <div class="md-acc-body collapse px-4 pb-3 pt-2 border-bottom bg-light">
           <a
@@ -2459,31 +2755,35 @@
             >Study Abroad</a
           >
           <a
-            href="#"
+            href="#"d
             class="d-block py-2 small text-secondary text-decoration-none fw-medium"
             >Scholarships</a
           >
         </div>
       </nav>
     </div>
-
-    <!-- Mobile Drawer Overlay -->
     <div
       class="mobile-overlay position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-none"
       id="mOverlay"
       onclick="closeDrawer()"
       style="backdrop-filter: blur(2px)"
-    ></div>
-
-       <!-- ---------------------------------university -->
+    ></div> 
+    <!-- ---------------------------------university -->
     <section class="uni-section">
       <div class="uni-banner d-flex align-items-center">
-        <div class="container p-5">
+        <div class="p-5">
           <h1 class="text-white fs-1">Top Universities & Colleges</h1>
-          <h5 class="w-75">
+          <h6 class="w-75 mb-3">
             Explore India's premier institutions — IIMs, IITs, and top private
             universities offering world-class programs.
-          </h5>
+          </h6>
+          <button
+            class="border bg-transparent text-white py-2 px-4"
+            data-bs-toggle="modal"
+            data-bs-target="#connectModal"
+          >
+            Get free Counselling
+          </button>
         </div>
       </div>
     </section>
@@ -2514,7 +2814,10 @@
             <!-- SECTIONS (reused for both sidebar & offcanvas via JS cloning) -->
             <div id="filterSections">
               <!-- 1. COURSE -->
-              <div class="filter-section" style="max-height: 300px; overflow-y: auto">
+              <div
+                class="filter-section"
+                style="max-height: 300px; overflow-y: auto"
+              >
                 <div class="fs-sec-head" onclick="toggleSection(this)">
                   <span class="fs-sec-title">Course</span>
                   <i class="bi bi-chevron-down fs-sec-toggle open"></i>
@@ -2636,85 +2939,49 @@
               </div>
 
               <!-- 2. STATE -->
-              <div class="filter-section" style="max-height: 250px; overflow-y: auto;">
-                <div class="fs-sec-head" onclick="toggleSection(this)">
-                  <span class="fs-sec-title">State</span>
-                  <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-                </div>
-                <div class="fs-sec-body open">
-                  <div class="filter-search">
-                    <input
-                      type="text"
-                      placeholder="Search State"
-                      oninput="searchFilter(this, 'state-list')"
-                    />
-                    <i class="bi bi-search"></i>
-                  </div>
-                  <div id="state-list">
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'Maharashtra')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">Maharashtra</span>
-                      </div>
-                      <span class="fc-count">3240</span>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'Tamil Nadu')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">Tamil Nadu</span>
-                      </div>
-                      <span class="fc-count">2980</span>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'Karnataka')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">Karnataka</span>
-                      </div>
-                      <span class="fc-count">2650</span>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'Delhi')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">Delhi</span>
-                      </div>
-                      <span class="fc-count">1840</span>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'Uttar Pradesh')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">Uttar Pradesh</span>
-                      </div>
-                      <span class="fc-count">1720</span>
-                    </div>
-                    <div
-                      class="filter-check"
-                      onclick="toggleCheck(this, 'Rajasthan')"
-                    >
-                      <div class="fc-left">
-                        <div class="fc-checkbox"></div>
-                        <span class="fc-label">Rajasthan</span>
-                      </div>
-                      <span class="fc-count">1380</span>
-                    </div>
-                  </div>
-                </div>
+               <!-- 2. STATE -->
+          <div class="filter-section py-2 px-3 border-bottom" style="max-height:250px;overflow-y:auto">
+            <div class="fs-sec-head d-flex align-items-center justify-content-between" onclick="toggleSection(this)">
+              <span class="fs-sec-title">State</span>
+              <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+            </div>
+            <div class="fs-sec-body mt-1 open">
+              <div class="filter-search d-flex align-items-center justify-content-between px-2 border rounded-2 mb-1">
+                <input type="text" placeholder="Search State" class="rounded-2 border-0 py-1" oninput="searchFilter(this,'state-list')" />
+                <i class="bi bi-search text-muted"></i>
               </div>
-
+              <div id="state-list">
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Maharashtra')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Maharashtra</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">3240</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Tamil Nadu')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Tamil Nadu</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2980</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Karnataka')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Karnataka</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Madhya Pradesh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Madhya Pradesh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Andhra Pradesh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Andhra Pradesh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Gujarat')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Gujarat</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Rajasthan')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Rajasthan</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">1380</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Uttar Pradesh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Uttar Pradesh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">1720</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Delhi')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Delhi</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">1840</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Kerala')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Kerala</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'West Bengal')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">West Bengal</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Haryana')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Haryana</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Punjab')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Punjab</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Bihar')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Bihar</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Odisha')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Odisha</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Assam')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Assam</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Telangana')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Telangana</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Jharkhand')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Jharkhand</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Uttarakhand')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Uttarakhand</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Goa')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Goa</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Chhattisgarh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Chhattisgarh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Nagaland')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Nagaland</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Sikkim')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Sikkim</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Manipur')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Manipur</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Meghalaya')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Meghalaya</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Mizoram')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Mizoram</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Tripura')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Tripura</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Arunachal Pradesh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Arunachal Pradesh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
+              </div>
+            </div>
+          </div>
               <!-- 3. FEES RANGE -->
               <div class="filter-section">
                 <div class="fs-sec-head" onclick="toggleSection(this)">
@@ -3085,7 +3352,6 @@
                 </div>
               </div>
             </div>
-            <!-- /filterSections -->
           </div>
           <!-- /filters-sidebar -->
         </div>
@@ -3105,7 +3371,8 @@
               <i class="bi bi-funnel"></i> Filters
             </button>
             <div class="results-count">
-              Showing <b id="showCountMob">10</b> of <b>20,698</b>
+              Showing <b id="showCountMob">10</b> of
+              <b id="totalShowMob">20,698</b>
             </div>
           </div>
 
@@ -3133,7 +3400,7 @@
           </div>
 
           <!-- Sort (mobile) -->
-          <div class="d-flex d-lg-none mb-2 gap-2 align-items-center">
+          <div class="d-flex d-lg-none mb-2 gap-2 align-items-center w-100">
             <span
               class="sort-label"
               style="font-size: 0.82rem; color: var(--muted)"
@@ -3143,12 +3410,12 @@
               class="sort-select flex-grow-1"
               onchange="sortColleges(this.value)"
             >
-              <option>Popularity</option>
-              <option>Rating</option>
-              <option>Fees ↑</option>
-              <option>Fees ↓</option>
-              <option>NIRF Ranking</option>
-              <option>Name A–Z</option>
+              <option value="popularity">Popularity</option>
+              <option value="rating">Rating</option>
+              <option value="fees-low">Fees ↑</option>
+              <option value="fees-high">Fees ↓</option>
+              <option value="ranking">NIRF Ranking</option>
+              <option value="name">Name A–Z</option>
             </select>
           </div>
 
@@ -3198,9 +3465,7 @@
             id="pagination"
           ></div>
         </div>
-        <!-- /main col -->
       </div>
-      <!-- /row -->
     </div>
     <!-- ═══ OFFCANVAS FILTER (mobile) ═══ -->
     <div
@@ -3209,7 +3474,7 @@
       id="offcanvasFilter"
       aria-labelledby="offcanvasFilterLabel"
     >
-      <div class="offcanvas-header">
+      <div class="offcanvas-header border-bottom">
         <h5 class="offcanvas-title fs-title" id="offcanvasFilterLabel">
           Filters
         </h5>
@@ -3222,8 +3487,130 @@
       <div class="offcanvas-body p-0" id="offcanvasFilterBody">
         <!-- JS will clone filter sections here -->
       </div>
-    </div>   
-     <!-- ══════════════ BOTTOM CTA ══════════════ -->
+    </div>
+    <!-- -------------------------------top recruiters -->
+    <section class="h-auto bg-white pt-2 pb-5 px-4 border-top">
+      <div class="top-h-rec py-2 px-1">
+        <h2 class="text-danger">Top Recruiters</h2>
+        <h4 class="text-primary">Get placed where you belong</h4>
+      </div>
+      <div class="bottom-scroll-rec-wrapper overflow-hidden">
+        <div
+          class="bottom-scroll-rec d-flex gap-3 px-5 flex-nowrap"
+          id="recruiters "
+        >
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./accenture-rec.svg"
+              alt="Accenture"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./amaozon-rec.svg"
+              alt="Amazon"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./jp-rec.svg"
+              alt="JP Morgan"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./kpmg-rec.svg"
+              alt="KPMG"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./google-rec.svg"
+              alt="Google"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./american-rec.svg"
+              alt="American Express"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./citiBank-rec.svg"
+              alt="CitiBank"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./deloitte-rec.svg"
+              alt="Deloitte"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./facebook-rec.svg"
+              alt="Facebook"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./flipcart-rec.svg"
+              alt="Flipkart"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./cognizant-rec.svg"
+              alt="Cognizant"
+            />
+          </div>
+          <div
+            class="card-rec p-3 border d-flex align-items-center justify-content-center flex-shrink-0"
+          >
+            <img
+              class="h-100 w-100 img-fluid object-fit-contain"
+              src="./microsoft-rec.svg"
+              alt="Microsoft"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ══════════════ BOTTOM CTA ══════════════ -->
     <div class="cta-sec py-5 px-4 w-auto mx-auto">
       <div class="cta-inner">
         <div
@@ -3246,60 +3633,13 @@
             >
               Book Free Counselling
             </button>
-            <!-- --------------form popup  -->
-            <div class="modal fade" id="connectModal" tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-3 rounded-3">
-                  <!-- ----------------header  -->
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3 flex-wrap"
-                  >
-                    <h5>Get Free Guidance</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
-                  <!-- form ------------------ -->
-                  <form class="form-inp">
-                    <input
-                      type="text"
-                      placeholder="Enter your name..."
-                      class="form-control mb-2"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Enter your email..."
-                      class="form-control mb-2"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Enter your Number..."
-                      class="form-control mb-2"
-                    />
-                    <select class="form-select mb-2">
-                      <option selected disabled>Choose a program</option>
-                      <option>Executive Program</option>
-                      <option>Offline Program</option>
-                      <option>Online Program</option>
-                    </select>
-                    <button
-                      type="submit"
-                      class="w-100 text-white py-1 border-0"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>
     </div>
     <!-- ═══ FOOTER ═══ -->
-     
+
     <footer>
       <div class="fi">
         <div class="fg d-grid gap-5 mb-3">
@@ -3437,7 +3777,8 @@
         </div>
       </div>
     </footer>
-   <script>
+    <!-- -----------inside course button toggle  -->
+    <script>
       // ── Data for courses mega menu ────────────────────────────────────────────────
       const data = {
         management: {
@@ -5878,6 +6219,7 @@
 
       render();
     </script>
+    <!-- -----------course button toggle  -->
     <script>
       /* OPEN CLOSE */
       function toggleCourses(e) {
@@ -5904,24 +6246,43 @@
         window.location.href = url;
       }
     </script>
-    <script>
-      const programWrap = document.getElementById("programWrap");
-      const programBtn = programWrap.querySelector(".program-btn");
+  <script>
+      (function () {
+        // Fix for Programs dropdown hover: prevent closing when moving from button to menu
+        const programWrap = document.getElementById("programWrap");
+        if (!programWrap) return;
 
-      /* CLICK LOCK */
-      programBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        programWrap.classList.toggle("active");
-      });
+        const programBtn = programWrap.querySelector(".program-btn");
+        const programCard = programWrap.querySelector(".programs-card");
+        if (!programBtn || !programCard) return;
 
-      /* OUTSIDE CLICK CLOSE */
-      document.addEventListener("click", function (e) {
-        if (!programWrap.contains(e.target)) {
-          programWrap.classList.remove("active");
+        let hoverTimeout;
+
+        function openDropdown() {
+          clearTimeout(hoverTimeout);
+          programWrap.classList.add("active");
         }
-      });
+
+        function closeDropdown() {
+          hoverTimeout = setTimeout(() => {
+            programWrap.classList.remove("active");
+          }, 100);
+        }
+
+        programBtn.addEventListener("mouseenter", openDropdown);
+        programCard.addEventListener("mouseenter", openDropdown);
+
+        programWrap.addEventListener("mouseleave", closeDropdown);
+
+        programBtn.addEventListener("mouseleave", (e) => {
+          if (!programCard.contains(e.relatedTarget)) {
+            closeDropdown();
+          }
+        });
+      })();
     </script>
-    <script>
+    <!-- ---------------button navbar logic  -->
+     <script>
       /* ── Location ── */
       function toggleLoc(e) {
         e.stopPropagation();
@@ -5945,19 +6306,19 @@
 
       /* ── Explore ── */
       function toggleExplore(e) {
-  e.stopPropagation(); // Prevent the document click from immediately closing it
-  const wrap = document.getElementById("exploreWrap");
-  wrap.classList.toggle("open");
-}
+        e.stopPropagation();
+        const wrap = document.getElementById("exploreWrap");
+        wrap.classList.toggle("open");
+      }
 
-// Close dropdown when clicking outside
-document.addEventListener("click", function (e) {
-  const explore = document.getElementById("exploreWrap");
-  if (!explore.contains(e.target)) {
-    explore.classList.remove("open");
-  }
-});
-      /* ── Mobile drawer ── */
+      document.addEventListener("click", function (e) {
+        const explore = document.getElementById("exploreWrap");
+        if (explore && !explore.contains(e.target)) {
+          explore.classList.remove("open");
+        }
+      });
+
+       /* ── Mobile drawer ── */
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");
         document.getElementById("mOverlay").classList.add("open");
@@ -5971,38 +6332,66 @@ document.addEventListener("click", function (e) {
         document.body.style.overflow = "";
       }
 
+      /* ── Accordion toggle (Bootstrap Collapse) ── */
+      function toggleAcc(btn) {
+        const body = btn.nextElementSibling;
+
+        // Close all other open accordions
+        document.querySelectorAll(".md-acc-body").forEach((b) => {
+          if (b !== body) {
+            b.classList.remove("show");
+            b.previousElementSibling.classList.remove("open");
+          }
+        });
+
+        // Toggle current
+        btn.classList.toggle("open");
+        body.classList.toggle("show"); // Bootstrap's .collapse.show = visible
+      }
+
+      /* ── Close drawer on Escape key ── */
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeDrawer();
+      });
       /* ── Search ── */
       function doNavSearch() {
-        const q = document.getElementById("navQ").value.trim();
+        const q = document.getElementById("navQ")?.value.trim();
         if (q) {
           document.getElementById("cTitle").textContent =
             'Results for "' + q + '"';
           document
             .getElementById("cGrid")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }
-      document.getElementById("navQ").addEventListener("keydown", (e) => {
-        if (e.key === "Enter") doNavSearch();
-      });
+
+      if (document.getElementById("navQ")) {
+        document.getElementById("navQ").addEventListener("keydown", (e) => {
+          if (e.key === "Enter") doNavSearch();
+        });
+      }
 
       function fillHero(t) {
         document.getElementById("heroQ").value = t;
         document.getElementById("heroQ").focus();
       }
+
       function heroSearch() {
-        const q = document.getElementById("heroQ").value.trim();
+        const q = document.getElementById("heroQ")?.value.trim();
         if (q) {
           document.getElementById("cTitle").textContent =
             'Results for "' + q + '"';
           document
             .getElementById("cGrid")
-            .scrollIntoView({ behavior: "smooth" });
+            ?.scrollIntoView({ behavior: "smooth" });
         }
       }
-      document.getElementById("heroQ").addEventListener("keydown", (e) => {
-        if (e.key === "Enter") heroSearch();
-      });
+
+      if (document.getElementById("heroQ")) {
+        document.getElementById("heroQ").addEventListener("keydown", (e) => {
+          if (e.key === "Enter") heroSearch();
+        });
+      }
 
       /* ── Hero tabs ── */
       function setTab(el, type) {
@@ -6016,7 +6405,8 @@ document.addEventListener("click", function (e) {
           offline: "Search colleges, universities, campuses…",
           abroad: "Search universities in USA, UK, Canada…",
         };
-        document.getElementById("heroQ").placeholder = ph[type] || "";
+        const heroQ = document.getElementById("heroQ");
+        if (heroQ) heroQ.placeholder = ph[type] || "";
       }
 
       /* ── Course filter ── */
@@ -6034,26 +6424,20 @@ document.addEventListener("click", function (e) {
           offline: "Offline / Campus Courses",
           abroad: "Study Abroad Programs",
         };
-        document.getElementById("cTitle").textContent =
-          titles[type] || "All Featured Courses";
+        const cTitle = document.getElementById("cTitle");
+        if (cTitle) cTitle.textContent = titles[type] || "All Featured Courses";
+
         document.querySelectorAll(".cc").forEach((c) => {
           const show = type === "all" || c.dataset.type === type;
           c.style.display = show ? "" : "none";
           if (show) c.style.animation = "fadeUp .35s ease both";
         });
-        if (el)
+        if (el) {
           document
             .getElementById("cGrid")
-            .scrollIntoView({ behavior: "smooth", block: "nearest" });
+            ?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
       }
-
-      /* ── Save toggle ── */
-      document.querySelectorAll(".cc-save").forEach((b) => {
-        b.addEventListener("click", (e) => {
-          e.stopPropagation();
-          b.textContent = b.textContent === "🤍" ? "❤️" : "🤍";
-        });
-      });
 
       /* ── Bottom nav active ── */
       function bnActive(el) {
@@ -6064,45 +6448,43 @@ document.addEventListener("click", function (e) {
       }
 
       /* ── Row 2 nav active ── */
-      document.querySelectorAll(".np2").forEach((n) => {
-        n.addEventListener("click", function () {
-          document
-            .querySelectorAll(".np2")
-            .forEach((x) => x.classList.remove("active"));
-          this.classList.add("active");
+      if (document.querySelectorAll(".np2").length) {
+        document.querySelectorAll(".np2").forEach((n) => {
+          n.addEventListener("click", function () {
+            document
+              .querySelectorAll(".np2")
+              .forEach((x) => x.classList.remove("active"));
+            this.classList.add("active");
+          });
         });
-      });
+      }
     </script>
+
     <script>
       function toggleCourses() {
-        document.getElementById("courseWrap").classList.toggle("open");
+        const wrap = document.getElementById("courseWrap");
+        if (wrap) wrap.classList.toggle("open");
       }
 
       function goCourse(page) {
         window.location.href = page;
       }
 
-      function filterCourses(value) {
+      function filterCourseList(value) {
         value = value.toLowerCase();
-
         let categories = document.querySelectorAll(".course-cat");
-
         categories.forEach((cat) => {
           let items = [];
           let next = cat.nextElementSibling;
-
           while (next && !next.classList.contains("course-cat")) {
             if (next.classList.contains("course-item")) {
               items.push(next);
             }
             next = next.nextElementSibling;
           }
-
           let visibleCount = 0;
-
           items.forEach((item) => {
             let text = item.innerText.toLowerCase();
-
             if (text.includes(value)) {
               item.style.display = "block";
               visibleCount++;
@@ -6110,7 +6492,6 @@ document.addEventListener("click", function (e) {
               item.style.display = "none";
             }
           });
-
           if (visibleCount === 0) {
             cat.style.display = "none";
           } else {
@@ -6119,6 +6500,7 @@ document.addEventListener("click", function (e) {
         });
       }
     </script>
+    <!-- -------------filter logic  -->
     <script>
       // ════════════════════════════════════════════
       // app.js — Sirf Logic, Data aata hai data.json se
@@ -6429,15 +6811,30 @@ document.addEventListener("click", function (e) {
         const filtered = sortCollegesList(getFilteredColleges());
         const total = filtered.length;
 
+        // Desktop counts
         document.getElementById("foundCount").textContent =
           total.toLocaleString();
+
         document.getElementById("totalShow").textContent =
           total.toLocaleString();
+
+        // Mobile total (if exists)
+        const mobTotal = document.getElementById("totalShowMob");
+        if (mobTotal) {
+          mobTotal.textContent = total.toLocaleString();
+        }
 
         const start = (currentPage - 1) * PER_PAGE;
         const page = filtered.slice(start, start + PER_PAGE);
 
+        // Desktop showing count
         document.getElementById("showCount").textContent = page.length;
+
+        // Mobile showing count
+        const mobShow = document.getElementById("showCountMob");
+        if (mobShow) {
+          mobShow.textContent = page.length;
+        }
 
         const list = document.getElementById("collegesList");
         const nr = document.getElementById("noResults");
@@ -6595,23 +6992,53 @@ document.addEventListener("click", function (e) {
       }
 
       // ── Pagination ──
-      function renderPagination(total) {
-        const pages = Math.ceil(total / PER_PAGE);
-        const pg = document.getElementById("pagination");
-        if (pages <= 1) {
-          pg.innerHTML = "";
-          return;
-        }
+function renderPagination(total) {
+  const pages = Math.ceil(total / PER_PAGE);
+  const pg = document.getElementById("pagination");
 
-        let html = `<div class="pg-btn prev-next" onclick="changePage(${currentPage - 1})">← Prev</div>`;
-        for (let i = 1; i <= Math.min(pages, 8); i++) {
-          html += `<div class="pg-btn ${i === currentPage ? "active" : ""}" onclick="changePage(${i})">${i}</div>`;
-        }
-        if (pages > 8)
-          html += `<div class="pg-btn" style="cursor:default">…</div>`;
-        html += `<div class="pg-btn prev-next" onclick="changePage(${currentPage + 1})">Next →</div>`;
-        pg.innerHTML = html;
-      }
+  if (pages <= 1) {
+    pg.innerHTML = "";
+    return;
+  }
+
+  let html = "";
+
+  // Prev Button
+  html += `
+    <button class="pg-btn nav-btn ${currentPage === 1 ? "disabled" : ""}"
+      onclick="changePage(${currentPage - 1})"
+      ${currentPage === 1 ? "disabled" : ""}>
+      ←
+    </button>
+  `;
+
+  // Page Numbers
+  let start = Math.max(1, currentPage - 1);
+  let end = Math.min(pages, currentPage + 1);
+
+  if (currentPage === 1) end = Math.min(3, pages);
+  if (currentPage === pages) start = Math.max(1, pages - 2);
+
+  for (let i = start; i <= end; i++) {
+    html += `
+      <button class="pg-btn ${i === currentPage ? "active" : ""}"
+        onclick="changePage(${i})">
+        ${i}
+      </button>
+    `;
+  }
+
+  // Next Button
+  html += `
+    <button class="pg-btn nav-btn ${currentPage === pages ? "disabled" : ""}"
+      onclick="changePage(${currentPage + 1})"
+      ${currentPage === pages ? "disabled" : ""}>
+      →
+    </button>
+  `;
+
+  pg.innerHTML = html;
+}
 
       function changePage(p) {
         const total = getFilteredColleges().length;
@@ -6945,19 +7372,106 @@ document.addEventListener("click", function (e) {
         });
       }
     </script>
-              <script>
-        const navbar = document.querySelector(".navbar");
-        const stickyOffset = navbar.offsetTop;
+    <!-- -----------navbar fixed  -->
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const stickyOffset = navbar.offsetTop;
 
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > stickyOffset) {
-            navbar.classList.add("sticky");
-          } else {
-            navbar.classList.remove("sticky");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > stickyOffset) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      });
+    </script>
+    <!-- --------------filter mobile work  -->
+    <script>
+      document
+        .getElementById("offcanvasFilter")
+        .addEventListener("show.bs.offcanvas", function () {
+          const source = document.getElementById("filterSections");
+          const target = document.getElementById("offcanvasFilterBody");
+          target.innerHTML = source.cloneNode(true).innerHTML;
+        });
+    </script>
+      <script>
+      (function () {
+        // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
+        // Close drawer when any modal is triggered via data-bs-toggle
+        const modalTriggers = document.querySelectorAll(
+          '[data-bs-toggle="modal"]',
+        );
+        modalTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", function (e) {
+            // If we are in responsive mode (drawer is open), close it
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            if (drawer && drawer.classList.contains("open")) {
+              // Small delay to allow modal to open, then close drawer
+              setTimeout(() => {
+                closeDrawer();
+              }, 10);
+            }
+          });
+        });
+
+        // Also listen to Bootstrap modal show event (backup)
+        document.addEventListener("show.bs.modal", function () {
+          if (window.innerWidth <= 991) {
+            closeDrawer();
           }
         });
-      </script>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        // ========== FIX: MOBILE DRAWER ACCORDION (Programs, Courses, Explore) ==========
+        // Ensure toggleAcc function works consistently
+        window.toggleAcc = function (btn) {
+          btn.classList.toggle("open");
+          const body = btn.nextElementSibling;
+          if (body) {
+            body.classList.toggle("show");
+            body.classList.toggle("open");
+          }
+        };
+
+        // Re-attach event listeners to all drawer accordion buttons
+        document.querySelectorAll(".md-acc-btn").forEach((btn) => {
+          // Remove any existing inline onclick to avoid conflicts
+          btn.removeAttribute("onclick");
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.toggleAcc(this);
+          });
+        });
+
+        // Ensure closeDrawer and openDrawer are globally available
+        window.closeDrawer =
+          window.closeDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.remove("open");
+            if (overlay) overlay.classList.remove("open", "show");
+            if (ham) ham.classList.remove("active");
+            document.body.style.overflow = "";
+          };
+
+        window.openDrawer =
+          window.openDrawer ||
+          function () {
+            const drawer = document.getElementById("mDrawer");
+            const overlay = document.getElementById("mOverlay");
+            const ham = document.getElementById("hamBtn");
+            if (drawer) drawer.classList.add("open");
+            if (overlay) overlay.classList.add("open", "show");
+            if (ham) ham.classList.add("active");
+            document.body.style.overflow = "hidden";
+          };
+      })();
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="script.js"></script>
   </body>
