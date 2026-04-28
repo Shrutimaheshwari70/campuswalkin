@@ -77,8 +77,8 @@
       body {
         overflow-x: hidden;
       }
-      
-  /* ─────────────────────────────────────
+
+      /* ─────────────────────────────────────
     TOPBAR  (hidden on mobile)
   ───────────────────────────────────── */
       .topbar {
@@ -102,7 +102,7 @@
       .navbar {
         position: sticky;
         top: 0;
-          border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
 
         background-color: white;
         z-index: 300;
@@ -405,7 +405,7 @@
         }
         .navbar {
           height: 60px;
-    border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
         }
       }
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
@@ -784,7 +784,7 @@
       /* ─────────────────────────────────────
        Learning section
       ───────────────────────────────────── */
-      .border-bottom{
+      .border-bottom {
         padding-bottom: 50px;
       }
       .section-title small {
@@ -960,168 +960,171 @@
         font-size: 0.8rem;
         text-decoration: none;
       }
-/* ═════════════ UGC UNIVERSITIES MODERN UI UPGRADE ═════════════ */
+      /* ═════════════ UGC UNIVERSITIES MODERN UI UPGRADE ═════════════ */
 
-/* Section */
-.ugc-app {
-  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
-  border-bottom: 1px solid #eef2f7 !important;
-}
-/* Card */
-.card-ugc {
-  background: #ffffff;
-  border: 1px solid #e8edf5 !important;
-  border-radius: 16px !important;
-  padding: 12px 10px !important;
-  transition: all 0.28s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-}
+      /* Section */
+      .ugc-app {
+        background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+        border-bottom: 1px solid #eef2f7 !important;
+      }
+      /* Card */
+      .card-ugc {
+        background: #ffffff;
+        border: 1px solid #e8edf5 !important;
+        border-radius: 16px !important;
+        padding: 12px 10px !important;
+        transition: all 0.28s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      }
 
-.card-ugc::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), transparent);
-  opacity: 0;
-  transition: 0.3s;
-}
+      .card-ugc::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.05),
+          transparent
+        );
+        opacity: 0;
+        transition: 0.3s;
+      }
 
-.card-link:hover .card-ugc {
-  transform: translateY(-6px);
-  border-color: #d7e5ff !important;
-  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.12);
-}
+      .card-link:hover .card-ugc {
+        transform: translateY(-6px);
+        border-color: #d7e5ff !important;
+        box-shadow: 0 14px 28px rgba(37, 99, 235, 0.12);
+      }
 
-.card-link:hover .card-ugc::before {
-  opacity: 1;
-}
+      .card-link:hover .card-ugc::before {
+        opacity: 1;
+      }
 
-/* Logo Box */
-.card-ugc .ugc-img {
-  height: 58px;
-  background: #f8fbff;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
+      /* Logo Box */
+      .card-ugc .ugc-img {
+        height: 58px;
+        background: #f8fbff;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
 
-.ugc-img img {
-  height: 38px;
-  max-width: 100%;
-  object-fit: contain;
-  transition: 0.3s;
-}
+      .ugc-img img {
+        height: 38px;
+        max-width: 100%;
+        object-fit: contain;
+        transition: 0.3s;
+      }
 
-.card-link:hover .ugc-img img {
-  transform: scale(1.05);
-}
+      .card-link:hover .ugc-img img {
+        transform: scale(1.05);
+      }
 
+      .btn-ugc a:hover {
+        background: #2563eb;
+        color: #fff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
+      }
 
-.btn-ugc a:hover {
-  background: #2563eb;
-  color: #fff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
-}
+      /* ───────── RESPONSIVE ───────── */
 
-/* ───────── RESPONSIVE ───────── */
+      @media (max-width: 1200px) {
+        .bottom-ugc {
+          grid-template-columns: repeat(6, 1fr);
+        }
 
-@media (max-width: 1200px) {
-  .bottom-ugc {
-    grid-template-columns: repeat(6, 1fr);
-  }
+        .top-ugc h2 {
+          font-size: 1.8rem;
+        }
+      }
 
-  .top-ugc h2 {
-    font-size: 1.8rem;
-  }
-}
+      @media (max-width: 1024px) {
+        .bottom-ugc {
+          grid-template-columns: repeat(4, 1fr);
+        }
 
-@media (max-width: 1024px) {
-  .bottom-ugc {
-    grid-template-columns: repeat(4, 1fr);
-  }
+        .top-ugc h2 {
+          font-size: 1.6rem;
+        }
+      }
 
-  .top-ugc h2 {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .bottom-ugc {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .ugc-app {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-  .top-ugc h2 {
-    width: 100% !important;
-    font-size: 1.4rem;
-  }
-
-  .card-ugc {
-    padding: 10px 8px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .bottom-ugc {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.7rem;
-  }
-
-  .top-ugc h4 {
-    font-size: 0.82rem;
-  }
-
-  .top-ugc h2 {
-    font-size: 1.2rem;
-  }
-
-  .card-ugc .ugc-img {
-    height: 50px;
-  }
-
-  .ugc-img img {
-    height: 30px;
-  }
-
-  .card-ugc p {
-    font-size: 0.68rem;
-    min-height: auto;
-  }
-}
-
-@media (max-width: 360px) {
-  .bottom-ugc {
-    gap: 0.55rem;
-  }
-
-  .card-ugc {
-    border-radius: 12px !important;
-  }
-
-  .top-ugc h2 {
-    font-size: 1.05rem;
-  }
-}
       @media (max-width: 768px) {
-  .cft-tabs {
-    margin-bottom: 1rem !important;   /* less bottom space */
-    padding-bottom: 0 !important;    /* remove extra bottom padding */
-    gap: 0.5rem !important;
-    align-items: center;
-  }
+        .bottom-ugc {
+          grid-template-columns: repeat(3, 1fr);
+        }
 
-  .cft {
-    padding: 0.45rem 0.8rem !important;
-    font-size: 0.78rem;
-    line-height: 1.2;
-  }
-}
+        .ugc-app {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+        }
+
+        .top-ugc h2 {
+          width: 100% !important;
+          font-size: 1.4rem;
+        }
+
+        .card-ugc {
+          padding: 10px 8px !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .bottom-ugc {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.7rem;
+        }
+
+        .top-ugc h4 {
+          font-size: 0.82rem;
+        }
+
+        .top-ugc h2 {
+          font-size: 1.2rem;
+        }
+
+        .card-ugc .ugc-img {
+          height: 50px;
+        }
+
+        .ugc-img img {
+          height: 30px;
+        }
+
+        .card-ugc p {
+          font-size: 0.68rem;
+          min-height: auto;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .bottom-ugc {
+          gap: 0.55rem;
+        }
+
+        .card-ugc {
+          border-radius: 12px !important;
+        }
+
+        .top-ugc h2 {
+          font-size: 1.05rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .cft-tabs {
+          margin-bottom: 1rem !important; /* less bottom space */
+          padding-bottom: 0 !important; /* remove extra bottom padding */
+          gap: 0.5rem !important;
+          align-items: center;
+        }
+
+        .cft {
+          padding: 0.45rem 0.8rem !important;
+          font-size: 0.78rem;
+          line-height: 1.2;
+        }
+      }
       /* ----------------------------why section  */
       @keyframes fadeUp {
         from {
@@ -1566,17 +1569,17 @@
       }
       /* ===== Fix floating cards below 300px ===== */
 
-@media (max-width: 400px) {
-  .right-why {
-    min-height: auto !important;
-  }
+      @media (max-width: 400px) {
+        .right-why {
+          min-height: auto !important;
+        }
 
-  .float-card,
-  .float-card2 {
-    display: none !important;   /* hide cards on very small screens */
-  }
-}
-    
+        .float-card,
+        .float-card2 {
+          display: none !important; /* hide cards on very small screens */
+        }
+      }
+
       .stu-text h1 {
         font-size: clamp(32px, 5vw, 52px);
         font-weight: 800;
@@ -1891,57 +1894,48 @@
     </style>
   </head>
   <body>
-    
-     <!-- MODAL -->
-        <div class="modal fade" id="connectModal" tabindex="-1">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3 rounded-4">
-              <!-- HEADER -->
-              <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
-                <h5 class="fw-bold mb-0">Get Free Guidance</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                ></button>
-              </div>
-
-              <!-- FORM -->
-              <form class="form-inp">
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  placeholder="Full Name..."
-                />
-
-                <input
-                  type="email"
-                  class="form-control mb-3"
-                  placeholder="Email"
-                />
-
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  placeholder="Phone Number..."
-                />
-
-                <select class="form-select mb-3">
-                  <option selected disabled>Select Program Interest</option>
-                  <option>Executive Program</option>
-                  <option>Offline Program</option>
-                  <option>Online Program</option>
-                </select>
-
-                <button type="submit" class="btn btn-primary w-100">
-                  Submit
-                </button>
-              </form>
-            </div>
+    <!-- MODAL -->
+    <div class="modal fade" id="connectModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 rounded-4">
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Get Free Guidance</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
           </div>
+
+          <!-- FORM -->
+          <form class="form-inp">
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Full Name..."
+            />
+
+            <input type="email" class="form-control mb-3" placeholder="Email" />
+
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Phone Number..."
+            />
+
+            <select class="form-select mb-3">
+              <option selected disabled>Select Program Interest</option>
+              <option>Executive Program</option>
+              <option>Offline Program</option>
+              <option>Online Program</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
         </div>
+      </div>
+    </div>
     <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
@@ -2151,7 +2145,7 @@
         <!-- LOGO -->
         <a href="#" class="logo">
           <div class="logo-mark">
-            <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
+            <img src="./campuswalkin_logo.webp" alt="" class="w-100 d-block" />
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
@@ -3088,7 +3082,7 @@
       </div>
     </section>
     <!-- ═══ 4 CATEGORIES ═══ -->
-    <section class="border-bottom ">
+    <section class="border-bottom">
       <div class="section-title text-center mt-4 mb-4">
         <small class="fw-bold">LEARNING PATHWAYS</small>
         <h1>Choose Your Learning Model</h1>
@@ -3670,7 +3664,7 @@
 
           <div class="img-frame">
             <!-- Replace with your image path -->
-            <img src="./why-choose.png" alt="Why Choose CampusWalkin" />
+            <img src="./why-choose.webp" alt="Why Choose CampusWalkin" />
           </div>
 
           <div class="float-card2 border">
@@ -3904,7 +3898,6 @@
             >
               Book Free Counselling
             </button>
-         
           </div>
         </div>
       </div>
@@ -6706,7 +6699,7 @@
       render();
     </script>
 
-  <script>
+    <script>
       (function () {
         // Fix for Programs dropdown hover: prevent closing when moving from button to menu
         const programWrap = document.getElementById("programWrap");
@@ -6857,7 +6850,7 @@
         });
       })();
     </script>
-<script>
+    <script>
       (function () {
         // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
         // Close drawer when any modal is triggered via data-bs-toggle

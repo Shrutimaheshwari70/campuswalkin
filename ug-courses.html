@@ -82,7 +82,7 @@
         --row-hover: #f0faf8;
         --shadow: 0 4px 24px rgba(26, 122, 110, 0.1);
       }
-           *,
+      *,
       *::before,
       *::after {
         box-sizing: border-box;
@@ -103,8 +103,8 @@
         box-shadow: none;
         outline: none;
       }
- 
-  /* ─────────────────────────────────────
+
+      /* ─────────────────────────────────────
     TOPBAR  (hidden on mobile)
   ───────────────────────────────────── */
       .topbar {
@@ -128,7 +128,7 @@
       .navbar {
         position: sticky;
         top: 0;
-          border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
 
         background-color: white;
         z-index: 300;
@@ -431,7 +431,7 @@
         }
         .navbar {
           height: 60px;
-    border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
         }
       }
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
@@ -685,491 +685,870 @@
       .cw-logo {
         background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
       }
-        /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
       RESPONSIVE OVERRIDES
     ───────────────────────────────────── */
-        @media (max-width: 1199px) {
-          footer {
-            padding: 40px 2rem 20px;
-          }
-          .fg {
-            grid-template-columns: 200px 1fr;
-            gap: 2.5rem;
-          }
-          .fl {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-          }
+      @media (max-width: 1199px) {
+        footer {
+          padding: 40px 2rem 20px;
         }
-        @media (max-width: 767px) {
-          footer {
-            padding: 32px 1.25rem 20px;
-          }
-          .fg {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-          }
-          .fl {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-          }
-          .fb-bot {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.75rem;
-          }
-          .left-footer {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
-          }
-          .left-footer i {
-            display: none;
-          }
+        .fg {
+          grid-template-columns: 200px 1fr;
+          gap: 2.5rem;
         }
-        @media (max-width: 480px) {
-          footer {
-            padding: 28px 1rem 16px;
-          }
-          .fl {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-          }
-          .fl-t {
-            font-size: 0.95rem;
-          }
-          .fl-a {
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-          }
-          .footer-icons-social {
-            flex-wrap: wrap;
-          }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
         }
-        .cn-link {
-          font-size: 14px;
+      }
+      @media (max-width: 767px) {
+        footer {
+          padding: 32px 1.25rem 20px;
         }
-        /* ─────────────────────────────────────
+        .fg {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+        .fb-bot {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+        .left-footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .left-footer i {
+          display: none;
+        }
+      }
+      @media (max-width: 480px) {
+        footer {
+          padding: 28px 1rem 16px;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+        .fl-t {
+          font-size: 0.95rem;
+        }
+        .fl-a {
+          font-size: 0.85rem;
+          margin-bottom: 10px;
+        }
+        .footer-icons-social {
+          flex-wrap: wrap;
+        }
+      }
+      .cn-link {
+        font-size: 14px;
+      }
+      /* ─────────────────────────────────────
     CTA
   ───────────────────────────────────── */
-        .cta-sec {
-          background: var(--bg);
-        }
+      .cta-sec {
+        background: var(--bg);
+      }
+      .cta-box {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+      }
+      .cta-box p {
+        color: #8aa4d0;
+        font-size: 0.85rem;
+      }
+      .form-inp button {
+        background-color: var(--navy2);
+      }
+      .form-inp input:focus,
+      .btn-close:focus {
+        border-color: none;
+        box-shadow: none;
+        outline: none;
+      }
+      .cta-inner {
+        max-width: 900px;
+        margin: auto;
+      }
+      @media (max-width: 768px) {
         .cta-box {
-          background: linear-gradient(135deg, var(--navy), #1a3a7a);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.5rem;
         }
-        .cta-box p {
-          color: #8aa4d0;
-          font-size: 0.85rem;
+        .cta-btns {
+          width: 100%;
         }
-        .form-inp button {
-          background-color: var(--navy2);
+        .cta-btns button {
+          width: 100%;
         }
-        .form-inp input:focus,
-        .btn-close:focus {
-          border-color: none;
-          box-shadow: none;
-          outline: none;
+      }
+      @media (max-width: 768px) {
+        .cta-box {
+          padding: 1.5rem !important;
         }
-        .cta-inner {
-          max-width: 900px;
-          margin: auto;
+      }
+      /* ---------------- HERO ---------------- */
+      .hero {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      /* Banner Image */
+      .banner-img {
+        width: 100%;
+      }
+
+      .banner-img img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Overlay */
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      /* Text */
+      .banner-text {
+        position: absolute;
+        top: 50%;
+        left: 6%;
+        transform: translateY(-50%);
+        z-index: 2;
+        /* max-width: 700px; */
+        padding-right: 20px;
+      }
+
+      .banner-text h1 {
+        color: #fff;
+        font-size: 46px;
+        line-height: 1.2;
+        margin-bottom: 16px;
+        /* max-width: 650px; */
+      }
+
+      .hero-desc {
+        color: #fff;
+        font-size: 17px;
+        margin-bottom: 22px;
+        max-width: 650px;
+      }
+
+      .banner-text button {
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff;
+        padding: 12px 28px;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: 0.3s ease;
+      }
+
+      .banner-text button:hover {
+        background: #fff;
+        color: #000;
+      }
+
+      /* -------- Large Tablet -------- */
+      @media (max-width: 992px) {
+        .banner-img img {
+          height: 360px;
         }
-        @media (max-width: 768px) {
-          .cta-box {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1.5rem;
-          }
-          .cta-btns {
-            width: 100%;
-          }
-          .cta-btns button {
-            width: 100%;
-          }
+
+        .banner-text h1 {
+          font-size: 36px;
         }
-        @media (max-width: 768px) {
-          .cta-box {
-            padding: 1.5rem !important;
-          }
+
+        .hero-desc {
+          font-size: 16px;
+          max-width: 90%;
         }
-        /* ---------------- HERO ---------------- */
-.hero{
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
+      }
 
-/* Banner Image */
-.banner-img{
-  width: 100%;
-}
+      /* -------- Tablet -------- */
+      @media (max-width: 768px) {
+        .banner-img img {
+          height: 320px;
+        }
 
-.banner-img img{
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  display: block;
-}
+        .banner-text {
+          left: 5%;
+          right: 5%;
+          max-width: 100%;
+        }
 
-/* Overlay */
-.hero-overlay{
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
+        .banner-text h1 {
+          font-size: 28px;
+          max-width: 100%;
+        }
 
-/* Text */
-.banner-text{
-  position: absolute;
-  top: 50%;
-  left: 6%;
-  transform: translateY(-50%);
-  z-index: 2;
-  /* max-width: 700px; */
-  padding-right: 20px;
-}
+        .hero-desc {
+          font-size: 15px;
+          max-width: 100%;
+          line-height: 1.6;
+        }
 
-.banner-text h1{
-  color: #fff;
-  font-size: 46px;
-  line-height: 1.2;
-  margin-bottom: 16px;
-  /* max-width: 650px; */
-}
+        .banner-text button {
+          padding: 10px 22px;
+          font-size: 15px;
+        }
+      }
 
-.hero-desc{
-  color: #fff;
-  font-size: 17px;
-  margin-bottom: 22px;
-  max-width: 650px;
-}
+      /* -------- Mobile -------- */
+      @media (max-width: 576px) {
+        .banner-img img {
+          height: 420px;
+        }
 
-.banner-text button{
-  border: 1px solid #fff;
-  background: transparent;
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: 0.3s ease;
-}
+        .banner-text {
+          top: 50%;
+          left: 15px;
+          right: 15px;
+          transform: translateY(-50%);
+          padding: 0;
+        }
 
-.banner-text button:hover{
-  background: #fff;
-  color: #000;
-}
+        .banner-text h1 {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
 
-/* -------- Large Tablet -------- */
-@media (max-width: 992px){
+        .hero-desc {
+          font-size: 14px;
+          margin-bottom: 16px;
+          line-height: 1.5;
+        }
 
-  .banner-img img{
-    height: 360px;
-  }
+        .banner-text button {
+          width: 100%;
+          padding: 12px;
+          font-size: 14px;
+        }
+      }
 
-  .banner-text h1{
-    font-size: 36px;
-  }
+      /* -------- Small Mobile -------- */
+      @media (max-width: 400px) {
+        .banner-img img {
+          height: 450px;
+        }
 
-  .hero-desc{
-    font-size: 16px;
-    max-width: 90%;
-  }
-}
+        .banner-text h1 {
+          font-size: 20px;
+        }
 
-/* -------- Tablet -------- */
-@media (max-width: 768px){
+        .hero-desc {
+          font-size: 13px;
+        }
+      }
 
-  .banner-img img{
-    height: 320px;
-  }
+      /* ══ SIDEBAR ══ */
+      .filters-sidebar {
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #dde3f0 transparent;
+        position: sticky;
+        top: 10px;
+      }
+      small {
+        font-size: 0.8rem;
+      }
+      i {
+        font-size: 0.8rem;
+      }
+      .filters-sidebar::-webkit-scrollbar {
+        width: 5px;
+      }
+      .filters-sidebar::-webkit-scrollbar-thumb {
+        background: #dde3f0;
+        border-radius: 4px;
+      }
 
-  .banner-text{
-    left: 5%;
-    right: 5%;
-    max-width: 100%;
-  }
+      .fs-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .fs-meta {
+        font-size: 0.8rem;
+      }
+      .fs-reset {
+        font-size: 0.79rem;
+      }
+      .fs-sec-head {
+        cursor: pointer;
+      }
+      .fs-sec-title {
+        font-size: 0.99rem;
+        font-weight: 500;
+      }
+      .fs-sec-title-ug,
+      .fs-sec-title-pg {
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      .fs-sec-toggle {
+        transition: transform 0.22s ease;
+      }
+      .fs-sec-toggle.open {
+        transform: rotate(180deg);
+      }
+      .fs-sec-body {
+        display: none;
+      }
+      .fs-sec-body.open {
+        display: block;
+        animation: fadeDown 0.18s ease;
+      }
+      .fs-sub-body {
+        display: none;
+      }
+      .fs-sub-body.open {
+        display: block;
+        animation: fadeDown 0.18s ease;
+      }
 
-  .banner-text h1{
-    font-size: 28px;
-    max-width: 100%;
-  }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  .hero-desc{
-    font-size: 15px;
-    max-width: 100%;
-    line-height: 1.6;
-  }
+      .filter-search {
+        background: var(--bg);
+      }
+      .filter-search input {
+        background: none;
+        font-size: 0.76rem;
+        width: 100%;
+        outline: none;
+      }
+      .filter-check {
+        cursor: pointer;
+      }
+      .filter-check:hover .fc-label {
+        color: var(--accent);
+      }
+      .fc-checkbox {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+        border-radius: 3px;
+        transition: all 0.15s;
+      }
+      .filter-check.checked .fc-checkbox {
+        background: var(--accent);
+        border-color: var(--accent) !important;
+      }
+      .filter-check.checked .fc-checkbox::after {
+        content: "✓";
+        color: #fff;
+        font-size: 0.6rem;
+        font-weight: 900;
+      }
+      .fc-label {
+        font-size: 0.78rem;
+        transition: color 0.15s;
+      }
+      .fc-count {
+        font-size: 0.67rem;
+      }
+      .tag-chip {
+        font-size: 0.71rem;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .tag-chip.selected {
+        color: var(--accent);
+        border-color: var(--accent) !important;
+        background: #eff4ff !important;
+      }
+      .active-filters {
+        display: none;
+      }
+      .active-filters.has-filters {
+        display: flex;
+      }
+      .af-tag {
+        font-size: 0.7rem;
+      }
+      .af-tag span {
+        cursor: pointer;
+      }
+      .sub-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin-top: 6px;
+      }
 
-  .banner-text button{
-    padding: 10px 22px;
-    font-size: 15px;
-  }
-}
+      /* ══ SORT BAR ══ */
+      .results-count {
+        font-size: 0.89rem;
+      }
+      .results-count b {
+        color: var(--navy);
+      }
+      .sort-label {
+        font-size: 0.85rem;
+      }
+      .sort-select {
+        font-size: 0.78rem;
+        outline: none;
+        cursor: pointer;
+      }
+      .no-results {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 60vh;
+        width: 100%;
+      }
+      .no-results.show {
+        display: flex;
+      }
 
-/* -------- Mobile -------- */
-@media (max-width: 576px){
+      /* ══ COLLEGE CARD ══ */
+      .college-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        transition:
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+      .college-card:hover {
+        box-shadow: var(--sh3);
+        transform: translateY(-2px);
+      }
+      .cc-inner {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 0;
+      }
 
-  .banner-img img{
-    height: 420px;
-  }
+      @media (max-width: 767.98px) {
+        .cc-inner {
+          grid-template-columns: 1fr;
+        }
+        .cc-img-wrap {
+          height: 180px !important;
+        }
+        .cc-type-badge {
+          font-size: 0.55rem !important;
+        }
+      }
 
-  .banner-text{
-    top: 50%;
-    left: 15px;
-    right: 15px;
-    transform: translateY(-50%);
-    padding: 0;
-  }
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        .cc-inner {
+          grid-template-columns: 180px 1fr;
+        }
+      }
 
-  .banner-text h1{
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
+      .cc-img-wrap {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        min-height: 180px;
+      }
+      .cc-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+        display: block;
+      }
+      .college-card:hover .cc-img-wrap img {
+        transform: scale(1.04);
+      }
+      .cc-type-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.6rem;
+        font-weight: 800;
+        padding: 3px 8px;
+        border-radius: 100px;
+        text-transform: uppercase;
+      }
+      .badge-govt {
+        background: #ebfaf6;
+        color: #0aab87;
+      }
+      .badge-private {
+        background: #eff4ff;
+        color: #2563eb;
+      }
+      .badge-deemed {
+        background: #fff8eb;
+        color: #e8a020;
+      }
 
-  .hero-desc{
-    font-size: 14px;
-    margin-bottom: 16px;
-    line-height: 1.5;
-  }
+      .cc-body {
+        padding: 1rem 0.9rem;
+      }
+      .cc-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .cc-name {
+        font-weight: 500;
+        font-size: 0.97rem;
+        color: var(--navy);
+        line-height: 1.25;
+        transition: color 0.2s;
+        cursor: pointer;
+      }
+      .cc-name:hover {
+        color: var(--accent);
+      }
+      .cc-wishlist {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        border-radius: 8px;
+        border: 1.5px solid var(--border);
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+      }
+      .cc-wishlist:hover,
+      .cc-wishlist.active {
+        border-color: #e85d3a;
+        background: #fff3f0;
+        color: #e85d3a;
+      }
+      .cc-location {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.73rem;
+        color: var(--muted);
+        margin-bottom: 0.4rem;
+      }
+      .cc-accred {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 0.5rem;
+      }
+      .acc-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 7px;
+        background: var(--green-s);
+        border-radius: 100px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: var(--green);
+      }
+      .cc-rating {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 0.7rem;
+        flex-wrap: wrap;
+      }
+      .star {
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+      .rating-val {
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--navy);
+      }
+      .rating-count {
+        font-size: 0.7rem;
+        color: var(--muted);
+      }
+      .rating-bar-wrap {
+        flex: 1;
+        height: 5px;
+        background: var(--border);
+        border-radius: 3px;
+        overflow: hidden;
+        max-width: 80px;
+      }
+      .rating-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--gold), #f59e0b);
+        border-radius: 3px;
+      }
+      .cc-fees-row {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-bottom: 0.7rem;
+        flex-wrap: wrap;
+      }
+      .cc-fee-item {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+      }
+      .cfi-label {
+        font-size: 0.61rem;
+        color: var(--muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .cfi-val {
+        font-size: 0.84rem;
+        font-weight: 500;
+        color: var(--navy);
+      }
+      .cc-fees-divider {
+        width: 1px;
+        height: 26px;
+        background: var(--border);
+        flex-shrink: 0;
+      }
+      .cc-courses {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 0.6rem;
+      }
+      .cc-course-tag {
+        padding: 2px 8px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.63rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .cc-actions {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        flex-wrap: wrap;
+      }
+      .cca-apply {
+        padding: 8px 20px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .cca-apply:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+      .cca-brochure {
+        padding: 8px 18px;
+        background: var(--bg);
+        color: var(--text);
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .cca-brochure:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .cca-compare {
+        padding: 7px 12px;
+        background: none;
+        color: var(--muted);
+        border: 1.5px dashed var(--border);
+        border-radius: 8px;
+        font-size: 0.73rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .cca-compare:hover,
+      .cca-compare.added {
+        border-color: var(--green);
+        color: var(--green);
+        border-style: solid;
+      }
 
-  .banner-text button{
-    width: 100%;
-    padding: 12px;
-    font-size: 14px;
-  }
-}
+      /* ══ PAGINATION ══ */
+      .pg-btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        border: 1.5px solid var(--border);
+        background: var(--white);
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        color: var(--muted);
+        transition: all 0.2s;
+      }
+      .pg-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .pg-btn.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+      .pg-btn.prev-next {
+        width: auto;
+        padding: 0 14px;
+        gap: 5px;
+      }
 
-/* -------- Small Mobile -------- */
-@media (max-width: 400px){
+      /* ══ MOBILE FILTER TOGGLE ══ */
+      .btn-filter-toggle {
+        font-size: 0.82rem;
+        font-weight: 600;
+        border: 1.5px solid var(--border);
+        background: var(--white);
+        border-radius: 8px;
+        padding: 7px 14px;
+      }
 
-  .banner-img img{
-    height: 450px;
-  }
+      /* ══ CAREER CARDS ══ */
+      .card {
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        position: relative;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+      }
+      .card:hover .card-img-top {
+        transform: scale(1.05);
+      }
+      .card .card-img-top {
+        transition: transform 0.5s ease;
+      }
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #0dcaf0, #ffc107, #198754);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+        z-index: 1;
+      }
+      .card:hover::before {
+        transform: scaleX(1);
+      }
 
-  .banner-text h1{
-    font-size: 20px;
-  }
+      /* ══ SCROLLBAR for inner lists ══ */
+      .filter-section {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) #f0f0f0;
+      }
+      .filter-section::-webkit-scrollbar {
+        width: 6px;
+      }
+      .filter-section::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 3px;
+      }
+      .filter-section::-webkit-scrollbar-track {
+        background: #f0f0f0;
+      }
 
-  .hero-desc{
-    font-size: 13px;
-  }
-}
- 
-    /* ══ SIDEBAR ══ */
-    .filters-sidebar {
-      height: calc(100vh - 70px);
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: #dde3f0 transparent;
-      position: sticky;
-      top: 10px;
-    }
-    small{
-      font-size: 0.8rem;
-    }
-    i{
-      font-size: 0.8rem;
-      
-    }
-    .filters-sidebar::-webkit-scrollbar { width: 5px; }
-    .filters-sidebar::-webkit-scrollbar-thumb { background: #dde3f0; border-radius: 4px; }
- 
-    .fs-header { position: sticky; top: 0; z-index: 10; }
-    .fs-meta { font-size: 0.8rem; }
-    .fs-reset { font-size: 0.79rem; }
-    .fs-sec-head { cursor: pointer; }
-    .fs-sec-title { font-size: 0.99rem; font-weight: 500; }
-    .fs-sec-title-ug, .fs-sec-title-pg { font-size: 0.85rem; font-weight: 500; }
-    .fs-sec-toggle { transition: transform 0.22s ease; }
-    .fs-sec-toggle.open { transform: rotate(180deg); }
-    .fs-sec-body { display: none; }
-    .fs-sec-body.open { display: block; animation: fadeDown 0.18s ease; }
-    .fs-sub-body { display: none; }
-    .fs-sub-body.open { display: block; animation: fadeDown 0.18s ease; }
- 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-4px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
- 
-    .filter-search { background: var(--bg); }
-    .filter-search input { background: none; font-size: 0.76rem; width: 100%; outline: none; }
-    .filter-check { cursor: pointer; }
-    .filter-check:hover .fc-label { color: var(--accent); }
-    .fc-checkbox {
-      width: 16px; height: 16px; min-width: 16px;
-      border-radius: 3px;
-      transition: all 0.15s;
-    }
-    .filter-check.checked .fc-checkbox {
-      background: var(--accent);
-      border-color: var(--accent) !important;
-    }
-    .filter-check.checked .fc-checkbox::after {
-      content: "✓"; color: #fff; font-size: 0.6rem; font-weight: 900;
-    }
-    .fc-label { font-size: 0.78rem; transition: color 0.15s; }
-    .fc-count { font-size: 0.67rem; }
-    .tag-chip { font-size: 0.71rem; cursor: pointer; transition: all 0.15s; }
-    .tag-chip.selected { color: var(--accent); border-color: var(--accent) !important; background: #eff4ff !important; }
-    .active-filters { display: none; }
-    .active-filters.has-filters { display: flex; }
-    .af-tag { font-size: 0.7rem; }
-    .af-tag span { cursor: pointer; }
-    .sub-label { font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; margin-top: 6px; }
- 
-    /* ══ SORT BAR ══ */
-    .results-count { font-size: 0.89rem; }
-    .results-count b { color: var(--navy); }
-    .sort-label { font-size: 0.85rem; }
-    .sort-select { font-size: 0.78rem; outline: none; cursor: pointer; }
-    .no-results {
-      display: none; flex-direction: column; align-items: center;
-      justify-content: center; text-align: center; min-height: 60vh; width: 100%;
-    }
-    .no-results.show { display: flex; }
- 
-    /* ══ COLLEGE CARD ══ */
-    .college-card {
-      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
-      overflow: hidden; margin-bottom: 1rem;
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-    .college-card:hover { box-shadow: var(--sh3); transform: translateY(-2px); }
-    .cc-inner { display: grid; grid-template-columns: 220px 1fr; gap: 0; }
- 
-    @media (max-width: 767.98px) {
-      .cc-inner { grid-template-columns: 1fr; }
-      .cc-img-wrap { height: 180px !important; }
-      .cc-type-badge { font-size: 0.55rem !important; }
-    }
- 
-    @media (min-width: 768px) and (max-width: 991.98px) {
-      .cc-inner { grid-template-columns: 180px 1fr; }
-    }
- 
-    .cc-img-wrap { position: relative; overflow: hidden; height: 100%; min-height: 180px; }
-    .cc-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; display: block; }
-    .college-card:hover .cc-img-wrap img { transform: scale(1.04); }
-    .cc-type-badge {
-      position: absolute; top: 10px; right: 10px;
-      font-size: 0.6rem; font-weight: 800; padding: 3px 8px;
-      border-radius: 100px; text-transform: uppercase;
-    }
-    .badge-govt  { background: #ebfaf6; color: #0aab87; }
-    .badge-private { background: #eff4ff; color: #2563eb; }
-    .badge-deemed { background: #fff8eb; color: #e8a020; }
- 
-    .cc-body { padding: 1rem 0.9rem; }
-    .cc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
-    .cc-name {
-      font-weight: 500; font-size: 0.97rem; color: var(--navy);
-      line-height: 1.25; transition: color 0.2s; cursor: pointer;
-    }
-    .cc-name:hover { color: var(--accent); }
-    .cc-wishlist {
-      width: 32px; height: 32px; min-width: 32px; border-radius: 8px;
-      border: 1.5px solid var(--border); background: var(--bg);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.2s; font-size: 0.9rem;
-    }
-    .cc-wishlist:hover, .cc-wishlist.active { border-color: #e85d3a; background: #fff3f0; color: #e85d3a; }
-    .cc-location { display: flex; align-items: center; gap: 4px; font-size: 0.73rem; color: var(--muted); margin-bottom: 0.4rem; }
-    .cc-accred { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 0.5rem; }
-    .acc-tag {
-      display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px;
-      background: var(--green-s); border-radius: 100px; font-size: 0.6rem; font-weight: 700; color: var(--green);
-    }
-    .cc-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 0.7rem; flex-wrap: wrap; }
-    .star { color: var(--gold); font-size: 0.9rem; }
-    .rating-val { font-size: 0.8rem; font-weight: 800; color: var(--navy); }
-    .rating-count { font-size: 0.7rem; color: var(--muted); }
-    .rating-bar-wrap { flex: 1; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; max-width: 80px; }
-    .rating-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), #f59e0b); border-radius: 3px; }
-    .cc-fees-row { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
-    .cc-fee-item { display: flex; flex-direction: column; gap: 1px; }
-    .cfi-label { font-size: 0.61rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    .cfi-val { font-size: 0.84rem; font-weight: 500; color: var(--navy); }
-    .cc-fees-divider { width: 1px; height: 26px; background: var(--border); flex-shrink: 0; }
-    .cc-courses { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 0.6rem; }
-    .cc-course-tag {
-      padding: 2px 8px; background: var(--bg); border: 1px solid var(--border);
-      border-radius: 100px; font-size: 0.63rem; font-weight: 600; color: var(--muted);
-    }
-    .cc-actions { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-    .cca-apply {
-      padding: 8px 20px; background: var(--accent); color: #fff; border: none;
-      border-radius: 8px; font-size: 0.76rem; font-weight: 700; cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .cca-apply:hover { opacity: 0.9; transform: translateY(-1px); }
-    .cca-brochure {
-      padding: 8px 18px; background: var(--bg); color: var(--text);
-      border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.76rem;
-      font-weight: 700; cursor: pointer; transition: all 0.2s;
-    }
-    .cca-brochure:hover { border-color: var(--accent); color: var(--accent); }
-    .cca-compare {
-      padding: 7px 12px; background: none; color: var(--muted);
-      border: 1.5px dashed var(--border); border-radius: 8px; font-size: 0.73rem;
-      font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 4px;
-    }
-    .cca-compare:hover, .cca-compare.added { border-color: var(--green); color: var(--green); border-style: solid; }
- 
-    /* ══ PAGINATION ══ */
-    .pg-btn {
-      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-      border-radius: 8px; border: 1.5px solid var(--border); background: var(--white);
-      font-size: 0.8rem; font-weight: 600; cursor: pointer; color: var(--muted); transition: all 0.2s;
-    }
-    .pg-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .pg-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .pg-btn.prev-next { width: auto; padding: 0 14px; gap: 5px; }
- 
-    /* ══ MOBILE FILTER TOGGLE ══ */
-    .btn-filter-toggle {
-      font-size: 0.82rem; font-weight: 600; border: 1.5px solid var(--border);
-      background: var(--white); border-radius: 8px; padding: 7px 14px;
-    }
- 
-    /* ══ CAREER CARDS ══ */
-    .card { transition: all 0.3s ease-in-out; overflow: hidden; position: relative; }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important; }
-    .card:hover .card-img-top { transform: scale(1.05); }
-    .card .card-img-top { transition: transform 0.5s ease; }
-    .card::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, #0d6efd, #0dcaf0, #ffc107, #198754);
-      transform: scaleX(0); transition: transform 0.4s ease; z-index: 1;
-    }
-    .card:hover::before { transform: scaleX(1); }
- 
-    /* ══ SCROLLBAR for inner lists ══ */
-    .filter-section { scrollbar-width: thin; scrollbar-color: var(--primary) #f0f0f0; }
-    .filter-section::-webkit-scrollbar { width: 6px; }
-    .filter-section::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
-    .filter-section::-webkit-scrollbar-track { background: #f0f0f0; }
- 
-    /* ══ OFFCANVAS ══ */
-    .offcanvas-filter { max-width: 310px; }
-    @media (max-width: 200px) { .offcanvas-filter { max-width: 100vw; } }
- 
-    /* ══ COMPARE MODAL ══ */
-    .compare-card-add { border: 2px dashed var(--border); border-radius: 12px; min-width: 200px; }
-    .icon-circle {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--bg); border: 1.5px solid var(--border);
-      display: flex; align-items: center; justify-content: center; margin: 0 auto;
-    }
-    .label-orange { font-size: 0.78rem; font-weight: 600; color: #e85d3a; margin-bottom: 4px; display: block; }
-    .custom-select { font-size: 0.8rem; }
- 
-    @media (max-width: 575.98px) {
-      .cc-body { padding: 0.8rem; }
-      .cca-apply, .cca-brochure { padding: 7px 14px; font-size: 0.72rem; }
-      .cca-compare { padding: 6px 10px; font-size: 0.68rem; }
-    }  
+      /* ══ OFFCANVAS ══ */
+      .offcanvas-filter {
+        max-width: 310px;
+      }
+      @media (max-width: 200px) {
+        .offcanvas-filter {
+          max-width: 100vw;
+        }
+      }
+
+      /* ══ COMPARE MODAL ══ */
+      .compare-card-add {
+        border: 2px dashed var(--border);
+        border-radius: 12px;
+        min-width: 200px;
+      }
+      .icon-circle {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 1.5px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+      }
+      .label-orange {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #e85d3a;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .custom-select {
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 575.98px) {
+        .cc-body {
+          padding: 0.8rem;
+        }
+        .cca-apply,
+        .cca-brochure {
+          padding: 7px 14px;
+          font-size: 0.72rem;
+        }
+        .cca-compare {
+          padding: 6px 10px;
+          font-size: 0.68rem;
+        }
+      }
       .offering-sec {
         background-color: rgb(230, 231, 255);
       }
@@ -1358,7 +1737,7 @@
       }
     </style>
   </head>
-  <body>        
+  <body>
     <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
@@ -1563,16 +1942,18 @@
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
         <!-- LOGO -->
         <a href="#" class="logo">
           <div class="logo-mark">
-            <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
+            <img src="./campuswalkin_logo.webp" alt="" class="w-100 d-block" />
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="index.html" class="cn-link text-decoration-none text-dark"
+            >Home</a
+          >
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -1961,7 +2342,9 @@
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <!-- All Courses -->
         <div class="courses-wrap" id="coursesWrap">
           <button
@@ -1995,23 +2378,32 @@
           </button>
 
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
+            <div class="cm-inner d-flex">
               <!-- Left: Categories -->
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
 
               <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
                 <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -2058,16 +2450,42 @@
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
 
                 <!-- Dynamic grid -->
@@ -2292,379 +2710,1316 @@
     ></div>
     <!-- -------------------------hero ---------------------- -->
     <section class="hero position-relative overflow-hidden">
+      <!-- Banner Image -->
+      <div class="banner-img w-100 position-relative">
+        <img
+          src="./about-banner.webp"
+          alt="Banner"
+          class="w-100 object-fit-cover"
+        />
 
-  <!-- Banner Image -->
-  <div class="banner-img w-100 position-relative">
-    <img src="./about-banner.jpg" alt="Banner" class="w-100 object-fit-cover" />
-
-    <!-- Overlay -->
-    <div class="hero-overlay"></div>
-  </div>
-
-  <!-- Text Content -->
-  <div class="banner-text">
-    <h1>Explore Our Undergraduate Programs</h1>
-
-    <p class="hero-desc">
-      CampusWalkin is India’s leading education marketplace, connecting
-      students and ambitious professionals with top universities and
-      career-transforming programs. Explore our wide range of undergraduate
-      courses and take the first step towards a successful and rewarding
-      career.
-    </p>
-
-    <button
-      data-bs-toggle="modal"
-      data-bs-target="#connectModal">
-      Get Free Counselling
-    </button>
-  </div>
-
-
-</section>
-<!-- ═══ MAIN LAYOUT ═══ -->
-<div class="container-fluid px-2 px-md-3 px-xl-4 py-3">
-  <div class="row g-3 align-items-start">
- 
-    <!-- ══ SIDEBAR (desktop lg+) ══ -->
-    <div class="col-lg-3 d-none d-lg-block">
-      <div class="filters-sidebar border bg-white rounded" id="filtersSidebar">
- 
-        <!-- Header -->
-        <div class="fs-header bg-white d-flex align-items-center justify-content-between border-bottom py-2 px-3">
-          <div>
-            <div class="fs-title fs-5 fw-semibold">Filters</div>
-            <div class="fs-meta text-muted">Found <b id="foundCount" class="text-primary">20,698</b> colleges</div>
-          </div>
-          <button class="fs-reset border bg-primary text-white py-1 px-2 rounded-1" onclick="resetAllFilters()">Reset All</button>
-        </div>
- 
-        <!-- Active filters -->
-        <div class="active-filters border-bottom py-2 px-3 gap-2 flex-wrap" id="activeFiltersStrip"></div>
- 
-        <!-- Sections -->
-        <div id="filterSections">
- 
-          <!-- 1. COURSE -->
-          <div class="filter-section border-bottom py-2 px-3" style="max-height:300px;overflow-y:auto">
-            <div class="fs-sec-head d-flex align-items-center justify-content-between" onclick="toggleSection(this)">
-              <span class="fs-sec-title">Course</span>
-              <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-            </div>
-            <div class="fs-sec-body mt-1 open">
-              <div class="filter-search d-flex align-items-center justify-content-between px-2 border rounded-2 mb-1">
-                <input type="text" placeholder="Find Course" class="rounded-2 border-0 py-1" oninput="searchFilter(this,'course-list')" />
-                <i class="bi bi-search text-muted"></i>
-              </div>
-              <!-- UG -->
-              <div class="fs-sec-head d-flex align-items-center justify-content-between mt-1" onclick="toggleSubSection(this)">
-                <span class="fs-sec-title-ug">Undergraduate</span>
-                <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-              </div>
-              <div class="fs-sub-body open" id="ug-list">
-                <div id="course-list">
-                  <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'B.Com')">
-                    <div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">B.Com</span></div>
-                  </div>
-                  <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'B.Sc')">
-                    <div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">B.Sc</span></div>
-                  </div>
-                  <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'BA')">
-                    <div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">BA</span></div>
-                  </div>
-                  <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'BBA/BBM')">
-                    <div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">BBA/BBM</span></div>
-                  </div>
-                  <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'BE/B.Tech')">
-                    <div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">BE/B.Tech</span></div>
-                  </div>
-                  <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'BCA')">
-                    <div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">BCA</span></div>
-                  </div>
-                  <div id="course-list-not-found" class="d-none" style="color:var(--muted);font-size:0.75rem;padding:4px 4px">No course found</div>
-                </div>
-              </div>
-              <!-- PG -->
-              <div class="fs-sec-head d-flex align-items-center justify-content-between mt-1" onclick="toggleSubSection(this)">
-                <span class="fs-sec-title-pg">Postgraduate</span>
-                <i class="bi bi-chevron-down fs-sec-toggle"></i>
-              </div>
-              <div class="fs-sub-body" id="pg-list">
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'MBA')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">MBA</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'MBBS')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">MBBS</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'M.Tech')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">M.Tech</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'MCA')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">MCA</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'LLB')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">LLB</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">1260</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'MA')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">MA</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'PGDM')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">PGDM</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'PGP')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">PGP</span></div></div>
-              </div>
-            </div>
-          </div>
- 
-          <!-- 2. STATE -->
-          <div class="filter-section py-2 px-3 border-bottom" style="max-height:250px;overflow-y:auto">
-            <div class="fs-sec-head d-flex align-items-center justify-content-between" onclick="toggleSection(this)">
-              <span class="fs-sec-title">State</span>
-              <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-            </div>
-            <div class="fs-sec-body mt-1 open">
-              <div class="filter-search d-flex align-items-center justify-content-between px-2 border rounded-2 mb-1">
-                <input type="text" placeholder="Search State" class="rounded-2 border-0 py-1" oninput="searchFilter(this,'state-list')" />
-                <i class="bi bi-search text-muted"></i>
-              </div>
-              <div id="state-list">
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Maharashtra')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Maharashtra</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">3240</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Tamil Nadu')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Tamil Nadu</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2980</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Karnataka')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Karnataka</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Madhya Pradesh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Madhya Pradesh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Andhra Pradesh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Andhra Pradesh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Gujarat')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Gujarat</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Rajasthan')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Rajasthan</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">1380</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Uttar Pradesh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Uttar Pradesh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">1720</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Delhi')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Delhi</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">1840</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Kerala')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Kerala</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'West Bengal')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">West Bengal</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Haryana')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Haryana</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Punjab')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Punjab</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Bihar')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Bihar</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Odisha')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Odisha</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Assam')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Assam</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Telangana')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Telangana</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Jharkhand')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Jharkhand</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Uttarakhand')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Uttarakhand</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Goa')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Goa</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Chhattisgarh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Chhattisgarh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Nagaland')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Nagaland</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Sikkim')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Sikkim</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Manipur')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Manipur</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Meghalaya')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Meghalaya</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Mizoram')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Mizoram</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Tripura')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Tripura</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Arunachal Pradesh')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Arunachal Pradesh</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">2650</span></div>
-              </div>
-            </div>
-          </div>
- 
-          <!-- 3. FEES RANGE -->
-          <div class="filter-section py-2 px-3 border-bottom">
-            <div class="fs-sec-head d-flex align-items-center justify-content-between" onclick="toggleSection(this)">
-              <span class="fs-sec-title">Fees Range</span>
-              <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-            </div>
-            <div class="fs-sec-body mt-1 open">
-              <input type="range" id="feesRange" min="0" max="500000" step="10000" class="w-100" value="500000" oninput="filterByFees(this.value)" />
-              <div style="font-size:0.78rem;margin-top:4px">Max Fees: ₹<span id="feesValue">5,00,000</span></div>
-            </div>
-          </div>
- 
-          <!-- 4. COURSE LEVEL -->
-          <div class="filter-section py-2 px-3 border-bottom">
-            <div class="fs-sec-head d-flex align-items-center justify-content-between" onclick="toggleSection(this)">
-              <span class="fs-sec-title">Course Level</span>
-              <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-            </div>
-            <div class="fs-sec-body mt-1 open" id="level-list">
-              <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Graduation')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Graduation</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">484</span></div>
-              <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Post Graduation')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Post Graduation</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">23</span></div>
-              <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Doctorate')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Doctorate/M.Phil</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">4</span></div>
-            </div>
-          </div>
- 
-          <!-- 5. EXECUTIVE PROGRAMS -->
-          <div class="filter-section py-2 px-3 border-bottom">
-            <div class="fs-sec-head d-flex align-items-center justify-content-between" onclick="toggleSection(this)">
-              <span class="fs-sec-title" style="color:#e85d3a">Executive Programs</span>
-              <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-            </div>
-            <div class="fs-sec-body mt-1 open">
-              <div class="sub-label">Offered By</div>
-              <div id="exec-by-list">
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'IIM Executive')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">IIM</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">8</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'IIT Executive')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">IIT</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">23</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'ISB Executive')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">ISB</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">4</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'XLRI Executive')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">XLRI</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">3</span></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'MICA Executive')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">MICA</span></div><span class="fc-count text-muted py-0 px-1 rounded-1 bg-light">5</span></div>
-              </div>
-              <div class="sub-label mt-2">Specialisation</div>
-              <div class="tag-chips d-flex flex-wrap gap-2 mt-2">
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'exec-mba')">MBA</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'exec-pgp')">PGP</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'exec-pgdm')">PGDM</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'exec-hr')">HR</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'exec-mktg')">Marketing</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'exec-fin')">Finance</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'exec-ops')">Operations</span>
-              </div>
-            </div>
-          </div>
- 
-          <!-- 6. STUDY ABROAD -->
-          <div class="filter-section py-2 px-3">
-            <div class="fs-sec-head d-flex align-items-center justify-content-between" onclick="toggleSection(this)">
-              <span class="fs-sec-title" style="color:#e8a020">Study Abroad</span>
-              <i class="bi bi-chevron-down fs-sec-toggle open"></i>
-            </div>
-            <div class="fs-sec-body mt-1 open">
-              <div class="sub-label">Country</div>
-              <div class="d-flex flex-wrap gap-2 mt-2 mb-2">
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-usa')">🇺🇸 USA</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-uk')">🇬🇧 UK</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-ca')">🇨🇦 Canada</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-au')">🇦🇺 Australia</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-de')">🇩🇪 Germany</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-sg')">🇸🇬 Singapore</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-nz')">🇳🇿 New Zealand</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-ie')">🇮🇪 Ireland</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-nl')">🇳🇱 Netherlands</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-fr')">🇫🇷 France</span>
-              </div>
-              <div class="sub-label">Degree Level</div>
-              <div class="d-flex flex-wrap gap-2 mt-2 mb-2">
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-ug')">UG / Bachelor's</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-pg')">PG / Master's</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-ms')">MS / M.Sc</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-mba')">MBA</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-phd')">PhD</span>
-              </div>
-              <div class="sub-label">Scholarship</div>
-              <div id="abroad-scholar-list">
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Full Scholarship')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Full Scholarship Available</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Partial Scholarship')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Partial Scholarship</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Merit Based')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Merit Based Aid</span></div></div>
-                <div class="filter-check p-1 d-flex align-items-center justify-content-between" onclick="toggleCheck(this,'Need Based')"><div class="fc-left d-flex align-items-center gap-2"><div class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"></div><span class="fc-label">Need Based Aid</span></div></div>
-              </div>
-              <div class="sub-label mt-2">Exam Accepted</div>
-              <div class="d-flex flex-wrap gap-2 mt-2 mb-2">
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-ielts')">IELTS</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-toefl')">TOEFL</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-gre')">GRE</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-gmat')">GMAT</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-sat')">SAT</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-duo')">Duolingo</span>
-              </div>
-              <div class="sub-label">Support Services</div>
-              <div class="d-flex flex-wrap gap-2 mt-2">
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-visa')">Visa Help</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-accom')">Accommodation</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-loan')">Education Loan</span>
-                <span class="tag-chip py-0 px-2 rounded-2 border bg-light" onclick="toggleChipColor(this,'ab-sop')">SOP Help</span>
-              </div>
-            </div>
-          </div>
- 
-        </div>
+        <!-- Overlay -->
+        <div class="hero-overlay"></div>
       </div>
-    </div>
- 
-    <!-- ══ MAIN CONTENT ══ -->
-    <div class="col-lg-9">
- 
-      <!-- Mobile top bar -->
-      <div class="d-flex align-items-center justify-content-between mb-2 d-lg-none gap-2 flex-wrap">
-        <button class="btn-filter-toggle btn d-flex align-items-center gap-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter">
-          <i class="bi bi-funnel"></i> Filters
+
+      <!-- Text Content -->
+      <div class="banner-text">
+        <h1>Explore Our Undergraduate Programs</h1>
+
+        <p class="hero-desc">
+          CampusWalkin is India’s leading education marketplace, connecting
+          students and ambitious professionals with top universities and
+          career-transforming programs. Explore our wide range of undergraduate
+          courses and take the first step towards a successful and rewarding
+          career.
+        </p>
+
+        <button data-bs-toggle="modal" data-bs-target="#connectModal">
+          Get Free Counselling
         </button>
-        <div class="results-count">Showing <b id="showCountMob">10</b> of <b>20,698</b></div>
-        <select class="sort-select border rounded-1 py-1 px-2 fw-bold text-muted bg-white" onchange="sortColleges(this.value)" style="font-size:0.78rem;">
-          <option value="popularity">Popularity</option>
-          <option value="rating">Rating ↑</option>
-          <option value="fees-low">Fees ↑</option>
-          <option value="fees-high">Fees ↓</option>
-          <option value="name">A–Z</option>
-        </select>
       </div>
- 
-      <!-- Sort bar (desktop) -->
-      <div class="sort-bar d-none d-lg-flex align-items-center justify-content-between mb-2">
-        <div class="results-count text-muted fw-normal">
-          Showing <b id="showCount">10</b> of <b id="totalShow">20,698</b> colleges
-        </div>
-        <div class="d-flex align-items-center gap-2">
-          <span class="sort-label text-muted fw-normal">Sort by:</span>
-          <select class="sort-select border rounded-1 py-1 px-2 fw-bold text-muted bg-white" onchange="sortColleges(this.value)">
-            <option value="popularity">Popularity</option>
-            <option value="rating">Rating (High to Low)</option>
-            <option value="fees-low">Fees (Low to High)</option>
-            <option value="fees-high">Fees (High to Low)</option>
-            <option value="name">Name (A–Z)</option>
-          </select>
-        </div>
-      </div>
- 
-      <!-- Compare Modal -->
-      <div class="modal fade" id="compareModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-          <div class="modal-content border-0">
-            <div class="border-bottom mb-3 d-flex align-items-center justify-content-between p-3">
-              <h5 class="mb-0 fw-semibold">College Compare</h5>
-              <i class="bi bi-x-lg" data-bs-dismiss="modal" style="cursor:pointer"></i>
-            </div>
-            <div class="modal-body">
-              <div class="row g-3" id="compareModalRow"></div>
-              <div class="compare-card-add text-center p-4 mt-3">
-                <div class="icon-circle mb-2"><i class="bi bi-plus-lg"></i></div>
-                <p class="fw-semibold mb-3">Add College</p>
-                <div class="text-start mb-2">
-                  <label class="label-orange">Search College</label>
-                  <select class="form-select custom-select college-select" onchange="selectNewCollege(this)">
-                    <option selected>Select College</option>
-                  </select>
-                  <small class="text-danger">Please Select a College</small>
+    </section>
+    <!-- ═══ MAIN LAYOUT ═══ -->
+    <div class="container-fluid px-2 px-md-3 px-xl-4 py-3">
+      <div class="row g-3 align-items-start">
+        <!-- ══ SIDEBAR (desktop lg+) ══ -->
+        <div class="col-lg-3 d-none d-lg-block">
+          <div
+            class="filters-sidebar border bg-white rounded"
+            id="filtersSidebar"
+          >
+            <!-- Header -->
+            <div
+              class="fs-header bg-white d-flex align-items-center justify-content-between border-bottom py-2 px-3"
+            >
+              <div>
+                <div class="fs-title fs-5 fw-semibold">Filters</div>
+                <div class="fs-meta text-muted">
+                  Found
+                  <b id="foundCount" class="text-primary">20,698</b> colleges
                 </div>
-                <select class="form-select custom-select course-select mt-2">
-                  <option selected>Select Course</option>
-                </select>
               </div>
+              <button
+                class="fs-reset border bg-primary text-white py-1 px-2 rounded-1"
+                onclick="resetAllFilters()"
+              >
+                Reset All
+              </button>
             </div>
-            <div class="text-center border-top p-3">
-              <button onclick="goToComparePage()" class="btn btn-primary px-5">Compare</button>
+
+            <!-- Active filters -->
+            <div
+              class="active-filters border-bottom py-2 px-3 gap-2 flex-wrap"
+              id="activeFiltersStrip"
+            ></div>
+
+            <!-- Sections -->
+            <div id="filterSections">
+              <!-- 1. COURSE -->
+              <div
+                class="filter-section border-bottom py-2 px-3"
+                style="max-height: 300px; overflow-y: auto"
+              >
+                <div
+                  class="fs-sec-head d-flex align-items-center justify-content-between"
+                  onclick="toggleSection(this)"
+                >
+                  <span class="fs-sec-title">Course</span>
+                  <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+                </div>
+                <div class="fs-sec-body mt-1 open">
+                  <div
+                    class="filter-search d-flex align-items-center justify-content-between px-2 border rounded-2 mb-1"
+                  >
+                    <input
+                      type="text"
+                      placeholder="Find Course"
+                      class="rounded-2 border-0 py-1"
+                      oninput="searchFilter(this, 'course-list')"
+                    />
+                    <i class="bi bi-search text-muted"></i>
+                  </div>
+                  <!-- UG -->
+                  <div
+                    class="fs-sec-head d-flex align-items-center justify-content-between mt-1"
+                    onclick="toggleSubSection(this)"
+                  >
+                    <span class="fs-sec-title-ug">Undergraduate</span>
+                    <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+                  </div>
+                  <div class="fs-sub-body open" id="ug-list">
+                    <div id="course-list">
+                      <div
+                        class="filter-check p-1 d-flex align-items-center justify-content-between"
+                        onclick="toggleCheck(this, 'B.Com')"
+                      >
+                        <div class="fc-left d-flex align-items-center gap-2">
+                          <div
+                            class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                          ></div>
+                          <span class="fc-label">B.Com</span>
+                        </div>
+                      </div>
+                      <div
+                        class="filter-check p-1 d-flex align-items-center justify-content-between"
+                        onclick="toggleCheck(this, 'B.Sc')"
+                      >
+                        <div class="fc-left d-flex align-items-center gap-2">
+                          <div
+                            class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                          ></div>
+                          <span class="fc-label">B.Sc</span>
+                        </div>
+                      </div>
+                      <div
+                        class="filter-check p-1 d-flex align-items-center justify-content-between"
+                        onclick="toggleCheck(this, 'BA')"
+                      >
+                        <div class="fc-left d-flex align-items-center gap-2">
+                          <div
+                            class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                          ></div>
+                          <span class="fc-label">BA</span>
+                        </div>
+                      </div>
+                      <div
+                        class="filter-check p-1 d-flex align-items-center justify-content-between"
+                        onclick="toggleCheck(this, 'BBA/BBM')"
+                      >
+                        <div class="fc-left d-flex align-items-center gap-2">
+                          <div
+                            class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                          ></div>
+                          <span class="fc-label">BBA/BBM</span>
+                        </div>
+                      </div>
+                      <div
+                        class="filter-check p-1 d-flex align-items-center justify-content-between"
+                        onclick="toggleCheck(this, 'BE/B.Tech')"
+                      >
+                        <div class="fc-left d-flex align-items-center gap-2">
+                          <div
+                            class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                          ></div>
+                          <span class="fc-label">BE/B.Tech</span>
+                        </div>
+                      </div>
+                      <div
+                        class="filter-check p-1 d-flex align-items-center justify-content-between"
+                        onclick="toggleCheck(this, 'BCA')"
+                      >
+                        <div class="fc-left d-flex align-items-center gap-2">
+                          <div
+                            class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                          ></div>
+                          <span class="fc-label">BCA</span>
+                        </div>
+                      </div>
+                      <div
+                        id="course-list-not-found"
+                        class="d-none"
+                        style="
+                          color: var(--muted);
+                          font-size: 0.75rem;
+                          padding: 4px 4px;
+                        "
+                      >
+                        No course found
+                      </div>
+                    </div>
+                  </div>
+                  <!-- PG -->
+                  <div
+                    class="fs-sec-head d-flex align-items-center justify-content-between mt-1"
+                    onclick="toggleSubSection(this)"
+                  >
+                    <span class="fs-sec-title-pg">Postgraduate</span>
+                    <i class="bi bi-chevron-down fs-sec-toggle"></i>
+                  </div>
+                  <div class="fs-sub-body" id="pg-list">
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'MBA')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">MBA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'MBBS')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">MBBS</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'M.Tech')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">M.Tech</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'MCA')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">MCA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'LLB')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">LLB</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >1260</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'MA')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">MA</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'PGDM')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">PGDM</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'PGP')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">PGP</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. STATE -->
+              <div
+                class="filter-section py-2 px-3 border-bottom"
+                style="max-height: 250px; overflow-y: auto"
+              >
+                <div
+                  class="fs-sec-head d-flex align-items-center justify-content-between"
+                  onclick="toggleSection(this)"
+                >
+                  <span class="fs-sec-title">State</span>
+                  <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+                </div>
+                <div class="fs-sec-body mt-1 open">
+                  <div
+                    class="filter-search d-flex align-items-center justify-content-between px-2 border rounded-2 mb-1"
+                  >
+                    <input
+                      type="text"
+                      placeholder="Search State"
+                      class="rounded-2 border-0 py-1"
+                      oninput="searchFilter(this, 'state-list')"
+                    />
+                    <i class="bi bi-search text-muted"></i>
+                  </div>
+                  <div id="state-list">
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Maharashtra')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Maharashtra</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >3240</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Tamil Nadu')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Tamil Nadu</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2980</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Karnataka')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Karnataka</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Madhya Pradesh')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Madhya Pradesh</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Andhra Pradesh')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Andhra Pradesh</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Gujarat')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Gujarat</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Rajasthan')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Rajasthan</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >1380</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Uttar Pradesh')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Uttar Pradesh</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >1720</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Delhi')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Delhi</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >1840</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Kerala')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Kerala</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'West Bengal')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">West Bengal</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Haryana')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Haryana</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Punjab')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Punjab</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Bihar')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Bihar</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Odisha')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Odisha</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Assam')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Assam</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Telangana')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Telangana</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Jharkhand')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Jharkhand</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Uttarakhand')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Uttarakhand</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Goa')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Goa</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Chhattisgarh')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Chhattisgarh</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Nagaland')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Nagaland</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Sikkim')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Sikkim</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Manipur')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Manipur</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Meghalaya')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Meghalaya</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Mizoram')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Mizoram</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Tripura')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Tripura</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Arunachal Pradesh')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Arunachal Pradesh</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >2650</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. FEES RANGE -->
+              <div class="filter-section py-2 px-3 border-bottom">
+                <div
+                  class="fs-sec-head d-flex align-items-center justify-content-between"
+                  onclick="toggleSection(this)"
+                >
+                  <span class="fs-sec-title">Fees Range</span>
+                  <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+                </div>
+                <div class="fs-sec-body mt-1 open">
+                  <input
+                    type="range"
+                    id="feesRange"
+                    min="0"
+                    max="500000"
+                    step="10000"
+                    class="w-100"
+                    value="500000"
+                    oninput="filterByFees(this.value)"
+                  />
+                  <div style="font-size: 0.78rem; margin-top: 4px">
+                    Max Fees: ₹<span id="feesValue">5,00,000</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. COURSE LEVEL -->
+              <div class="filter-section py-2 px-3 border-bottom">
+                <div
+                  class="fs-sec-head d-flex align-items-center justify-content-between"
+                  onclick="toggleSection(this)"
+                >
+                  <span class="fs-sec-title">Course Level</span>
+                  <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+                </div>
+                <div class="fs-sec-body mt-1 open" id="level-list">
+                  <div
+                    class="filter-check p-1 d-flex align-items-center justify-content-between"
+                    onclick="toggleCheck(this, 'Graduation')"
+                  >
+                    <div class="fc-left d-flex align-items-center gap-2">
+                      <div
+                        class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                      ></div>
+                      <span class="fc-label">Graduation</span>
+                    </div>
+                    <span
+                      class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                      >484</span
+                    >
+                  </div>
+                  <div
+                    class="filter-check p-1 d-flex align-items-center justify-content-between"
+                    onclick="toggleCheck(this, 'Post Graduation')"
+                  >
+                    <div class="fc-left d-flex align-items-center gap-2">
+                      <div
+                        class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                      ></div>
+                      <span class="fc-label">Post Graduation</span>
+                    </div>
+                    <span
+                      class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                      >23</span
+                    >
+                  </div>
+                  <div
+                    class="filter-check p-1 d-flex align-items-center justify-content-between"
+                    onclick="toggleCheck(this, 'Doctorate')"
+                  >
+                    <div class="fc-left d-flex align-items-center gap-2">
+                      <div
+                        class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                      ></div>
+                      <span class="fc-label">Doctorate/M.Phil</span>
+                    </div>
+                    <span
+                      class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                      >4</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. EXECUTIVE PROGRAMS -->
+              <div class="filter-section py-2 px-3 border-bottom">
+                <div
+                  class="fs-sec-head d-flex align-items-center justify-content-between"
+                  onclick="toggleSection(this)"
+                >
+                  <span class="fs-sec-title" style="color: #e85d3a"
+                    >Executive Programs</span
+                  >
+                  <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+                </div>
+                <div class="fs-sec-body mt-1 open">
+                  <div class="sub-label">Offered By</div>
+                  <div id="exec-by-list">
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'IIM Executive')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">IIM</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >8</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'IIT Executive')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">IIT</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >23</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'ISB Executive')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">ISB</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >4</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'XLRI Executive')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">XLRI</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >3</span
+                      >
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'MICA Executive')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">MICA</span>
+                      </div>
+                      <span
+                        class="fc-count text-muted py-0 px-1 rounded-1 bg-light"
+                        >5</span
+                      >
+                    </div>
+                  </div>
+                  <div class="sub-label mt-2">Specialisation</div>
+                  <div class="tag-chips d-flex flex-wrap gap-2 mt-2">
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'exec-mba')"
+                      >MBA</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'exec-pgp')"
+                      >PGP</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'exec-pgdm')"
+                      >PGDM</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'exec-hr')"
+                      >HR</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'exec-mktg')"
+                      >Marketing</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'exec-fin')"
+                      >Finance</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'exec-ops')"
+                      >Operations</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. STUDY ABROAD -->
+              <div class="filter-section py-2 px-3">
+                <div
+                  class="fs-sec-head d-flex align-items-center justify-content-between"
+                  onclick="toggleSection(this)"
+                >
+                  <span class="fs-sec-title" style="color: #e8a020"
+                    >Study Abroad</span
+                  >
+                  <i class="bi bi-chevron-down fs-sec-toggle open"></i>
+                </div>
+                <div class="fs-sec-body mt-1 open">
+                  <div class="sub-label">Country</div>
+                  <div class="d-flex flex-wrap gap-2 mt-2 mb-2">
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-usa')"
+                      >🇺🇸 USA</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-uk')"
+                      >🇬🇧 UK</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-ca')"
+                      >🇨🇦 Canada</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-au')"
+                      >🇦🇺 Australia</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-de')"
+                      >🇩🇪 Germany</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-sg')"
+                      >🇸🇬 Singapore</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-nz')"
+                      >🇳🇿 New Zealand</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-ie')"
+                      >🇮🇪 Ireland</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-nl')"
+                      >🇳🇱 Netherlands</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-fr')"
+                      >🇫🇷 France</span
+                    >
+                  </div>
+                  <div class="sub-label">Degree Level</div>
+                  <div class="d-flex flex-wrap gap-2 mt-2 mb-2">
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-ug')"
+                      >UG / Bachelor's</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-pg')"
+                      >PG / Master's</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-ms')"
+                      >MS / M.Sc</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-mba')"
+                      >MBA</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-phd')"
+                      >PhD</span
+                    >
+                  </div>
+                  <div class="sub-label">Scholarship</div>
+                  <div id="abroad-scholar-list">
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Full Scholarship')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Full Scholarship Available</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Partial Scholarship')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Partial Scholarship</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Merit Based')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Merit Based Aid</span>
+                      </div>
+                    </div>
+                    <div
+                      class="filter-check p-1 d-flex align-items-center justify-content-between"
+                      onclick="toggleCheck(this, 'Need Based')"
+                    >
+                      <div class="fc-left d-flex align-items-center gap-2">
+                        <div
+                          class="fc-checkbox border d-flex align-items-center justify-content-center rounded-1"
+                        ></div>
+                        <span class="fc-label">Need Based Aid</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sub-label mt-2">Exam Accepted</div>
+                  <div class="d-flex flex-wrap gap-2 mt-2 mb-2">
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-ielts')"
+                      >IELTS</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-toefl')"
+                      >TOEFL</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-gre')"
+                      >GRE</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-gmat')"
+                      >GMAT</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-sat')"
+                      >SAT</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-duo')"
+                      >Duolingo</span
+                    >
+                  </div>
+                  <div class="sub-label">Support Services</div>
+                  <div class="d-flex flex-wrap gap-2 mt-2">
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-visa')"
+                      >Visa Help</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-accom')"
+                      >Accommodation</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-loan')"
+                      >Education Loan</span
+                    >
+                    <span
+                      class="tag-chip py-0 px-2 rounded-2 border bg-light"
+                      onclick="toggleChipColor(this, 'ab-sop')"
+                      >SOP Help</span
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- ══ MAIN CONTENT ══ -->
+        <div class="col-lg-9">
+          <!-- Mobile top bar -->
+          <div
+            class="d-flex align-items-center justify-content-between mb-2 d-lg-none gap-2 flex-wrap"
+          >
+            <button
+              class="btn-filter-toggle btn d-flex align-items-center gap-2"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasFilter"
+            >
+              <i class="bi bi-funnel"></i> Filters
+            </button>
+            <div class="results-count">
+              Showing <b id="showCountMob">10</b> of <b>20,698</b>
+            </div>
+            <select
+              class="sort-select border rounded-1 py-1 px-2 fw-bold text-muted bg-white"
+              onchange="sortColleges(this.value)"
+              style="font-size: 0.78rem"
+            >
+              <option value="popularity">Popularity</option>
+              <option value="rating">Rating ↑</option>
+              <option value="fees-low">Fees ↑</option>
+              <option value="fees-high">Fees ↓</option>
+              <option value="name">A–Z</option>
+            </select>
+          </div>
+
+          <!-- Sort bar (desktop) -->
+          <div
+            class="sort-bar d-none d-lg-flex align-items-center justify-content-between mb-2"
+          >
+            <div class="results-count text-muted fw-normal">
+              Showing <b id="showCount">10</b> of
+              <b id="totalShow">20,698</b> colleges
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="sort-label text-muted fw-normal">Sort by:</span>
+              <select
+                class="sort-select border rounded-1 py-1 px-2 fw-bold text-muted bg-white"
+                onchange="sortColleges(this.value)"
+              >
+                <option value="popularity">Popularity</option>
+                <option value="rating">Rating (High to Low)</option>
+                <option value="fees-low">Fees (Low to High)</option>
+                <option value="fees-high">Fees (High to Low)</option>
+                <option value="name">Name (A–Z)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Compare Modal -->
+          <div class="modal fade" id="compareModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content border-0">
+                <div
+                  class="border-bottom mb-3 d-flex align-items-center justify-content-between p-3"
+                >
+                  <h5 class="mb-0 fw-semibold">College Compare</h5>
+                  <i
+                    class="bi bi-x-lg"
+                    data-bs-dismiss="modal"
+                    style="cursor: pointer"
+                  ></i>
+                </div>
+                <div class="modal-body">
+                  <div class="row g-3" id="compareModalRow"></div>
+                  <div class="compare-card-add text-center p-4 mt-3">
+                    <div class="icon-circle mb-2">
+                      <i class="bi bi-plus-lg"></i>
+                    </div>
+                    <p class="fw-semibold mb-3">Add College</p>
+                    <div class="text-start mb-2">
+                      <label class="label-orange">Search College</label>
+                      <select
+                        class="form-select custom-select college-select"
+                        onchange="selectNewCollege(this)"
+                      >
+                        <option selected>Select College</option>
+                      </select>
+                      <small class="text-danger">Please Select a College</small>
+                    </div>
+                    <select
+                      class="form-select custom-select course-select mt-2"
+                    >
+                      <option selected>Select Course</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="text-center border-top p-3">
+                  <button
+                    onclick="goToComparePage()"
+                    class="btn btn-primary px-5"
+                  >
+                    Compare
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- College cards -->
+          <div id="collegesList"></div>
+
+          <!-- No results -->
+          <div class="no-results" id="noResults">
+            <div style="font-size: 2.5rem; margin-bottom: 0.8rem">🔍</div>
+            <h3>No colleges match your filters</h3>
+            <p>Try adjusting or resetting some filters to see more results.</p>
+            <button
+              onclick="resetAllFilters()"
+              class="btn mt-2 bg-primary text-white"
+            >
+              Reset Filters
+            </button>
+          </div>
+
+          <!-- Pagination -->
+          <div
+            class="d-flex flex-wrap justify-content-center gap-2 mt-4"
+            id="pagination"
+          ></div>
+        </div>
       </div>
- 
-      <!-- College cards -->
-      <div id="collegesList"></div>
- 
-      <!-- No results -->
-      <div class="no-results" id="noResults">
-        <div style="font-size:2.5rem;margin-bottom:0.8rem">🔍</div>
-        <h3>No colleges match your filters</h3>
-        <p>Try adjusting or resetting some filters to see more results.</p>
-        <button onclick="resetAllFilters()" class="btn mt-2 bg-primary text-white">Reset Filters</button>
-      </div>
- 
-      <!-- Pagination -->
-      <div class="d-flex flex-wrap justify-content-center gap-2 mt-4" id="pagination"></div>
     </div>
-  </div>
-</div>
- 
-<!-- ═══ OFFCANVAS FILTER (mobile) ═══ -->
-<div class="offcanvas offcanvas-start offcanvas-filter" tabindex="-1" id="offcanvasFilter" aria-labelledby="offcanvasFilterLabel">
-  <div class="offcanvas-header border-bottom">
-    <h5 class="offcanvas-title" id="offcanvasFilterLabel">Filters</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-  </div>
-  <div class="offcanvas-body p-0" id="offcanvasFilterBody">
-    <!-- JS will clone filter sections here -->
-  </div>
-</div>
- 
-<!-- ═══ CAREER SECTION ═══ -->
- <section class="py-5 bg-light">
+
+    <!-- ═══ OFFCANVAS FILTER (mobile) ═══ -->
+    <div
+      class="offcanvas offcanvas-start offcanvas-filter"
+      tabindex="-1"
+      id="offcanvasFilter"
+      aria-labelledby="offcanvasFilterLabel"
+    >
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="offcanvasFilterLabel">Filters</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body p-0" id="offcanvasFilterBody">
+        <!-- JS will clone filter sections here -->
+      </div>
+    </div>
+
+    <!-- ═══ CAREER SECTION ═══ -->
+    <section class="py-5 bg-light">
       <div class="container">
         <!-- Section Header -->
         <div class="text-center mb-5">
           <span
-            class="badge text-primary px-3 py-2 rounded-pill mb-1 fs-4 fw-normal "
+            class="badge text-primary px-3 py-2 rounded-pill mb-1 fs-4 fw-normal"
           >
-             Career Opportunities
+            Career Opportunities
           </span>
           <h2 class="display-6 mb-1 fw-normal">What After Graduation?</h2>
           <p class="text-secondary mx-auto" style="max-width: 600px">
-            Explore top career paths, job roles, and salary expectations after completing your undergraduate degree
+            Explore top career paths, job roles, and salary expectations after
+            completing your undergraduate degree
           </p>
         </div>
 
@@ -2935,9 +4290,8 @@
                   <span
                     class="badge bg-secondary bg-opacity-10 text-secondary fw-normal p-2 rounded"
                   >
-                  B.Sc / Life Sci
-                    </span
-                  >
+                    B.Sc / Life Sci
+                  </span>
                 </div>
                 <h5 class="card-title mb-1">Pure Sciences</h5>
                 <div class="mb-3">
@@ -3005,7 +4359,7 @@
             <!-- Small rounded image on top -->
             <div class="mb-3 d-flex justify-content-center align-items-center">
               <img
-                src="./about-banner.jpg"
+                src="./about-banner.webp"
                 alt="Banner"
                 class="rounded-circle"
                 style="width: 80px; height: 80px; object-fit: cover"
@@ -3049,7 +4403,7 @@
             <!-- Small rounded image on top -->
             <div class="mb-3 d-flex justify-content-center align-items-center">
               <img
-                src="./christ.jpg"
+                src="./christ.webp"
                 alt="Banner"
                 class="rounded-circle"
                 style="width: 80px; height: 80px; object-fit: cover"
@@ -3156,7 +4510,7 @@
             <!-- Small rounded image on top -->
             <div class="mb-3 d-flex justify-content-center align-items-center">
               <img
-                src="./mit.jpg"
+                src="./mit.webp"
                 alt="Banner"
                 class="rounded-circle"
                 style="width: 80px; height: 80px; object-fit: cover"
@@ -3423,7 +4777,7 @@
         </div>
       </div>
     </section>
-        <!-- ══════════════ BOTTOM CTA ══════════════ -->
+    <!-- ══════════════ BOTTOM CTA ══════════════ -->
     <div class="cta-sec py-5 px-4 w-auto mx-auto">
       <div class="cta-inner">
         <div
@@ -3499,7 +4853,7 @@
       </div>
     </div>
     <!-- ═══ FOOTER ═══ -->
-     
+
     <footer>
       <div class="fi">
         <div class="fg d-grid gap-5 mb-3">
@@ -3638,7 +4992,7 @@
       </div>
     </footer>
 
-     <script>
+    <script>
       // ── Data for courses mega menu ────────────────────────────────────────────────
       const data = {
         management: {
@@ -6637,7 +7991,7 @@
         compareList.push(c.id);
 
         //  STEP 2: Find same state college
-        
+
         //  STEP 4: SAVE DATA (VERY IMPORTANT)
         const compareData = compareList.map((id) => {
           const college = colleges.find((col) => col.id === id);
@@ -6894,7 +8248,7 @@
           localStorage.removeItem("compareData");
         }
       });
-      
+
       function compareNow() {
         let compareIds =
           JSON.parse(localStorage.getItem("compareColleges")) || [];
@@ -7233,7 +8587,7 @@
       // ════════════════════════════════════════════
       loadData();
     </script>
-    
+
     <!-- --------------filter mobile work  -->
     <script>
       document
@@ -7541,18 +8895,18 @@
         });
       }
     </script>
-          <script>
-        const navbar = document.querySelector(".navbar");
-        const stickyOffset = navbar.offsetTop;
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const stickyOffset = navbar.offsetTop;
 
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > stickyOffset) {
-            navbar.classList.add("sticky");
-          } else {
-            navbar.classList.remove("sticky");
-          }
-        });
-      </script>
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > stickyOffset) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      });
+    </script>
     <style>
       @keyframes shake {
         0%,
@@ -7648,7 +9002,7 @@
           };
       })();
     </script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
   </body>

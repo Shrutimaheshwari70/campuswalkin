@@ -81,7 +81,7 @@
         --row-hover: #f0faf8;
         --shadow: 0 4px 24px rgba(26, 122, 110, 0.1);
       }
-           body,
+      body,
       html {
         overflow-x: hidden;
       }
@@ -90,7 +90,7 @@
         display: block;
       }
 
-        /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
    TOPBAR  (hidden on mobile)
 ───────────────────────────────────── */
       .topbar {
@@ -400,11 +400,11 @@
         border-bottom: 1px solid rgba(199, 199, 199, 0.407);
         position: relative;
       }
-           .center-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
+      .center-nav {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
       /* ─── Topbar ─────────────────────────────────────────────────── */
       @media (max-width: 991px) {
         .topbar {
@@ -597,7 +597,7 @@
         width: 100%;
         height: 20px;
       }
-       /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
      FOOTER
   ───────────────────────────────────── */
       footer {
@@ -714,7 +714,7 @@
         font-size: 14px;
       }
 
-   /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
    CTA
 ───────────────────────────────────── */
       .cta-sec {
@@ -760,174 +760,461 @@
         }
       }
       /* ========== FULL RESPONSIVE STYLES ========== */
-    .hero {
-      position: relative;
-      width: 100%;
-      /* min-height: 460px; */
-    }
-    .banner-img {
-      width: 100%;
-      height: auto;
-      min-height: 380px;
-    }
-    .banner-img img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      display: block;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(97deg, rgba(10,37,64,0.85) 0%, rgba(10,92,142,0.78) 100%);
-      z-index: 1;
-    }
-    .banner-text {
-      position: absolute;
-      top: 50%;
-      left: 5%;
-      transform: translateY(-50%);
-      z-index: 2;
-      max-width: 700px;
-      color: white;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-      padding: 1rem 2rem;
-      width: 90%;
-    }
-    .banner-text h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      letter-spacing: -0.3px;
-    }
-    .hero-desc {
-      font-size: 1rem;
-      line-height: 1.5;
-      opacity: 0.92;
-      margin-bottom: 1.6rem;
-    }
-    .banner-text button {
-      background: #e85d3a;
-      border: none;
-      padding: 12px 32px;
-      border-radius: 40px;
-      color: white;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .banner-text button:hover {
-      background: #c84a2a;
-      transform: translateY(-2px);
-    }
-    /* filter sidebar */
-    .filters-sidebar {
-      height: calc(100vh - 70px);
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: #dde3f0 transparent;
-      position: sticky;
-      top: 10px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 0;
-    }
-    .filters-sidebar::-webkit-scrollbar { width: 5px; }
-    .filters-sidebar::-webkit-scrollbar-thumb { background: #dde3f0; border-radius: 4px; }
-    .fs-header { position: sticky; top: 0; background: var(--white); z-index: 10; padding: 1rem 1.2rem 0.8rem; border-bottom: 1px solid var(--border); }
-    .fs-title { font-size: 1.2rem; font-weight: 600; color: var(--navy); }
-    .fs-meta { font-size: 0.8rem; color: var(--muted); }
-    .fs-reset { font-size: 0.79rem; background: transparent; border: none; color: var(--orange); font-weight: 600; cursor: pointer; }
-    .filter-section { border-bottom: 1px solid var(--border); padding: 0.9rem 1.2rem; }
-    .fs-sec-head { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .fs-sec-title, .fs-sec-title-ug, .fs-sec-title-pg { font-weight: 500; color: var(--navy); font-size: 0.95rem; }
-    .fs-sec-toggle { transition: transform 0.22s ease; }
-    .fs-sec-toggle.open { transform: rotate(180deg); }
-    .fs-sec-body { display: none; margin-top: 0.7rem; }
-    .fs-sec-body.open { display: block; animation: fadeDown 0.18s ease; }
-    .fs-sub-body { display: none; }
-    .fs-sub-body.open { display: block; }
-    .filter-search { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; padding: 0 8px; margin-bottom: 10px; }
-    .filter-search input { border: none; background: none; width: 100%; padding: 6px 0; font-size: 0.76rem; outline: none; }
-    .filter-check { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; cursor: pointer; }
-    .fc-left { display: flex; gap: 10px; align-items: center; }
-    .fc-checkbox { width: 16px; height: 16px; border: 2px solid var(--border); border-radius: 3px; transition: 0.15s; }
-    .filter-check.checked .fc-checkbox { background: var(--accent); border-color: var(--accent); }
-    .filter-check.checked .fc-checkbox::after { content: "✓"; color: white; font-size: 0.6rem; display: flex; justify-content: center; font-weight: 900; }
-    .fc-label { font-size: 0.78rem; color: var(--text); }
-    .fc-count { font-size: 0.67rem; color: var(--muted); background: var(--bg); padding: 1px 6px; border-radius: 20px; }
-    .tag-chip { font-size: 0.71rem; padding: 4px 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 30px; cursor: pointer; transition: 0.15s; }
-    .tag-chip.selected { background: #eff4ff; border-color: var(--accent); color: var(--accent); }
-    .active-filters { display: none; flex-wrap: wrap; gap: 4px; padding: 0.6rem 1.2rem; background: var(--accent-s); border-bottom: 1px solid #c7d9ff; }
-    .active-filters.has-filters { display: flex; }
-    .af-tag { background: white; border-radius: 30px; padding: 3px 10px; font-size: 0.7rem; font-weight: 500; color: var(--accent); }
-    .sub-label { font-size: 0.7rem; font-weight: 600; color: var(--muted); text-transform: uppercase; margin: 8px 0 4px; }
-    /* college cards */
-    .college-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      transition: 0.25s;
-    }
-    .college-card:hover { box-shadow: var(--sh3); transform: translateY(-2px); }
-    .cc-inner { display: grid; grid-template-columns: 220px 1fr; gap: 0; }
-    .cc-img-wrap { position: relative; overflow: hidden; height: 100%; min-height: 180px; }
-    .cc-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
-    .college-card:hover .cc-img-wrap img { transform: scale(1.04); }
-    .cc-body { padding: 1rem 0.9rem; }
-    .cc-courses { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 0.6rem; }
-    .cc-course-tag {
-      padding: 2px 8px; background: var(--bg); border: 1px solid var(--border);
-      border-radius: 100px; font-size: 0.63rem; font-weight: 600; color: var(--muted);
-    }
-    .cc-name { font-weight: 600; font-size: 0.97rem; color: var(--navy); cursor: pointer; }
-    .cc-name:hover { color: var(--accent); }
-    .cc-location { font-size: 0.73rem; color: var(--muted); display: flex; gap: 4px; align-items: center; margin: 5px 0 4px; }
-    .cc-fees-row { display: flex; gap: 0.7rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
-    .cfi-label { font-size: 0.61rem; text-transform: uppercase; font-weight: 600; color: var(--muted); }
-    .cfi-val { font-size: 0.84rem; font-weight: 500; }
-    .cc-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 0.7rem; }
-    .star { color: var(--gold); font-size: 0.9rem; }
-    .cc-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .cca-apply, .cca-brochure { padding: 7px 18px; border-radius: 8px; font-size: 0.76rem; font-weight: 700; cursor: pointer; transition: 0.2s; border: none; }
-    .cca-apply { background: var(--accent); color: white; }
-    .cca-brochure { background: var(--bg); border: 1.5px solid var(--border); color: var(--text); }
-    .cca-brochure:hover { border-color: var(--accent); color: var(--accent); }
-    /* pagination */
-    .pg-btn {
-      width: 36px; height: 36px; border-radius: 8px; border: 1.5px solid var(--border);
-      background: white; font-weight: 600; transition: 0.2s; cursor: pointer;
-    }
-    .pg-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
-    .pg-btn.prev-next { width: auto; padding: 0 14px; }
-    .no-results { display: none; text-align: center; padding: 3rem; }
-    /* responsive breakpoints */
-    @media (max-width: 991.98px) {
-      .cc-inner { grid-template-columns: 180px 1fr; }
-      .banner-text h1 { font-size: 1.9rem; }
-    }
-    @media (max-width: 767.98px) {
-      .cc-inner { grid-template-columns: 1fr; }
-      .cc-img-wrap { height: 180px; }
-      .banner-text h1 { font-size: 1.5rem; }
-      .hero-desc { font-size: 0.85rem; }
-      .banner-text { left: 0; right: 0; margin: 0 auto; width: 95%; text-align: center; }
-    }
-    @media (max-width: 575.98px) {
-      .cc-actions button { padding: 6px 12px; font-size: 0.7rem; }
-      .fs-header { padding: 0.7rem 1rem; }
-      .filter-section { padding: 0.7rem 1rem; }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .offcanvas-filter { max-width: 300px; }
-    .card { transition: all 0.3s; overflow: hidden; }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
+      .hero {
+        position: relative;
+        width: 100%;
+        /* min-height: 460px; */
+      }
+      .banner-img {
+        width: 100%;
+        height: auto;
+        min-height: 380px;
+      }
+      .banner-img img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          97deg,
+          rgba(10, 37, 64, 0.85) 0%,
+          rgba(10, 92, 142, 0.78) 100%
+        );
+        z-index: 1;
+      }
+      .banner-text {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+        z-index: 2;
+        max-width: 700px;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem;
+        width: 90%;
+      }
+      .banner-text h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.3px;
+      }
+      .hero-desc {
+        font-size: 1rem;
+        line-height: 1.5;
+        opacity: 0.92;
+        margin-bottom: 1.6rem;
+      }
+      .banner-text button {
+        background: #e85d3a;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 40px;
+        color: white;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .banner-text button:hover {
+        background: #c84a2a;
+        transform: translateY(-2px);
+      }
+      /* filter sidebar */
+      .filters-sidebar {
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #dde3f0 transparent;
+        position: sticky;
+        top: 10px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 0;
+      }
+      .filters-sidebar::-webkit-scrollbar {
+        width: 5px;
+      }
+      .filters-sidebar::-webkit-scrollbar-thumb {
+        background: #dde3f0;
+        border-radius: 4px;
+      }
+      .fs-header {
+        position: sticky;
+        top: 0;
+        background: var(--white);
+        z-index: 10;
+        padding: 1rem 1.2rem 0.8rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .fs-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .fs-meta {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .fs-reset {
+        font-size: 0.79rem;
+        background: transparent;
+        border: none;
+        color: var(--orange);
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .filter-section {
+        border-bottom: 1px solid var(--border);
+        padding: 0.9rem 1.2rem;
+      }
+      .fs-sec-head {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .fs-sec-title,
+      .fs-sec-title-ug,
+      .fs-sec-title-pg {
+        font-weight: 500;
+        color: var(--navy);
+        font-size: 0.95rem;
+      }
+      .fs-sec-toggle {
+        transition: transform 0.22s ease;
+      }
+      .fs-sec-toggle.open {
+        transform: rotate(180deg);
+      }
+      .fs-sec-body {
+        display: none;
+        margin-top: 0.7rem;
+      }
+      .fs-sec-body.open {
+        display: block;
+        animation: fadeDown 0.18s ease;
+      }
+      .fs-sub-body {
+        display: none;
+      }
+      .fs-sub-body.open {
+        display: block;
+      }
+      .filter-search {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+        margin-bottom: 10px;
+      }
+      .filter-search input {
+        border: none;
+        background: none;
+        width: 100%;
+        padding: 6px 0;
+        font-size: 0.76rem;
+        outline: none;
+      }
+      .filter-check {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0;
+        cursor: pointer;
+      }
+      .fc-left {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .fc-checkbox {
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--border);
+        border-radius: 3px;
+        transition: 0.15s;
+      }
+      .filter-check.checked .fc-checkbox {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+      .filter-check.checked .fc-checkbox::after {
+        content: "✓";
+        color: white;
+        font-size: 0.6rem;
+        display: flex;
+        justify-content: center;
+        font-weight: 900;
+      }
+      .fc-label {
+        font-size: 0.78rem;
+        color: var(--text);
+      }
+      .fc-count {
+        font-size: 0.67rem;
+        color: var(--muted);
+        background: var(--bg);
+        padding: 1px 6px;
+        border-radius: 20px;
+      }
+      .tag-chip {
+        font-size: 0.71rem;
+        padding: 4px 10px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.15s;
+      }
+      .tag-chip.selected {
+        background: #eff4ff;
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .active-filters {
+        display: none;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 0.6rem 1.2rem;
+        background: var(--accent-s);
+        border-bottom: 1px solid #c7d9ff;
+      }
+      .active-filters.has-filters {
+        display: flex;
+      }
+      .af-tag {
+        background: white;
+        border-radius: 30px;
+        padding: 3px 10px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: var(--accent);
+      }
+      .sub-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        margin: 8px 0 4px;
+      }
+      /* college cards */
+      .college-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        transition: 0.25s;
+      }
+      .college-card:hover {
+        box-shadow: var(--sh3);
+        transform: translateY(-2px);
+      }
+      .cc-inner {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 0;
+      }
+      .cc-img-wrap {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        min-height: 180px;
+      }
+      .cc-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+      }
+      .college-card:hover .cc-img-wrap img {
+        transform: scale(1.04);
+      }
+      .cc-body {
+        padding: 1rem 0.9rem;
+      }
+      .cc-courses {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 0.6rem;
+      }
+      .cc-course-tag {
+        padding: 2px 8px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.63rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .cc-name {
+        font-weight: 600;
+        font-size: 0.97rem;
+        color: var(--navy);
+        cursor: pointer;
+      }
+      .cc-name:hover {
+        color: var(--accent);
+      }
+      .cc-location {
+        font-size: 0.73rem;
+        color: var(--muted);
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        margin: 5px 0 4px;
+      }
+      .cc-fees-row {
+        display: flex;
+        gap: 0.7rem;
+        margin-bottom: 0.7rem;
+        flex-wrap: wrap;
+      }
+      .cfi-label {
+        font-size: 0.61rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .cfi-val {
+        font-size: 0.84rem;
+        font-weight: 500;
+      }
+      .cc-rating {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 0.7rem;
+      }
+      .star {
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+      .cc-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .cca-apply,
+      .cca-brochure {
+        padding: 7px 18px;
+        border-radius: 8px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+        border: none;
+      }
+      .cca-apply {
+        background: var(--accent);
+        color: white;
+      }
+      .cca-brochure {
+        background: var(--bg);
+        border: 1.5px solid var(--border);
+        color: var(--text);
+      }
+      .cca-brochure:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      /* pagination */
+      .pg-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1.5px solid var(--border);
+        background: white;
+        font-weight: 600;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      .pg-btn.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: white;
+      }
+      .pg-btn.prev-next {
+        width: auto;
+        padding: 0 14px;
+      }
+      .no-results {
+        display: none;
+        text-align: center;
+        padding: 3rem;
+      }
+      /* responsive breakpoints */
+      @media (max-width: 991.98px) {
+        .cc-inner {
+          grid-template-columns: 180px 1fr;
+        }
+        .banner-text h1 {
+          font-size: 1.9rem;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .cc-inner {
+          grid-template-columns: 1fr;
+        }
+        .cc-img-wrap {
+          height: 180px;
+        }
+        .banner-text h1 {
+          font-size: 1.5rem;
+        }
+        .hero-desc {
+          font-size: 0.85rem;
+        }
+        .banner-text {
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          width: 95%;
+          text-align: center;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .cc-actions button {
+          padding: 6px 12px;
+          font-size: 0.7rem;
+        }
+        .fs-header {
+          padding: 0.7rem 1rem;
+        }
+        .filter-section {
+          padding: 0.7rem 1rem;
+        }
+      }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .offcanvas-filter {
+        max-width: 300px;
+      }
+      .card {
+        transition: all 0.3s;
+        overflow: hidden;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+      }
       .offering-sec {
         background-color: rgb(230, 231, 255);
       }
@@ -1019,15 +1306,30 @@
         left: 95%;
         z-index: 99999;
       }
-       /* ══ SORT BAR ══ */
-    .results-count { font-size: 0.89rem; }
-    .results-count b { color: var(--navy); }
-    .sort-label { font-size: 0.85rem; }
-    .sort-select { font-size: 0.78rem; outline: none; cursor: pointer; }
-    .no-results {
-      display: none; flex-direction: column; align-items: center;
-      justify-content: center; text-align: center; min-height: 60vh; width: 100%;
-    }
+      /* ══ SORT BAR ══ */
+      .results-count {
+        font-size: 0.89rem;
+      }
+      .results-count b {
+        color: var(--navy);
+      }
+      .sort-label {
+        font-size: 0.85rem;
+      }
+      .sort-select {
+        font-size: 0.78rem;
+        outline: none;
+        cursor: pointer;
+      }
+      .no-results {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 60vh;
+        width: 100%;
+      }
       .top-compare-heading {
         cursor: pointer;
       }
@@ -1126,7 +1428,7 @@
     </style>
   </head>
   <body>
-          <!--------------Login Modal -->
+    <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
@@ -1330,16 +1632,18 @@
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
         <!-- LOGO -->
         <a href="#" class="logo">
           <div class="logo-mark">
-            <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
+            <img src="./campuswalkin_logo.webp" alt="" class="w-100 d-block" />
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="index.html" class="cn-link text-decoration-none text-dark"
+            >Home</a
+          >
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -1728,7 +2032,9 @@
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <!-- All Courses -->
         <div class="courses-wrap" id="coursesWrap">
           <button
@@ -1762,23 +2068,32 @@
           </button>
 
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
+            <div class="cm-inner d-flex">
               <!-- Left: Categories -->
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
 
               <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
                 <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -1825,16 +2140,42 @@
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
 
                 <!-- Dynamic grid -->
@@ -2060,7 +2401,7 @@
     <!-- -------------------------banner  -->
     <section class="hero position-relative">
       <div class="banner-img w-100 overflow-hidden position-relative">
-        <img src="./about-banner.jpg" alt="" class="w-100 object-fit-cover" />
+        <img src="./about-banner.webp" alt="" class="w-100 object-fit-cover" />
         <div
           class="position-absolute start-0 top-0 w-100 opacity-50 bg-dark h-100"
         ></div>
@@ -2096,16 +2437,23 @@
               <div>
                 <div class="fs-title">Filters</div>
                 <div class="fs-meta text-muted">
-                  Found <b id="foundCount"  class="text-primary">20,698</b> colleges
+                  Found
+                  <b id="foundCount" class="text-primary">20,698</b> colleges
                 </div>
               </div>
-              <button class="fs-reset border bg-primary text-white py-1 px-2 rounded-1" onclick="resetAllFilters()">
+              <button
+                class="fs-reset border bg-primary text-white py-1 px-2 rounded-1"
+                onclick="resetAllFilters()"
+              >
                 Reset All
               </button>
             </div>
 
             <!-- active filters -->
-        <div class="active-filters border-bottom py-2 px-3 gap-2 flex-wrap" id="activeFiltersStrip"></div>
+            <div
+              class="active-filters border-bottom py-2 px-3 gap-2 flex-wrap"
+              id="activeFiltersStrip"
+            ></div>
 
             <!-- SECTIONS (reused for both sidebar & offcanvas via JS cloning) -->
             <div id="filterSections">
@@ -2211,8 +2559,7 @@
                         <span class="fc-label">pgpx</span>
                       </div>
                     </div>
-                
-                    
+
                     <!-- </div> -->
                   </div>
 
@@ -2770,40 +3117,56 @@
         </div>
         <!-- ══ MAIN CONTENT ══ -->
         <div class="col-lg-9">
-          
-      <!-- Mobile top bar -->
-      <div class="d-flex align-items-center justify-content-between mb-2 d-lg-none gap-2 flex-wrap">
-        <button class="btn-filter-toggle btn d-flex align-items-center gap-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter">
-          <i class="bi bi-funnel"></i> Filters
-        </button>
-        <div class="results-count">Showing <b id="showCountMob">10</b> of <b>20,698</b></div>
-        <select class="sort-select border rounded-1 py-1 px-2 fw-bold text-muted bg-white" onchange="sortColleges(this.value)" style="font-size:0.78rem;">
-          <option value="popularity">Popularity</option>
-          <option value="rating">Rating ↑</option>
-          <option value="fees-low">Fees ↑</option>
-          <option value="fees-high">Fees ↓</option>
-          <option value="name">A–Z</option>
-        </select>
-      </div>
- 
-      <!-- Sort bar (desktop) -->
-      <div class="sort-bar d-none d-lg-flex align-items-center justify-content-between mb-2">
-        <div class="results-count text-muted fw-normal">
-          Showing <b id="showCount">10</b> of <b id="totalShow">20,698</b> colleges
-        </div>
-        <div class="d-flex align-items-center gap-2">
-          <span class="sort-label text-muted fw-normal">Sort by:</span>
-          <select class="sort-select border rounded-1 py-1 px-2 fw-bold text-muted bg-white" onchange="sortColleges(this.value)">
-            <option value="popularity">Popularity</option>
-            <option value="rating">Rating (High to Low)</option>
-            <option value="fees-low">Fees (Low to High)</option>
-            <option value="fees-high">Fees (High to Low)</option>
-            <option value="name">Name (A–Z)</option>
-          </select>
-        </div>
-      </div>
+          <!-- Mobile top bar -->
+          <div
+            class="d-flex align-items-center justify-content-between mb-2 d-lg-none gap-2 flex-wrap"
+          >
+            <button
+              class="btn-filter-toggle btn d-flex align-items-center gap-2"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasFilter"
+            >
+              <i class="bi bi-funnel"></i> Filters
+            </button>
+            <div class="results-count">
+              Showing <b id="showCountMob">10</b> of <b>20,698</b>
+            </div>
+            <select
+              class="sort-select border rounded-1 py-1 px-2 fw-bold text-muted bg-white"
+              onchange="sortColleges(this.value)"
+              style="font-size: 0.78rem"
+            >
+              <option value="popularity">Popularity</option>
+              <option value="rating">Rating ↑</option>
+              <option value="fees-low">Fees ↑</option>
+              <option value="fees-high">Fees ↓</option>
+              <option value="name">A–Z</option>
+            </select>
+          </div>
 
-        
+          <!-- Sort bar (desktop) -->
+          <div
+            class="sort-bar d-none d-lg-flex align-items-center justify-content-between mb-2"
+          >
+            <div class="results-count text-muted fw-normal">
+              Showing <b id="showCount">10</b> of
+              <b id="totalShow">20,698</b> colleges
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="sort-label text-muted fw-normal">Sort by:</span>
+              <select
+                class="sort-select border rounded-1 py-1 px-2 fw-bold text-muted bg-white"
+                onchange="sortColleges(this.value)"
+              >
+                <option value="popularity">Popularity</option>
+                <option value="rating">Rating (High to Low)</option>
+                <option value="fees-low">Fees (Low to High)</option>
+                <option value="fees-high">Fees (High to Low)</option>
+                <option value="name">Name (A–Z)</option>
+              </select>
+            </div>
+          </div>
+
           <!-- College cards list -->
           <div id="collegesList"></div>
 
@@ -2867,9 +3230,9 @@
         <!-- Section Header -->
         <div class="text-center mb-5">
           <span
-            class="badge text-primary px-3 py-2 rounded-pill mb-1 fs-4 fw-normal "
+            class="badge text-primary px-3 py-2 rounded-pill mb-1 fs-4 fw-normal"
           >
-             Career Opportunities
+            Career Opportunities
           </span>
           <h2 class="display-6 mb-1 fw-normal">What After Post Graduation?</h2>
           <p class="text-secondary mx-auto" style="max-width: 600px">
@@ -3232,7 +3595,7 @@
             <!-- Small rounded image on top -->
             <div class="mb-3 d-flex justify-content-center align-items-center">
               <img
-                src="./about-banner.jpg"
+                src="./about-banner.webp"
                 alt="Banner"
                 class="rounded-circle"
                 style="width: 80px; height: 80px; object-fit: cover"
@@ -3276,7 +3639,7 @@
             <!-- Small rounded image on top -->
             <div class="mb-3 d-flex justify-content-center align-items-center">
               <img
-                src="./christ.jpg"
+                src="./christ.webp"
                 alt="Banner"
                 class="rounded-circle"
                 style="width: 80px; height: 80px; object-fit: cover"
@@ -3383,7 +3746,7 @@
             <!-- Small rounded image on top -->
             <div class="mb-3 d-flex justify-content-center align-items-center">
               <img
-                src="./mit.jpg"
+                src="./mit.webp"
                 alt="Banner"
                 class="rounded-circle"
                 style="width: 80px; height: 80px; object-fit: cover"
@@ -3651,7 +4014,7 @@
         </div>
       </div>
     </section>
-       <!-- ══════════════ BOTTOM CTA ══════════════ -->
+    <!-- ══════════════ BOTTOM CTA ══════════════ -->
     <div class="cta-sec py-5 px-4 w-auto mx-auto">
       <div class="cta-inner">
         <div
@@ -3727,7 +4090,7 @@
       </div>
     </div>
     <!-- ═══ FOOTER ═══ -->
-     
+
     <footer>
       <div class="fi">
         <div class="fg d-grid gap-5 mb-3">
@@ -3865,7 +4228,7 @@
         </div>
       </div>
     </footer>
- <script>
+    <script>
       // ── Data for courses mega menu ────────────────────────────────────────────────
       const data = {
         management: {
@@ -6722,9 +7085,8 @@
             //  CASE 2: Jo select kiya wahi dikhao (UG ya PG kuch bhi)
             else {
               coursesToUse = c.courses.filter((co) =>
-                selectedCourses.some(   
-                        (sel) => co.toLowerCase() === sel.toLowerCase(),
-
+                selectedCourses.some(
+                  (sel) => co.toLowerCase() === sel.toLowerCase(),
                 ),
               );
             }
@@ -6765,9 +7127,7 @@
       function setDefaultPGFilters() {
         activeFilters = {}; //  reset pehle
 
-        const courseItems = document.querySelectorAll(
-          "#pg-list .filter-check",
-        );
+        const courseItems = document.querySelectorAll("#pg-list .filter-check");
 
         courseItems.forEach((el) => {
           const name = el.querySelector(".fc-label").textContent.trim();
@@ -7064,7 +7424,7 @@
         el.classList.toggle("checked");
         let cat = "general";
         const parent = el.closest("[id]");
-          const grandParent = el.closest(".fs-sub-body");
+        const grandParent = el.closest(".fs-sub-body");
 
         // if (parent) {
         //   if (parent.id.includes("course")) cat = "course";
@@ -7074,25 +7434,32 @@
         //   else if (parent.id.includes("acc")) cat = "accred";
         //   else if (parent.id.includes("exam")) cat = "exam";
         // }
-        
-  // Better detection for course filters
-  if (grandParent && (grandParent.id === "pg-list" || grandParent.id === "ug-list")) {
-    cat = "course";
-  } else if (parent) {
-    if (parent.id.includes("course") || parent.id.includes("pg-list") || parent.id.includes("ug-list")) {
-      cat = "course";
-    } else if (parent.id.includes("level")) {
-      cat = "level";
-    } else if (parent.id.includes("state")) {
-      cat = "state";
-    } else if (parent.id.includes("type")) {
-      cat = "type";
-    } else if (parent.id.includes("acc")) {
-      cat = "accred";
-    } else if (parent.id.includes("exam")) {
-      cat = "exam";
-    }
-  }
+
+        // Better detection for course filters
+        if (
+          grandParent &&
+          (grandParent.id === "pg-list" || grandParent.id === "ug-list")
+        ) {
+          cat = "course";
+        } else if (parent) {
+          if (
+            parent.id.includes("course") ||
+            parent.id.includes("pg-list") ||
+            parent.id.includes("ug-list")
+          ) {
+            cat = "course";
+          } else if (parent.id.includes("level")) {
+            cat = "level";
+          } else if (parent.id.includes("state")) {
+            cat = "state";
+          } else if (parent.id.includes("type")) {
+            cat = "type";
+          } else if (parent.id.includes("acc")) {
+            cat = "accred";
+          } else if (parent.id.includes("exam")) {
+            cat = "exam";
+          }
+        }
         if (el.classList.contains("checked")) activeFilters[name] = cat;
         else delete activeFilters[name];
         currentPage = 1;
@@ -7517,18 +7884,18 @@
       const recruiters = document.getElementById("recruiters");
       recruiters.innerHTML += recruiters.innerHTML;
     </script>
-       <script>
-        const navbar = document.querySelector(".navbar");
-        const stickyOffset = navbar.offsetTop;
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const stickyOffset = navbar.offsetTop;
 
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > stickyOffset) {
-            navbar.classList.add("sticky");
-          } else {
-            navbar.classList.remove("sticky");
-          }
-        });
-      </script>
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > stickyOffset) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      });
+    </script>
     <style>
       @keyframes shake {
         0%,

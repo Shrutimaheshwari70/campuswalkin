@@ -223,7 +223,7 @@
       "type": "Deemed",
       "rating": 7.6,
       "reviews": 189,
-      "fees": { "btech": "₹2.12L", "mbbs": "₹7.25L" ,"mba":"3L  "},
+      "fees": { "btech": "₹2.12L", "mbbs": "₹7.25L", "mba": "3L  " },
       "courses": ["BE/B.Tech", "MBBS", "MBA", "BBA/BBM"],
       "img": "manipal-uni.jpg",
       "imgBg": "linear-gradient(135deg,#fff0f8,#ffe0f0)",
@@ -350,8 +350,12 @@
         "International credit transfer",
         "Dual Degree options"
       ],
-      "topPartners": ["UK Universities", "Canada Colleges", "Australia Institutes"],
-      "img": "manav-rachna.jpg",
+      "topPartners": [
+        "UK Universities",
+        "Canada Colleges",
+        "Australia Institutes"
+      ],
+      "img": "manav-rachna.webp",
       "imgBg": "linear-gradient(135deg,#eef2ff,#dbeafe)",
       "state": "Haryana",
       "feesNum": 6,
@@ -375,7 +379,7 @@
         "Masters pathway abroad"
       ],
       "topPartners": ["USA Universities", "UK Universities"],
-      "img": "mit.jpg",
+      "img": "mit.webp",
       "imgBg": "linear-gradient(135deg,#ecfeff,#cffafe)",
       "state": "Maharashtra",
       "feesNum": 4.5,
@@ -391,7 +395,11 @@
       "rating": 8.5,
       "reviews": 90,
       "fees": { "exec": "₹1.5L - ₹3L" },
-      "courses": ["Executive MBA", "Executive Program in AI/ML", "Data Science"],
+      "courses": [
+        "Executive MBA",
+        "Executive Program in AI/ML",
+        "Data Science"
+      ],
       "executivePrograms": [
         "Executive Program in AI & Machine Learning",
         "Advanced Certification in Data Science",

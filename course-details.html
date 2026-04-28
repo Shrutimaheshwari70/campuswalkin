@@ -8,7 +8,10 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
       rel="stylesheet"
     />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <link
       rel="stylesheet"
@@ -60,20 +63,20 @@
         --nav-h: 60px;
         --nav2-h: 44px;
       }
-        
-    :root {
-      --gold:      #000000;
-      --gold-lt:   #ffffff;
-      --cream:     #f8f4ee;
-      --cream-dk:  #efe9df;
-      --text:      #1a1a2e;
-      --muted:     #6b6e7e;
-      --white:     #ffffff;
-      --card-bg:   #ffffff;
-      --radius:    16px;
-      --shadow:    0 8px 40px rgba(11,30,61,.10);
-      --shadow-lg: 0 20px 70px rgba(11,30,61,.15);
-    }
+
+      :root {
+        --gold: #000000;
+        --gold-lt: #ffffff;
+        --cream: #f8f4ee;
+        --cream-dk: #efe9df;
+        --text: #1a1a2e;
+        --muted: #6b6e7e;
+        --white: #ffffff;
+        --card-bg: #ffffff;
+        --radius: 16px;
+        --shadow: 0 8px 40px rgba(11, 30, 61, 0.1);
+        --shadow-lg: 0 20px 70px rgba(11, 30, 61, 0.15);
+      }
 
       *,
       *::before,
@@ -82,7 +85,7 @@
         margin: 0;
         padding: 0;
       }
-          html,
+      html,
       body {
         overflow-x: hidden;
       }
@@ -104,13 +107,13 @@
       .topbar p {
         font-size: 13px;
       }
-        /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
     NAVBAR WRAPPER
   ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
-          border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
 
         background-color: white;
         z-index: 300;
@@ -378,18 +381,18 @@
         height: 2px;
         transition: all 0.3s;
       }
-           /* Active Cross */
-.ham-btn.active span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
+      /* Active Cross */
+      .ham-btn.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
 
-.ham-btn.active span:nth-child(2) {
-  opacity: 0;
-}
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
 
-.ham-btn.active span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
+      .ham-btn.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
       /* --------------mobile menu  */
       #mDrawer {
         position: fixed;
@@ -419,7 +422,7 @@
         }
         .navbar {
           height: 60px;
-    border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
         }
       }
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
@@ -782,7 +785,7 @@
           padding: 1.5rem !important;
         }
       }
-     
+
       .cn-link {
         font-size: 14px;
       }
@@ -817,372 +820,464 @@
         align-items: start;
         margin-top: 10px;
       }
-    /* ── HERO ─────────────────────────────────────────── */
-    .hero {
-      position: relative;
-      height: 400px;
-      overflow: hidden;
-    }
-    .hero-img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transform: scale(1.06);
-      animation: heroZoom 12s ease-out forwards;
-    }
-    @keyframes heroZoom {
-      to { transform: scale(1); }
-    }
-    .overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        160deg,
-        rgba(11,30,61,.78) 0%,
-        rgba(11,30,61,.40) 60%,
-        rgba(201,168,76,.25) 100%
-      );
-    }
-    .hero-content {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: 48px 60px;
-      animation: fadeUp .9s .2s both;
-    }
-    .hero-content h1 {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      color: var(--white);
-      line-height: 1.1;
-    }
-    .hero-content p {
-      color: rgba(255,255,255,.80);
-      font-size: 1rem;
-      margin-top: 8px;
-    }
-    .hero-breadcrumb {
-      font-size: .78rem;
-      color: var(--gold-lt);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .hero-breadcrumb span { opacity: .6; }
- 
-    /* ── PAGE LAYOUT ──────────────────────────────────── */
-    .page-wrap {
-      margin: 0 auto;
-      width: 100%;
-      /* padding: 0 24px 80px; */
-      margin-top: 4%;
-    }
- 
-    /* ── FLOATING CARD ────────────────────────────────── */
-    .detail-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      margin-top: -72px;
-      position: relative;
-      overflow: hidden;
-      animation: fadeUp .7s .4s both;
-    }
-    .detail-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--navy), var(--gold), var(--navy));
-    }
- 
-    /* ── HEADER ───────────────────────────────────────── */
-    .detail-header {
-      padding: 44px 52px 36px;
-      border-bottom: 1px solid var(--cream-dk);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .header-left { flex: 1; min-width: 240px; }
-    #courseName {
-      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
-      color: var(--navy);
-      line-height: 1.15;
-    }
-    .college-name {
-      display: flex; align-items: center; gap: 8px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-    .college-name i { color: var(--gold); font-size: 1rem; }
-    #courseCollege {
-      font-size: .92rem;
-      color: var(--muted);
-    }
-    .badge-verified {
-      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-      color: #2e7d32;
-      font-size: .68rem;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
-      border: 1px solid #a5d6a7;
-    }
-    
- 
-    /* ── INFO GRID ────────────────────────────────────── */
-    .detail-body { padding: 44px 52px; }
- 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .info-item {
-      background: var(--cream);
-      border-radius: 12px;
-      padding: 20px 22px;
-      border: 1px solid var(--cream-dk);
-      transition: box-shadow .2s, transform .2s;
-    }
-    .info-item:hover {
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-    }
-    .info-label {
-      font-size: .72rem;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 8px;
-      display: flex; align-items: center; gap: 6px;
-    }
-    .info-label i { font-size: .85rem; }
-    .info-value {
-      font-size: .97rem;
-      color: var(--navy);
-      line-height: 1.35;
-    }
- 
-    /* ── TWO-COLUMN LOWER ─────────────────────────────── */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 40px;
-      align-items: start;
-    }
-    @media (max-width: 820px) {
-      .two-col { grid-template-columns: 1fr; }
-      .detail-header, .detail-body { padding: 28px 24px; }
-    }
- 
-    /* ── SECTION TITLES ───────────────────────────────── */
-    .section-label {
-      display: flex; align-items: center; gap: 10px;
-      font-size: .72rem;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--cream-dk);
-    }
- 
-    .section-block { margin-bottom: 36px; }
- 
-    /* ── OVERVIEW ─────────────────────────────────────── */
-    #courseDesc {
-      font-size: .96rem;
-      line-height: 1.85;
-      color: #3d3d55;
-    }
- 
-    /* ── ELIGIBILITY ──────────────────────────────────── */
-    .eligibility-list { list-style: none; }
-    .eligibility-list li {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 11px 0;
-      border-bottom: 1px solid var(--cream-dk);
-      font-size: .93rem;
-      color: #3d3d55;
-      line-height: 1.55;
-    }
-    .eligibility-list li:last-child { border-bottom: none; }
-    .elig-dot {
-      flex-shrink: 0;
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-      display: grid; place-items: center;
-      margin-top: 2px;
-    }
- 
-    /* ── SIDEBAR ──────────────────────────────────────── */
-    .sidebar-card {
-      background: var(--cream);
-      border-radius: 14px;
-      border: 1px solid var(--cream-dk);
-      overflow: hidden;
-    }
-    .sidebar-top {
-      background: var(--navy);
-      padding: 26px 28px 22px;
-    }
-    .sidebar-top .fee-label {
-      font-size: .72rem;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-      margin-bottom: 4px;
-    }
-    .sidebar-top .fee-amount {
-      font-size: 2.2rem;
-      color: var(--gold-lt);
-      line-height: 1;
-    }
-    .sidebar-top .fee-note {
-      font-size: .75rem;
-      color: rgba(255,255,255,.45);
-      margin-top: 4px;
-    }
-    .sidebar-body { padding: 22px 28px; }
-    .sidebar-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--cream-dk);
-      font-size: .86rem;
-    }
-    .sidebar-row:last-of-type { border-bottom: none; }
-    .sidebar-row .sr-label { color: var(--muted); }
- 
-    /* ── BUTTONS ──────────────────────────────────────── */
-    .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: 22px; }
-    .btn-primary-custom {
-      display: block; width: 100%;
-      padding: 14px 20px;
-      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
-      color: var(--white);
-      border: none;
-      border-radius: 10px;
-      font-size: .9rem;
-      cursor: pointer;
-      transition: all .25s;
-      position: relative; overflow: hidden;
-    }
-    .btn-primary-custom::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--gold), transparent);
-      opacity: 0;
-      transition: opacity .3s;
-    }
-    .btn-primary-custom:hover::after { opacity: .15; }
-    .btn-primary-custom:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(11,30,61,.25); }
- 
-    .btn-outline-custom {
-      display: block; width: 100%;
-      padding: 13px 20px;
-      background: transparent;
-      color: var(--navy);
-      border: 1.5px solid var(--navy);
-      border-radius: 10px;
-      font-size: .9rem;
-      cursor: pointer;
-      transition: all .25s;
-    }
-    .btn-outline-custom:hover {
-      background: var(--navy);
-      color: var(--white);
-      transform: translateY(-1px);
-    }
- 
-    /* ── HIGHLIGHTS TAG ROW ───────────────────────────── */
-    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-    .tag {
-      background: var(--cream-dk);
-      color: var(--navy);
-      border: 1px solid #ddd8cf;
-      font-size: .75rem;
-      padding: 5px 14px;
-      border-radius: 20px;
-    }
- 
-    /* ── DEADLINE BANNER ──────────────────────────────── */
-    .deadline-banner {
-      display: flex; align-items: center; gap: 10px;
-      background: #fff8e7;
-      border: 1px solid #f0d98a;
-      border-radius: 10px;
-      padding: 12px 16px;
-      margin-bottom: 22px;
-      font-size: .83rem;
-      color: #7a5c00;
-    }
-    .deadline-banner i { color: var(--gold); font-size: 1rem; }
- 
-    /* ── ANIMATIONS ───────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .info-item:nth-child(1) { animation: fadeUp .5s .55s both; }
-    .info-item:nth-child(2) { animation: fadeUp .5s .65s both; }
-    .info-item:nth-child(3) { animation: fadeUp .5s .75s both; }
-    .info-item:nth-child(4) { animation: fadeUp .5s .85s both; }
-    .info-item:nth-child(5) { animation: fadeUp .5s .95s both; }
+      /* ── HERO ─────────────────────────────────────────── */
+      .hero {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+      }
+      .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.06);
+        animation: heroZoom 12s ease-out forwards;
+      }
+      @keyframes heroZoom {
+        to {
+          transform: scale(1);
+        }
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          160deg,
+          rgba(11, 30, 61, 0.78) 0%,
+          rgba(11, 30, 61, 0.4) 60%,
+          rgba(201, 168, 76, 0.25) 100%
+        );
+      }
+      .hero-content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 48px 60px;
+        animation: fadeUp 0.9s 0.2s both;
+      }
+      .hero-content h1 {
+        font-size: clamp(2.4rem, 5vw, 3.8rem);
+        color: var(--white);
+        line-height: 1.1;
+      }
+      .hero-content p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1rem;
+        margin-top: 8px;
+      }
+      .hero-breadcrumb {
+        font-size: 0.78rem;
+        color: var(--gold-lt);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .hero-breadcrumb span {
+        opacity: 0.6;
+      }
+
+      /* ── PAGE LAYOUT ──────────────────────────────────── */
+      .page-wrap {
+        margin: 0 auto;
+        width: 100%;
+        /* padding: 0 24px 80px; */
+        margin-top: 4%;
+      }
+
+      /* ── FLOATING CARD ────────────────────────────────── */
+      .detail-card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        margin-top: -72px;
+        position: relative;
+        overflow: hidden;
+        animation: fadeUp 0.7s 0.4s both;
+      }
+      .detail-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--navy),
+          var(--gold),
+          var(--navy)
+        );
+      }
+
+      /* ── HEADER ───────────────────────────────────────── */
+      .detail-header {
+        padding: 44px 52px 36px;
+        border-bottom: 1px solid var(--cream-dk);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .header-left {
+        flex: 1;
+        min-width: 240px;
+      }
+      #courseName {
+        font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+        color: var(--navy);
+        line-height: 1.15;
+      }
+      .college-name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      .college-name i {
+        color: var(--gold);
+        font-size: 1rem;
+      }
+      #courseCollege {
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+      .badge-verified {
+        background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        color: #2e7d32;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 20px;
+        border: 1px solid #a5d6a7;
+      }
+
+      /* ── INFO GRID ────────────────────────────────────── */
+      .detail-body {
+        padding: 44px 52px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 16px;
+        margin-bottom: 48px;
+      }
+      .info-item {
+        background: var(--cream);
+        border-radius: 12px;
+        padding: 20px 22px;
+        border: 1px solid var(--cream-dk);
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .info-item:hover {
+        box-shadow: var(--shadow);
+        transform: translateY(-2px);
+      }
+      .info-label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .info-label i {
+        font-size: 0.85rem;
+      }
+      .info-value {
+        font-size: 0.97rem;
+        color: var(--navy);
+        line-height: 1.35;
+      }
+
+      /* ── TWO-COLUMN LOWER ─────────────────────────────── */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 40px;
+        align-items: start;
+      }
+      @media (max-width: 820px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+        .detail-header,
+        .detail-body {
+          padding: 28px 24px;
+        }
+      }
+
+      /* ── SECTION TITLES ───────────────────────────────── */
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 14px;
+      }
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--cream-dk);
+      }
+
+      .section-block {
+        margin-bottom: 36px;
+      }
+
+      /* ── OVERVIEW ─────────────────────────────────────── */
+      #courseDesc {
+        font-size: 0.96rem;
+        line-height: 1.85;
+        color: #3d3d55;
+      }
+
+      /* ── ELIGIBILITY ──────────────────────────────────── */
+      .eligibility-list {
+        list-style: none;
+      }
+      .eligibility-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--cream-dk);
+        font-size: 0.93rem;
+        color: #3d3d55;
+        line-height: 1.55;
+      }
+      .eligibility-list li:last-child {
+        border-bottom: none;
+      }
+      .elig-dot {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+        display: grid;
+        place-items: center;
+        margin-top: 2px;
+      }
+
+      /* ── SIDEBAR ──────────────────────────────────────── */
+      .sidebar-card {
+        background: var(--cream);
+        border-radius: 14px;
+        border: 1px solid var(--cream-dk);
+        overflow: hidden;
+      }
+      .sidebar-top {
+        background: var(--navy);
+        padding: 26px 28px 22px;
+      }
+      .sidebar-top .fee-label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 4px;
+      }
+      .sidebar-top .fee-amount {
+        font-size: 2.2rem;
+        color: var(--gold-lt);
+        line-height: 1;
+      }
+      .sidebar-top .fee-note {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 4px;
+      }
+      .sidebar-body {
+        padding: 22px 28px;
+      }
+      .sidebar-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--cream-dk);
+        font-size: 0.86rem;
+      }
+      .sidebar-row:last-of-type {
+        border-bottom: none;
+      }
+      .sidebar-row .sr-label {
+        color: var(--muted);
+      }
+
+      /* ── BUTTONS ──────────────────────────────────────── */
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .btn-primary-custom {
+        display: block;
+        width: 100%;
+        padding: 14px 20px;
+        background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+        color: var(--white);
+        border: none;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-primary-custom::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, var(--gold), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .btn-primary-custom:hover::after {
+        opacity: 0.15;
+      }
+      .btn-primary-custom:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(11, 30, 61, 0.25);
+      }
+
+      .btn-outline-custom {
+        display: block;
+        width: 100%;
+        padding: 13px 20px;
+        background: transparent;
+        color: var(--navy);
+        border: 1.5px solid var(--navy);
+        border-radius: 10px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+      .btn-outline-custom:hover {
+        background: var(--navy);
+        color: var(--white);
+        transform: translateY(-1px);
+      }
+
+      /* ── HIGHLIGHTS TAG ROW ───────────────────────────── */
+      .tags-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+      .tag {
+        background: var(--cream-dk);
+        color: var(--navy);
+        border: 1px solid #ddd8cf;
+        font-size: 0.75rem;
+        padding: 5px 14px;
+        border-radius: 20px;
+      }
+
+      /* ── DEADLINE BANNER ──────────────────────────────── */
+      .deadline-banner {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff8e7;
+        border: 1px solid #f0d98a;
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin-bottom: 22px;
+        font-size: 0.83rem;
+        color: #7a5c00;
+      }
+      .deadline-banner i {
+        color: var(--gold);
+        font-size: 1rem;
+      }
+
+      /* ── ANIMATIONS ───────────────────────────────────── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .info-item:nth-child(1) {
+        animation: fadeUp 0.5s 0.55s both;
+      }
+      .info-item:nth-child(2) {
+        animation: fadeUp 0.5s 0.65s both;
+      }
+      .info-item:nth-child(3) {
+        animation: fadeUp 0.5s 0.75s both;
+      }
+      .info-item:nth-child(4) {
+        animation: fadeUp 0.5s 0.85s both;
+      }
+      .info-item:nth-child(5) {
+        animation: fadeUp 0.5s 0.95s both;
+      }
     </style>
   </head>
   <body>
-      <!-- --------------form popup  -->
-            <div class="modal fade" id="connectModal" tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-3 rounded-3">
-                  <!-- ----------------header  -->
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3 flex-wrap"
-                  >
-                    <h5>Get Free Guidance</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
-                  <!-- form ------------------ -->
-                  <form class="form-inp">
-                    <input
-                      type="text"
-                      placeholder="Enter your name..."
-                      class="form-control mb-2"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Enter your email..."
-                      class="form-control mb-2"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Enter your Number..."
-                      class="form-control mb-2"
-                    />
-                    <select class="form-select mb-2">
-                      <option selected disabled>Choose a program</option>
-                      <option>Executive Program</option>
-                      <option>Offline Program</option>
-                      <option>Online Program</option>
-                    </select>
-                    <button
-                      type="submit"
-                      class="w-100 text-white py-1 border-0"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-        <!--------------Login Modal -->
+    <!-- --------------form popup  -->
+    <div class="modal fade" id="connectModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 rounded-3">
+          <!-- ----------------header  -->
+          <div
+            class="d-flex justify-content-between align-items-center mb-3 flex-wrap"
+          >
+            <h5>Get Free Guidance</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <!-- form ------------------ -->
+          <form class="form-inp">
+            <input
+              type="text"
+              placeholder="Enter your name..."
+              class="form-control mb-2"
+            />
+            <input
+              type="email"
+              placeholder="Enter your email..."
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              placeholder="Enter your Number..."
+              class="form-control mb-2"
+            />
+            <select class="form-select mb-2">
+              <option selected disabled>Choose a program</option>
+              <option>Executive Program</option>
+              <option>Offline Program</option>
+              <option>Online Program</option>
+            </select>
+            <button type="submit" class="w-100 text-white py-1 border-0">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
@@ -1386,16 +1481,18 @@
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
         <!-- LOGO -->
         <a href="#" class="logo">
           <div class="logo-mark">
-            <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
+            <img src="./campuswalkin_logo.webp" alt="" class="w-100 d-block" />
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="index.html" class="cn-link text-decoration-none text-dark"
+            >Home</a
+          >
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -1784,7 +1881,9 @@
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <!-- All Courses -->
         <div class="courses-wrap" id="coursesWrap">
           <button
@@ -1818,23 +1917,32 @@
           </button>
 
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
+            <div class="cm-inner d-flex">
               <!-- Left: Categories -->
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
 
               <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
                 <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -1881,16 +1989,42 @@
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
 
                 <!-- Dynamic grid -->
@@ -2113,159 +2247,206 @@
       onclick="closeDrawer()"
       style="backdrop-filter: blur(2px)"
     ></div>
-<!-- ── HERO ─────────────────────────────────────────── -->
-<section class="hero">
-  <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format" class="hero-img" alt="campus banner"/>
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <div class="hero-breadcrumb">Home <span>/ Programs /</span> Management</div>
-    <h1 id="title">College Courses</h1>
-    <p>Explore all programs, fees &amp; details</p>
-  </div>
-</section>
- 
-<!-- ── MAIN ──────────────────────────────────────────── -->
-<div class="page-wrap">
-  <div class="detail-card">
- 
-    <!-- HEADER -->
-    <div class="detail-header">
-      <div class="header-left">
-        <h1 id="courseName">Executive MBA</h1>
-        <div class="college-name">
-          <i class="bi bi-building"></i>
-          <span id="courseCollege">Indian Institute of Management Ahmedabad</span>
-          <span class="badge-verified">✔ Verified</span>
+    <!-- ── HERO ─────────────────────────────────────────── -->
+    <section class="hero">
+      <img
+        src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format"
+        class="hero-img"
+        alt="campus banner"
+      />
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <div class="hero-breadcrumb">
+          Home <span>/ Programs /</span> Management
         </div>
-        <div class="tags-row">
-          <span class="tag">NAAC A++</span>
-          <span class="tag">AACSB Accredited</span>
-          <span class="tag">Ranked #1 in India</span>
-          <span class="tag">Global Immersion</span>
-        </div>
+        <h1 id="title">College Courses</h1>
+        <p>Explore all programs, fees &amp; details</p>
       </div>
-     
+    </section>
+
+    <!-- ── MAIN ──────────────────────────────────────────── -->
+    <div class="page-wrap">
+      <div class="detail-card">
+        <!-- HEADER -->
+        <div class="detail-header">
+          <div class="header-left">
+            <h1 id="courseName">Executive MBA</h1>
+            <div class="college-name">
+              <i class="bi bi-building"></i>
+              <span id="courseCollege"
+                >Indian Institute of Management Ahmedabad</span
+              >
+              <span class="badge-verified">✔ Verified</span>
+            </div>
+            <div class="tags-row">
+              <span class="tag">NAAC A++</span>
+              <span class="tag">AACSB Accredited</span>
+              <span class="tag">Ranked #1 in India</span>
+              <span class="tag">Global Immersion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="detail-body">
+          <!-- INFO GRID -->
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-label"><i class="bi bi-tag"></i> Category</div>
+              <div class="info-value" id="courseCategory">Management</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">
+                <i class="bi bi-calendar-week"></i> Duration
+              </div>
+              <div class="info-value" id="courseDuration">
+                2 Years<br />Full-time
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">
+                <i class="bi bi-currency-rupee"></i> Fees
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">
+                <i class="bi bi-geo-alt"></i> Location
+              </div>
+              <div class="info-value" id="courseLocation">
+                Ahmedabad,<br />India
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label"><i class="bi bi-laptop"></i> Mode</div>
+              <div class="info-value" id="courseMode">
+                Offline /<br />Residential
+              </div>
+            </div>
+          </div>
+
+          <!-- TWO-COLUMN LAYOUT -->
+          <div class="two-col">
+            <!-- LEFT -->
+            <div>
+              <!-- OVERVIEW -->
+              <div class="section-block">
+                <div class="section-label">📖 Overview</div>
+                <div id="courseDesc">
+                  The Executive MBA programme at IIM Ahmedabad is crafted for
+                  seasoned professionals seeking to accelerate their journey
+                  into C-suite leadership. The curriculum integrates core
+                  management disciplines with advanced strategic frameworks,
+                  immersive case-based learning, and cross-border global
+                  modules. Participants emerge with sharper decision-making
+                  capabilities, a broader strategic lens, and lifelong access to
+                  one of Asia's most powerful alumni networks.
+                </div>
+              </div>
+
+              <!-- ELIGIBILITY -->
+              <div class="section-block">
+                <div class="section-label">
+                  ✅ Eligibility &amp; Requirements
+                </div>
+                <ul class="eligibility-list" id="courseEligibility">
+                  <li>
+                    <div class="elig-dot"><i class="bi bi-check"></i></div>
+                    Bachelor's degree with a minimum of 50% marks or equivalent
+                    CGPA from a recognised university.
+                  </li>
+                  <li>
+                    <div class="elig-dot"><i class="bi bi-check"></i></div>
+                    Minimum 5 years of full-time professional work experience
+                    post graduation.
+                  </li>
+                  <li>
+                    <div class="elig-dot"><i class="bi bi-check"></i></div>
+                    Valid GMAT / CAT / GRE score as per current institute norms.
+                  </li>
+                  <li>
+                    <div class="elig-dot"><i class="bi bi-check"></i></div>
+                    Compelling statement of purpose and two professional
+                    recommendations.
+                  </li>
+                  <li>
+                    <div class="elig-dot"><i class="bi bi-check"></i></div>
+                    Personal interview round for shortlisted candidates.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div>
+              <div class="deadline-banner">
+                <i class="bi bi-alarm"></i>
+                <span
+                  ><strong>Application Deadline:</strong> 15 August 2025 — Batch
+                  2025–27</span
+                >
+              </div>
+
+              <div class="sidebar-card">
+                <div class="sidebar-top">
+                  <div class="fee-label">Total Programme Fee</div>
+                  <div class="fee-amount">₹24.5 L</div>
+                  <div class="fee-note">
+                    Includes all term fees · EMI options available
+                  </div>
+                </div>
+                <div class="sidebar-body">
+                  <div class="sidebar-row">
+                    <span class="sr-label">Intake Seats</span>
+                    <span class="sr-val">120</span>
+                  </div>
+                  <div class="sidebar-row">
+                    <span class="sr-label">Avg. Package</span>
+                    <span class="sr-val">₹32 LPA</span>
+                  </div>
+                  <div class="sidebar-row">
+                    <span class="sr-label">Placement Rate</span>
+                    <span class="sr-val">98.6%</span>
+                  </div>
+                  <div class="sidebar-row">
+                    <span class="sr-label">Global Immersion</span>
+                    <span class="sr-val">2 Countries</span>
+                  </div>
+                  <div class="sidebar-row">
+                    <span class="sr-label">Alumni Network</span>
+                    <span class="sr-val">40,000+</span>
+                  </div>
+
+                  <div class="btn-group">
+                    <button
+                      class="btn-primary-custom"
+                      data-bs-toggle="modal"
+                      data-bs-target="#connectModal"
+                    >
+                      Apply Now &nbsp;→
+                    </button>
+                    <button
+                      class="btn-outline-custom"
+                      onclick="
+                        alert(
+                          '📄 Brochure will be sent to your registered email.',
+                        )
+                      "
+                    >
+                      <i class="bi bi-download"></i> &nbsp;Download Brochure
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /two-col -->
+        </div>
+        <!-- /detail-body -->
+      </div>
+      <!-- /detail-card -->
     </div>
- 
-    <!-- BODY -->
-    <div class="detail-body">
- 
-      <!-- INFO GRID -->
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="info-label"><i class="bi bi-tag"></i> Category</div>
-          <div class="info-value" id="courseCategory">Management</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label"><i class="bi bi-calendar-week"></i> Duration</div>
-          <div class="info-value" id="courseDuration">2 Years<br>Full-time</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label"><i class="bi bi-currency-rupee"></i> Fees</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label"><i class="bi bi-geo-alt"></i> Location</div>
-          <div class="info-value" id="courseLocation">Ahmedabad,<br>India</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label"><i class="bi bi-laptop"></i> Mode</div>
-          <div class="info-value" id="courseMode">Offline /<br>Residential</div>
-        </div>
-      </div>
- 
-      <!-- TWO-COLUMN LAYOUT -->
-      <div class="two-col">
-        <!-- LEFT -->
-        <div>
-          <!-- OVERVIEW -->
-          <div class="section-block">
-            <div class="section-label">📖 Overview</div>
-            <div id="courseDesc">
-              The Executive MBA programme at IIM Ahmedabad is crafted for seasoned professionals seeking to accelerate their journey into C-suite leadership. The curriculum integrates core management disciplines with advanced strategic frameworks, immersive case-based learning, and cross-border global modules. Participants emerge with sharper decision-making capabilities, a broader strategic lens, and lifelong access to one of Asia's most powerful alumni networks.
-            </div>
-          </div>
- 
-          <!-- ELIGIBILITY -->
-          <div class="section-block">
-            <div class="section-label">✅ Eligibility &amp; Requirements</div>
-            <ul class="eligibility-list" id="courseEligibility">
-              <li>
-                <div class="elig-dot"><i class="bi bi-check"></i></div>
-                Bachelor's degree with a minimum of 50% marks or equivalent CGPA from a recognised university.
-              </li>
-              <li>
-                <div class="elig-dot"><i class="bi bi-check"></i></div>
-                Minimum 5 years of full-time professional work experience post graduation.
-              </li>
-              <li>
-                <div class="elig-dot"><i class="bi bi-check"></i></div>
-                Valid GMAT / CAT / GRE score as per current institute norms.
-              </li>
-              <li>
-                <div class="elig-dot"><i class="bi bi-check"></i></div>
-                Compelling statement of purpose and two professional recommendations.
-              </li>
-              <li>
-                <div class="elig-dot"><i class="bi bi-check"></i></div>
-                Personal interview round for shortlisted candidates.
-              </li>
-            </ul>
-          </div>
-        </div>
- 
-        <!-- SIDEBAR -->
-        <div>
-          <div class="deadline-banner">
-            <i class="bi bi-alarm"></i>
-            <span><strong>Application Deadline:</strong> 15 August 2025 — Batch 2025–27</span>
-          </div>
- 
-          <div class="sidebar-card">
-            <div class="sidebar-top">
-              <div class="fee-label">Total Programme Fee</div>
-              <div class="fee-amount">₹24.5 L</div>
-              <div class="fee-note">Includes all term fees · EMI options available</div>
-            </div>
-            <div class="sidebar-body">
-              <div class="sidebar-row">
-                <span class="sr-label">Intake Seats</span>
-                <span class="sr-val">120</span>
-              </div>
-              <div class="sidebar-row">
-                <span class="sr-label">Avg. Package</span>
-                <span class="sr-val">₹32 LPA</span>
-              </div>
-              <div class="sidebar-row">
-                <span class="sr-label">Placement Rate</span>
-                <span class="sr-val">98.6%</span>
-              </div>
-              <div class="sidebar-row">
-                <span class="sr-label">Global Immersion</span>
-                <span class="sr-val">2 Countries</span>
-              </div>
-              <div class="sidebar-row">
-                <span class="sr-label">Alumni Network</span>
-                <span class="sr-val">40,000+</span>
-              </div>
- 
-              <div class="btn-group">
-                <button class="btn-primary-custom"          data-bs-toggle="modal"
-          data-bs-target="#connectModal">
-                  Apply Now &nbsp;→
-                </button>
-                <button class="btn-outline-custom" onclick="alert('📄 Brochure will be sent to your registered email.')">
-                  <i class="bi bi-download"></i> &nbsp;Download Brochure
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /two-col -->
- 
-    </div><!-- /detail-body -->
-  </div><!-- /detail-card -->
-</div><!-- /page-wrap -->
-        <!-- ══════════════ BOTTOM CTA ══════════════ -->
+    <!-- /page-wrap -->
+    <!-- ══════════════ BOTTOM CTA ══════════════ -->
     <div class="cta-sec py-5 px-4 w-auto mx-auto">
       <div class="cta-inner">
         <div
@@ -2340,9 +2521,9 @@
         </div>
       </div>
     </div>
- 
+
     <!-- ═══ FOOTER ═══ -->
-     
+
     <footer>
       <div class="fi">
         <div class="fg d-grid gap-5 mb-3">
@@ -2481,7 +2662,7 @@
       </div>
     </footer>
 
-     <script>
+    <script>
       // ── Data for courses mega menu ────────────────────────────────────────────────
       const data = {
         management: {
@@ -5007,18 +5188,18 @@
       }
       /* ── Explore ── */
       function toggleExplore(e) {
-  e.stopPropagation(); // Prevent the document click from immediately closing it
-  const wrap = document.getElementById("exploreWrap");
-  wrap.classList.toggle("open");
-}
+        e.stopPropagation(); // Prevent the document click from immediately closing it
+        const wrap = document.getElementById("exploreWrap");
+        wrap.classList.toggle("open");
+      }
 
-// Close dropdown when clicking outside
-document.addEventListener("click", function (e) {
-  const explore = document.getElementById("exploreWrap");
-  if (!explore.contains(e.target)) {
-    explore.classList.remove("open");
-  }
-});
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        const explore = document.getElementById("exploreWrap");
+        if (!explore.contains(e.target)) {
+          explore.classList.remove("open");
+        }
+      });
       /* ── Mobile drawer ── */
       function openDrawer() {
         document.getElementById("mDrawer").classList.add("open");
@@ -5748,30 +5929,30 @@ document.addEventListener("click", function (e) {
       }
     </script>
     <script>
-        const dataa = JSON.parse(localStorage.getItem("courseDetails"));
+      const dataa = JSON.parse(localStorage.getItem("courseDetails"));
 
-if (dataa) {
-  document.getElementById("courseName").innerText = dataa.name;
-  document.getElementById("courseCollege").innerText = dataa.collegeName;
-  document.getElementById("courseCategory").innerText = dataa.cat;
-  document.getElementById("courseDuration").innerText = dataa.dur;
-  document.getElementById("courseFees").innerText = dataa.fees;
-  document.getElementById("courseLocation").innerText = dataa.location;
-  document.getElementById("courseMode").innerText = dataa.mode;
+      if (dataa) {
+        document.getElementById("courseName").innerText = dataa.name;
+        document.getElementById("courseCollege").innerText = dataa.collegeName;
+        document.getElementById("courseCategory").innerText = dataa.cat;
+        document.getElementById("courseDuration").innerText = dataa.dur;
+        document.getElementById("courseFees").innerText = dataa.fees;
+        document.getElementById("courseLocation").innerText = dataa.location;
+        document.getElementById("courseMode").innerText = dataa.mode;
 
-  //  FULL DETAILS AUTO
-  document.getElementById("courseDesc").innerText =
-    `The ${dataa.name} at ${dataa.collegeName} is a ${dataa.dur} program. This course provides deep knowledge in ${dataa.cat} with practical exposure and industry-level training.`;
+        //  FULL DETAILS AUTO
+        document.getElementById("courseDesc").innerText =
+          `The ${dataa.name} at ${dataa.collegeName} is a ${dataa.dur} program. This course provides deep knowledge in ${dataa.cat} with practical exposure and industry-level training.`;
 
-  document.getElementById("courseEligibility").innerText =
-    dataa.cat === "Engineering"
-      ? "12th with PCM required"
-      : dataa.cat === "Management"
-      ? "Graduation required"
-      : "12th pass required";
-}
+        document.getElementById("courseEligibility").innerText =
+          dataa.cat === "Engineering"
+            ? "12th with PCM required"
+            : dataa.cat === "Management"
+              ? "Graduation required"
+              : "12th pass required";
+      }
     </script>
-            <script>
+    <script>
       const navbar = document.querySelector(".navbar");
       const stickyOffset = navbar.offsetTop;
 
@@ -5783,7 +5964,7 @@ if (dataa) {
         }
       });
     </script>
-      <script>
+    <script>
       (function () {
         // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
         // Close drawer when any modal is triggered via data-bs-toggle
@@ -5858,7 +6039,7 @@ if (dataa) {
           };
       })();
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="script.js"></script>
   </body>

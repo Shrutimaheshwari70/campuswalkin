@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -72,7 +72,7 @@
         --nav-h: 60px;
         --nav2-h: 44px;
       }
-      
+
       *,
       *::before,
       *::after {
@@ -80,7 +80,7 @@
         margin: 0;
         padding: 0;
       }
-          html,
+      html,
       body {
         overflow-x: hidden;
       }
@@ -103,13 +103,13 @@
         font-size: 13px;
       }
 
-           /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
     NAVBAR WRAPPER
   ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
-          border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
 
         background-color: white;
         z-index: 300;
@@ -378,17 +378,17 @@
         transition: all 0.3s;
       }
       /* Active Cross */
-.ham-btn.active span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
+      .ham-btn.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
 
-.ham-btn.active span:nth-child(2) {
-  opacity: 0;
-}
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
 
-.ham-btn.active span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
+      .ham-btn.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
       /* --------------mobile menu  */
       #mDrawer {
         position: fixed;
@@ -418,7 +418,7 @@
         }
         .navbar {
           height: 60px;
-    border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
         }
       }
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
@@ -741,7 +741,7 @@
         font-size: 14px;
       }
 
-   /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
    CTA
 ───────────────────────────────────── */
       .cta-sec {
@@ -786,50 +786,137 @@
           padding: 1.5rem !important;
         }
       }
-     /* ── HERO BANNER ── */
-      .hero-compare { height: 600px; position: relative; overflow: hidden; }
-      @media (max-width: 767px) { .hero-compare { height: auto; min-height: 300px; } }
+      /* ── HERO BANNER ── */
+      .hero-compare {
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+      }
+      @media (max-width: 767px) {
+        .hero-compare {
+          height: auto;
+          min-height: 300px;
+        }
+      }
       .hero-overlay-compare {
-        background: linear-gradient(to right,rgba(77,14,94,.79),rgba(20,40,122,.67));
-        position: absolute; inset: 0; z-index: 1;
+        background: linear-gradient(
+          to right,
+          rgba(77, 14, 94, 0.79),
+          rgba(20, 40, 122, 0.67)
+        );
+        position: absolute;
+        inset: 0;
+        z-index: 1;
       }
       .left-compare {
-        position: absolute; z-index: 2;
-        top: 50%; left: 6%; transform: translateY(-50%);
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 6%;
+        transform: translateY(-50%);
         width: min(580px, 50%);
       }
-      .left-compare h1 { font-size: clamp(1.3rem,3vw,2rem); }
-      .left-compare p { font-size: .9rem; }
+      .left-compare h1 {
+        font-size: clamp(1.3rem, 3vw, 2rem);
+      }
+      .left-compare p {
+        font-size: 0.9rem;
+      }
       .form-right-compare {
-        position: absolute; z-index: 2;
-        top: 50%; right: 6%; transform: translateY(-50%);
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        right: 6%;
+        transform: translateY(-50%);
         width: min(320px, 38%);
       }
       @media (max-width: 900px) {
-        .left-compare { position: static; transform: none; width: 100%; padding: 2rem 1.5rem 1rem; }
-        .form-right-compare { position: static; transform: none; width: 100%; padding: 0 1.5rem 2rem; }
-        .hero-compare { display: flex; flex-direction: column; height: auto; }
-        .hero-compare .img-wrapper-compare { position: absolute; inset: 0; z-index: 0; }
-        .hero-compare .img-wrapper-compare img { height: 100%; object-fit: cover; }
-        .center-compare { position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 500px; }
+        .left-compare {
+          position: static;
+          transform: none;
+          width: 100%;
+          padding: 2rem 1.5rem 1rem;
+        }
+        .form-right-compare {
+          position: static;
+          transform: none;
+          width: 100%;
+          padding: 0 1.5rem 2rem;
+        }
+        .hero-compare {
+          display: flex;
+          flex-direction: column;
+          height: auto;
+        }
+        .hero-compare .img-wrapper-compare {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+        .hero-compare .img-wrapper-compare img {
+          height: 100%;
+          object-fit: cover;
+        }
+        .center-compare {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          min-height: 500px;
+        }
       }
       @media (max-width: 576px) {
-        .center-compare { min-height: unset; }
-        .left-compare { padding: 1.5rem 1rem .5rem; }
-        .form-right-compare { padding: 0 1rem 1.5rem; }
+        .center-compare {
+          min-height: unset;
+        }
+        .left-compare {
+          padding: 1.5rem 1rem 0.5rem;
+        }
+        .form-right-compare {
+          padding: 0 1rem 1.5rem;
+        }
       }
-      .top-compare { background: linear-gradient(to right,rgba(255,192,203,.36),rgba(0,132,255,.24)); }
-      .form-compare label { font-size: .75rem; }
-      .top-compare p { font-size: .85rem; }
-      .checkbox-compare p { font-size: .75rem; }
-      .form-compare input, .form-compare select { font-size: .85rem; }
-      .form-compare input:focus, .form-compare select:focus { outline: none; box-shadow: none; }
- 
+      .top-compare {
+        background: linear-gradient(
+          to right,
+          rgba(255, 192, 203, 0.36),
+          rgba(0, 132, 255, 0.24)
+        );
+      }
+      .form-compare label {
+        font-size: 0.75rem;
+      }
+      .top-compare p {
+        font-size: 0.85rem;
+      }
+      .checkbox-compare p {
+        font-size: 0.75rem;
+      }
+      .form-compare input,
+      .form-compare select {
+        font-size: 0.85rem;
+      }
+      .form-compare input:focus,
+      .form-compare select:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
       /* ── COMPARE SECTION ── */
-      .section-compare { padding: 2rem 1rem; }
-      @media (min-width: 576px) { .section-compare { padding: 2rem 1.5rem; } }
-      @media (min-width: 992px) { .section-compare { padding: 2.5rem 2rem; } }
- 
+      .section-compare {
+        padding: 2rem 1rem;
+      }
+      @media (min-width: 576px) {
+        .section-compare {
+          padding: 2rem 1.5rem;
+        }
+      }
+      @media (min-width: 992px) {
+        .section-compare {
+          padding: 2.5rem 2rem;
+        }
+      }
+
       /* Compare row scrollable on mobile */
       .compare-scroll-wrapper {
         overflow-x: auto;
@@ -844,104 +931,241 @@
         flex-wrap: nowrap;
       }
       @media (min-width: 992px) {
-        #compareRow { flex-wrap: wrap; min-width: unset; }
+        #compareRow {
+          flex-wrap: wrap;
+          min-width: unset;
+        }
       }
- 
+
       /* Compare card */
       .compare-card {
-        border-radius: 12px; overflow: hidden;
-        width: 260px; flex-shrink: 0;
-        background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,.1);
+        border-radius: 12px;
+        overflow: hidden;
+        width: 260px;
+        flex-shrink: 0;
+        background: #fff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         padding-bottom: 15px;
       }
-      @media (min-width: 480px) { .compare-card { width: 280px; } }
-      @media (min-width: 992px) { .compare-card { width: 300px; } }
- 
-      .compare-banner { height: 100px; object-fit: cover; width: 100%; }
+      @media (min-width: 480px) {
+        .compare-card {
+          width: 280px;
+        }
+      }
+      @media (min-width: 992px) {
+        .compare-card {
+          width: 300px;
+        }
+      }
+
+      .compare-banner {
+        height: 100px;
+        object-fit: cover;
+        width: 100%;
+      }
       .logo-wrapper-com {
-        position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
-        width: 60px; height: 60px; border-radius: 50%; overflow: hidden;
-        border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.15);
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       }
-      .logo-wrapper-com img { width: 100%; height: 100%; object-fit: cover; }
+      .logo-wrapper-com img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
       .compare-remove-icon {
-        position: absolute; top: 8px; right: 8px; font-size: 20px;
-        cursor: pointer; z-index: 10; color: #000; background: #fff;
-        border-radius: 50%; line-height: 1;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        color: #000;
+        background: #fff;
+        border-radius: 50%;
+        line-height: 1;
       }
- 
+
       /* Add card */
       .compare-card-add {
-        border: 2px dashed #dde3f0; background: #f9faff;
-        width: 240px; flex-shrink: 0; border-radius: 12px;
-        padding: 20px 14px; display: flex; flex-direction: column;
-        align-items: center; justify-content: flex-start; gap: 10px;
+        border: 2px dashed #dde3f0;
+        background: #f9faff;
+        width: 240px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        padding: 20px 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
       }
-      @media (min-width: 480px) { .compare-card-add { width: 260px; } }
-      @media (min-width: 992px) { .compare-card-add { width: 280px; } }
- 
+      @media (min-width: 480px) {
+        .compare-card-add {
+          width: 260px;
+        }
+      }
+      @media (min-width: 992px) {
+        .compare-card-add {
+          width: 280px;
+        }
+      }
+
       .icon-circle {
-        width: 40px; height: 40px; border: 2px dashed #aab4cc;
-        border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;
+        width: 40px;
+        height: 40px;
+        border: 2px dashed #aab4cc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
       }
-      .icon-circle i { font-size: 14px; color: #666; }
-      .compare-card-add p { font-size: .85rem; margin: 0; }
-      .label-orange { color: #ff6a00; font-size: 12px; display: block; margin-bottom: 4px; }
-      .custom-select { border-radius: 8px; padding: 6px 8px; width: 100%; font-size: 13px; border: 1px solid #dde3f0; }
-      .compare-card-add .form-group { width: 100%; text-align: left; margin-bottom: 8px; }
+      .icon-circle i {
+        font-size: 14px;
+        color: #666;
+      }
+      .compare-card-add p {
+        font-size: 0.85rem;
+        margin: 0;
+      }
+      .label-orange {
+        color: #ff6a00;
+        font-size: 12px;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .custom-select {
+        border-radius: 8px;
+        padding: 6px 8px;
+        width: 100%;
+        font-size: 13px;
+        border: 1px solid #dde3f0;
+      }
+      .compare-card-add .form-group {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 8px;
+      }
       .compare-card-add .add-btn {
-        background: #0b1437; color: #fff; border: none;
-        padding: 8px 20px; border-radius: 8px; font-size: 13px;
-        cursor: pointer; margin-top: 4px; width: 100%;
+        background: #0b1437;
+        color: #fff;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+        margin-top: 4px;
+        width: 100%;
       }
-      .compare-card-add .add-btn:hover { background: #2563eb; }
- 
+      .compare-card-add .add-btn:hover {
+        background: #2563eb;
+      }
+
       /* Compare table */
-      .compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .compare-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
       .compare-table {
-        width: 100%; border-collapse: collapse; font-size: 13px;
-        border: 2px solid #e1e1e1; background: #fefefe;
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        border: 2px solid #e1e1e1;
+        background: #fefefe;
         min-width: 500px;
       }
-      @media (min-width: 768px) { .compare-table { font-size: 14px; } }
+      @media (min-width: 768px) {
+        .compare-table {
+          font-size: 14px;
+        }
+      }
       .compare-table th {
-        text-align: left; background: #f3f3f3; padding: 10px 12px;
-        width: 130px; font-weight: 500; color: #444;
-        border-bottom: 1px solid #eee; white-space: nowrap;
+        text-align: left;
+        background: #f3f3f3;
+        padding: 10px 12px;
+        width: 130px;
+        font-weight: 500;
+        color: #444;
+        border-bottom: 1px solid #eee;
+        white-space: nowrap;
       }
-      @media (min-width: 768px) { .compare-table th { padding: 12px 14px; width: 160px; } }
+      @media (min-width: 768px) {
+        .compare-table th {
+          padding: 12px 14px;
+          width: 160px;
+        }
+      }
       .compare-table td {
-        padding: 10px 12px; text-align: center;
-        border-left: 1px solid #eee; border-bottom: 1px solid #eee;
-        color: #333; vertical-align: middle;
+        padding: 10px 12px;
+        text-align: center;
+        border-left: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        color: #333;
+        vertical-align: middle;
       }
-      @media (min-width: 768px) { .compare-table td { padding: 12px 14px; } }
-      .compare-table tr:hover td { background: #fafafa; }
-      .compare-table .action-row td { padding: 12px 10px; vertical-align: middle; }
+      @media (min-width: 768px) {
+        .compare-table td {
+          padding: 12px 14px;
+        }
+      }
+      .compare-table tr:hover td {
+        background: #fafafa;
+      }
+      .compare-table .action-row td {
+        padding: 12px 10px;
+        vertical-align: middle;
+      }
       .btn-view {
-        display: inline-block; margin-bottom: 8px; font-size: 12px;
-        color: #9c1ae8; text-decoration: none; font-weight: 500;
-        border: 1px solid #9c1ae8; padding: 5px 12px; border-radius: 6px;
-        transition: background .15s, color .15s;
+        display: inline-block;
+        margin-bottom: 8px;
+        font-size: 12px;
+        color: #9c1ae8;
+        text-decoration: none;
+        font-weight: 500;
+        border: 1px solid #9c1ae8;
+        padding: 5px 12px;
+        border-radius: 6px;
+        transition:
+          background 0.15s,
+          color 0.15s;
       }
       .btn-apply {
-        display: inline-block; font-size: 12px;
-        background: linear-gradient(to right,navy,purple); color: #fff;
-        border: none; padding: 6px 14px; border-radius: 6px;
-        cursor: pointer; font-weight: 500; text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        background: linear-gradient(to right, navy, purple);
+        color: #fff;
+        border: none;
+        padding: 6px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: none;
       }
-      @media (min-width: 768px) { .btn-view,.btn-apply { font-size: 13px; } }
- 
+      @media (min-width: 768px) {
+        .btn-view,
+        .btn-apply {
+          font-size: 13px;
+        }
+      }
+
       /* Edit overlay */
       .edit-overlay {
-        background: #fff; padding: 12px; border-top: 1px solid #eee;
+        background: #fff;
+        padding: 12px;
+        border-top: 1px solid #eee;
       }
- 
     </style>
-</head>
-<body>
-  
-        <!--------------Login Modal -->
+  </head>
+  <body>
+    <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
@@ -1099,57 +1323,49 @@
         </div>
       </div>
     </div>
-    
-            <!-- --------------form popup  -->
-                 <div class="modal fade" id="connectModal" tabindex="-1">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3 rounded-4">
-              <!-- HEADER -->
-              <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
-                <h5 class="fw-bold mb-0">Get Free Guidance</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                ></button>
-              </div>
 
-              <!-- FORM -->
-              <form class="form-inp">
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  placeholder="Full Name..."
-                />
-
-                <input
-                  type="email"
-                  class="form-control mb-3"
-                  placeholder="Email"
-                />
-
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  placeholder="Phone Number..."
-                />
-
-                <select class="form-select mb-3">
-                  <option selected disabled>Select Program Interest</option>
-                  <option>Executive Program</option>
-                  <option>Offline Program</option>
-                  <option>Online Program</option>
-                </select>
-
-                <button type="submit" class="btn btn-primary w-100">
-                  Submit
-                </button>
-              </form>
-            </div>
+    <!-- --------------form popup  -->
+    <div class="modal fade" id="connectModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 rounded-4">
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Get Free Guidance</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
           </div>
+
+          <!-- FORM -->
+          <form class="form-inp">
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Full Name..."
+            />
+
+            <input type="email" class="form-control mb-3" placeholder="Email" />
+
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Phone Number..."
+            />
+
+            <select class="form-select mb-3">
+              <option selected disabled>Select Program Interest</option>
+              <option>Executive Program</option>
+              <option>Offline Program</option>
+              <option>Online Program</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
         </div>
+      </div>
+    </div>
     <!-- TOP BAR (desktop only) -->
     <div
       class="topbar d-none d-md-flex align-items-center px-2 px-lg-5 flex-nowrap"
@@ -1196,16 +1412,18 @@
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
         <!-- LOGO -->
         <a href="#" class="logo">
           <div class="logo-mark">
-            <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
+            <img src="./campuswalkin_logo.webp" alt="" class="w-100 d-block" />
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="index.html" class="cn-link text-decoration-none text-dark"
+            >Home</a
+          >
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -1590,12 +1808,13 @@
             >
               Apply Now
             </button>
-            
           </div>
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <!-- All Courses -->
         <div class="courses-wrap" id="coursesWrap">
           <button
@@ -1629,23 +1848,32 @@
           </button>
 
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
+            <div class="cm-inner d-flex">
               <!-- Left: Categories -->
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
 
               <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
                 <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -1692,16 +1920,42 @@
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
 
                 <!-- Dynamic grid -->
@@ -1924,52 +2178,130 @@
       onclick="closeDrawer()"
       style="backdrop-filter: blur(2px)"
     ></div>
-<!-- HERO BANNER -->
+    <!-- HERO BANNER -->
     <section class="hero-compare">
-      <div class="img-wrapper-compare overflow-hidden h-100 position-absolute w-100 top-0 start-0">
-        <img src="./about-banner.jpg" alt="" class="object-fit-cover w-100 h-100 d-block" />
+      <div
+        class="img-wrapper-compare overflow-hidden h-100 position-absolute w-100 top-0 start-0"
+      >
+        <img
+          src="./about-banner.webp"
+          alt=""
+          class="object-fit-cover w-100 h-100 d-block"
+        />
       </div>
       <div class="hero-overlay-compare"></div>
-      <div class="center-compare position-relative h-100 d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between px-3 px-md-4 px-lg-5 py-4">
-        <div class="left-compare-content text-white" style="max-width:580px;z-index:2;padding:2rem 0 1rem">
-          <h1 class="fw-bold mb-3" style="font-size:clamp(1.3rem,3vw,6rem)">Compare Top Colleges & Make the Right Choice</h1>
-          <p style="font-size:.9rem;color:#e0e7ff">Choosing the right college is one of the most important decisions of your life. Our platform helps you compare top colleges across India based on courses, fees, placements, rankings, and student reviews — all in one place.</p>
+      <div
+        class="center-compare position-relative h-100 d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between px-3 px-md-4 px-lg-5 py-4"
+      >
+        <div
+          class="left-compare-content text-white"
+          style="max-width: 580px; z-index: 2; padding: 2rem 0 1rem"
+        >
+          <h1 class="fw-bold mb-3" style="font-size: clamp(1.3rem, 3vw, 6rem)">
+            Compare Top Colleges & Make the Right Choice
+          </h1>
+          <p style="font-size: 0.9rem; color: #e0e7ff">
+            Choosing the right college is one of the most important decisions of
+            your life. Our platform helps you compare top colleges across India
+            based on courses, fees, placements, rankings, and student reviews —
+            all in one place.
+          </p>
         </div>
-        <div class="form-compare-wrapper" style="z-index:2;width:min(450px,100%);margin-top:1rem">
-          <form class="form-compare bg-white border rounded-3 overflow-hidden shadow-lg">
+        <div
+          class="form-compare-wrapper"
+          style="z-index: 2; width: min(450px, 100%); margin-top: 1rem"
+        >
+          <form
+            class="form-compare bg-white border rounded-3 overflow-hidden shadow-lg"
+          >
             <div class="top-compare border-bottom py-2 px-3 text-muted">
               <h5 class="mb-0">Connect Our Counsellers</h5>
               <p class="mb-0">Receive alerts custom made for you</p>
             </div>
             <div class="d-grid px-3 py-3 gap-2">
-              <h6 class="text-center text-primary mb-1">Get Guidance By Experts</h6>
-              <div><label class="form-compare mb-1 fw-semibold" style="font-size:.75rem">Name:</label><input type="text" placeholder="Full Name" class="form-control form-control-sm" /></div>
-              <div><label class="form-compare mb-1 fw-semibold" style="font-size:.75rem">Mobile Number</label><input type="text" placeholder="Enter Mobile Number" class="form-control form-control-sm" /></div>
-              <div><label class="form-compare mb-1 fw-semibold" style="font-size:.75rem">Email:</label><input type="email" placeholder="Email Address" class="form-control form-control-sm" /></div>
+              <h6 class="text-center text-primary mb-1">
+                Get Guidance By Experts
+              </h6>
               <div>
-                <label class="form-compare mb-1 fw-semibold" style="font-size:.75rem">Courses Select</label>
-                <select class="form-select form-select-sm"><option selected disabled>Select Courses</option><option>MCA</option><option>M.Tech</option><option>B.Tech</option><option>BBA</option><option>MA</option></select>
+                <label
+                  class="form-compare mb-1 fw-semibold"
+                  style="font-size: 0.75rem"
+                  >Name:</label
+                ><input
+                  type="text"
+                  placeholder="Full Name"
+                  class="form-control form-control-sm"
+                />
+              </div>
+              <div>
+                <label
+                  class="form-compare mb-1 fw-semibold"
+                  style="font-size: 0.75rem"
+                  >Mobile Number</label
+                ><input
+                  type="text"
+                  placeholder="Enter Mobile Number"
+                  class="form-control form-control-sm"
+                />
+              </div>
+              <div>
+                <label
+                  class="form-compare mb-1 fw-semibold"
+                  style="font-size: 0.75rem"
+                  >Email:</label
+                ><input
+                  type="email"
+                  placeholder="Email Address"
+                  class="form-control form-control-sm"
+                />
+              </div>
+              <div>
+                <label
+                  class="form-compare mb-1 fw-semibold"
+                  style="font-size: 0.75rem"
+                  >Courses Select</label
+                >
+                <select class="form-select form-select-sm">
+                  <option selected disabled>Select Courses</option>
+                  <option>MCA</option>
+                  <option>M.Tech</option>
+                  <option>B.Tech</option>
+                  <option>BBA</option>
+                  <option>MA</option>
+                </select>
               </div>
               <div class="d-flex gap-2 align-items-start mt-1">
-                <input type="checkbox" class="mt-1" /><p class="mb-0" style="font-size:.75rem">By submitting this form, you accept our <span class="text-primary">Terms of Use</span></p>
+                <input type="checkbox" class="mt-1" />
+                <p class="mb-0" style="font-size: 0.75rem">
+                  By submitting this form, you accept our
+                  <span class="text-primary">Terms of Use</span>
+                </p>
               </div>
-              <button class="btn btn-primary btn-sm mt-1 mx-auto px-4" type="button"     data-bs-toggle="modal"
-              data-bs-target="#connectModal">Apply now</button>
+              <button
+                class="btn btn-primary btn-sm mt-1 mx-auto px-4"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#connectModal"
+              >
+                Apply now
+              </button>
             </div>
           </form>
         </div>
       </div>
     </section>
- 
+
     <!-- MAIN COMPARE SECTION -->
     <div class="section-compare">
-      <h5 class="fw-bold mb-3" style="color:#0b1437">Select Colleges to Compare</h5>
+      <h5 class="fw-bold mb-3" style="color: #0b1437">
+        Select Colleges to Compare
+      </h5>
       <div class="compare-scroll-wrapper">
         <div id="compareRow"></div>
       </div>
       <div id="compareDetails" class="mt-4 compare-table-wrap"></div>
     </div>
- 
+
     <!-- ══════════════ BOTTOM CTA ══════════════ -->
     <div class="cta-sec py-5 px-4 w-auto mx-auto">
       <div class="cta-inner">
@@ -2182,7 +2514,7 @@
         </div>
       </div>
     </footer>
-        <script>
+    <script>
       // ── Data for courses mega menu ────────────────────────────────────────────────
       const data = {
         management: {
@@ -4623,7 +4955,7 @@
 
       render();
     </script>
-    
+
     <script>
       (function () {
         // Fix for Programs dropdown hover: prevent closing when moving from button to menu
@@ -4659,8 +4991,8 @@
         });
       })();
     </script>
-    
-   <script>
+
+    <script>
       /* OPEN CLOSE */
       function toggleCourses(e) {
         let dd = document.getElementById("courseDD");
@@ -5021,7 +5353,7 @@
       // ── Start ──
       initComparePage();
     </script>
-        <script>
+    <script>
       const navbar = document.querySelector(".navbar");
       const stickyOffset = navbar.offsetTop;
 
@@ -5033,7 +5365,7 @@
         }
       });
     </script>
-      <script>
+    <script>
       (function () {
         // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
         // Close drawer when any modal is triggered via data-bs-toggle
@@ -5108,7 +5440,6 @@
           };
       })();
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

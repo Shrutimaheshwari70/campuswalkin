@@ -74,7 +74,7 @@
         margin: 0;
         padding: 0;
       }
-       html,
+      html,
       body {
         overflow-x: hidden;
         overflow-y: visible;
@@ -97,13 +97,13 @@
       .topbar p {
         font-size: 13px;
       }
-          /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
     NAVBAR WRAPPER
   ───────────────────────────────────── */
       .navbar {
         position: sticky;
         top: 0;
-          border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
 
         background-color: white;
         z-index: 300;
@@ -371,18 +371,18 @@
         height: 2px;
         transition: all 0.3s;
       }
-            /* Active Cross */
-.ham-btn.active span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
+      /* Active Cross */
+      .ham-btn.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
 
-.ham-btn.active span:nth-child(2) {
-  opacity: 0;
-}
+      .ham-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
 
-.ham-btn.active span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
+      .ham-btn.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
       /* --------------mobile menu  */
       #mDrawer {
         position: fixed;
@@ -412,7 +412,7 @@
         }
         .navbar {
           height: 60px;
-    border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
         }
       }
       /* ─── Navbar Row 1 ───────────────────────────────────────────── */
@@ -666,114 +666,114 @@
       .cw-logo {
         background: linear-gradient(to right, blueviolet, rgb(11, 0, 128));
       }
-        /* ─────────────────────────────────────
+      /* ─────────────────────────────────────
       RESPONSIVE OVERRIDES
     ───────────────────────────────────── */
-        @media (max-width: 1199px) {
-          footer {
-            padding: 40px 2rem 20px;
-          }
-          .fg {
-            grid-template-columns: 200px 1fr;
-            gap: 2.5rem;
-          }
-          .fl {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-          }
+      @media (max-width: 1199px) {
+        footer {
+          padding: 40px 2rem 20px;
         }
-        @media (max-width: 767px) {
-          footer {
-            padding: 32px 1.25rem 20px;
-          }
-          .fg {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-          }
-          .fl {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-          }
-          .fb-bot {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.75rem;
-          }
-          .left-footer {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
-          }
-          .left-footer i {
-            display: none;
-          }
+        .fg {
+          grid-template-columns: 200px 1fr;
+          gap: 2.5rem;
         }
-        @media (max-width: 480px) {
-          footer {
-            padding: 28px 1rem 16px;
-          }
-          .fl {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-          }
-          .fl-t {
-            font-size: 0.95rem;
-          }
-          .fl-a {
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-          }
-          .footer-icons-social {
-            flex-wrap: wrap;
-          }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
         }
-        .cn-link {
-          font-size: 14px;
+      }
+      @media (max-width: 767px) {
+        footer {
+          padding: 32px 1.25rem 20px;
         }
-        /* ─────────────────────────────────────
+        .fg {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+        .fb-bot {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+        .left-footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .left-footer i {
+          display: none;
+        }
+      }
+      @media (max-width: 480px) {
+        footer {
+          padding: 28px 1rem 16px;
+        }
+        .fl {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+        .fl-t {
+          font-size: 0.95rem;
+        }
+        .fl-a {
+          font-size: 0.85rem;
+          margin-bottom: 10px;
+        }
+        .footer-icons-social {
+          flex-wrap: wrap;
+        }
+      }
+      .cn-link {
+        font-size: 14px;
+      }
+      /* ─────────────────────────────────────
     CTA
   ───────────────────────────────────── */
-        .cta-sec {
-          background: var(--bg);
-        }
+      .cta-sec {
+        background: var(--bg);
+      }
+      .cta-box {
+        background: linear-gradient(135deg, var(--navy), #1a3a7a);
+      }
+      .cta-box p {
+        color: #8aa4d0;
+        font-size: 0.85rem;
+      }
+      .form-inp button {
+        background-color: var(--navy2);
+      }
+      .form-inp input:focus,
+      .btn-close:focus {
+        border-color: none;
+        box-shadow: none;
+        outline: none;
+      }
+      .cta-inner {
+        max-width: 900px;
+        margin: auto;
+      }
+      @media (max-width: 768px) {
         .cta-box {
-          background: linear-gradient(135deg, var(--navy), #1a3a7a);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.5rem;
         }
-        .cta-box p {
-          color: #8aa4d0;
-          font-size: 0.85rem;
+        .cta-btns {
+          width: 100%;
         }
-        .form-inp button {
-          background-color: var(--navy2);
+        .cta-btns button {
+          width: 100%;
         }
-        .form-inp input:focus,
-        .btn-close:focus {
-          border-color: none;
-          box-shadow: none;
-          outline: none;
+      }
+      @media (max-width: 768px) {
+        .cta-box {
+          padding: 1.5rem !important;
         }
-        .cta-inner {
-          max-width: 900px;
-          margin: auto;
-        }
-        @media (max-width: 768px) {
-          .cta-box {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1.5rem;
-          }
-          .cta-btns {
-            width: 100%;
-          }
-          .cta-btns button {
-            width: 100%;
-          }
-        }
-        @media (max-width: 768px) {
-          .cta-box {
-            padding: 1.5rem !important;
-          }
-        }
+      }
       .hero-badge {
         animation-delay: 0.05s;
       }
@@ -902,23 +902,21 @@
 
       /* NAV TABS */
 
-       .nav-tabs-custom {
-  background: #fff;
-  border-bottom: 2px solid var(--border);
-  position:   relative;
-  z-index: 200;
-    transition: all 0.5s ease;
-
-}
-.nav-tabs-fixed {
-  position: fixed;
-  top: 0px; /* navbar height */
-  left: 0;
-  width: 100%;
-  z-index: 999;
-    transition: all 0.5s ease;
-  
-}
+      .nav-tabs-custom {
+        background: #fff;
+        border-bottom: 2px solid var(--border);
+        position: relative;
+        z-index: 200;
+        transition: all 0.5s ease;
+      }
+      .nav-tabs-fixed {
+        position: fixed;
+        top: 0px; /* navbar height */
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        transition: all 0.5s ease;
+      }
       .nav-tabs-inner {
         max-width: 100%;
         margin: 0 auto;
@@ -950,7 +948,248 @@
       .nav-tab:hover:not(.active) {
         color: var(--text);
       }
-.hero,.nav-tabs-custom{  width:100%;  overflow:hidden;}/* HERO BASE SAFE */.hero-inner{  max-width:100%;}.hero-top{  align-items:flex-start;  flex-wrap:nowrap;}.hero-info{  min-width:0;}.hero-name,#heroName{  word-break:break-word;}.hero-logo{  flex-shrink:0;}.hero-actions{  row-gap:10px;}.hero-actions button,.hero-actions a{  text-align:center;  white-space:nowrap;}/* STATS */.hero-stats{  width:100%;}.hs-item{  min-width:0;  padding:16px 12px;}.hs-val,.hs-lbl{  word-break:break-word;}/* NAV SAFE */.nav-tabs-custom{  width:100%;}.nav-tabs-inner{  overflow-x:auto;  overflow-y:hidden;  -webkit-overflow-scrolling:touch;  scroll-behavior:smooth;}.nav-tab{  flex:0 0 auto;}/* ================= DESKTOP ================= */@media (min-width:1200px){  .hero-logo{    width:700px;    height:250px;  }  .hero-stats{    grid-template-columns:repeat(5,1fr);  }}/* ================= LAPTOP ================= */@media (max-width:1199px){  .hero-logo{    width:520px;    height:220px;  }  .hero-stats{    grid-template-columns:repeat(5,1fr);  }}/* ================= TABLET ================= */@media (max-width:991px){  .hero-inner{    padding:28px 20px !important;  }  .hero-top{    flex-direction:column;    gap:18px !important;  }  .hero-logo{    width:100%;    max-width:100%;    height:260px;  }  .hero-info{    width:100%;  }  .hero-name,  #heroName{    font-size:2rem !important;    line-height:1.25;  }  .hero-actions{    flex-wrap:wrap;  }  .hero-actions button,  .hero-actions a{    flex:1 1 calc(50% - 8px);    min-width:180px;  }  .hero-stats{    grid-template-columns:repeat(3,1fr);    margin-top:28px !important;  }  .btn-back-uni{    display:none;  }  .btn-back-mobi-uni{    display:inline-flex;    margin-left:0;  }}/* ================= MOBILE ================= */@media (max-width:768px){  .hero-inner{    padding:20px 14px !important;  }  .hero-top{    flex-direction:column;    gap:14px !important;  }  .hero-logo{    width:100%;    height:210px;    border-radius:14px;  }  .hero-name,  #heroName{    font-size:1.45rem !important;    line-height:1.3;  }  .hero-loc{    font-size:.78rem;    flex-wrap:wrap;  }  .rb-score{    font-size:1.2rem;  }  .rb-count{    font-size:.74rem;  }  .hero-actions{    flex-direction:column;    gap:10px !important;  }  .hero-actions button,  .hero-actions a{    width:100%;    min-width:100%;    padding:11px 14px !important;  }  .btn-apply,  .btn-brochure,  .cca-allCourses{    font-size:.82rem;  }  .hero-stats{    grid-template-columns:repeat(2,1fr);    margin-top:22px !important;  }  .hs-item{    padding:14px 10px;  }  .hs-val{    font-size:.95rem;  }  .hs-lbl{    font-size:.62rem;  }  .nav-tabs-fixed{    top:0;  }  .nav-tabs-inner{    padding:0 10px;  }  .nav-tab{    padding:12px 14px;    font-size:.78rem;  }}/* ================= SMALL MOBILE ================= */@media (max-width:576px){  .hero-inner{    padding:16px 12px !important;  }  .hero-logo{    height:180px;  }  .hero-name,  #heroName{    font-size:1.25rem !important;  }  .hero-badges{    gap:6px !important;    flex-wrap:wrap;  }  .hb{    font-size:.62rem;    padding:4px 8px;  }  .hero-stats{    grid-template-columns:1fr 1fr;  }  .nav-tab{    padding:11px 12px;    font-size:.75rem;  }}/* ================= EXTRA SMALL ================= */@media (max-width:420px){  .hero-logo{    height:155px;  }  .hero-name,  #heroName{    font-size:1.12rem !important;  }  .hero-stats{    grid-template-columns:1fr;  }  .hs-item{    border-right:none;    border-bottom:1px solid var(--border);  }  .hs-item:last-child{    border-bottom:none;  }  .nav-tabs-inner{    padding:0 8px;  }  .nav-tab{    padding:10px 11px;    font-size:.72rem;  }  .btn-apply,  .btn-brochure,  .cca-allCourses{    font-size:.78rem;  }}/* ================= DESKTOP ONLY ================= */@media (min-width:769px){  .btn-back-mobi-uni{    display:none;  }}
+      .hero,
+      .nav-tabs-custom {
+        width: 100%;
+        overflow: hidden;
+      } /* HERO BASE SAFE */
+      .hero-inner {
+        max-width: 100%;
+      }
+      .hero-top {
+        align-items: flex-start;
+        flex-wrap: nowrap;
+      }
+      .hero-info {
+        min-width: 0;
+      }
+      .hero-name,
+      #heroName {
+        word-break: break-word;
+      }
+      .hero-logo {
+        flex-shrink: 0;
+      }
+      .hero-actions {
+        row-gap: 10px;
+      }
+      .hero-actions button,
+      .hero-actions a {
+        text-align: center;
+        white-space: nowrap;
+      } /* STATS */
+      .hero-stats {
+        width: 100%;
+      }
+      .hs-item {
+        min-width: 0;
+        padding: 16px 12px;
+      }
+      .hs-val,
+      .hs-lbl {
+        word-break: break-word;
+      } /* NAV SAFE */
+      .nav-tabs-custom {
+        width: 100%;
+      }
+      .nav-tabs-inner {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+      }
+      .nav-tab {
+        flex: 0 0 auto;
+      } /* ================= DESKTOP ================= */
+      @media (min-width: 1200px) {
+        .hero-logo {
+          width: 700px;
+          height: 250px;
+        }
+        .hero-stats {
+          grid-template-columns: repeat(5, 1fr);
+        }
+      } /* ================= LAPTOP ================= */
+      @media (max-width: 1199px) {
+        .hero-logo {
+          width: 520px;
+          height: 220px;
+        }
+        .hero-stats {
+          grid-template-columns: repeat(5, 1fr);
+        }
+      } /* ================= TABLET ================= */
+      @media (max-width: 991px) {
+        .hero-inner {
+          padding: 28px 20px !important;
+        }
+        .hero-top {
+          flex-direction: column;
+          gap: 18px !important;
+        }
+        .hero-logo {
+          width: 100%;
+          max-width: 100%;
+          height: 260px;
+        }
+        .hero-info {
+          width: 100%;
+        }
+        .hero-name,
+        #heroName {
+          font-size: 2rem !important;
+          line-height: 1.25;
+        }
+        .hero-actions {
+          flex-wrap: wrap;
+        }
+        .hero-actions button,
+        .hero-actions a {
+          flex: 1 1 calc(50% - 8px);
+          min-width: 180px;
+        }
+        .hero-stats {
+          grid-template-columns: repeat(3, 1fr);
+          margin-top: 28px !important;
+        }
+        .btn-back-uni {
+          display: none;
+        }
+        .btn-back-mobi-uni {
+          display: inline-flex;
+          margin-left: 0;
+        }
+      } /* ================= MOBILE ================= */
+      @media (max-width: 768px) {
+        .hero-inner {
+          padding: 20px 14px !important;
+        }
+        .hero-top {
+          flex-direction: column;
+          gap: 14px !important;
+        }
+        .hero-logo {
+          width: 100%;
+          height: 210px;
+          border-radius: 14px;
+        }
+        .hero-name,
+        #heroName {
+          font-size: 1.45rem !important;
+          line-height: 1.3;
+        }
+        .hero-loc {
+          font-size: 0.78rem;
+          flex-wrap: wrap;
+        }
+        .rb-score {
+          font-size: 1.2rem;
+        }
+        .rb-count {
+          font-size: 0.74rem;
+        }
+        .hero-actions {
+          flex-direction: column;
+          gap: 10px !important;
+        }
+        .hero-actions button,
+        .hero-actions a {
+          width: 100%;
+          min-width: 100%;
+          padding: 11px 14px !important;
+        }
+        .btn-apply,
+        .btn-brochure,
+        .cca-allCourses {
+          font-size: 0.82rem;
+        }
+        .hero-stats {
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: 22px !important;
+        }
+        .hs-item {
+          padding: 14px 10px;
+        }
+        .hs-val {
+          font-size: 0.95rem;
+        }
+        .hs-lbl {
+          font-size: 0.62rem;
+        }
+        .nav-tabs-fixed {
+          top: 0;
+        }
+        .nav-tabs-inner {
+          padding: 0 10px;
+        }
+        .nav-tab {
+          padding: 12px 14px;
+          font-size: 0.78rem;
+        }
+      } /* ================= SMALL MOBILE ================= */
+      @media (max-width: 576px) {
+        .hero-inner {
+          padding: 16px 12px !important;
+        }
+        .hero-logo {
+          height: 180px;
+        }
+        .hero-name,
+        #heroName {
+          font-size: 1.25rem !important;
+        }
+        .hero-badges {
+          gap: 6px !important;
+          flex-wrap: wrap;
+        }
+        .hb {
+          font-size: 0.62rem;
+          padding: 4px 8px;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .nav-tab {
+          padding: 11px 12px;
+          font-size: 0.75rem;
+        }
+      } /* ================= EXTRA SMALL ================= */
+      @media (max-width: 420px) {
+        .hero-logo {
+          height: 155px;
+        }
+        .hero-name,
+        #heroName {
+          font-size: 1.12rem !important;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+        .hs-item {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .hs-item:last-child {
+          border-bottom: none;
+        }
+        .nav-tabs-inner {
+          padding: 0 8px;
+        }
+        .nav-tab {
+          padding: 10px 11px;
+          font-size: 0.72rem;
+        }
+        .btn-apply,
+        .btn-brochure,
+        .cca-allCourses {
+          font-size: 0.78rem;
+        }
+      } /* ================= DESKTOP ONLY ================= */
+      @media (min-width: 769px) {
+        .btn-back-mobi-uni {
+          display: none;
+        }
+      }
       /* DETAIL BODY */
       .detail-body {
         max-width: 100%;
@@ -1955,359 +2194,342 @@
         right: 10px;
       }
 
-img,
-table{
-  max-width:100%;
-}
+      img,
+      table {
+        max-width: 100%;
+      }
 
-.detail-body{
-  width:100%;
-  overflow-x:hidden;
-}
+      .detail-body {
+        width: 100%;
+        overflow-x: hidden;
+      }
 
-.main-col,
-.side-col{
-  min-width:0;
-}
+      .main-col,
+      .side-col {
+        min-width: 0;
+      }
 
-/* table scroll */
-#courses,
-#cutoff,
-#results{
-  overflow-x:auto;
-}
+      /* table scroll */
+      #courses,
+      #cutoff,
+      #results {
+        overflow-x: auto;
+      }
 
-.courses-table,
-.cutoff-table,
-.result-table{
-  min-width:720px;
-}
+      .courses-table,
+      .cutoff-table,
+      .result-table {
+        min-width: 720px;
+      }
 
-/* cards safe width */
-.sec-card,
-.sw-card,
-.vt-card{
-  width:100%;
-  max-width:100%;
-}
+      /* cards safe width */
+      .sec-card,
+      .sw-card,
+      .vt-card {
+        width: 100%;
+        max-width: 100%;
+      }
 
-/* long text break */
-.overview-text,
-.rv-text,
-.news-desc,
-.as-desc,
-.sch-desc,
-.qna-a{
-  word-break:break-word;
-  overflow-wrap:break-word;
-}
+      /* long text break */
+      .overview-text,
+      .rv-text,
+      .news-desc,
+      .as-desc,
+      .sch-desc,
+      .qna-a {
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
 
-/* ================= DESKTOP ================= */
-@media (min-width:1200px){
+      /* ================= DESKTOP ================= */
+      @media (min-width: 1200px) {
+        .detail-body {
+          grid-template-columns: minmax(0, 1fr) 300px;
+          gap: 20px;
+        }
+      }
 
-  .detail-body{
-    grid-template-columns:minmax(0,1fr) 300px;
-    gap:20px;
-  }
+      /* ================= LAPTOP ================= */
+      @media (max-width: 1199px) {
+        .detail-body {
+          grid-template-columns: minmax(0, 1fr) 280px;
+          gap: 18px;
+          padding: 18px;
+        }
 
-}
+        .highlights-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
 
-/* ================= LAPTOP ================= */
-@media (max-width:1199px){
+      /* ================= TABLET ================= */
+      @media (max-width: 991px) {
+        .detail-body {
+          grid-template-columns: 1fr;
+          padding: 16px;
+          gap: 16px;
+        }
 
-  .detail-body{
-    grid-template-columns:minmax(0,1fr) 280px;
-    gap:18px;
-    padding:18px;
-  }
+        .side-col {
+          position: static;
+          top: auto;
+          order: 2;
+        }
 
-  .highlights-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
+        .main-col {
+          order: 1;
+        }
 
-/* ================= TABLET ================= */
-@media (max-width:991px){
+        .highlights-grid,
+        .placement-stats,
+        .ranking-grid,
+        .sch-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
 
-  .detail-body{
-    grid-template-columns:1fr;
-    padding:16px;
-    gap:16px;
-  }
+        .btn-back-uni {
+          display: none;
+        }
 
-  .side-col{
-    position:static;
-    top:auto;
-    order:2;
-  }
+        .btn-back-mobi-uni {
+          display: inline-flex;
+          margin-left: 0;
+        }
+      }
 
-  .main-col{
-    order:1;
-  }
+      /* ================= MOBILE ================= */
+      @media (max-width: 768px) {
+        .detail-body {
+          padding: 14px;
+          gap: 14px;
+          grid-template-columns: 1fr;
+        }
 
-  .highlights-grid,
-  .placement-stats,
-  .ranking-grid,
-  .sch-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+        .main-col {
+          gap: 14px;
+          min-height: auto;
+        }
 
-  .btn-back-uni{
-    display:none;
-  }
+        .sec-card,
+        .sw-card,
+        .vt-card {
+          width: 100% !important;
+          padding: 16px;
+        }
 
-  .btn-back-mobi-uni{
-    display:inline-flex;
-    margin-left:0;
-  }
-}
+        .sec-title {
+          font-size: 1rem;
+          margin-bottom: 14px;
+        }
 
-/* ================= MOBILE ================= */
-@media (max-width:768px){
+        .highlights-grid,
+        .placement-stats,
+        .ranking-grid,
+        .sch-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
 
-  .detail-body{
-    padding:14px;
-    gap:14px;
-    grid-template-columns:1fr;
-  }
+        .courses-filter,
+        .cutoff-tabs,
+        .result-year-tabs {
+          flex-wrap: wrap;
+          gap: 8px;
+        }
 
-  .main-col{
-    gap:14px;
-    min-height:auto;
-  }
+        .pc-label {
+          width: 78px;
+          font-size: 0.72rem;
+        }
 
-  .sec-card,
-  .sw-card,
-  .vt-card{
-    width:100% !important;
-    padding:16px;
-  }
+        .news-card {
+          gap: 10px;
+        }
 
-  .sec-title{
-    font-size:1rem;
-    margin-bottom:14px;
-  }
+        .news-left {
+          width: 48px;
+        }
 
-  .highlights-grid,
-  .placement-stats,
-  .ranking-grid,
-  .sch-grid{
-    grid-template-columns:1fr;
-    gap:12px;
-  }
+        .hero-inner {
+          padding: 8px 14px 0;
+        }
 
-  .courses-filter,
-  .cutoff-tabs,
-  .result-year-tabs{
-    flex-wrap:wrap;
-    gap:8px;
-  }
+        .btn-back-mobi-uni {
+          display: inline-flex;
+          margin-left: 0;
+        }
 
-  .pc-label{
-    width:78px;
-    font-size:.72rem;
-  }
+        /* review modal */
+        #reviewForm {
+          width: 100%;
+          max-width: 100%;
+          margin: 0;
+          border-radius: 18px;
+          height: auto;
+        }
 
-  .news-card{
-    gap:10px;
-  }
+        .modal-dialog {
+          max-width: 95%;
+          margin: 1rem auto;
+        }
 
-  .news-left{
-    width:48px;
-  }
+        #reviewForm .d-flex {
+          flex-direction: column;
+        }
 
-  .hero-inner{
-    padding:8px 14px 0;
-  }
+        #reviewBtn,
+        .submit-review {
+          width: 100%;
+        }
+      }
 
-  .btn-back-mobi-uni{
-    display:inline-flex;
-    margin-left:0;
-  }
+      /* ================= SMALL MOBILE ================= */
+      @media (max-width: 576px) {
+        .detail-body {
+          padding: 12px;
+        }
 
-  /* review modal */
-  #reviewForm{
-    width:100%;
-    max-width:100%;
-    margin:0;
-    border-radius:18px;
-    height:auto;
-  }
+        .sec-card,
+        .sw-card,
+        .vt-card {
+          padding: 14px;
+          border-radius: 14px;
+        }
 
-  .modal-dialog{
-    max-width:95%;
-    margin:1rem auto;
-  }
+        .sec-title {
+          font-size: 0.95rem;
+        }
 
-  #reviewForm .d-flex{
-    flex-direction:column;
-  }
+        .courses-table,
+        .cutoff-table,
+        .result-table {
+          min-width: 620px;
+        }
 
-  #reviewBtn,
-  .submit-review{
-    width:100%;
-  }
-}
+        .courses-table th,
+        .courses-table td,
+        .cutoff-table th,
+        .cutoff-table td,
+        .result-table th,
+        .result-table td {
+          padding: 9px 8px;
+          font-size: 0.78rem;
+        }
 
-/* ================= SMALL MOBILE ================= */
-@media (max-width:576px){
+        .review-header {
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
 
-  .detail-body{
-    padding:12px;
-  }
+        .rv-rating {
+          margin-left: 0;
+        }
 
-  .sec-card,
-  .sw-card,
-  .vt-card{
-    padding:14px;
-    border-radius:14px;
-  }
+        .qna-q {
+          font-size: 0.8rem;
+          padding: 12px;
+        }
 
-  .sec-title{
-    font-size:.95rem;
-  }
+        .news-title {
+          font-size: 0.82rem;
+        }
 
-  .courses-table,
-  .cutoff-table,
-  .result-table{
-    min-width:620px;
-  }
+        .news-desc {
+          font-size: 0.75rem;
+        }
+      }
 
-  .courses-table th,
-  .courses-table td,
-  .cutoff-table th,
-  .cutoff-table td,
-  .result-table th,
-  .result-table td{
-    padding:9px 8px;
-    font-size:.78rem;
-  }
+      /* ================= EXTRA SMALL ================= */
+      @media (max-width: 420px) {
+        .detail-body {
+          padding: 10px;
+          gap: 12px;
+        }
 
-  .review-header{
-    align-items:flex-start;
-    flex-wrap:wrap;
-  }
+        .sec-card,
+        .sw-card,
+        .vt-card {
+          padding: 12px;
+        }
 
-  .rv-rating{
-    margin-left:0;
-  }
+        .courses-table,
+        .cutoff-table,
+        .result-table {
+          min-width: 560px;
+        }
 
-  .qna-q{
-    font-size:.8rem;
-    padding:12px;
-  }
+        .pc-bar-row {
+          gap: 6px;
+        }
 
-  .news-title{
-    font-size:.82rem;
-  }
+        .pc-label {
+          width: 65px;
+          font-size: 0.68rem;
+        }
 
-  .news-desc{
-    font-size:.75rem;
-  }
-}
+        #starRating i {
+          font-size: 18px;
+        }
 
-/* ================= EXTRA SMALL ================= */
-@media (max-width:420px){
+        .submit-review,
+        #reviewBtn {
+          padding: 10px 18px;
+          font-size: 14px;
+        }
+      }
 
-  .detail-body{
-    padding:10px;
-    gap:12px;
-  }
-
-  .sec-card,
-  .sw-card,
-  .vt-card{
-    padding:12px;
-  }
-
-  .courses-table,
-  .cutoff-table,
-  .result-table{
-    min-width:560px;
-  }
-
-  .pc-bar-row{
-    gap:6px;
-  }
-
-  .pc-label{
-    width:65px;
-    font-size:.68rem;
-  }
-
-  #starRating i{
-    font-size:18px;
-  }
-
-  .submit-review,
-  #reviewBtn{
-    padding:10px 18px;
-    font-size:14px;
-  }
-}
-
-/* ================= DESKTOP ONLY ================= */
-@media (min-width:769px){
-
-  .btn-back-mobi-uni{
-    display:none;
-  }
-
-}
+      /* ================= DESKTOP ONLY ================= */
+      @media (min-width: 769px) {
+        .btn-back-mobi-uni {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
-      <!-- MODAL -->
-        <div class="modal fade" id="connectModal" tabindex="-1">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3 rounded-4">
-              <!-- HEADER -->
-              <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
-                <h5 class="fw-bold mb-0">Get Free Guidance</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                ></button>
-              </div>
-
-              <!-- FORM -->
-              <form class="form-inp">
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  placeholder="Full Name..."
-                />
-
-                <input
-                  type="email"
-                  class="form-control mb-3"
-                  placeholder="Email"
-                />
-
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  placeholder="Phone Number..."
-                />
-
-                <select class="form-select mb-3">
-                  <option selected disabled>Select Program Interest</option>
-                  <option>Executive Program</option>
-                  <option>Offline Program</option>
-                  <option>Online Program</option>
-                </select>
-
-                <button type="submit" class="btn btn-primary w-100">
-                  Submit
-                </button>
-              </form>
-            </div>
+    <!-- MODAL -->
+    <div class="modal fade" id="connectModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3 rounded-4">
+          <!-- HEADER -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Get Free Guidance</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
           </div>
+
+          <!-- FORM -->
+          <form class="form-inp">
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Full Name..."
+            />
+
+            <input type="email" class="form-control mb-3" placeholder="Email" />
+
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Phone Number..."
+            />
+
+            <select class="form-select mb-3">
+              <option selected disabled>Select Program Interest</option>
+              <option>Executive Program</option>
+              <option>Offline Program</option>
+              <option>Online Program</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
         </div>
-        <!--------------Login Modal -->
+      </div>
+    </div>
+    <!--------------Login Modal -->
     <div class="modal fade" id="authModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
@@ -2511,16 +2733,18 @@ table{
     <div class="navbar bg-white">
       <!-- ROW 1 -->
       <div
-        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4 "
+        class="nav-r1 d-flex align-items-center justify-content-between w-100 px-4"
       >
         <!-- LOGO -->
         <a href="#" class="logo">
           <div class="logo-mark">
-            <img src="./campuswalkin_logo.png" alt="" class="w-100 d-block" />
+            <img src="./campuswalkin_logo.webp" alt="" class="w-100 d-block" />
           </div>
         </a>
         <nav class="center-nav d-flex align-items-center gap-3 px-3 py-2">
-          <a href="index.html" class="cn-link text-decoration-none text-dark">Home</a>
+          <a href="index.html" class="cn-link text-decoration-none text-dark"
+            >Home</a
+          >
           <div class="program-wrap" id="programWrap">
             <button
               class="program-btn border-0 d-flex align-items-center gap-1"
@@ -2909,7 +3133,9 @@ table{
         </div>
       </div>
       <!-- ROW 2 (desktop/tablet) -->
-      <div class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom">
+      <div
+        class="nav-r2 d-flex align-items-center gap-1 w-100 bg-white px-4 py-1 border-bottom"
+      >
         <!-- All Courses -->
         <div class="courses-wrap" id="coursesWrap">
           <button
@@ -2943,23 +3169,32 @@ table{
           </button>
 
           <div class="courses-mega bg-white py-2">
-            <div class="cm-inner d-flex  ">
+            <div class="cm-inner d-flex">
               <!-- Left: Categories -->
               <div class="cm-side ps-3" id="cmSide">
-                <div class="cm-si rounded-3 active" data-cat="management">Management</div>
-                <div class="cm-si rounded-3" data-cat="technology">Technology</div>
+                <div class="cm-si rounded-3 active" data-cat="management">
+                  Management
+                </div>
+                <div class="cm-si rounded-3" data-cat="technology">
+                  Technology
+                </div>
                 <div class="cm-si rounded-3" data-cat="medical">Medical</div>
                 <div class="cm-si rounded-3" data-cat="law">Law</div>
                 <div class="cm-si rounded-3" data-cat="arts">Arts & Design</div>
                 <div class="cm-si rounded-3" data-cat="science">Science</div>
-                <div class="cm-si rounded-3" data-cat="engineering">Engineering</div>
+                <div class="cm-si rounded-3" data-cat="engineering">
+                  Engineering
+                </div>
                 <div class="cm-si rounded-3" data-cat="commerce">Commerce</div>
               </div>
 
               <!-- Right: Content -->
               <div class="cm-content py-2 px-3">
                 <!-- Mode tabs -->
-                <div class="cm-btns d-flex flex-wrap mb-2 gap-2" id="cmLevelTabs">
+                <div
+                  class="cm-btns d-flex flex-wrap mb-2 gap-2"
+                  id="cmLevelTabs"
+                >
                   <div class="cm-btn rounded-4 py-1 px-2 mt-2" data-level="UG">
                     <a href="ug-courses.html" class="text-decoration-none"
                       >UG Courses</a
@@ -3006,16 +3241,42 @@ table{
                   </div>
                 </div>
                 <div class="cm-tabs d-flex mb-2 gap-2 flex-wrap" id="cmTabs">
-                  <div class="cm-tab py-1 px-2 rounded-5 border active" data-mode="all">All</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="online">🌐 Online</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="offline">🏫 Offline</div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="study-abroad">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border active"
+                    data-mode="all"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="online"
+                  >
+                    🌐 Online
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="offline"
+                  >
+                    🏫 Offline
+                  </div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="study-abroad"
+                  >
                     ✈️ Study Abroad
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="executive">
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="executive"
+                  >
                     💼 Executive Program
                   </div>
-                  <div class="cm-tab py-1 px-2 rounded-5 border" data-mode="dba">🎓 DBA</div>
+                  <div
+                    class="cm-tab py-1 px-2 rounded-5 border"
+                    data-mode="dba"
+                  >
+                    🎓 DBA
+                  </div>
                 </div>
 
                 <!-- Dynamic grid -->
@@ -3089,7 +3350,6 @@ table{
         >
           Apply
         </button>
-          
       </div>
 
       <!-- NAV LINKS -->
@@ -3243,8 +3503,15 @@ table{
     <div class="hero bg-white border-bottom">
       <div class="hero-inner px-4 py-5">
         <div class="hero-top d-flex gap-3">
-          <div class="hero-logo border d-flex align-items-center justify-content-center overflow-hidden shadow ">
-            <img id="heroLogo" src="./girl.png" alt="College Logo" class="object-fit-cover"/>
+          <div
+            class="hero-logo border d-flex align-items-center justify-content-center overflow-hidden shadow"
+          >
+            <img
+              id="heroLogo"
+              src="./girl.png"
+              alt="College Logo"
+              class="object-fit-cover"
+            />
           </div>
           <div class="hero-info w-100">
             <div class="hero-badges d-flex gap-2 mb-2" id="heroBadges"></div>
@@ -3262,18 +3529,35 @@ table{
               </svg>
               <span id="heroLoc"></span>
             </div>
-            <div class="hero-rating-row d-flex align-items-center gap-1 flex-wrap mt-1">
+            <div
+              class="hero-rating-row d-flex align-items-center gap-1 flex-wrap mt-1"
+            >
               <div class="rating-big d-flex align-items-center gap-2">
-                <div class="rb-score text-primary fw-bold" id="heroRating"></div>
+                <div
+                  class="rb-score text-primary fw-bold"
+                  id="heroRating"
+                ></div>
                 <div class="rb-stars d-flex gap-1" id="heroStars"></div>
                 <div class="rb-count text-muted" id="heroReviews"></div>
               </div>
             </div>
             <div class="hero-actions d-flex gap-2 flex-wrap mt-2">
-              <button class="btn-apply border-0 py-2 px-4 rounded-3 text-white fw-semibold"    data-bs-toggle="modal"
-              data-bs-target="#connectModal">Apply Now</button>
-              <button class="btn-brochure py-2 px-4 rounded-3 fw-semibold text-decoration-none">📄 Download Brochure</button>
-              <a href="courses.html" type="button" class="cca-allCourses py-2 px-4 rounded-3 fw-semibold text-decoration-none"
+              <button
+                class="btn-apply border-0 py-2 px-4 rounded-3 text-white fw-semibold"
+                data-bs-toggle="modal"
+                data-bs-target="#connectModal"
+              >
+                Apply Now
+              </button>
+              <button
+                class="btn-brochure py-2 px-4 rounded-3 fw-semibold text-decoration-none"
+              >
+                📄 Download Brochure
+              </button>
+              <a
+                href="courses.html"
+                type="button"
+                class="cca-allCourses py-2 px-4 rounded-3 fw-semibold text-decoration-none"
                 >All courses</a
               >
             </div>
@@ -3527,7 +3811,7 @@ table{
         </div>
       </div>
     </div>
-        <!-- ═══ FOOTER ═══ -->
+    <!-- ═══ FOOTER ═══ -->
     <footer>
       <div class="fi">
         <div class="fg d-grid gap-5 mb-3">
@@ -3566,22 +3850,32 @@ table{
           <div class="fl d-grid">
             <div>
               <div class="fl-t fw-bold mb-2">Quick Links</div>
-              <a href="index.html" class="fl-a d-block text-decoration-none mb-3"
+              <a
+                href="index.html"
+                class="fl-a d-block text-decoration-none mb-3"
                 >Home</a
               >
-              <a href="about.html" class="fl-a d-block text-decoration-none mb-3"
+              <a
+                href="about.html"
+                class="fl-a d-block text-decoration-none mb-3"
                 >About Us</a
               >
               <a href="#" class="fl-a d-block text-decoration-none mb-3"
                 >Programs</a
               >
-              <a href="blogs.html" class="fl-a d-block text-decoration-none mb-3"
+              <a
+                href="blogs.html"
+                class="fl-a d-block text-decoration-none mb-3"
                 >Blog</a
               >
-              <a href="contact.html" class="fl-a d-block text-decoration-none mb-3"
+              <a
+                href="contact.html"
+                class="fl-a d-block text-decoration-none mb-3"
                 >Contact</a
               >
-              <a href="compare.html" class="fl-a d-block text-decoration-none mb-3"
+              <a
+                href="compare.html"
+                class="fl-a d-block text-decoration-none mb-3"
                 >Compare</a
               >
             </div>
@@ -3676,7 +3970,7 @@ table{
         document.getElementById("coursesWrap").classList.remove("open");
       });
     </script>
-    
+
     <script>
       (function () {
         // Fix for Programs dropdown hover: prevent closing when moving from button to menu
@@ -3712,7 +4006,7 @@ table{
         });
       })();
     </script>
-        <script>
+    <script>
       // ── Data for courses mega menu ────────────────────────────────────────────────
       const data = {
         management: {
@@ -6309,7 +6603,7 @@ table{
           reviews: 265,
           fees: { ba: "₹1.10L", bcom: "₹98K", mba: "₹2.45L" },
           courses: ["BA", "B.Com", "MBA", "BBA/BBM", "LLB"],
-          img: "christ.jpg",
+          img: "christ.webp",
           state: "Karnataka",
           feesNum: 1.1,
           placementLPA: 7,
@@ -7748,47 +8042,47 @@ table{
       // initial load
       renderReviews();
     </script>
-<script>
-  const navbar = document.querySelector(".navbar");
-  const tabs = document.querySelector(".nav-tabs-custom");
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const tabs = document.querySelector(".nav-tabs-custom");
 
-  // spacer for no jump
-  const spacer = document.createElement("div");
-  tabs.parentNode.insertBefore(spacer, tabs);
+      // spacer for no jump
+      const spacer = document.createElement("div");
+      tabs.parentNode.insertBefore(spacer, tabs);
 
-  let isFixed = false;
+      let isFixed = false;
 
-  window.addEventListener("scroll", () => {
-    const navHeight = navbar.offsetHeight;
-    const tabsRect = tabs.getBoundingClientRect();
+      window.addEventListener("scroll", () => {
+        const navHeight = navbar.offsetHeight;
+        const tabsRect = tabs.getBoundingClientRect();
 
-    // Navbar sticky
-    if (window.scrollY > 0) {
-      navbar.classList.add("sticky");
-    } else {
-      navbar.classList.remove("sticky");
-    }
+        // Navbar sticky
+        if (window.scrollY > 0) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
 
-    // FIX when touching navbar
-    if (!isFixed && tabsRect.top <= navHeight) {
-      tabs.classList.add("nav-tabs-fixed");
-      tabs.style.top = navHeight + "px";
+        // FIX when touching navbar
+        if (!isFixed && tabsRect.top <= navHeight) {
+          tabs.classList.add("nav-tabs-fixed");
+          tabs.style.top = navHeight + "px";
 
-      spacer.style.height = tabs.offsetHeight + "px";
-      isFixed = true;
-    }
+          spacer.style.height = tabs.offsetHeight + "px";
+          isFixed = true;
+        }
 
-    // UNFIX when going back up
-    if (isFixed && window.scrollY < spacer.offsetTop) {
-      tabs.classList.remove("nav-tabs-fixed");
-      tabs.style.top = "0";
+        // UNFIX when going back up
+        if (isFixed && window.scrollY < spacer.offsetTop) {
+          tabs.classList.remove("nav-tabs-fixed");
+          tabs.style.top = "0";
 
-      spacer.style.height = "0px";
-      isFixed = false;
-    }
-  });
-</script>
-  <script>
+          spacer.style.height = "0px";
+          isFixed = false;
+        }
+      });
+    </script>
+    <script>
       (function () {
         // ========== FIX: AUTO CLOSE DRAWER ON MODAL OPEN ==========
         // Close drawer when any modal is triggered via data-bs-toggle
